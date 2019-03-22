@@ -9,7 +9,7 @@ class AccountAnalyticAccount(models.Model):
         # Super will handle ensure_one() and other validation
         res = super(AccountAnalyticAccount, self)._prepare_sale()
 
-        # Add invoice id to writable values
+        # Add invoice address id to writable values
         if self.partner_invoice_id:
             res['partner_invoice_id'] = self.partner_invoice_id.id
 
