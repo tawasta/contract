@@ -1,5 +1,6 @@
+[![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
 [![Build Status](https://travis-ci.org/Tawasta/contract.svg?branch=10.0)](https://travis-ci.org/Tawasta/contract)
-[![Coverage Status](https://coveralls.io/repos/Tawasta/contract/badge.png?branch=10.0)](https://coveralls.io/r/Tawasta/contract?branch=10.0)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/654ed7c3b0704075a31225c01ec0c587)](https://www.codacy.com/app/Tawasta/contract?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Tawasta/contract&amp;utm_campaign=Badge_Grade)
 
 Contracts
 =========
