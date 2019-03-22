@@ -7,9 +7,7 @@
         <field name="inherit_id" ref="contract.account_analytic_account_recurring_form_form"/>
         <field name="arch" type="xml">
             <field name="partner_id" position="after">
-                <field name="partner_shipping_id"
-                       attrs="{'invisible':[('type','!=', 'sale')]}"
-                />
+                <field name="partner_shipping_id" groups="sale.group_delivery_invoice_address"/>
             </field>
         </field>
     </record>

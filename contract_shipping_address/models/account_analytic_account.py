@@ -14,3 +14,14 @@ class AccountAnalyticAccount(models.Model):
             res['partner_shipping_id'] = self.partner_shipping_id.id
 
         return res
+
+    @api.multi
+    def _prepare_invoice(self):
+        # Super will handle ensure_one() and other validation
+        res = super(AccountAnalyticAccount, self)._prepare_invoice()
+
+        # Add shipping address to writable values
+        if self.partner_shipping_id:
+            res['partner_shipping_id'] = self.partner_shipping_id.id
+
+        return res
