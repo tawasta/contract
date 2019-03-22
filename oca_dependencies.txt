@@ -1,4 +1,5 @@
 account-analytic
+contract
 bank-payment
 sale-workflow
 web
