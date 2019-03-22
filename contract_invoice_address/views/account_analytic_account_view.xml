@@ -9,6 +9,7 @@
             <field name="partner_id" position="after">
                 <field name="partner_invoice_id"
                        attrs="{'invisible':[('type', '!=', 'sale')]}"
+                       groups="sale.group_delivery_invoice_address"
                 />
             </field>
         </field>
