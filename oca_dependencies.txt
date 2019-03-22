@@ -1,5 +1,6 @@
 account-analytic
 contract
 bank-payment
+sale https://github.com/tawasta/sale
 sale-workflow
 web
