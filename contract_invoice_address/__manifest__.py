@@ -30,7 +30,8 @@
     'application': False,
     'installable': True,
     'depends': [
-        'contract_sale_generation',
+        'analytic',
+        'contract'
     ],
     'data': [
         'views/account_analytic_account_view.xml',
