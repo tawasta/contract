@@ -21,7 +21,7 @@
 
 {
     'name': 'Search streets on contracts',
-    'summary': """Use this module to search streets on contract's""",
+    'summary': """Use this module to search streets on contracts""",
     'version': '10.0.1.0.0',
     'category': 'Contract Management',
     'website': 'https://tawasta.fi',
