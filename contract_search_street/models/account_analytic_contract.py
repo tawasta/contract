@@ -10,5 +10,5 @@ class AccountAnaluticContract(models.Model):
 
     partner_id_street = fields.Char(
         string='Street',
-        related='partner_id.street',
+        related='partner_id.parent_id.street',
     )
