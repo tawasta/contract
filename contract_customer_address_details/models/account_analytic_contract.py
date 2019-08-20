@@ -4,7 +4,7 @@
 from odoo import fields, models
 
 
-class AccountAnaluticContract(models.Model):
+class AccountAnalyticContract(models.Model):
 
     _inherit = 'account.analytic.contract'
 
@@ -26,4 +26,10 @@ class AccountAnaluticContract(models.Model):
     partner_id_city = fields.Char(
         string='City',
         related='partner_id.city',
+    )
+
+    partner_id_country_id = fields.Many2one(
+        comodel_name='res.country',
+        string='Country',
+        related='partner_id.country_id',
     )
