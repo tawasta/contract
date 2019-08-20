@@ -15,7 +15,6 @@
                 <field name="analytic_id_city" />
                 <field name="analytic_id_country_id" />
                 <field name="product_id" />
-                <field name="name" />
                 <field name="quantity" sum='Total'/>
                 <field name="price_subtotal" sum='Total' />
             </tree>
