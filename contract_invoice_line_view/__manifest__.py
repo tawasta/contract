@@ -22,7 +22,7 @@
 {
     'name': 'Contract invoice line view',
     'summary': 'Add a readonly contract invoice line view',
-    'version': '10.0.1.0.0',
+    'version': '10.0.1.0.1',
     'category': 'Contract Management',
     'website': 'https://tawasta.fi',
     'author': 'Oy Tawasta Technologies Ltd.',
