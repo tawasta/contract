@@ -33,6 +33,7 @@
         'contract',
     ],
     'data': [
-        'views/account_analytic_account_view.xml'
+        'views/account_analytic_account_view.xml',
+        'views/account_analytic_search.xml'
     ],
 }
