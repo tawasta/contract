@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="account_analytic_account_recurring_form_form" model="ir.ui.view">
+        <field name="name">account.analytic.account.show.period.on.lines</field>
+        <field name="model">account.analytic.account</field>
+        <field name="inherit_id" ref="contract.account_analytic_account_recurring_form_form"/>
+        <field name="arch" type="xml">
+            <field name="recurring_next_date" position="after">
+                <field name="show_period_on_lines" />
+
+                <label for="invoicing_period_date_from" string="Next period"/>
+                <div id="invoicing-period-div">
+                    <field name="invoicing_period_date_from"/> - <field name="invoicing_period_date_to"/>
+                </div>
+            </field>
+        </field>
+    </record>
+
+</odoo>
