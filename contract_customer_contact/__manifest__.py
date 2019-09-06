@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 ##############################################################################
 #
 #    Author: Oy Tawasta OS Technologies Ltd.
@@ -23,7 +22,7 @@
     'name': 'Contract customer contact',
     'summary': 'Add customer contact to contracts',
     'category': 'Contract Management',
-    'version': '1.0.0',
+    'version': '12.0.1.0.0',
     'website': 'https://tawasta.fi',
     'author': 'Oy Tawasta Technologies Ltd.',
     'license': 'AGPL-3',

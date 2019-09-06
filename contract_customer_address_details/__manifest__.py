@@ -1,8 +1,7 @@
-
 ##############################################################################
 #
 #    Author: Oy Tawasta OS Technologies Ltd.
-#    Copyright 2019 Oy Tawasta OS Technologies Ltd. (http://www.tawasta.fi)
+#    Copyright 2019 Oy Tawasta OS Technologies Ltd. (https://tawasta.fi)
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -20,20 +19,20 @@
 ##############################################################################
 
 {
-    'name': 'Contract invoice address',
-    'summary': 'Add invoice address to contracts',
-    'category': 'Contract Management',
+    'name': 'Contract partner address details',
+    'summary': 'Add partner address details to contracts',
     'version': '12.0.1.0.0',
+    'category': 'Contract Management',
     'website': 'https://tawasta.fi',
     'author': 'Oy Tawasta Technologies Ltd.',
     'license': 'AGPL-3',
     'application': False,
     'installable': True,
     'depends': [
-        'analytic',
-        'contract'
+        'contract',
     ],
     'data': [
         'views/account_analytic_account_view.xml',
+        'views/account_analytic_search.xml'
     ],
 }
