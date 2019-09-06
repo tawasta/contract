@@ -23,7 +23,7 @@
     'name': 'Contract invoice address',
     'summary': 'Add invoice address to contracts',
     'category': 'Contract Management',
-    'version': '1.0.1',
+    'version': '12.0.1.0.0',
     'website': 'https://tawasta.fi',
     'author': 'Oy Tawasta Technologies Ltd.',
     'license': 'AGPL-3',
