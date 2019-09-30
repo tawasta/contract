@@ -23,7 +23,7 @@
     'name': 'Contract customer reference',
     'summary': 'Add customer reference to contracts',
     'category': 'Contract Management',
-    'version': '10.0.1.0.1',
+    'version': '10.0.1.1.0',
     'website': 'https://tawasta.fi',
     'author': 'Oy Tawasta Technologies Ltd.',
     'license': 'AGPL-3',
