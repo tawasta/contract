@@ -25,6 +25,8 @@ class AccountAnalyticAccount(models.Model):
         # Add reference to writable values
         if self.order_reference:
             res['reference'] = self.order_reference
+        else:
+            res['reference'] = False
 
         # Add code to writable values
         if self.code:
