@@ -34,6 +34,6 @@
         'sale_order_customer_contact',
     ],
     'data': [
-        'views/account_analytic_account_view.xml',
+        #'views/account_analytic_account_view.xml',
     ],
 }
