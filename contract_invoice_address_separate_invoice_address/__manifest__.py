@@ -35,6 +35,6 @@
         'account_invoice_invoice_address',
     ],
     'data': [
-        'views/account_analytic_account_view.xml',
+        #'views/account_analytic_account_view.xml',
     ],
 }
