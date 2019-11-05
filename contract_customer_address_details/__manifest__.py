@@ -19,20 +19,20 @@
 ##############################################################################
 
 {
-    'name': 'Contract invoice address',
-    'summary': 'Add invoice address to contracts',
+    'name': 'Contract partner address details',
+    'summary': 'Add partner address details to contracts',
+    'version': '12.0.1.0.0',
     'category': 'Contract Management',
-    'version': '12.0.1.0.1',
     'website': 'https://tawasta.fi',
     'author': 'Oy Tawasta Technologies Ltd.',
     'license': 'AGPL-3',
     'application': False,
     'installable': True,
     'depends': [
-        'analytic',
-        'contract'
+        'contract',
     ],
     'data': [
         'views/account_analytic_account_view.xml',
+        'views/account_analytic_search.xml'
     ],
 }
