@@ -14,9 +14,12 @@ Available addons
 ----------------
 addon | version | summary
 --- | --- | ---
+[contract_customer_address_details](contract_customer_address_details/) | 12.0.1.0.0 | Add partner address details to contracts
 [contract_customer_contact](contract_customer_contact/) | 12.0.1.0.0 | Add customer contact to contracts
 [contract_invoice_address](contract_invoice_address/) | 12.0.1.0.1 | Add invoice address to contracts
 [contract_invoice_address_separate_invoice_address](contract_invoice_address_separate_invoice_address/) | 12.0.1.0.0 | Add support for account_invoice_invoice_address
+[contract_invoice_line_view](contract_invoice_line_view/) | 12.0.1.0.0 | Add a readonly contract invoice line view
 [contract_shipping_address](contract_shipping_address/) | 12.0.1.0.0 | Add shipping address to contracts
+[contract_tree_view_product](contract_tree_view_product/) | 12.0.1.0.0 | Contract Product on tree view
 
 [//]: # (end addons)
