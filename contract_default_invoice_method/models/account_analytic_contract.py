@@ -8,7 +8,7 @@ class AccountAnalyticContract(models.Model):
 
     _inherit = 'account.analytic.contract'
 
-    customer_invoice_transmit_method_id = fields.Char(
-        string='Customer Invoice Transmission Method',
-        related='partner_id.customer_invoice_transmit_method_id.name',
+    customer_invoice_transmit_method_id = fields.Many2one(
+        comodel_name='transmit.method',
+        related='partner_id.customer_invoice_transmit_method_id',
     )
