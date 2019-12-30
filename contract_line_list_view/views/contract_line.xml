@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="contract_line_search_view" model="ir.ui.view">
+        <field name="name">contract.line search view (in contract)</field>
+        <field name="model">contract.line</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" />
+                <field name="product_id" />
+                <field name="recurring_next_date" />
+            </search>
+        </field>
+    </record>
+
+    <record id="action_contract_lines" model="ir.actions.act_window">
+        <field name="name">Contract Lines</field>
+        <field name="res_model">contract.line</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="contract_line_search_view"/>
+    </record>
+
+    <!-- Menu item to open To-do Task list -->
+    <menuitem id="contract_line_list"
+        name="Contract Lines"
+        action="action_contract_lines"
+        parent="account.menu_finance_receivables"/>
+</odoo>
