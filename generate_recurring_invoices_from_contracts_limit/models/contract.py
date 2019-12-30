@@ -1,11 +1,13 @@
 from odoo import fields, models, api
 
+
 class RecurringContractLimitCompany(models.Model):
     _inherit = 'res.company'
     contract_recurring_invoice_limit = fields.Integer(
         string="How many invoices to generate per run",
         default=5000,
         readonly=False)
+
 
 class RecurringContractLimitSettings(models.TransientModel):
     _inherit = 'res.config.settings'
@@ -18,7 +20,6 @@ class RecurringContractLimitSettings(models.TransientModel):
 
 class RecurringContractLimit(models.Model):
     _inherit = 'contract.contract'
-
 
     @api.model
     def cron_recurring_create_invoice(self):
