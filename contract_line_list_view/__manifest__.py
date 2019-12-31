@@ -20,7 +20,8 @@
 
 {
     'name': 'Contract Line List View',
-    'summary': 'Adds list view of contract lines',
+    'summary':
+    """Adds list view of contract lines. Adds contract id to contract line.""",
     'version': '12.0.1.0.0',
     'category': 'Contract Management',
     'website': 'https://tawasta.fi',
