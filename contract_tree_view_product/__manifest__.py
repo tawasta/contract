@@ -19,19 +19,15 @@
 ##############################################################################
 
 {
-    'name': 'Contract Product on tree view',
-    'summary': 'Contract Product on tree view',
-    'version': '12.0.1.0.0',
-    'category': 'Contract Management',
-    'website': 'https://tawasta.fi',
-    'author': 'Oy Tawasta Technologies Ltd.',
-    'license': 'AGPL-3',
-    'application': False,
-    'installable': True,
-    'depends': [
-        'contract',
-    ],
-    'data': [
-        'views/analytic_account_list.xml',
-    ],
+    "name": "Contract Product on tree view",
+    "summary": "Contract Product on tree view",
+    "version": "12.0.1.0.0",
+    "category": "Contract Management",
+    "website": "https://github.com/Tawasta/contract",
+    "author": "Tawasta",
+    "license": "AGPL-3",
+    "application": False,
+    "installable": True,
+    "depends": ["contract"],
+    "data": ["views/analytic_account_list.xml"],
 }

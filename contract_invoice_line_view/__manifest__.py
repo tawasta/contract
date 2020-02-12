@@ -19,20 +19,15 @@
 ##############################################################################
 
 {
-    'name': 'Contract invoice line view',
-    'summary': 'Add a readonly contract invoice line view',
-    'version': '12.0.1.0.0',
-    'category': 'Contract Management',
-    'website': 'https://tawasta.fi',
-    'author': 'Oy Tawasta Technologies Ltd.',
-    'license': 'AGPL-3',
-    'application': False,
-    'installable': True,
-    'depends': [
-        'contract',
-        'contract_customer_address_details',
-    ],
-    'data': [
-        'views/account_analytic_account_invoice_line.xml'
-    ],
+    "name": "Contract invoice line view",
+    "summary": "Add a readonly contract invoice line view",
+    "version": "12.0.1.0.0",
+    "category": "Contract Management",
+    "website": "https://github.com/Tawasta/contract",
+    "author": "Tawasta",
+    "license": "AGPL-3",
+    "application": False,
+    "installable": True,
+    "depends": ["contract", "contract_customer_address_details"],
+    "data": ["views/account_analytic_account_invoice_line.xml"],
 }

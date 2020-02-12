@@ -19,19 +19,15 @@
 ##############################################################################
 
 {
-    'name': 'Contract saleperson',
-    'summary': 'Add saleperson to contracts',
-    'category': 'Contract Management',
-    'version': '12.0.1.0.0',
-    'website': 'https://tawasta.fi',
-    'author': 'Tawasta',
-    'license': 'AGPL-3',
-    'application': False,
-    'installable': True,
-    'depends': [
-        'contract',
-    ],
-    'data': [
-        'views/contract_view.xml',
-    ],
+    "name": "Contract saleperson",
+    "summary": "Add saleperson to contracts",
+    "category": "Contract Management",
+    "version": "12.0.1.0.0",
+    "website": "https://github.com/Tawasta/contract",
+    "author": "Tawasta",
+    "license": "AGPL-3",
+    "application": False,
+    "installable": True,
+    "depends": ["contract"],
+    "data": ["views/contract_view.xml"],
 }

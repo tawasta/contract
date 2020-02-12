@@ -19,20 +19,15 @@
 ##############################################################################
 
 {
-    'name': 'Contract Line List View',
-    'summary':
-    """Adds list view of contract lines. Adds contract id to contract line.""",
-    'version': '12.0.1.0.0',
-    'category': 'Contract Management',
-    'website': 'https://tawasta.fi',
-    'author': 'Oy Tawasta Technologies Ltd.',
-    'license': 'AGPL-3',
-    'application': False,
-    'installable': True,
-    'depends': [
-        'contract',
-    ],
-    'data': [
-        'views/contract_line.xml',
-    ],
+    "name": "Contract Line List View",
+    "summary": "Adds list view of contract lines",
+    "version": "12.0.1.0.0",
+    "category": "Contract Management",
+    "website": "https://github.com/Tawasta/contract",
+    "author": "Tawasta",
+    "license": "AGPL-3",
+    "application": False,
+    "installable": True,
+    "depends": ["contract"],
+    "data": ["views/contract_line.xml"],
 }
