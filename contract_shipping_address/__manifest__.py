@@ -24,7 +24,7 @@
     'summary': 'Add shipping address to contracts',
     'category': 'Contract Management',
     'version': '12.0.1.0.0',
-    'website': 'https://tawasta.fi',
+    'website': 'https://github.com/Tawasta/contract',
     'author': 'Oy Tawasta Technologies Ltd.',
     'license': 'AGPL-3',
     'application': False,
@@ -34,6 +34,6 @@
         'sale',
     ],
     'data': [
-        'views/account_analytic_account_view.xml',
+        'views/contract.xml',
     ],
 }
