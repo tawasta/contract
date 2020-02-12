@@ -19,21 +19,16 @@
 ##############################################################################
 
 {
-    'name': 'Generate Recurring Invoices from Contracts Limit',
-    'summary':
-    """Define limit to how many invoices to generate at a time.
+    "name": "Generate Recurring Invoices from Contracts Limit",
+    "summary": """Define limit to how many invoices to generate at a time.
     Defaults to 5000.""",
-    'version': '12.0.1.0.0',
-    'category': 'Contract Management',
-    'website': 'https://tawasta.fi',
-    'author': 'Oy Tawasta Technologies Ltd.',
-    'license': 'AGPL-3',
-    'application': False,
-    'installable': True,
-    'depends': [
-        'contract',
-    ],
-    'data': [
-        'views/base_res_config_settings_view_form.xml',
-    ],
+    "version": "12.0.1.0.0",
+    "category": "Contract Management",
+    "website": "https://github.com/Tawasta/contract",
+    "author": "Tawasta",
+    "license": "AGPL-3",
+    "application": False,
+    "installable": True,
+    "depends": ["contract"],
+    "data": ["views/base_res_config_settings_view_form.xml"],
 }

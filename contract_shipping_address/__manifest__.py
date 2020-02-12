@@ -1,4 +1,3 @@
-
 ##############################################################################
 #
 #    Author: Oy Tawasta OS Technologies Ltd.
@@ -20,20 +19,15 @@
 ##############################################################################
 
 {
-    'name': 'Contract shipping address',
-    'summary': 'Add shipping address to contracts',
-    'category': 'Contract Management',
-    'version': '12.0.1.0.0',
-    'website': 'https://tawasta.fi',
-    'author': 'Oy Tawasta Technologies Ltd.',
-    'license': 'AGPL-3',
-    'application': False,
-    'installable': True,
-    'depends': [
-        'contract',
-        'sale',
-    ],
-    'data': [
-        'views/account_analytic_account_view.xml',
-    ],
+    "name": "Contract shipping address",
+    "summary": "Add shipping address to contracts",
+    "category": "Contract Management",
+    "version": "12.0.1.0.0",
+    "website": "https://github.com/Tawasta/contract",
+    "author": "Tawasta",
+    "license": "AGPL-3",
+    "application": False,
+    "installable": True,
+    "depends": ["contract", "sale"],
+    "data": ["views/contract.xml"],
 }

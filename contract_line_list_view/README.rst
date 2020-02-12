@@ -2,11 +2,12 @@
    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
-=========================================
-Add customer address details on contracts
-=========================================
+=======================
+Contract Line List View
+=======================
 
-This module adds details to customer address on contracts.
+- Adds list view of contract lines.
+- Adds contract id to contract line.
 
 Configuration
 =============
@@ -14,7 +15,7 @@ Configuration
 
 Usage
 =====
-Just install this module
+Just install this module.
 
 Known issues / Roadmap
 ======================
