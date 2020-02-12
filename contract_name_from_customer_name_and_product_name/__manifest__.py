@@ -19,18 +19,15 @@
 ##############################################################################
 
 {
-    'name': """Customer & Product Name is used as Contract's name""",
-    'summary': """Customer & Product Name is used as Contract's name""",
-    'version': '12.0.1.0.0',
-    'category': 'Contract',
-    'website': 'https://tawasta.fi',
-    'author': 'Oy Tawasta Technologies Ltd.',
-    'license': 'AGPL-3',
-    'application': False,
-    'installable': True,
-    'depends': [
-        'contract',
-    ],
-    'data': [
-    ],
+    "name": """Customer & Product Name is used as Contract's name""",
+    "summary": """Customer & Product Name is used as Contract's name""",
+    "version": "12.0.1.0.0",
+    "category": "Contract",
+    "website": "https://github.com/Tawasta/contract",
+    "author": "Tawasta",
+    "license": "AGPL-3",
+    "application": False,
+    "installable": True,
+    "depends": ["contract"],
+    "data": [],
 }

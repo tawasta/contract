@@ -2,11 +2,11 @@
    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
-=========================================
-Add customer address details on contracts
-=========================================
+====================
+Contract salesperson
+====================
 
-This module adds details to customer address on contracts.
+Add salesperson to contracts
 
 Configuration
 =============
@@ -14,11 +14,12 @@ Configuration
 
 Usage
 =====
-Just install this module
-
-Known issues / Roadmap
-======================
 \-
+
+Bug Tracker
+===========
+Bugs are tracked on `GitHub Issues
+<https://github.com/tawasta/contract/issues>`_.
 
 Credits
 =======
@@ -26,7 +27,7 @@ Credits
 Contributors
 ------------
 
-* Timo Kekäläinen <timo.kekalainen@tawasta.fi>
+* Jarmo Kortetjärvi <jarmo.kortetjarvi@tawasta.fi>
 
 Maintainer
 ----------
