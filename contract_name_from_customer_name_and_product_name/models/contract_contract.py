@@ -9,6 +9,9 @@ class ContractContract(models.Model):
     def contract_name_onchange(self):
         lines = self.contract_line_ids
         product_name = lines[0].product_id.name if lines else ""
+        partner_name = self.partner_id.display_name or ''
         self.name = "{}{}{}".format(
-            self.partner_id.display_name, " - " if product_name else "", product_name
+            partner_name,
+            " - " if (product_name and partner_name) else "",
+            product_name
         )
