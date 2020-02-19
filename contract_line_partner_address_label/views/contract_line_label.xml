@@ -6,8 +6,8 @@
         string="Address Label"
         model="contract.line"
         report_type="qweb-pdf"
-        name="contract_line_partner_address_label.report_contract_line_address_label"
-        file="contract_line_partner_address_label.report_contract_line_address_label"
+        name="contract_line_partner_address_label.report_address_label"
+        file="contract_line_partner_address_label.report_address_label"
         paperformat="partner_address_label.paperformat_euro_normargin"
     />
 </odoo>

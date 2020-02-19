@@ -31,6 +31,8 @@
     'depends': [
         'contract',
         'partner_address_label',
+        'web',
+        'web_report_sfs',
     ],
     'data': [
         'views/contract_line_label.xml',
