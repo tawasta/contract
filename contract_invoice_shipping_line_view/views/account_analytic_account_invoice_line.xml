@@ -12,8 +12,8 @@
                 <field name="analytic_id_shipping_street" />
                 <field name="analytic_id_shipping_street2" />
                 <field name="analytic_id_shipping_zip" />
-                <field name="analytic_id_city" />
-                <field name="analytic_id_country_id" />
+                <field name="analytic_id_shipping_city" />
+                <field name="analytic_id_shipping_country_id" />
                 <field name="product_id" />
                 <field name="quantity" sum='Total'/>
                 <field name="price_subtotal" sum='Total' />

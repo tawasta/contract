@@ -33,7 +33,7 @@ class AccountAnalyticInvoiceLine(models.Model):
 
     analytic_id_shipping_zip = fields.Char(
         string='Zip',
-        related='analytic_account_id.partner_shipping_id_zip',
+        related='analytic_account_id.partner_shipping_id.zip',
     )
 
     analytic_id_shipping_city = fields.Char(
