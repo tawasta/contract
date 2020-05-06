@@ -32,6 +32,7 @@
     'depends': [
         'contract',
         'contract_customer_address_details',
+        'contract_invoice_line_view',
     ],
     'data': [
         'views/account_analytic_account_invoice_line.xml'

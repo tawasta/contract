@@ -2,11 +2,11 @@
    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
-==========================
-Contract invoice line view
-==========================
+===================================
+Contract invoice shipping line view
+===================================
 
-Add a readonly contract invoice line view
+Add a readonly contract invoice shipping line view
 
 Configuration
 =============
@@ -27,6 +27,7 @@ Contributors
 ------------
 
 * Jarmo Kortetjärvi <jarmo.kortetjarvi@tawasta.fi>
+* Joona Isoaho <joona.isoaho@tawasta.fi>
 
 Maintainer
 ----------
