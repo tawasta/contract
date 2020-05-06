@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="view_account_analytic_invoice_shipping_line_tree" model="ir.ui.view">
+        <field name="name">account.analytic.invoice.line.tree.view</field>
+        <field name="model">account.analytic.invoice.line</field>
+        <field name="arch" type="xml">
+            <tree string="Contract Lines" create="false" delete="false" default_order='analytic_account_id'>
+                <field name="analytic_account_id" />
+                <field name="analytic_id_code" />
+                <field name="analytic_id_partner_shipping_id" />
+                <field name="analytic_id_street" />
+                <field name="analytic_id_street2" />
+                <field name="analytic_id_zip" />
+                <field name="analytic_id_city" />
+                <field name="analytic_id_country_id" />
+                <field name="product_id" />
+                <field name="quantity" sum='Total'/>
+                <field name="price_subtotal" sum='Total' />
+            </tree>
+        </field>
+    </record>
+
+    <record id="analytic_account_invoice_shipping_line_action" model="ir.actions.act_window">
+        <field name="name">Contract lines</field>
+        <field name="res_model">account.analytic.invoice.line</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="view_account_analytic_invoice_line_tree"/>
+        <field name="context">{'search_default_not_finished': 1}</field>
+    </record>
+
+    <record id="view_account_analytic_invoice_shipping_line_search" model="ir.ui.view">
+        <field name="name">account.analytic.invoice.line.search</field>
+        <field name="model">account.analytic.invoice.line</field>
+        <field name="arch" type="xml">
+            <search string="Contract name">
+                <field string="Product" name="product_id"/>
+                <field string="Partner" name="analytic_id_partner_id"/>
+                <field string="City" name="analytic_id_city"/>
+
+                <separator/>
+                <filter name="not_finished" string="Valid" domain="['|', ('analytic_id_date_end', '=', False), ('analytic_id_date_end', '&gt;=', time.strftime('%Y-%m-%d'))]"/>
+                <filter name="finished" string="Finished" domain="[('analytic_id_date_end', '&lt;', time.strftime('%Y-%m-%d'))]"/>
+
+                <group expand="0" string="Group By...">
+                    <filter string="Product" domain="[]" context="{'group_by':'product_id'}"/>
+                    <filter string="Partner" domain="[]" context="{'group_by':'analytic_id_partner_id'}"/>
+                    <filter string="City" domain="[]" context="{'group_by':'analytic_id_city'}"/>
+                    <filter string="Country" domain="[]" context="{'group_by':'analytic_id_country_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <menuitem id="menu_analytic_account_invoice_shipping_line"
+    action="analytic_account_invoice_line_action"
+    parent="sales_team.menu_sales"
+    sequence="160" />
+
+</odoo>
