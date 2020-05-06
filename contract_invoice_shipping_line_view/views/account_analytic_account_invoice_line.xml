@@ -54,7 +54,7 @@
     </record>
 
     <menuitem id="menu_analytic_account_invoice_shipping_line"
-    action="analytic_account_invoice_line_action"
+    action="analytic_account_invoice_shipping_line_action"
     parent="sales_team.menu_sales"
     sequence="160" />
 
