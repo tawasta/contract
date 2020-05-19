@@ -21,11 +21,11 @@ class AccountAnalyticInvoiceLine(models.Model):
         store=True,
     )
 
-    analytic_id_name = fields.Char(
+    analytic_id_shipping_name = fields.Char(
         related='analytic_account_id.partner_shipping_id.name',
     )
     
-    analytic_id_commercial_partner_id = fields.Many2one(
+    analytic_id_shipping_commercial_partner_id = fields.Many2one(
         comodel_name='res.partner',
         related='analytic_account_id.partner_shipping_id.commercial_partner_id',
     )
