@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-
-
-from odoo import fields, models
+from odoo import api
+from odoo import fields
+from odoo import models
 
 
 class AccountAnalyticInvoiceLine(models.Model):
@@ -23,6 +23,11 @@ class AccountAnalyticInvoiceLine(models.Model):
 
     analytic_id_shipping_name = fields.Char(
         related='analytic_account_id.partner_shipping_id.name',
+    )
+
+    analytic_id_shipping_name_conditional = fields.Char(
+        string="Name",
+        compute='_compute_analytic_id_shipping_name_conditional'
     )
     
     analytic_id_shipping_commercial_partner_id = fields.Many2one(
@@ -57,3 +62,11 @@ class AccountAnalyticInvoiceLine(models.Model):
         related='analytic_account_id.partner_shipping_id.country_id',
         store=True,
     )
+
+    @api.multi
+    def _compute_analytic_id_shipping_name_conditional(self):
+        for record in self:
+            if record.analytic_id_partner_shipping_id != \
+                    record.analytic_id_shipping_commercial_partner_id:
+                record.analytic_id_shipping_name_conditional = \
+                    record.analytic_account_id.partner_shipping_id.name
