@@ -23,7 +23,7 @@
     'name': 'Stored contract count',
     'summary': 'Store contract count for searches',
     'category': 'Contract Management',
-    'version': '10.0.1.0.0',
+    'version': '10.0.1.1.0',
     'website': 'https://github.com/Tawasta/contract',
     'author': 'Tawasta',
     'license': 'AGPL-3',
@@ -33,6 +33,5 @@
         'contract',
     ],
     'data': [
-        'data/cron.xml',
     ],
 }

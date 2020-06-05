@@ -5,19 +5,12 @@ from odoo import models, fields
 class Partner(models.Model):
     _inherit = 'res.partner'
 
-    contract_count_stored = fields.Integer(
-        string='Contract count',
-        store=True,
-        compute='_compute_contract_count_stored',
+    active_contract_ids = fields.One2many(
+        comodel_name='account.analytic.account',
+        inverse_name='partner_id',
+        string='Contracts',
+        domain=['|',
+                ('date_end', '=', False),
+                ('date_end', '>=', fields.Date.today())
+                ],
     )
-
-    def _compute_contract_count_stored(self):
-        for record in self:
-            record.contract_count_stored = record.contract_count
-
-    def cron_compute_contract_count_stored(self):
-        self.search(
-            [],
-            order='write_date',
-            limit=100,
-        )._compute_contract_count_stored()
