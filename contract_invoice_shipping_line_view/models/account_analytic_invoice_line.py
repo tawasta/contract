@@ -63,6 +63,13 @@ class AccountAnalyticInvoiceLine(models.Model):
         store=True,
     )
 
+    analytic_id_shipping_user_id = fields.Many2one(
+        comodel_name='res.users',
+        string='Salesperson',
+        related='analytic_account_id.partner_shipping_id.user_id',
+        store=True,
+    )
+
     @api.multi
     def _compute_analytic_id_shipping_name_conditional(self):
         for record in self:

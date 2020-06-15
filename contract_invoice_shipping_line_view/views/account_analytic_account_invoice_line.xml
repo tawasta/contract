@@ -8,6 +8,7 @@
             <tree string="Contract Shipping Lines" create="false" delete="false" default_order='analytic_account_id'>
                 <field name="analytic_account_id" />
                 <field name="analytic_id_code" />
+                <field name="analytic_id_shipping_user_id" />
                 <field name="analytic_id_shipping_commercial_partner_id"/>
                 <field name="analytic_id_shipping_name_conditional"/>
                 <field name="analytic_id_shipping_street" />
