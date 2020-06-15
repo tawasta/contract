@@ -38,8 +38,10 @@
         <field name="arch" type="xml">
             <search string="Contract name">
                 <field string="Product" name="product_id"/>
-                <field string="Partner" name="analytic_id_partner_id"/>
-                <field string="City" name="analytic_id_city"/>
+                <field string="Name" name="name"/>
+                <field string="Salesperson" name="analytic_id_shipping_user_id"/>
+                <field string="Partner" name="analytic_id_partner_shipping_id"/>
+                <field string="City" name="analytic_id_shipping_city"/>
 
                 <separator/>
                 <filter name="not_finished" string="Valid" domain="['|', ('analytic_id_date_end', '=', False), ('analytic_id_date_end', '&gt;=', time.strftime('%Y-%m-%d'))]"/>
@@ -47,9 +49,9 @@
 
                 <group expand="0" string="Group By...">
                     <filter string="Product" domain="[]" context="{'group_by':'product_id'}"/>
-                    <filter string="Partner" domain="[]" context="{'group_by':'analytic_id_partner_id'}"/>
-                    <filter string="City" domain="[]" context="{'group_by':'analytic_id_city'}"/>
-                    <filter string="Country" domain="[]" context="{'group_by':'analytic_id_country_id'}"/>
+                    <filter string="Partner" domain="[]" context="{'group_by':'analytic_id_partner_shipping_id'}"/>
+                    <filter string="City" domain="[]" context="{'group_by':'analytic_id_shipping_city'}"/>
+                    <filter string="Country" domain="[]" context="{'group_by':'analytic_id_shipping_country_id'}"/>
                 </group>
             </search>
         </field>
