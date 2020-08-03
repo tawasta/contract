@@ -5,7 +5,7 @@ class ContractLine(models.Model):
     _inherit = "contract.line"
 
     last_date_invoiced = fields.Date(
-        string='Last Date Invoiced',
+        string='Invoiced until',
         readonly=False,
         copy=False,
     )
