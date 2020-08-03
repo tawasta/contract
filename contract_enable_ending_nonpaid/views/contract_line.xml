@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="contract_line_last_date_invoiced_readonly_to_false" model="ir.ui.view">
+        <field name="name">contract.line.form.view.last.date.invoiced.readonly.to.false</field>
+        <field name="model">contract.line</field>
+        <field name="priority">100</field>
+        <field name="inherit_id" ref="contract.contract_line_form_view"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='last_date_invoiced']/parent::group"
+                position="attributes">
+                <attribute name="groups">
+                    contract.can_terminate_contract
+                </attribute>
+            </xpath>
+
+            <field name="last_date_invoiced"
+                position="replace">
+                <field name="last_date_invoiced"
+                    readonly="False"
+                    groups="contract.can_terminate_contract"></field>
+            </field>
+
+            <xpath expr="//field[@name='termination_notice_date']"
+                position="attributes">
+                <attribute name="groups">
+                    base.group_no_one
+                </attribute>
+            </xpath>
+
+        </field>
+    </record>
+</odoo>
