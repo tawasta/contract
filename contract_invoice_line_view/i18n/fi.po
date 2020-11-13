@@ -1,13 +1,13 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* contract_invoice_line_view
+# 	* contract_invoice_line_view_invoice
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-20 12:46+0000\n"
-"PO-Revision-Date: 2019-08-20 15:47+0300\n"
+"POT-Creation-Date: 2020-11-13 08:17+0000\n"
+"PO-Revision-Date: 2020-11-13 10:19+0200\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -15,114 +15,106 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
 "Language: fi\n"
-"X-Generator: Poedit 2.2.1\n"
+"X-Generator: Poedit 2.4.2\n"
 
-#. module: contract_invoice_line_view
-#: model:ir.model.fields,field_description:contract_invoice_line_view.field_account_analytic_account_partner_invoice_id_city
-#: model:ir.model.fields,field_description:contract_invoice_line_view.field_account_analytic_contract_partner_invoice_id_city
-#: model:ir.model.fields,field_description:contract_invoice_line_view.field_account_analytic_invoice_line_analytic_id_city
-#: model:ir.model.fields,field_description:contract_invoice_line_view.field_project_project_partner_invoice_id_city
-#: model:ir.ui.view,arch_db:contract_invoice_line_view.view_account_analytic_invoice_line_search
+#. module: contract_invoice_line_view_invoice
+#: model:ir.model.fields,field_description:contract_invoice_line_view_invoice.field_account_analytic_invoice_line_analytic_id_invoice_city
+#: model:ir.ui.view,arch_db:contract_invoice_line_view_invoice.view_account_analytic_invoice_invoice_line_search
 msgid "City"
 msgstr "Kaupunki"
 
-#. module: contract_invoice_line_view
-#: model:ir.ui.view,arch_db:contract_invoice_line_view.view_account_analytic_invoice_line_tree
-msgid "Contract Lines"
-msgstr "Sopimusrivit"
+#. module: contract_invoice_line_view_invoice
+#: model:ir.model.fields,field_description:contract_invoice_line_view_invoice.field_account_analytic_invoice_line_analytic_id_invoice_commercial_partner_id
+msgid "Commercial Entity"
+msgstr "Kaupallinen yksikkö"
 
-#. module: contract_invoice_line_view
-#: model:ir.actions.act_window,name:contract_invoice_line_view.analytic_account_invoice_line_action
-#: model:ir.ui.menu,name:contract_invoice_line_view.menu_analytic_account_invoice_line
-msgid "Contract lines"
-msgstr "Sopimusrivit"
+#. module: contract_invoice_line_view_invoice
+#: model:ir.ui.view,arch_db:contract_invoice_line_view_invoice.view_account_analytic_invoice_invoice_line_tree
+msgid "Contract Inovoice Lines"
+msgstr "Sopimuksen laskurivit"
 
-#. module: contract_invoice_line_view
-#: model:ir.ui.view,arch_db:contract_invoice_line_view.view_account_analytic_invoice_line_search
+#. module: contract_invoice_line_view_invoice
+#: model:ir.actions.act_window,name:contract_invoice_line_view_invoice.analytic_account_invoice_invoice_line_action
+#: model:ir.ui.menu,name:contract_invoice_line_view_invoice.menu_analytic_account_invoice_invoice_line
+msgid "Contract invoice lines"
+msgstr "Sopimuksen laskurivit"
+
+#. module: contract_invoice_line_view_invoice
+#: model:ir.ui.view,arch_db:contract_invoice_line_view_invoice.view_account_analytic_invoice_invoice_line_search
 msgid "Contract name"
 msgstr "Sopimuksen nimi"
 
-#. module: contract_invoice_line_view
-#: model:ir.model.fields,field_description:contract_invoice_line_view.field_account_analytic_invoice_line_analytic_id_country_id
-#: model:ir.ui.view,arch_db:contract_invoice_line_view.view_account_analytic_invoice_line_search
+#. module: contract_invoice_line_view_invoice
+#: model:ir.model.fields,field_description:contract_invoice_line_view_invoice.field_account_analytic_invoice_line_analytic_id_invoice_country_id
+#: model:ir.ui.view,arch_db:contract_invoice_line_view_invoice.view_account_analytic_invoice_invoice_line_search
 msgid "Country"
 msgstr "Maa"
 
-#. module: contract_invoice_line_view
-#: model:ir.model.fields,field_description:contract_invoice_line_view.field_account_analytic_invoice_line_analytic_id_date_end
-msgid "End date"
-msgstr "Päättymispäivä"
-
-#. module: contract_invoice_line_view
-#: model:ir.ui.view,arch_db:contract_invoice_line_view.view_account_analytic_invoice_line_search
+#. module: contract_invoice_line_view_invoice
+#: model:ir.ui.view,arch_db:contract_invoice_line_view_invoice.view_account_analytic_invoice_invoice_line_search
 msgid "Finished"
-msgstr "Valmis"
+msgstr "Päätetty"
 
-#. module: contract_invoice_line_view
-#: model:ir.ui.view,arch_db:contract_invoice_line_view.view_account_analytic_invoice_line_search
+#. module: contract_invoice_line_view_invoice
+#: model:ir.ui.view,arch_db:contract_invoice_line_view_invoice.view_account_analytic_invoice_invoice_line_search
 msgid "Group By..."
-msgstr "Ryhmittele..."
+msgstr "Ryhmittele.."
 
-#. module: contract_invoice_line_view
-#: model:ir.model.fields,field_description:contract_invoice_line_view.field_account_analytic_invoice_line_analytic_id_partner_id
-#: model:ir.ui.view,arch_db:contract_invoice_line_view.view_account_analytic_invoice_line_search
+#. module: contract_invoice_line_view_invoice
+#: model:ir.model.fields,field_description:contract_invoice_line_view_invoice.field_account_analytic_invoice_line_analytic_id_invoice_name
+#: model:ir.model.fields,field_description:contract_invoice_line_view_invoice.field_account_analytic_invoice_line_analytic_id_invoice_name_conditional
+#: model:ir.ui.view,arch_db:contract_invoice_line_view_invoice.view_account_analytic_invoice_invoice_line_search
+msgid "Name"
+msgstr "Nimi"
+
+#. module: contract_invoice_line_view_invoice
+#: model:ir.model.fields,field_description:contract_invoice_line_view_invoice.field_account_analytic_invoice_line_analytic_id_partner_invoice_id
+#: model:ir.ui.view,arch_db:contract_invoice_line_view_invoice.view_account_analytic_invoice_invoice_line_search
 msgid "Partner"
 msgstr "Kumppani"
 
-#. module: contract_invoice_line_view
-#: model:ir.ui.view,arch_db:contract_invoice_line_view.view_account_analytic_invoice_line_search
+#. module: contract_invoice_line_view_invoice
+#: model:ir.ui.view,arch_db:contract_invoice_line_view_invoice.view_account_analytic_invoice_invoice_line_search
 msgid "Product"
 msgstr "Tuote"
 
-#. module: contract_invoice_line_view
-#: model:ir.model.fields,field_description:contract_invoice_line_view.field_account_analytic_invoice_line_analytic_id_code
-msgid "Reference"
-msgstr "Viite"
+#. module: contract_invoice_line_view_invoice
+#: model:ir.model.fields,field_description:contract_invoice_line_view_invoice.field_account_analytic_invoice_line_analytic_id_invoice_user_id
+#: model:ir.ui.view,arch_db:contract_invoice_line_view_invoice.view_account_analytic_invoice_invoice_line_search
+msgid "Salesperson"
+msgstr "Myyjä"
 
-#. module: contract_invoice_line_view
-#: model:ir.model.fields,field_description:contract_invoice_line_view.field_account_analytic_account_partner_invoice_id_street
-#: model:ir.model.fields,field_description:contract_invoice_line_view.field_account_analytic_contract_partner_invoice_id_street
-#: model:ir.model.fields,field_description:contract_invoice_line_view.field_account_analytic_invoice_line_analytic_id_street
-#: model:ir.model.fields,field_description:contract_invoice_line_view.field_project_project_partner_invoice_id_street
+#. module: contract_invoice_line_view_invoice
+#: model:ir.model.fields,field_description:contract_invoice_line_view_invoice.field_account_analytic_invoice_line_analytic_id_invoice_street
 msgid "Street"
 msgstr "Katuosoite"
 
-#. module: contract_invoice_line_view
-#: model:ir.model.fields,field_description:contract_invoice_line_view.field_account_analytic_invoice_line_analytic_id_street2
+#. module: contract_invoice_line_view_invoice
+#: model:ir.model.fields,field_description:contract_invoice_line_view_invoice.field_account_analytic_invoice_line_analytic_id_invoice_street2
 msgid "Street 2"
 msgstr "Katuosoite 2"
 
-#. module: contract_invoice_line_view
-#: model:ir.model.fields,field_description:contract_invoice_line_view.field_account_analytic_account_partner_invoice_id_street2
-#: model:ir.model.fields,field_description:contract_invoice_line_view.field_account_analytic_contract_partner_invoice_id_street2
-#: model:ir.model.fields,field_description:contract_invoice_line_view.field_project_project_partner_invoice_id_street2
-msgid "Street2"
-msgstr "Katuosoite 2"
+#. module: contract_invoice_line_view_invoice
+#: model:ir.model.fields,help:contract_invoice_line_view_invoice.field_account_analytic_invoice_line_analytic_id_invoice_user_id
+msgid "The internal user that is in charge of communicating with this contact if any."
+msgstr "Sisäinen käyttäjä (jos sellainen on valittu), joka vastaa yhteydenpidosta tähän kontaktiin."
 
-#. module: contract_invoice_line_view
-#: model:ir.ui.view,arch_db:contract_invoice_line_view.view_account_analytic_invoice_line_tree
+#. module: contract_invoice_line_view_invoice
+#: model:ir.ui.view,arch_db:contract_invoice_line_view_invoice.view_account_analytic_invoice_invoice_line_tree
 msgid "Total"
 msgstr "Yhteensä"
 
-#. module: contract_invoice_line_view
-#: model:ir.ui.view,arch_db:contract_invoice_line_view.view_account_analytic_invoice_line_search
+#. module: contract_invoice_line_view_invoice
+#: model:ir.ui.view,arch_db:contract_invoice_line_view_invoice.view_account_analytic_invoice_invoice_line_search
 msgid "Valid"
 msgstr "Voimassa"
 
-#. module: contract_invoice_line_view
-#: model:ir.model.fields,field_description:contract_invoice_line_view.field_account_analytic_account_partner_invoice_id_zip
-#: model:ir.model.fields,field_description:contract_invoice_line_view.field_account_analytic_contract_partner_invoice_id_zip
-#: model:ir.model.fields,field_description:contract_invoice_line_view.field_account_analytic_invoice_line_analytic_id_zip
-#: model:ir.model.fields,field_description:contract_invoice_line_view.field_project_project_partner_invoice_id_zip
+#. module: contract_invoice_line_view_invoice
+#: model:ir.model.fields,field_description:contract_invoice_line_view_invoice.field_account_analytic_invoice_line_analytic_id_invoice_zip
 msgid "Zip"
 msgstr "Postinumero"
 
-#. module: contract_invoice_line_view
-#: model:ir.model,name:contract_invoice_line_view.model_account_analytic_contract
-msgid "account.analytic.contract"
-msgstr "account.analytic.contract"
-
-#. module: contract_invoice_line_view
-#: model:ir.model,name:contract_invoice_line_view.model_account_analytic_invoice_line
+#. module: contract_invoice_line_view_invoice
+#: model:ir.model,name:contract_invoice_line_view_invoice.model_account_analytic_invoice_line
 msgid "account.analytic.invoice.line"
 msgstr "account.analytic.invoice.line"
