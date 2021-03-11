@@ -1,0 +1,28 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* contract_note_to_invoice_comment
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-03-11 08:31+0000\n"
+"PO-Revision-Date: 2021-03-11 10:33+0200\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: fi\n"
+"X-Generator: Poedit 2.0.6\n"
+
+#. module: contract_note_to_invoice_comment
+#: model:ir.model,name:contract_note_to_invoice_comment.model_contract_contract
+msgid "Contract"
+msgstr "Sopimus"
+
+#. module: contract_note_to_invoice_comment
+#: model_terms:ir.ui.view,arch_db:contract_note_to_invoice_comment.contract_contract_form_view
+msgid "Write notes here..."
+msgstr "Kirjoita muistiinpanot tänne..."
