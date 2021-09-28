@@ -26,7 +26,6 @@ class ContractLineChangeProductVariant(models.TransientModel):
             'name': self.product_id.display_name,
             'contract_id': contract.id,
             'recurring_next_date': recurring_date,
-            'date_start': contract.recurring_next_date,
             'uom_id': self.contract_line.uom_id.id,
         }
 
@@ -51,7 +50,6 @@ class ContractLineChangeProductVariant(models.TransientModel):
         # Stop a previous contract line
         stop_date = self.contract_line.last_date_invoiced or \
                     fields.Datetime.now().date()
-        self.contract_line.recurring_next_date = stop_date
-        self.contract_line.cancel()
+        self.contract_line.stop(stop_date)
 
         return move_id
