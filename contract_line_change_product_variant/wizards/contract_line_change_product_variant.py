@@ -22,6 +22,7 @@ class ContractLineChangeProductVariant(models.TransientModel):
 
         contract_line_values = {
             'product_id': self.product_id.id,
+            'price_unit': self.product_id.list_price,
             'name': self.product_id.display_name,
             'contract_id': contract.id,
             'recurring_next_date': recurring_date,
