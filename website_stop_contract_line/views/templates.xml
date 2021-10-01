@@ -6,7 +6,30 @@
         </xpath>
     </template>
     <template id="portal_contract_page" inherit_id="contract.portal_contract_page" name="Stop contract" customize_show="True" active="True">
+        <xpath expr="//th[@name='th_recurring_next_date']" position="after">
+            <th name="th_state" class="text-right">
+                State
+            </th>
+            <th name="th_stop_line" class="text-right"></th>
+        </xpath>
         <xpath expr="//td[@name='td_recurring_next_date']" position="after">
+            <td name="line-state" class="text-right">
+                <t t-if="line.state == 'upcoming'">
+                    <span class="badge badge-pill badge-info">Upcoming</span>
+                </t>
+                <t t-if="line.state == 'in-progress'">
+                    <span class="badge badge-pill badge-success">In progress</span>
+                </t>
+                <t t-if="line.state == 'to-renew'">
+                    <span class="badge badge-pill badge-success">To renew</span>
+                </t>
+                <t t-if="line.state == 'upcoming-close'">
+                    <span class="badge badge-pill badge-warning">Upcoming close</span>
+                </t>
+                <t t-if="line.state == 'closed'">
+                    <span class="badge badge-pill badge-warning">Closed</span>
+                </t>
+            </td>
             <td>
                 <button type="button" class="btn btn-secondary btn-sm" t-att-data-line-id="line.id" data-toggle="modal" data-target="#cancelModal">
                     Stop contract line
