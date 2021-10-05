@@ -18,13 +18,15 @@ class ContractTemplate(models.Model):
         default="monthly",
         string="Recurrence",
         help="Specify Interval for automatic invoice generation.",
+        required=True,
     )
     recurring_interval = fields.Integer(
         default=1,
         string="Invoice Every",
         help="Invoice every (Days/Week/Month/Year)",
+        required=True,
     )
 
     payment_term_id = fields.Many2one(
-        comodel_name="account.payment.term", string="Payment Terms", index=True
+        comodel_name="account.payment.term", string="Payment Terms", required=True, index=True
     )
