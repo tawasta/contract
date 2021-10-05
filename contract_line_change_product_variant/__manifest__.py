@@ -30,6 +30,8 @@
     "installable": True,
     "depends": [
         "contract",
+        "product",
+        "contract_invoice_address",
     ],
     "data": [
         "security/ir.model.access.csv",
