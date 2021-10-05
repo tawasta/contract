@@ -6,6 +6,16 @@ class ContractLine(models.Model):
 
     _inherit = 'contract.line'
 
+    def change_product_variant(self, contract_id=None, new_product_id=None,
+                               contract_line=None):
+        """ This function is callable inside other models. """
+        if contract_id and product and contract_line:
+            wiz = self.env['contract.line.change.product.variant'].\
+                    change_product_variant(contract_id=contract_id,
+                                           new_product_id=product,
+                                           contract_line=contract_line)
+        return True
+
     def change_product_variant_wizard(self):
         product = self.product_id
         contract_line = self.id

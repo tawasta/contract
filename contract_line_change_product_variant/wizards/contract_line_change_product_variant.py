@@ -1,5 +1,6 @@
 
 from odoo import fields, models
+from datetime import datetime
 
 
 class ContractLineChangeProductVariant(models.TransientModel):
@@ -15,18 +16,41 @@ class ContractLineChangeProductVariant(models.TransientModel):
     contract_id = fields.Many2one('contract.contract', readonly=True)
     available_variants = fields.Many2many('product.product')
 
-    def change_product_variant(self):
-        self.ensure_one()
-        contract = self.contract_id
-        recurring_date = contract.recurring_next_date or fields.Datetime.now().date()
+    def change_product_variant(self, contract_id=None, new_product_id=None, contract_line=None):
+        """ This function creates a new contract line and a new invoice with
+        appropriate values based on a chosen product and the old contract
+        line. """
+
+        contract = contract_id or self.contract_id
+        product = new_product_id or self.product_id
+        contract_line = contract_line or self.contract_line
+        now_date = datetime.now()
+        recurring_date = contract.recurring_next_date or now_date.date()
+        new_line_price = 0
+
+        # Get price for a product
+        if contract.pricelist_id:
+            new_line_price = contract.pricelist_id.get_product_price(
+                product=product,
+                quantity=contract_line.quantity,
+                partner=contract.partner_id.id,
+                date=now_date,
+                uom_id=contract_line.uom_id.id
+            )
+
+        # Check the price difference and set the new price to zero if the
+        # difference is negative
+        new_line_price = new_line_price - contract_line.price_unit
+        new_line_price = 0 if new_line_price < 0 else new_line_price
 
         contract_line_values = {
-            'product_id': self.product_id.id,
-            'price_unit': self.product_id.list_price,
-            'name': self.product_id.display_name,
+            'product_id': product.id,
+            'price_unit': new_line_price,
+            'name': product.display_name,
             'contract_id': contract.id,
             'recurring_next_date': recurring_date,
-            'uom_id': self.contract_line.uom_id.id,
+            'date_start': recurring_date,
+            'uom_id': contract_line.uom_id.id,
         }
 
         # Create a new contract line
@@ -42,14 +66,24 @@ class ContractLineChangeProductVariant(models.TransientModel):
         invoice_vals["invoice_line_ids"].append((0, 0, account_move_line))
         invoice_values.append(invoice_vals)
         del invoice_vals["line_ids"]
-        new_contract_line._update_recurring_next_date()
         move_id = self.env['account.move'].create(invoice_values)
         contract._invoice_followers(move_id)
         contract._compute_recurring_next_date()
 
+        # This line of code can cause errors, so check it first in case some
+        # problems appear when using this module.
+        new_contract_line._update_recurring_next_date()
+
+        new_contract_line.last_date_invoiced = now_date
+
         # Stop a previous contract line
-        stop_date = self.contract_line.last_date_invoiced or \
-                    fields.Datetime.now().date()
-        self.contract_line.stop(stop_date)
+        if contract_line.last_date_invoiced and \
+                now_date.date() >= contract_line.last_date_invoiced or \
+                not contract_line.last_date_invoiced:
+            stop_date = now_date.date()
+        else:
+            stop_date = contract_line.last_date_invoiced
+
+        contract_line.stop(stop_date)
 
         return move_id
