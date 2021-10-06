@@ -1,7 +1,7 @@
 ##############################################################################
 #
 #    Author: Oy Tawasta OS Technologies Ltd.
-#    Copyright 2021 Oy Tawasta OS Technologies Ltd. (https://tawasta.fi)
+#    Copyright 2019 Oy Tawasta OS Technologies Ltd. (https://tawasta.fi)
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -19,23 +19,15 @@
 ##############################################################################
 
 {
-    "name": "Contract Line Change product variant",
-    "summary": "Contract Line Change product variant",
+    "name": "Contract Template",
+    "summary": "Contract Template",
     "version": "14.0.1.0.0",
     "category": "Contract Management",
-    "website": "https://gitlab.com/tawasta/odoo/contract",
+    "website": "https://github.com/Tawasta/contract",
     "author": "Tawasta",
     "license": "AGPL-3",
     "application": False,
     "installable": True,
-    "depends": [
-        "contract",
-        "product",
-        "contract_invoice_address",
-    ],
-    "data": [
-        "security/ir.model.access.csv",
-        "views/contract_view.xml",
-        "wizards/contract_line_change_product_variant.xml",
-    ],
+    "depends": ["contract"],
+    "data": ["views/contract_template.xml"],
 }
