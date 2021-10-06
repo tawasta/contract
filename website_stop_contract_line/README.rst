@@ -6,7 +6,7 @@
 Website stop contract line
 ==========================
 
-*
+* The portal user can terminate the contract line.
 
 
 Configuration
