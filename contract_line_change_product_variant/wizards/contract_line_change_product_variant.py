@@ -66,7 +66,6 @@ class ContractLineChangeProductVariant(models.TransientModel):
         invoice_vals["invoice_line_ids"].append((0, 0, account_move_line))
         invoice_values.append(invoice_vals)
         del invoice_vals["line_ids"]
-        print(invoice_values)
         move_id = self.env['account.move'].create(invoice_values)
         contract._invoice_followers(move_id)
         contract._compute_recurring_next_date()

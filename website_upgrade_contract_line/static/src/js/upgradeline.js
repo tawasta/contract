@@ -1,7 +1,6 @@
 odoo.define('website_upgrade_contract_line.portal_contract_page', function (require) {
     "use strict";
 
-    // var loadingScreen = require('website_utilities.loader').loadingScreen;
     var core = require('web.core');
     var time = require('web.time');
 
@@ -16,7 +15,6 @@ odoo.define('website_upgrade_contract_line.portal_contract_page', function (requ
             var lineId = $(this).attr('data-line-id');
             var action = '/contract/get/' + lineId;
             $('#div_upgrade_line').html("");
-            // loadingScreen();
 
             $.post(action, function (res) {
                 var results = JSON.parse(res);
@@ -29,14 +27,5 @@ odoo.define('website_upgrade_contract_line.portal_contract_page', function (requ
                 }, 1000
             );
         });
-
-        // $(document).on('click', '.upgrade-confirm', function() {
-        //     var lineValue = document.getElementsByName('upgrade_line_id')[0].value;
-        //     var action = '/contract/line/upgrade/' + lineValue;
-        //     $('#upgradeModal').modal('hide');
-        //     $.get(action).done(function(data) {
-        //         location.reload();
-        //     });
-        // });
     });
 });

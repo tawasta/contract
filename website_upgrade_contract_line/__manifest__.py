@@ -29,5 +29,5 @@
     "application": False,
     "installable": True,
     "depends": ["website_stop_contract_line", "account", "membership"],
-    "data": ["security/ir.model.access.csv","security/ir_rule.xml","views/templates.xml"],
+    "data": ["security/ir.model.access.csv", "security/ir_rule.xml", "views/templates.xml"],
 }
