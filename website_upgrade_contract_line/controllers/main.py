@@ -59,7 +59,15 @@ class UpgradeContractLine(http.Controller):
             .search([("id", "=", post.get("upgrade_line_id"))])
         )
         print(post)
+        redirect_url = post.get("return_url")
+        product = request.env["product.product"].sudo().search([
+            ('id', '=', post.get("product_id"))
+        ])
+        updateline = request.env["contract.line"].change_product_variant(line.contract_id, product, line)
+
+        if updateline:
+            print("===============PAIVITETTY===============")
         # line.sudo().stop(date.today(), manual_renew_needed=False)
-        values = {
-        }
-        return json.dumps(values)
+        # values = {
+        # }
+        return request.redirect(redirect_url)
