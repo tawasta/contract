@@ -28,6 +28,6 @@
     "license": "AGPL-3",
     "application": False,
     "installable": True,
-    "depends": ["website_stop_contract_line", "account", "membership"],
+    "depends": ["website_stop_contract_line", "account", "membership", "contract_line_change_product_variant"],
     "data": ["security/ir.model.access.csv", "security/ir_rule.xml", "views/templates.xml"],
 }
