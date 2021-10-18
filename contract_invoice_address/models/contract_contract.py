@@ -6,8 +6,7 @@ class Contract(models.Model):
     _inherit = "contract.contract"
 
     partner_invoice_id = fields.Many2one(
-        comodel_name="res.partner",
-        string="Invoice Address",
+        comodel_name="res.partner", string="Invoice Address"
     )
 
     def _prepare_invoice(self, *args, **kwargs):
@@ -16,6 +15,6 @@ class Contract(models.Model):
 
         # Add shipping address to writable values
         if self.partner_invoice_id:
-            invoice_vals['partner_invoice_id'] = self.partner_invoice_id.id
+            invoice_vals["partner_id"] = self.partner_invoice_id.id
 
         return invoice_vals, move_form
