@@ -10,11 +10,13 @@
             <th name="th_upgrade_line" class="text-right"></th>
         </xpath>
         <xpath expr="//td[@name='td_cancel_btn']" position="after">
-            <td>
-                <button type="button" class="btn btn-primary btn-sm upgrade-line" t-att-data-line-id="line.id" data-toggle="modal" data-target="#upgradeModal">
-                    Upgrade contract line
-                </button>
-            </td>
+            <t t-if="line.state not in ['closed', 'upcoming-close']">
+                <td>
+                    <button type="button" class="btn btn-primary btn-sm upgrade-line" t-att-data-line-id="line.id" data-toggle="modal" data-target="#upgradeModal">
+                        Upgrade contract line
+                    </button>
+                </td>
+            </t>
         </xpath>
         <xpath expr="//table[@id='sales_order_table']" position="after">
             <div id="upgradeModal" class="modal fade" role="dialog">
