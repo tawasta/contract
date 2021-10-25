@@ -30,11 +30,13 @@
                     <span class="badge badge-pill badge-warning">Closed</span>
                 </t>
             </td>
-            <td name="td_cancel_btn">
-                <button type="button" class="btn btn-secondary btn-sm" t-att-data-line-id="line.id" data-toggle="modal" data-target="#cancelModal">
-                    Stop contract line
-                </button>
-            </td>
+            <t t-if="line.state not in ['closed', 'upcoming-close']">
+                <td name="td_cancel_btn">
+                    <button type="button" class="btn btn-secondary btn-sm" t-att-data-line-id="line.id" data-toggle="modal" data-target="#cancelModal">
+                        Stop contract line
+                    </button>
+                </td>
+            </t>
         </xpath>
         <xpath expr="//table[@id='sales_order_table']" position="after">
             <div id="cancelModal" class="modal fade" role="dialog">
