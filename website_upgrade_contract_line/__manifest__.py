@@ -1,6 +1,6 @@
 ##############################################################################
 #
-#    Author: Oy Tawasta OS Technologies Ltd.
+#    Author: Tawasta
 #    Copyright 2020 Oy Tawasta OS Technologies Ltd. (https://tawasta.fi)
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -19,19 +19,15 @@
 ##############################################################################
 
 {
-    "name": "Contract invoice address",
-    "summary": "Add invoice address to contracts",
-    "category": "Contract Management",
-    "version": "14.0.1.0.1",
-    "website": "https://gitlab.com/tawasta/odoo/contract",
+    "name": "Website upgrade contract line",
+    "summary": "Website upgrade contract line",
+    "version": "14.0.1.0.0",
+    "category": "contract",
+    "website": "https://github.com/Tawasta/contract",
     "author": "Tawasta",
     "license": "AGPL-3",
     "application": False,
     "installable": True,
-    "depends": [
-        "contract",
-    ],
-    "data": [
-        "views/contract_form.xml",
-    ],
+    "depends": ["website_stop_contract_line", "account", "membership", "contract_line_change_product_variant"],
+    "data": ["security/ir.model.access.csv", "security/ir_rule.xml", "views/templates.xml"],
 }
