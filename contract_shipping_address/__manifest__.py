@@ -30,9 +30,7 @@
     "installable": True,
     "depends": [
         "contract",
-        #"contract_sale_generation",
+        # "contract_sale_generation",
     ],
-    "data": [
-        "views/contract_form.xml",
-    ],
+    "data": ["views/contract_form.xml"],
 }

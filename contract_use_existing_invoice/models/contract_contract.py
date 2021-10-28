@@ -1,4 +1,4 @@
-from odoo import models, fields
+from odoo import models
 
 
 class Contract(models.Model):
@@ -16,13 +16,15 @@ class Contract(models.Model):
             invoices_values = record._prepare_recurring_invoices_values(date_ref)
 
             if len(invoices_values) == 1:
-                # If the contract is creating multiple invoices at once, don't try to merge them to existing invoices
+                # If the contract is creating multiple invoices at once,
+                # don't try to merge them to existing invoices
                 existing_invoice = record._get_related_invoices().filtered(
                     lambda r: r.state == "draft"
                 )
 
                 if not existing_invoice:
-                    # If there are no existing invoices, try to find an open invoice for this partner
+                    # If there are no existing invoices,
+                    # try to find an open invoice for this partner
                     if (
                         hasattr(self, "partner_invoice_id")
                         and record.partner_invoice_id
