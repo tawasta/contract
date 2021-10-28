@@ -6,7 +6,7 @@
 Contract invoice address
 ========================
 
-Add shipping address to contracts.
+Add invoice address to contracts
 
 Configuration
 =============
