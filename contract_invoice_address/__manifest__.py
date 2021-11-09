@@ -28,10 +28,6 @@
     "license": "AGPL-3",
     "application": False,
     "installable": True,
-    "depends": [
-        "contract",
-    ],
-    "data": [
-        "views/contract_form.xml",
-    ],
+    "depends": ["contract"],
+    "data": ["views/contract_form.xml"],
 }

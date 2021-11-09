@@ -1,7 +1,7 @@
 ##############################################################################
 #
-#    Author: Tawasta
-#    Copyright 2020 Oy Tawasta OS Technologies Ltd. (https://tawasta.fi)
+#    Author: Oy Tawasta OS Technologies Ltd.
+#    Copyright 2021 Oy Tawasta OS Technologies Ltd. (https://tawasta.fi)
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -19,24 +19,15 @@
 ##############################################################################
 
 {
-    "name": "Website upgrade contract line",
-    "summary": "Website upgrade contract line",
+    "name": "Contract: use an existing invoice when creating recurring invoices",
+    "summary": "Add lines to an existing invoice instead of creating a new invoice",
+    "category": "Contract Management",
     "version": "14.0.1.0.0",
-    "category": "contract",
-    "website": "https://github.com/Tawasta/contract",
+    "website": "https://gitlab.com/tawasta/odoo/contract",
     "author": "Tawasta",
     "license": "AGPL-3",
     "application": False,
     "installable": True,
-    "depends": [
-        "website_stop_contract_line",
-        "account",
-        "membership",
-        "contract_line_change_product_variant",
-    ],
-    "data": [
-        "security/ir.model.access.csv",
-        "security/ir_rule.xml",
-        "views/templates.xml",
-    ],
+    "depends": ["contract"],
+    "data": [],
 }

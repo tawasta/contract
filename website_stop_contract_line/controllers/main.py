@@ -1,7 +1,6 @@
 # 1. Standard library imports:
 import json
-from datetime import datetime
-from datetime import date
+from datetime import date, datetime
 
 from odoo import http
 from odoo.http import request
@@ -19,12 +18,7 @@ class StopContractLine(http.Controller):
         csrf=False,
     )
     def stop_contract_line(self, line_id=None, **post):
-        line = (
-            request.env["contract.line"]
-            .sudo()
-            .search([("id", "=", line_id)])
-        )
+        line = request.env["contract.line"].sudo().search([("id", "=", line_id)])
         line.sudo().stop(date.today(), manual_renew_needed=False)
-        values = {
-        }
+        values = {}
         return json.dumps(values)
