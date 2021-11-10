@@ -12,6 +12,7 @@ Warning! This will overwrite _recurring_create_invoice(), which will cause any m
 method stop working correctly.
 
 The logic for finding an existing invoice:
+
 - If there are open invoice related to this contract, use that
 - If not, try to find any open invoice for this partner with empty or matching customer reference
 
