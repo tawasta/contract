@@ -13,7 +13,7 @@ method stop working correctly.
 
 The logic for finding an existing invoice:
 
-- If there are open invoice related to this contract, use that
+- If there is an open invoice related to this contract, use that
 - If not, try to find any open invoice for this partner with empty or matching customer reference
 
 
