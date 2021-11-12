@@ -21,7 +21,7 @@
 {
     "name": "Contract: make recurring invoices as queued jobs",
     "summary": "Create recurring invoices as queued jobs",
-    "version": "14.0.1.0.0",
+    "version": "14.0.1.0.1",
     "category": "Contract Management",
     "website": "https://gitlab.com/tawasta/odoo/contract/",
     "author": "Tawasta",
