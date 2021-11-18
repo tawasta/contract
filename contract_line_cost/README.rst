@@ -2,11 +2,11 @@
    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
-========================
-Contract invoice address
-========================
+=============================
+Contract: cost price on lines
+=============================
 
-Add invoice address to contracts
+Add cost price to contract lines and move it to the invoice
 
 Configuration
 =============
@@ -16,10 +16,9 @@ Usage
 =====
 \-
 
-Bug Tracker
-===========
-Bugs are tracked on `GitHub Issues
-<https://github.com/tawasta/contract/issues>`_.
+Known issues / Roadmap
+======================
+\-
 
 Credits
 =======
@@ -27,7 +26,7 @@ Credits
 Contributors
 ------------
 
-* Valtteri Lattu <valtteri.lattu@tawasta.fi>
+* Jarmo Kortetjärvi <jarmo.kortetjarvi@tawasta.fi>
 
 Maintainer
 ----------

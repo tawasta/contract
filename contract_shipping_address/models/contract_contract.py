@@ -1,4 +1,4 @@
-from odoo import models, fields
+from odoo import fields, models
 
 
 class Contract(models.Model):
@@ -6,8 +6,7 @@ class Contract(models.Model):
     _inherit = "contract.contract"
 
     partner_shipping_id = fields.Many2one(
-        comodel_name="res.partner",
-        string="Delivery Address",
+        comodel_name="res.partner", string="Delivery Address"
     )
 
     # THIS FUNCTION HAS NOT BEEN PORTED YET!!
@@ -28,6 +27,6 @@ class Contract(models.Model):
 
         # Add shipping address to writable values
         if self.partner_shipping_id:
-            invoice_vals['partner_shipping_id'] = self.partner_shipping_id.id
+            invoice_vals["partner_shipping_id"] = self.partner_shipping_id.id
 
         return invoice_vals, move_form

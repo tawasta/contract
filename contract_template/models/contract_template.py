@@ -28,5 +28,8 @@ class ContractTemplate(models.Model):
     )
 
     payment_term_id = fields.Many2one(
-        comodel_name="account.payment.term", string="Payment Terms", required=True, index=True
+        comodel_name="account.payment.term",
+        string="Payment Terms",
+        required=True,
+        index=True,
     )

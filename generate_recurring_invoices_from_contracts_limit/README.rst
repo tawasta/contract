@@ -2,11 +2,10 @@
    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
-========================
-Contract invoice address
-========================
-
-Add invoice address to contracts
+================================================
+Generate recurring invoices from contracts limit
+================================================
+* Adds limit to how many invoices to generate with cron.
 
 Configuration
 =============
@@ -16,10 +15,9 @@ Usage
 =====
 \-
 
-Bug Tracker
-===========
-Bugs are tracked on `GitHub Issues
-<https://github.com/tawasta/contract/issues>`_.
+Known issues / Roadmap
+======================
+\-
 
 Credits
 =======
@@ -27,7 +25,8 @@ Credits
 Contributors
 ------------
 
-* Valtteri Lattu <valtteri.lattu@tawasta.fi>
+* Joona Isoaho <joona.isoaho@tawasta.fi>
+* Miika Nissi <miika.nissi@tawasta.fi>
 
 Maintainer
 ----------

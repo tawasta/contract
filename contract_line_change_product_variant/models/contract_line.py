@@ -1,19 +1,22 @@
-
 from odoo import fields, models
 
 
 class ContractLine(models.Model):
 
-    _inherit = 'contract.line'
+    _inherit = "contract.line"
 
-    def change_product_variant(self, contract_id=None, new_product_id=None,
-                               contract_line=None):
+    def change_product_variant(
+        self, contract_id=None, new_product_id=None, contract_line=None
+    ):
         """ This function is callable inside other models. """
         if contract_id and new_product_id and contract_line:
-            wiz = self.env['contract.line.change.product.variant'].\
-                    change_product_variant(contract_id=contract_id,
-                                           new_product_id=new_product_id,
-                                           contract_line=contract_line)
+            wiz = self.env[
+                "contract.line.change.product.variant"
+            ].change_product_variant(
+                contract_id=contract_id,
+                new_product_id=new_product_id,
+                contract_line=contract_line,
+            )
         return True
 
     def change_product_variant_wizard(self):
@@ -22,22 +25,29 @@ class ContractLine(models.Model):
         contract_id = self.contract_id.id
         available_variants = product.product_tmpl_id.product_variant_ids
         view_id = self.env.ref(
-            'contract_line_change_product_variant.'
-            'contract_line_change_product_variant_wizard').id
-        wiz = self.env['contract.line.change.product.variant'].sudo().create({
-            'old_product_id': product.id,
-            'product_id': product.id,
-            'contract_line': contract_line,
-            'contract_id': contract_id,
-            'available_variants': available_variants,
-        })
+            "contract_line_change_product_variant."
+            "contract_line_change_product_variant_wizard"
+        ).id
+        wiz = (
+            self.env["contract.line.change.product.variant"]
+            .sudo()
+            .create(
+                {
+                    "old_product_id": product.id,
+                    "product_id": product.id,
+                    "contract_line": contract_line,
+                    "contract_id": contract_id,
+                    "available_variants": available_variants,
+                }
+            )
+        )
 
         return {
-            'name': 'Change member product',
-            'view_mode': 'form',
-            'res_model': 'contract.line.change.product.variant',
-            'view_id': view_id,
-            'type': 'ir.actions.act_window',
-            'res_id': wiz.id,
-            'target': 'new',
+            "name": "Change member product",
+            "view_mode": "form",
+            "res_model": "contract.line.change.product.variant",
+            "view_id": view_id,
+            "type": "ir.actions.act_window",
+            "res_id": wiz.id,
+            "target": "new",
         }
