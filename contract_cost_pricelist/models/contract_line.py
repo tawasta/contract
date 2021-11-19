@@ -5,10 +5,15 @@ from odoo import models
 class ContractLine(models.Model):
     _inherit = "contract.line"
 
-    def _get_purchase_price(self):
-        res = super()._get_purchase_price()
+    def _prepare_invoice_line(self, move_form):
+        res = super()._prepare_invoice_line(move_form)
 
-        if self.product_id and self.contract_id.purchase_pricelist_id:
+        if (
+            self.product_id
+            and self.contract_id.purchase_pricelist_id
+            and res.get("purchase_price")
+        ):
+            price = res["purchase_price"]
             pricelist = self.contract_id.purchase_pricelist_id
             product = self.product_id
             uom = self.uom_id
@@ -24,8 +29,8 @@ class ContractLine(models.Model):
                 rule_id = rule[product.id][1]
                 pricelist_item = self.env["product.pricelist.item"].browse([rule_id])
 
-                res = pricelist_item._compute_price(
-                    res, uom, product, quantity, partner
+                res["purchase_price"] = pricelist_item._compute_price(
+                    price, uom, product, quantity, partner
                 )
 
         return res
