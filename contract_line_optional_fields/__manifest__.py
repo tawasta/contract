@@ -21,13 +21,13 @@
 {
     "name": "Contract: optional fields on lines",
     "summary": "Set contract line fields as optional, so users can hide them",
-    "version": "14.0.1.0.0",
+    "version": "14.0.1.0.1",
     "category": "Contract Management",
     "website": "https://gitlab.com/tawasta/odoo/contract/",
     "author": "Tawasta",
     "license": "AGPL-3",
     "application": False,
     "installable": True,
-    "depends": ["account_invoice_margin", "contract"],
+    "depends": ["contract"],
     "data": ["views/contract_form.xml"],
 }
