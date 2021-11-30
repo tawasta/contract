@@ -1,7 +1,7 @@
 from odoo import api, fields, models
 
 
-class RecurringContractLimit(models.Model):
+class ContractContract(models.Model):
     _inherit = "contract.contract"
 
     @api.model

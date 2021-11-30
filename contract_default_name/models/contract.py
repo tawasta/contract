@@ -18,16 +18,42 @@
 #
 ##############################################################################
 
-{
-    "name": "Contract: make recurring invoices as queued jobs",
-    "summary": "Create recurring invoices as queued jobs",
-    "version": "14.0.1.0.1",
-    "category": "Contract Management",
-    "website": "https://gitlab.com/tawasta/odoo/contract/",
-    "author": "Tawasta",
-    "license": "AGPL-3",
-    "application": False,
-    "installable": True,
-    "depends": ["contract", "queue_job"],
-    "data": [],
-}
+# 1. Standard library imports:
+
+# 2. Known third party imports:
+
+# 3. Odoo imports (openerp):
+from odoo import api, models
+
+# 4. Imports from Odoo modules:
+
+# 5. Local imports in the relative form:
+
+# 6. Unknown third party imports:
+
+
+class ContractContract(models.Model):
+    # 1. Private attributes
+    _inherit = "contract.contract"
+
+    # 2. Fields declaration
+    # name = fields.Char(required=True)
+
+    # 3. Default methods
+
+    # 4. Compute and search fields, in the same order that fields declaration
+
+    # 5. Constraints and onchanges
+    @api.onchange("partner_id")
+    def _onchange_partner_id(self):
+        if self.partner_id:
+            if self.partner_id.firstname and self.partner_id.lastname:
+                self.name = self.partner_id.lastname + " " + self.partner_id.firstname
+            else:
+                self.name = self.partner_id.name
+
+    # 6. CRUD methods
+
+    # 7. Action methods
+
+    # 8. Business methods

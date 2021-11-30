@@ -19,15 +19,15 @@
 ##############################################################################
 
 {
-    "name": "Contract: make recurring invoices as queued jobs",
-    "summary": "Create recurring invoices as queued jobs",
-    "version": "14.0.1.0.1",
+    "name": "Contract: optional fields on lines",
+    "summary": "Set contract line fields as optional, so users can hide them",
+    "version": "14.0.1.0.0",
     "category": "Contract Management",
     "website": "https://gitlab.com/tawasta/odoo/contract/",
     "author": "Tawasta",
     "license": "AGPL-3",
     "application": False,
     "installable": True,
-    "depends": ["contract", "queue_job"],
-    "data": [],
+    "depends": ["account_invoice_margin", "contract"],
+    "data": ["views/contract_form.xml"],
 }

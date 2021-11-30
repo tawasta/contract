@@ -1,7 +1,7 @@
 ##############################################################################
 #
 #    Author: Oy Tawasta OS Technologies Ltd.
-#    Copyright 2021- Oy Tawasta OS Technologies Ltd. (https://tawasta.fi)
+#    Copyright 2021- Oy Tawasta OS Technologies Ltd. (http://www.tawasta.fi)
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -19,15 +19,15 @@
 ##############################################################################
 
 {
-    "name": "Contract: make recurring invoices as queued jobs",
-    "summary": "Create recurring invoices as queued jobs",
-    "version": "14.0.1.0.1",
+    "name": "Contract Default Name",
+    "summary": "Default name for contracts lastname firstname",
+    "version": "14.0.1.0.0",
     "category": "Contract Management",
-    "website": "https://gitlab.com/tawasta/odoo/contract/",
+    "website": "https://gitlab.com/tawasta/odoo/contract",
     "author": "Tawasta",
     "license": "AGPL-3",
     "application": False,
     "installable": True,
-    "depends": ["contract", "queue_job"],
+    "depends": ["contract", "partner_firstname"],
     "data": [],
 }

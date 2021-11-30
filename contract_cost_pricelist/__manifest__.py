@@ -19,15 +19,15 @@
 ##############################################################################
 
 {
-    "name": "Contract: make recurring invoices as queued jobs",
-    "summary": "Create recurring invoices as queued jobs",
-    "version": "14.0.1.0.1",
+    "name": "Contract: Cost pricelist",
+    "summary": "Allow using pricelists for computing line cost on contracts",
+    "version": "14.0.1.1.0",
     "category": "Contract Management",
     "website": "https://gitlab.com/tawasta/odoo/contract/",
     "author": "Tawasta",
     "license": "AGPL-3",
     "application": False,
     "installable": True,
-    "depends": ["contract", "queue_job"],
-    "data": [],
+    "depends": ["contract", "contract_line_cost"],
+    "data": ["views/contract_form.xml"],
 }
