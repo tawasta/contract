@@ -21,7 +21,7 @@
 {
     "name": "Contract: cost price on lines",
     "summary": "Add cost price to contract lines and move it to the invoice",
-    "version": "14.0.1.0.0",
+    "version": "14.0.1.1.0",
     "category": "Contract Management",
     "website": "https://gitlab.com/tawasta/odoo/contract/",
     "author": "Tawasta",
