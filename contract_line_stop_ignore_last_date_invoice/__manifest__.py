@@ -19,9 +19,9 @@
 ##############################################################################
 
 {
-    "name": "Contract: optional fields on lines",
-    "summary": "Set contract line fields as optional, so users can hide them",
-    "version": "14.0.1.0.1",
+    "name": "Contract: allow stopping lines before end of billing period",
+    "summary": "When stopping a contract line, the 'Last Date Invoiced' is ignored",
+    "version": "14.0.1.0.0",
     "category": "Contract Management",
     "website": "https://gitlab.com/tawasta/odoo/contract/",
     "author": "Tawasta",
@@ -29,5 +29,5 @@
     "application": False,
     "installable": True,
     "depends": ["contract"],
-    "data": ["views/contract_form.xml"],
+    "data": [],
 }
