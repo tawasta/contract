@@ -16,7 +16,4 @@ class Contract(models.Model):
     def _compute_membership_line_ids(self):
         for record in self:
             membership_line_ids = record.contract_line_ids.mapped("membership_line_ids")
-
-            print(membership_line_ids)
-
             record.membership_line_ids = membership_line_ids
