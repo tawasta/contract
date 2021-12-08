@@ -23,7 +23,11 @@ class ContractLine(models.Model):
         product = self.product_id
         contract_line = self.id
         contract_id = self.contract_id.id
-        available_variants = product.product_tmpl_id.product_variant_ids
+        # available_variants = product.product_tmpl_id.product_variant_ids
+        available_variants = self.env["product.template"].sudo().search([
+            ('id', '=', product.product_tmpl_id.id),
+            ('change_allowed', '=', True),
+        ]).mapped('product_variant_ids')
         view_id = self.env.ref(
             "contract_line_change_product_variant."
             "contract_line_change_product_variant_wizard"
