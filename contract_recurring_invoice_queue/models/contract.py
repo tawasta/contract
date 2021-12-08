@@ -1,4 +1,5 @@
 from odoo import api, fields, models
+from odoo import _
 
 
 class ContractContract(models.Model):
@@ -18,7 +19,10 @@ class ContractContract(models.Model):
             )
 
             for contract in contracts_to_invoice:
-                contract.with_delay()._recurring_create_invoice(date_ref)
+                job_desc = _("Create recurring invoices for {}".format(contract.name))
+                contract.with_delay(description=job_desc)._recurring_create_invoice(
+                    date_ref
+                )
 
         # The original method will return the created invoices, but as it's not possible here,
         # let's just return an empty recordset (so the result type is correct even when it's empty)

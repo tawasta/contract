@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-28 08:31+0000\n"
-"PO-Revision-Date: 2021-09-28 11:35+0300\n"
+"POT-Creation-Date: 2021-12-07 14:07+0000\n"
+"PO-Revision-Date: 2021-12-07 16:11+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -73,7 +73,7 @@ msgstr "Näyttönimi"
 #: model:ir.model.fields,field_description:contract_line_change_product_variant.field_contract_line__id
 #: model:ir.model.fields,field_description:contract_line_change_product_variant.field_contract_line_change_product_variant__id
 msgid "ID"
-msgstr "ID"
+msgstr ""
 
 #. module: contract_line_change_product_variant
 #: model:ir.model.fields,field_description:contract_line_change_product_variant.field_contract_line____last_update
@@ -107,6 +107,16 @@ msgid "Which product you want to switch to?"
 msgstr "Mihin tuotteeseen haluat vaihtaa?"
 
 #. module: contract_line_change_product_variant
+#: code:addons/contract_line_change_product_variant/wizards/contract_line_change_product_variant.py:0
+#, python-format
+msgid ""
+"You cannot change a contract line '%s' membership after Date of Next "
+"Invoice '%s'. Please create an invoice from this contract line "
+msgstr ""
+"Et voi vaihtaa sopimusrivin '%s' jäsenyyttä ennen Seuraavaa laskutuspäivää "
+"'%s'. Tarvitsee ensin luoda lasku tältä sopimusriviltä "
+
+#. module: contract_line_change_product_variant
 #: model:ir.model,name:contract_line_change_product_variant.model_contract_line_change_product_variant
 msgid "contract.line.change.product.variant"
-msgstr "contract.line.change.product.variant"
+msgstr ""
