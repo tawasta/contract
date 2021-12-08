@@ -28,7 +28,7 @@
     "license": "AGPL-3",
     "application": False,
     "installable": True,
-    "depends": ["contract", "product", "contract_invoice_address"],
+    "depends": ["contract", "product", "contract_invoice_address", "website_sale_payment_rules"],
     "data": [
         "security/ir.model.access.csv",
         "views/contract_view.xml",

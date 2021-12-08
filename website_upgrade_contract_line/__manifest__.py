@@ -33,6 +33,7 @@
         "account",
         "membership",
         "contract_line_change_product_variant",
+        "website_sale_payment_rules",
     ],
     "data": [
         "security/ir.model.access.csv",
