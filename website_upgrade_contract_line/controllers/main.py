@@ -27,7 +27,11 @@ class UpgradeContractLine(http.Controller):
         current_user = request.env.user
 
         current_line = request.env["contract.line"].search([("id", "=", line_id)])
-        products = current_line.product_id.product_tmpl_id.product_variant_ids
+        # products = current_line.product_id.product_tmpl_id.product_variant_ids
+        products = request.env["product.template"].sudo().search([
+            ('id', '=', current_line.product_id.product_tmpl_id.id),
+            ('change_allowed', '=', True),
+        ]).mapped('product_variant_ids')
         values = {"current_line": current_line, "products": products}
         line_html = ""
         if current_line:

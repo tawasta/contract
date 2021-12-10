@@ -1,6 +1,7 @@
 from datetime import datetime
 
-from odoo import fields, models
+from odoo import fields, models, _
+from odoo.exceptions import ValidationError
 
 
 class ContractLineChangeProductVariant(models.TransientModel):
@@ -29,7 +30,17 @@ class ContractLineChangeProductVariant(models.TransientModel):
         product = new_product_id or self.product_id
         old_product = contract_line and contract_line.product_id
         now_date = datetime.now()
-        recurring_date = contract.recurring_next_date or now_date.date()
+        recurring_date = contract_line.recurring_next_date or now_date.date()
+        if contract_line.recurring_next_date < now_date.date():
+            raise ValidationError(
+                _(
+                    "You cannot change a contract line '%s' membership after "
+                    "Date of Next Invoice '%s'. Please create an invoice from "
+                    "this contract line "
+                )
+                % (contract_line.name, contract_line.recurring_next_date)
+            )
+
         new_line_price = 0
         old_line_price = 0
 
@@ -62,7 +73,7 @@ class ContractLineChangeProductVariant(models.TransientModel):
             "name": product.display_name,
             "contract_id": contract.id,
             "recurring_next_date": recurring_date,
-            "date_start": recurring_date,
+            "date_start": now_date,
             "uom_id": contract_line.uom_id.id,
         }
 

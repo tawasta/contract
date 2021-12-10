@@ -21,14 +21,14 @@
 {
     "name": "Contract Line Change product variant",
     "summary": "Contract Line Change product variant",
-    "version": "14.0.1.0.0",
+    "version": "14.0.1.0.1",
     "category": "Contract Management",
     "website": "https://gitlab.com/tawasta/odoo/contract",
     "author": "Tawasta",
     "license": "AGPL-3",
     "application": False,
     "installable": True,
-    "depends": ["contract", "product", "contract_invoice_address"],
+    "depends": ["contract", "product", "contract_invoice_address", "website_sale_payment_rules"],
     "data": [
         "security/ir.model.access.csv",
         "views/contract_view.xml",
