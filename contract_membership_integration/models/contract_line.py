@@ -23,8 +23,7 @@ class ContractLine(models.Model):
     def _prepare_invoice_line(self, move_form):
         res = super()._prepare_invoice_line(move_form)
 
-        if self.product_id.membership:
-            # For memberships: add contract name to invoice line description
-            res["name"] = f"{self.contract_id.name} / {res['name']}"
+        # Add contract name to invoice line description
+        res["name"] = f"{self.contract_id.name} / {res['name']}"
 
         return res
