@@ -6,7 +6,8 @@
 Contract: integrate contract with membership
 =============================================
 
-Show memberships in contract, and end the membership if contract line is ended
+Show memberships in contract, and end the membership if contract line is ended.
+Use contract partner on membership lines, even if someone else is paying the invoice.
 
 Configuration
 =============
