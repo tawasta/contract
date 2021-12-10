@@ -21,3 +21,18 @@ class MembershipLine(models.Model):
                 rec.contract_line_id = rec.account_invoice_line.contract_line_id
             else:
                 rec.contract_line_id = False
+
+    @api.model
+    def create(self, vals):
+        # Override the partner: use contract partner if membership is created from a contract
+        if "account_invoice_line" in vals:
+            ail = (
+                self.env["account.move.line"]
+                .sudo()
+                .browse([vals["account_invoice_line"]])
+            )
+            if ail.contract_line_id:
+                vals["partner"] = ail.contract_line_id.contract_id.partner_id.id
+        res = super().create(vals)
+
+        return res
