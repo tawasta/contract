@@ -13,7 +13,7 @@
             <t t-if="line.state not in ['closed', 'upcoming-close']">
                 <td>
                     <button type="button" class="btn btn-primary btn-sm upgrade-line" t-att-data-line-id="line.id" data-toggle="modal" data-target="#upgradeModal">
-                        Upgrade contract line
+                        Change your membership product
                     </button>
                 </td>
             </t>
@@ -25,7 +25,7 @@
                         <form id="upgrade-line-form" t-attf-action="/contract/line/upgrade" method="post" enctype="multipart/form-data">
                             <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
                             <div class="modal-header">
-                                <h4 class="modal-title" id="upgrade_line_title">Upgrade contract line</h4>
+                                <h4 class="modal-title" id="upgrade_line_title">Change your membership product</h4>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-label="Close">&amp;times;</span>
                                 </button>
@@ -60,7 +60,7 @@
                             <label for="name">New product</label>
                             <select class="form-control input-lg" name="product_id" id="product_id" required="1">
                                 <option value="">
-                                    Select workplace...
+                                    Select product...
                                 </option>
                                 <t t-foreach="products" t-as="p">
                                     <option t-att-value="p.id"><t t-esc="p.name"/></option>
