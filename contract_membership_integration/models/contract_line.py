@@ -16,7 +16,7 @@ class ContractLine(models.Model):
         res = super().stop(date_end, manual_renew_needed, post_message)
 
         for rec in self:
-            rec.membership_line_ids.write({"date_to": date_end})
+            rec.membership_line_ids.sudo().write({"date_to": date_end})
 
         return res
 
