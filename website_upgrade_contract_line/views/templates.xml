@@ -63,7 +63,7 @@
                                     Select product...
                                 </option>
                                 <t t-foreach="products" t-as="p">
-                                    <option t-att-value="p.id"><t t-esc="p.name"/></option>
+                                    <option t-att-value="p.id">[<t t-esc="p.default_code"/>] <t t-esc="p.name" /></option>
                                 </t>
                             </select>
                         </div>
