@@ -8,15 +8,15 @@
             <div id="webmaster_settings" position="after">
                 <h2>Contracts: settings</h2>
                 <div class="row mt16 o_settings_container" id="website_sale_contract">
-                    <div class="col-12 col-lg-6 o_setting_box" id="website_sale_payment_contract_setting">
+                    <div class="col-12 col-lg-6 o_setting_box" id="website_sale_contract_setting">
                         <div class="o_setting_right_pane">
                             <div class="text-muted">
-                                Email
+                                Emails
                             </div>
                         </div>
                         <div class="content-group">
                             <div class="mt8">
-                                <field name="contract_email"/>
+                                <field name="contract_email_ids" widget="many2many_tags" options="{'no_create': True, 'no_open': True}"/>
                             </div>
                         </div>
                     </div>

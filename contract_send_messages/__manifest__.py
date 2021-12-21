@@ -19,8 +19,8 @@
 ##############################################################################
 
 {
-    "name": "Contract line emails",
-    "summary": "Contract line emails",
+    "name": "Contract line messages",
+    "summary": "Contract line messages",
     "category": "Contract Management",
     "version": "14.0.1.0.0",
     "website": "https://gitlab.com/tawasta/odoo/contract",
@@ -30,9 +30,9 @@
     "installable": True,
     "depends": [
         "contract",
-        # "contract_sale_generation",
+        "website",
     ],
     "data": [
-        "data/templates.xml"
+        "views/res_config_settings.xml"
     ],
 }
