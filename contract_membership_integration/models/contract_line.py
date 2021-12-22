@@ -26,4 +26,8 @@ class ContractLine(models.Model):
         # Add contract name to invoice line description
         res["name"] = f"{self.contract_id.name} / {res['name']}"
 
+        # If the product is a membership product, add the period
+        if self.product_id.membership:
+            res["name"] = f"{res['name']} {self.product_id.membership_date_from.year} "
+
         return res
