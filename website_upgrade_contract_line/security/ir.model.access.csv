@@ -10,3 +10,4 @@ access_account_move_portal,access_account_move_portal,account.model_account_move
 access_account_move_line_portal,access_account_move_line_portal,account.model_account_move_line,base.group_portal,1,1,1,0
 access_membership_line_portal,access_membership_line_portal,membership.model_membership_membership_line,base.group_portal,1,0,1,0
 access_res_partner_portal,access_res_partner_portal,base.model_res_partner,base.group_portal,1,0,0,0
+access_portal_payment_term_line,access_portal_payment_term_line_kanta,account.model_account_payment_term_line,base.group_portal,1,0,0,0

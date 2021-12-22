@@ -1,7 +1,7 @@
 ##############################################################################
 #
 #    Author: Oy Tawasta OS Technologies Ltd.
-#    Copyright 2021- Oy Tawasta OS Technologies Ltd. (https://tawasta.fi)
+#    Copyright 2019 Oy Tawasta OS Technologies Ltd. (https://tawasta.fi)
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -19,15 +19,15 @@
 ##############################################################################
 
 {
-    "name": "Contract: integrate contract with membership",
-    "summary": "Show memberships in contract, and end the membership if contract line is ended",
-    "version": "14.0.1.1.3",
+    "name": "Contract portal invoice address",
+    "summary": "Contract portal invoice address",
+    "version": "14.0.1.0.0",
     "category": "Contract Management",
-    "website": "https://gitlab.com/tawasta/odoo/contract/",
+    "website": "https://github.com/Tawasta/contract",
     "author": "Tawasta",
     "license": "AGPL-3",
     "application": False,
     "installable": True,
-    "depends": ["account", "contract", "membership"],
-    "data": ["views/contract.xml", "views/partner.xml"],
+    "depends": ["contract", "contract_invoice_address"],
+    "data": ["views/contract_portal_templates.xml"],
 }
