@@ -75,6 +75,8 @@ class ContractLineChangeProductVariant(models.TransientModel):
             "recurring_next_date": recurring_date,
             "date_start": now_date,
             "uom_id": contract_line.uom_id.id,
+            "recurring_interval": 1,
+            "recurring_rule_type": "monthly",
         }
 
         # Create a new contract line
