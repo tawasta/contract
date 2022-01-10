@@ -21,7 +21,7 @@
 {
     "name": "Contract line inline edit",
     "summary": "Allows editing non-fixed contract lines inline",
-    "version": "14.0.1.0.0",
+    "version": "14.0.1.0.1",
     "category": "Contract Management",
     "website": "https://gitlab.com/tawasta/odoo/contract/",
     "author": "Tawasta",
