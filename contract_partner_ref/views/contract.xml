@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="contract_contract_form_view_ref" model="ir.ui.view">
+        <field name="name">contract.contract.form.view.ref</field>
+        <field name="model">contract.contract</field>
+        <field name="inherit_id" ref="contract.contract_contract_form_view"/>
+        <field name="arch" type="xml">
+            <field name="partner_id" position="after">
+                <field name="ref"/>
+            </field>
+        </field>
+    </record>
+    <record id="contract_contract_tree_view_ref" model="ir.ui.view">
+        <field name="name">contract.contract.tree.view.ref</field>
+        <field name="model">contract.contract</field>
+        <field name="inherit_id" ref="contract.contract_contract_tree_view"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="ref"/>
+            </field>
+        </field>
+    </record>
+    <record id="contract_contract_search_view_ref" model="ir.ui.view">
+        <field name="name">contract.contract.search.view.ref</field>
+        <field name="model">contract.contract</field>
+        <field name="inherit_id" ref="contract.contract_contract_search_view"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="ref"/>
+            </field>
+        </field>
+    </record>
+</odoo>
