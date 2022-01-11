@@ -17,6 +17,7 @@
                     type="object"
                     icon="fa-external-link text-success"
                     optional="show"
+                    class="oe_read_only"
                 />
             </xpath>
 
