@@ -36,3 +36,15 @@ class MembershipLine(models.Model):
         res = super().create(vals)
 
         return res
+
+    def write(self, vals):
+        if vals.get("partner") and len(self) > 1:
+            for record in self:
+                if record.contract_line_id:
+                    record.partner = record.contract_line_id.contract_id.partner_id
+                else:
+                    record.partner = vals["partner"]
+
+            vals.pop("partner")
+
+        return super().write(vals)
