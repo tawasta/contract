@@ -11,6 +11,7 @@
                         <field name="recurring_interval"/>
                         <field name="recurring_rule_type"/>
                         <field name="payment_term_id" />
+                        <field name="user_id" />
                     </group>
                 </group>
             </xpath>
