@@ -33,3 +33,9 @@ class ContractTemplate(models.Model):
         required=True,
         index=True,
     )
+
+    user_id = fields.Many2one(
+        comodel_name="res.users",
+        string="Responsible",
+        index=True,
+    )
