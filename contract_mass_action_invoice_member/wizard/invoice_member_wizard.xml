@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record model="ir.actions.act_window" id="action_invoice_member_tree">
+        <field name="name">Invoice Member Without Company</field>
+        <field name="res_model">contract.mass.action.invoice.member.wizard</field>
+        <field name="binding_model_id" ref="contract.model_contract_contract"/>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+    <record model="ir.ui.view" id="contract_mass_action_invoice_member_form">
+        <field name="name">contract.mass.action.invoice.member.form</field>
+        <field name="model">contract.mass.action.invoice.member.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Invoice Member Without Company">
+                Invoice Member Without Company
+                <group><field name="contract_ids" nolabel="1" readonly="1"><tree string="Contracts"><field name="name"/><field name="partner_invoice_id"/></tree></field></group>
+                <footer><button string="Confirm" name="action_invoice_member" type="object" class="oe_highlight"/><button string="Cancel" class="oe_link" special="cancel"/></footer>
+            </form>
+        </field>
+    </record>
+</odoo>
