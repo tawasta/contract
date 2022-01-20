@@ -19,11 +19,12 @@
 ##############################################################################
 
 # 1. Standard library imports:
+import logging
 
 # 2. Known third party imports:
 
 # 3. Odoo imports (openerp):
-from odoo import fields, models
+from odoo import _, fields, models
 
 # 4. Imports from Odoo modules:
 
@@ -31,10 +32,12 @@ from odoo import fields, models
 
 # 6. Unknown third party imports:
 
+_logger = logging.getLogger(__name__)
+
 
 class InvoiceMemberWizard(models.TransientModel):
     # 1. Private attributes
-    _name = "contract.mass.action.invoice.member.wizard"
+    _name = "invoice.member.wizard"
     _description = "Action to set default invoice address and create new invoice"
 
     # 2. Fields declaration
@@ -56,6 +59,26 @@ class InvoiceMemberWizard(models.TransientModel):
 
     # 7. Action methods
     def action_invoice_member(self):
-        pass
+        for wizard in self:
+            for contract in wizard.contract_ids:
+                contract_line_names = []
+                # set invoice address as partner/member
+                contract.partner_invoice_id = contract.partner_id
+                for contract_line in contract.contract_line_fixed_ids:
+                    # check if contract line is not cancelled
+                    if contract_line.state in ["upcoming", "in-progress", "to-renew"]:
+                        # reset next invoicing date as today
+                        contract_line.recurring_next_date = fields.Date.today()
+                        contract_line_names.append(contract_line.name)
+                if contract_line_names:
+                    contract.recurring_next_date = fields.Date.today()
+                    _logger.info(
+                        _(
+                            "Following contract lines invoiced for a contract %s:\n%s",
+                            contract.name,
+                            contract_line_names,
+                        )
+                    )
+                contract.recurring_create_invoice()
 
     # 8. Business methods

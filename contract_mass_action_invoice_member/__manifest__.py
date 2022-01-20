@@ -29,5 +29,5 @@
     "application": False,
     "installable": True,
     "depends": ["contract"],
-    "data": ["wizard/invoice_member_wizard.xml"],
+    "data": ["wizard/invoice_member_wizard.xml", "security/ir.model.access.csv"],
 }
