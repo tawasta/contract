@@ -28,4 +28,21 @@
             </form>
         </field>
     </record>
+    <record model="ir.ui.view" id="contract_mass_action_invoice_member_form_log">
+        <field name="name">contract.mass.action.invoice.member.form.log</field>
+        <field name="model">invoice.member.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Invoice Member Without Company">
+                <group>
+                    <field name="successful_contract_line_ids"/>
+                </group>
+                <group>
+                    <field name="skipped_contract_line_ids"/>
+                </group>
+                <footer>
+                    <button string="Ok" class="oe_highlight" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
 </odoo>
