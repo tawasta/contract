@@ -30,7 +30,7 @@ class ContractLineChangeProductVariant(models.TransientModel):
         product = new_product_id or self.product_id
         old_product = contract_line and contract_line.product_id
         now_date = datetime.now()
-        recurring_date = contract_line.recurring_next_date or now_date.date()
+        contract_line.recurring_next_date = now_date.date()
         if contract_line.recurring_next_date < now_date.date():
             raise ValidationError(
                 _(
@@ -72,11 +72,12 @@ class ContractLineChangeProductVariant(models.TransientModel):
             "price_unit": product.lst_price,
             "name": product.display_name,
             "contract_id": contract.id,
-            "recurring_next_date": recurring_date,
+            "recurring_next_date": now_date,
             "date_start": now_date,
             "uom_id": contract_line.uom_id.id,
             "recurring_interval": 1,
-            "recurring_rule_type": "monthly",
+            "recurring_rule_type": "yearly",
+            "ignore_recurring_next_date": True,
         }
 
         # Create a new contract line
@@ -93,6 +94,7 @@ class ContractLineChangeProductVariant(models.TransientModel):
         account_move_line["price_unit"] = new_line_price
         invoice_vals["invoice_line_ids"] = []
         invoice_vals["invoice_line_ids"].append((0, 0, account_move_line))
+        invoice_vals["invoice_date"] = now_date
         invoice_values.append(invoice_vals)
         del invoice_vals["line_ids"]
         move_id = self.env["account.move"].sudo().create(invoice_values)
@@ -106,14 +108,7 @@ class ContractLineChangeProductVariant(models.TransientModel):
         new_contract_line.last_date_invoiced = now_date
 
         # Stop a previous contract line
-        if (
-            contract_line.last_date_invoiced
-            and now_date.date() >= contract_line.last_date_invoiced
-            or not contract_line.last_date_invoiced
-        ):
-            stop_date = now_date.date()
-        else:
-            stop_date = contract_line.last_date_invoiced
+        stop_date = now_date.date()
 
         contract_line.stop(stop_date)
 
