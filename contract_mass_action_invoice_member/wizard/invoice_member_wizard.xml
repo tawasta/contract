@@ -34,10 +34,30 @@
         <field name="arch" type="xml">
             <form string="Invoice Member Without Company">
                 <group>
-                    <field name="successful_contract_line_ids"/>
+                    <field name="successful_contract_line_ids">
+                        <tree>
+                            <field name="contract_id" optional="show"/>
+                            <field name="product_id" optional="show"/>
+                            <field name="quantity" optional="show"/>
+                            <field name="date_start" optional="show"/>
+                            <field name="date_end" optional="show"/>
+                            <field name="recurring_next_date" optional="show"/>
+                            <field name="last_date_invoiced" optional="show"/>
+                        </tree>
+                    </field>
                 </group>
                 <group>
-                    <field name="skipped_contract_line_ids"/>
+                    <field name="skipped_contract_line_ids">
+                        <tree>
+                            <field name="contract_id" optional="show"/>
+                            <field name="product_id" optional="show"/>
+                            <field name="quantity" optional="show"/>
+                            <field name="date_start" optional="show"/>
+                            <field name="date_end" optional="show"/>
+                            <field name="recurring_next_date" optional="show"/>
+                            <field name="last_date_invoiced" optional="show"/>
+                        </tree>
+                    </field>
                 </group>
                 <footer>
                     <button string="Ok" class="oe_highlight" special="cancel"/>
