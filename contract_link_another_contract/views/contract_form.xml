@@ -9,6 +9,20 @@
             <field name="partner_id" position="after">
                 <field name="related_contract_id" />
             </field>
+            <page name="info" position="after">
+                <page name="contracts" string="Contracts">
+                    <group>
+                        <field name="all_related_contract_ids" nolabel="1">
+                            <tree string="Contracts">
+                                <field name="name"/>
+                                <field name="partner_id"/>
+                                <field name="date_start" />
+                                <field name="date_end" />
+                            </tree>
+                        </field>
+                    </group>
+                </page>
+            </page>
         </field>
     </record>
 </odoo>
