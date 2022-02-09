@@ -22,7 +22,7 @@
     "name": "Contract: edit all lines",
     "summary": "Edit all contract lines at once",
     "category": "Contract Management",
-    "version": "14.0.1.0.0",
+    "version": "14.0.1.0.1",
     "website": "https://gitlab.com/tawasta/odoo/contract",
     "author": "Tawasta",
     "license": "AGPL-3",
