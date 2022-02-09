@@ -21,13 +21,13 @@
 {
     "name": "Contract Mass Action Invoice Member",
     "summary": "Mass action to set default invoice address and create a new invoice",
-    "version": "14.0.1.0.0",
+    "version": "14.0.1.0.1",
     "category": "Contract Management",
     "website": "https://gitlab.com/tawasta/odoo/contract",
     "author": "Tawasta",
     "license": "AGPL-3",
     "application": False,
     "installable": True,
-    "depends": ["contract"],
+    "depends": ["contract", "contract_invoice_address"],
     "data": ["wizard/invoice_member_wizard.xml", "security/ir.model.access.csv"],
 }
