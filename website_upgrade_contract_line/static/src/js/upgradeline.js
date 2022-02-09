@@ -1,9 +1,6 @@
 odoo.define('website_upgrade_contract_line.portal_contract_page', function (require) {
     "use strict";
 
-    var core = require('web.core');
-    var time = require('web.time');
-
     $(function() {
 
         $('#upgradeModal').on('show.bs.modal', function(e) {

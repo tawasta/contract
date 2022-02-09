@@ -1,4 +1,4 @@
-from odoo import models, _
+from odoo import _, models
 
 
 class ContractLine(models.Model):
@@ -7,7 +7,7 @@ class ContractLine(models.Model):
 
     def stop(self, date_end, manual_renew_needed=False, post_message=True):
         contracts = super().stop(date_end, manual_renew_needed=False, post_message=True)
-        odoobot = self.env.ref('base.partner_root')
+        odoobot = self.env.ref("base.partner_root")
         body = _('Contract line "%s" is stopped by contract.', self.id)
         self.contract_id.message_post(body=body, author_id=odoobot.id)
 
@@ -16,8 +16,10 @@ class ContractLine(models.Model):
     def change_product_variant(
         self, contract_id=None, new_product_id=None, contract_line=None
     ):
-        line = super().change_product_variant(contract_id=None, new_product_id=None, contract_line=None)
-        odoobot = self.env.ref('base.partner_root')
+        line = super().change_product_variant(
+            contract_id=None, new_product_id=None, contract_line=None
+        )
+        odoobot = self.env.ref("base.partner_root")
         body = _('Contract line "%s" has been updated by contract.', self.id)
         self.contract_id.message_post(body=body, author_id=odoobot.id)
 

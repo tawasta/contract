@@ -1,5 +1,4 @@
-from odoo import api, fields, models
-from odoo import _
+from odoo import _, api, fields, models
 
 
 class ContractContract(models.Model):
@@ -24,6 +23,7 @@ class ContractContract(models.Model):
                     date_ref
                 )
 
-        # The original method will return the created invoices, but as it's not possible here,
-        # let's just return an empty recordset (so the result type is correct even when it's empty)
+        # The original method will return the created invoices,
+        # but as it's not possible here, let's just return an empty recordset
+        # so the result type is correct even when it's empty
         return invoices

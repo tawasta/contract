@@ -1,5 +1,4 @@
-from odoo import fields
-from odoo import models
+from odoo import fields, models
 
 
 class ContractLine(models.Model):
@@ -21,9 +20,7 @@ class ContractLine(models.Model):
             partner = self.contract_id.partner_id
 
             rule = pricelist._compute_price_rule(
-                [(product, quantity, partner)],
-                fields.Date.context_today(self),
-                uom.id,
+                [(product, quantity, partner)], fields.Date.context_today(self), uom.id
             )
             if rule.get(product.id):
                 rule_id = rule[product.id][1]

@@ -1,6 +1,6 @@
 # 1. Standard library imports:
 import json
-from datetime import date, datetime
+from datetime import date
 
 from odoo import http
 from odoo.http import request
