@@ -2,10 +2,10 @@
    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
-=======================
-Contract Invoice Address
-=======================
-Add invoice address to contracts
+===================================
+Contract Mass Action Invoice Member
+===================================
+* Set default invoice address and create a new invoice
 
 Configuration
 =============
@@ -25,7 +25,6 @@ Credits
 Contributors
 ------------
 
-* Valtteri Lattu <valtteri.lattu@tawasta.fi>
 * Miika Nissi <miika.nissi@tawasta.fi>
 
 Maintainer
@@ -34,4 +33,5 @@ Maintainer
 .. image:: http://tawasta.fi/templates/tawastrap/images/logo.png
    :alt: Oy Tawasta OS Technologies Ltd.
    :target: http://tawasta.fi/
+
 This module is maintained by Oy Tawasta OS Technologies Ltd.

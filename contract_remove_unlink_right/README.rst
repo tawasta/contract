@@ -2,10 +2,11 @@
    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
-=======================
-Contract Invoice Address
-=======================
-Add invoice address to contracts
+============================
+Contract remove unlink right
+============================
+
+Contract remove unlink right
 
 Configuration
 =============
@@ -15,9 +16,10 @@ Usage
 =====
 \-
 
-Known issues / Roadmap
-======================
-\-
+Bug Tracker
+===========
+Bugs are tracked on `GitHub Issues
+<https://github.com/tawasta/contract/issues>`_.
 
 Credits
 =======
@@ -26,12 +28,12 @@ Contributors
 ------------
 
 * Valtteri Lattu <valtteri.lattu@tawasta.fi>
-* Miika Nissi <miika.nissi@tawasta.fi>
 
 Maintainer
 ----------
 
-.. image:: http://tawasta.fi/templates/tawastrap/images/logo.png
+.. image:: https://tawasta.fi/templates/tawastrap/images/logo.png
    :alt: Oy Tawasta OS Technologies Ltd.
-   :target: http://tawasta.fi/
+   :target: https://tawasta.fi/
+
 This module is maintained by Oy Tawasta OS Technologies Ltd.

@@ -1,9 +1,20 @@
-from odoo import fields, models
+from odoo import api, fields, models, _
+from odoo.exceptions import ValidationError
 
 
 class ContractLine(models.Model):
 
     _inherit = "contract.line"
+
+    ignore_recurring_next_date = fields.Boolean(default=False)
+
+    @api.constrains("recurring_next_date", "date_start")
+    def _check_recurring_next_date_start_date(self):
+        for line in self:
+            if line.ignore_recurring_next_date:
+                continue
+            else:
+                super(ContractLine, line)._check_recurring_next_date_start_date()
 
     def change_product_variant(
         self, contract_id=None, new_product_id=None, contract_line=None

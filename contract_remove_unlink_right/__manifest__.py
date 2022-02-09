@@ -19,15 +19,17 @@
 ##############################################################################
 
 {
-    "name": "Contract invoice address",
-    "summary": "Add invoice address to contracts",
+    "name": "Contract remove unlink right",
+    "summary": "Contract remove unlink right",
     "category": "Contract Management",
-    "version": "14.0.1.0.2",
+    "version": "14.0.1.0.0",
     "website": "https://gitlab.com/tawasta/odoo/contract",
     "author": "Tawasta",
     "license": "AGPL-3",
     "application": False,
     "installable": True,
-    "depends": ["contract"],
-    "data": ["views/contract_form.xml", "views/contract_line.xml"],
+    "depends": [
+        "contract",
+    ],
+    "data": ["security/ir.model.access.csv"],
 }
