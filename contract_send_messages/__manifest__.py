@@ -28,11 +28,6 @@
     "license": "AGPL-3",
     "application": False,
     "installable": True,
-    "depends": [
-        "contract",
-        "website",
-    ],
-    "data": [
-        "views/res_config_settings.xml"
-    ],
+    "depends": ["contract", "website"],
+    "data": ["views/res_config_settings.xml"],
 }

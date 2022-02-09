@@ -1,5 +1,4 @@
-from odoo import api, fields, models, _
-from odoo.exceptions import ValidationError
+from odoo import api, fields, models
 
 
 class ContractLine(models.Model):
@@ -21,9 +20,7 @@ class ContractLine(models.Model):
     ):
         """ This function is callable inside other models. """
         if contract_id and new_product_id and contract_line:
-            wiz = self.env[
-                "contract.line.change.product.variant"
-            ].change_product_variant(
+            self.env["contract.line.change.product.variant"].change_product_variant(
                 contract_id=contract_id,
                 new_product_id=new_product_id,
                 contract_line=contract_line,
@@ -35,10 +32,14 @@ class ContractLine(models.Model):
         contract_line = self.id
         contract_id = self.contract_id.id
         # available_variants = product.product_tmpl_id.product_variant_ids
-        available_variants = self.env["product.template"].sudo().search([
-            ('id', '=', product.product_tmpl_id.id),
-            ('change_allowed', '=', True),
-        ]).mapped('product_variant_ids')
+        available_variants = (
+            self.env["product.template"]
+            .sudo()
+            .search(
+                [("id", "=", product.product_tmpl_id.id), ("change_allowed", "=", True)]
+            )
+            .mapped("product_variant_ids")
+        )
         view_id = self.env.ref(
             "contract_line_change_product_variant."
             "contract_line_change_product_variant_wizard"

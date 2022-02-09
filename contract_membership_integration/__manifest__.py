@@ -20,7 +20,8 @@
 
 {
     "name": "Contract: integrate contract with membership",
-    "summary": "Show memberships in contract, and end the membership if contract line is ended",
+    "summary": "Show memberships in contract, "
+    "and end the membership if contract line is ended",
     "version": "14.0.1.3.0",
     "category": "Contract Management",
     "website": "https://gitlab.com/tawasta/odoo/contract/",

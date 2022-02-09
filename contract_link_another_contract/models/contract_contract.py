@@ -16,21 +16,31 @@ class Contract(models.Model):
         comodel_name="contract.contract",
         relation="all_related_contracts_rel",
         string="All related batches",
-        compute="_get_contracts",
+        compute="_compute_all_related_contract_ids",
         readonly=True,
     )
 
-    def _get_contracts(self):
+    def _compute_all_related_contract_ids(self):
         for record in self:
-            all_contracts_related = self.env["contract.contract"].sudo().search([
-                ('related_contract_id', '=', record.id)
-            ])
+            all_contracts_related = (
+                self.env["contract.contract"]
+                .sudo()
+                .search([("related_contract_id", "=", record.id)])
+            )
             if record.partner_id.is_company:
-                company_contracts = self.env["contract.contract"].sudo().search([
-                    ('partner_invoice_id', '=', record.partner_id.id),
-                    ('partner_id.is_company', '=', False),
-                ])
+                company_contracts = (
+                    self.env["contract.contract"]
+                    .sudo()
+                    .search(
+                        [
+                            ("partner_invoice_id", "=", record.partner_id.id),
+                            ("partner_id.is_company", "=", False),
+                        ]
+                    )
+                )
 
-                record.all_related_contract_ids = all_contracts_related + company_contracts
+                record.all_related_contract_ids = (
+                    all_contracts_related + company_contracts
+                )
             else:
                 record.all_related_contract_ids = all_contracts_related

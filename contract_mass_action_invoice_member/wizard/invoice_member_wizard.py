@@ -21,10 +21,11 @@
 # 1. Standard library imports:
 import logging
 
-# 2. Known third party imports:
-
 # 3. Odoo imports (openerp):
 from odoo import _, fields, models
+
+# 2. Known third party imports:
+
 
 # 4. Imports from Odoo modules:
 
@@ -80,7 +81,8 @@ class InvoiceMemberWizard(models.TransientModel):
                     skip_contract_line = False
                     # check if contract line is not cancelled
                     if contract_line.state in ["upcoming", "in-progress", "to-renew"]:
-                        # skip contract_line if contract_line product membership date end matches with
+                        # Skip contract_line if contract_line product
+                        # membership date end matches with
                         # a paid membership_line date end
                         if any(
                             contract_line.product_id == membership_line.membership_id
@@ -91,8 +93,8 @@ class InvoiceMemberWizard(models.TransientModel):
                         ):
                             skip_contract_line = True
                             skipped_contract_lines += contract_line
-                        # if any line lis not skipped reset next_invoicing date as today and
-                        # run contract.recurring_create_invoice()
+                        # If any line lis not skipped reset next_invoicing date as today
+                        # and run contract.recurring_create_invoice()
                         if not skip_contract_line:
                             skip_contract = False
                             contract_line.recurring_next_date = fields.Date.today()

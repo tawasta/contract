@@ -1,6 +1,4 @@
-from odoo import api
-from odoo import fields
-from odoo import models
+from odoo import api, fields, models
 
 
 class MembershipLine(models.Model):
@@ -24,7 +22,8 @@ class MembershipLine(models.Model):
 
     @api.model
     def create(self, vals):
-        # Override the partner: use contract partner if membership is created from a contract
+        # Override the partner:
+        # Use contract partner if membership is created from a contract
         if "account_invoice_line" in vals:
             ail = (
                 self.env["account.move.line"]
