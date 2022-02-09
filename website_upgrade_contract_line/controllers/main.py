@@ -1,6 +1,5 @@
 # 1. Standard library imports:
 import json
-from datetime import date, datetime
 
 from odoo import http
 from odoo.http import request
@@ -24,14 +23,20 @@ class UpgradeContractLine(http.Controller):
         :param line_id: Contract line ID
         :return: JSON
         """
-        current_user = request.env.user
 
         current_line = request.env["contract.line"].search([("id", "=", line_id)])
         # products = current_line.product_id.product_tmpl_id.product_variant_ids
-        products = request.env["product.template"].sudo().search([
-            ('id', '=', current_line.product_id.product_tmpl_id.id),
-            ('change_allowed', '=', True),
-        ]).mapped('product_variant_ids')
+        products = (
+            request.env["product.template"]
+            .sudo()
+            .search(
+                [
+                    ("id", "=", current_line.product_id.product_tmpl_id.id),
+                    ("change_allowed", "=", True),
+                ]
+            )
+            .mapped("product_variant_ids")
+        )
         values = {"current_line": current_line, "products": products}
         line_html = ""
         if current_line:
@@ -57,7 +62,7 @@ class UpgradeContractLine(http.Controller):
             .sudo()
             .search([("id", "=", post.get("product_id"))])
         )
-        updateline = request.env["contract.line"].change_product_variant(
+        request.env["contract.line"].change_product_variant(
             line.contract_id, product, line
         )
 

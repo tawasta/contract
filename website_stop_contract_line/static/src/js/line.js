@@ -1,8 +1,6 @@
 odoo.define('website_stop_contract_line.portal_contract_page', function (require) {
     "use strict";
 
-    var _t = require('web.core')._t;
-
     $(function() {
 
         $('#cancelModal').on('show.bs.modal', function(e) {

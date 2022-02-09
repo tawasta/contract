@@ -3,9 +3,10 @@
    :alt: License: AGPL-3
 
 ========================
-Contract Invoice Address
+Contract: edit all lines
 ========================
-Add invoice address to contracts
+
+Edit all contract lines at once
 
 Configuration
 =============
@@ -15,9 +16,10 @@ Usage
 =====
 \-
 
-Known issues / Roadmap
-======================
-\-
+Bug Tracker
+===========
+Bugs are tracked on `GitHub Issues
+<https://github.com/tawasta/contract/issues>`_.
 
 Credits
 =======
@@ -25,8 +27,7 @@ Credits
 Contributors
 ------------
 
-* Valtteri Lattu <valtteri.lattu@tawasta.fi>
-* Miika Nissi <miika.nissi@tawasta.fi>
+* Jarmo Kortetjärvi <jarmo.kortetjarvi@tawasta.fi>
 
 Maintainer
 ----------
