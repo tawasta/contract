@@ -75,6 +75,7 @@ class InvoiceMemberWizard(models.TransientModel):
             skipped_contract_lines = self.env["contract.line"]
             successful_contract_lines = self.env["contract.line"]
             for contract in wizard.contract_ids:
+                contract.partner_invoice_id = contract.partner_id
                 skip_contract = True
                 for contract_line in contract.contract_line_fixed_ids:
                     skip_contract_line = False
@@ -101,7 +102,6 @@ class InvoiceMemberWizard(models.TransientModel):
                 # and run contract.recurring_create_invoice()
                 if not skip_contract:
                     # set invoice address as partner/member
-                    contract.partner_invoice_id = contract.partner_id
                     contract.recurring_next_date = fields.Date.today()
                     contract.recurring_create_invoice()
             _logger.info(
