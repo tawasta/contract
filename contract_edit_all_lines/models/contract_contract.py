@@ -13,8 +13,7 @@ class Contract(models.Model):
     def onchange_set_recurring_next_date(self):
         for record in self:
             if record.line_recurrence and record.set_recurring_next_date:
-                record.contract_line_ids.write(
-                    {"recurring_next_date": record.set_recurring_next_date}
-                )
+                for line in record.contract_line_ids:
+                    line.recurring_next_date = record.set_recurring_next_date
                 # Set the helper field as empty to prevent misunderstandings
                 record.set_recurring_next_date = False
