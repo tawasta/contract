@@ -73,11 +73,12 @@ class Partner(models.Model):
                 mline.state
                 for mline in partner.member_lines
                 if (mline.date_to or date.min) >= today >= (mline.date_from or date.min)
-                and mline.account_invoice_line.move_id.partner_id == partner
-                or (
+                and partner
+                in [
                     mline.contract_line_id
-                    and mline.contract_line_id.partner_id == partner
-                )
+                    and mline.contract_line_id.partner_id
+                    or mline.account_invoice_line.move_id.partner_id
+                ]
             ]
 
             if "paid" in line_states:
