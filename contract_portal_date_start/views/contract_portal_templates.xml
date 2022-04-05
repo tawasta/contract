@@ -10,4 +10,22 @@
             </td>
         </xpath>
     </template>
+    <template id="portal_contract_page_date_start" inherit_id="contract.portal_contract_page" name="Show Date Start" active="True" customize_show="True">
+        <xpath expr="//th[@name='th_recurring_next_date']" position="before">
+            <th
+                name="th_start_sale_date"
+                class="text-right"
+            >Date start</th>
+        </xpath>
+        <xpath expr="//td[@name='td_recurring_next_date']" position="before">
+            <td
+                name="td_start_sale_date"
+                class="text-right"
+            >
+                <span
+                    t-field="line.date_start"
+                />
+            </td>
+        </xpath>
+    </template>
 </odoo>

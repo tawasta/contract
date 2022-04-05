@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-04 14:52+0000\n"
-"PO-Revision-Date: 2022-04-04 14:52+0000\n"
+"POT-Creation-Date: 2022-04-05 14:31+0000\n"
+"PO-Revision-Date: 2022-04-05 14:31+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,6 +16,7 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: contract_portal_date_start
+#: model_terms:ir.ui.view,arch_db:contract_portal_date_start.portal_contract_page_date_start
 #: model_terms:ir.ui.view,arch_db:contract_portal_date_start.portal_my_contracts_date_start
 msgid "Date start"
 msgstr "Liittymispäivä"
