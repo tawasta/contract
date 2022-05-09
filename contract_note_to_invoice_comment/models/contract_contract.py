@@ -7,7 +7,7 @@ class ContractContract(models.Model):
 
     def _prepare_invoice(self, *args, **kwargs):
         res = super()._prepare_invoice(*args, **kwargs)
-        comment = res.get("comment", "")
+        comment = res[0].get("comment", "")
         if self.note:
             res["comment"] = "{}{}{}".format(
                 self.note, "\n" if comment else "", comment
