@@ -23,7 +23,7 @@
     "summary": "Allow using pricelists for computing line cost on contracts",
     "version": "14.0.1.1.0",
     "category": "Contract Management",
-    "website": "https://gitlab.com/tawasta/odoo/contract/",
+    "website": "https://gitlab.com/tawasta/odoo/contract",
     "author": "Tawasta",
     "license": "AGPL-3",
     "application": False,

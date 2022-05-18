@@ -24,7 +24,7 @@
     "and end the membership if contract line is ended",
     "version": "14.0.1.3.2",
     "category": "Contract Management",
-    "website": "https://gitlab.com/tawasta/odoo/contract/",
+    "website": "https://gitlab.com/tawasta/odoo/contract",
     "author": "Tawasta",
     "license": "AGPL-3",
     "application": False,

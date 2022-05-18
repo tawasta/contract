@@ -1,30 +1,37 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
-    <template id="portal_my_contracts_date_start" inherit_id="contract.portal_my_contracts" name="Show Date Start" active="True" customize_show="True">
+    <template
+    id="portal_my_contracts_date_start"
+    inherit_id="contract.portal_my_contracts"
+    name="Show Date Start"
+    active="True"
+    customize_show="True"
+  >
         <xpath expr="//thead//tr//th[1]" position="after">
-            <th class="d-none d-md-table-cell" id="th-date-start">Date start</th>
+            <th
+        class="d-none d-md-table-cell"
+        id="th-date-start"
+      >Date start</th>
         </xpath>
         <xpath expr="//tbody//t//tr//td[1]" position="after">
             <td class="d-none d-md-table-cell" id="td-date_start">
-                <span t-field="contract.date_start"/>
+                <span t-field="contract.date_start" />
             </td>
         </xpath>
     </template>
-    <template id="portal_contract_page_date_start" inherit_id="contract.portal_contract_page" name="Show Date Start" active="True" customize_show="True">
+    <template
+    id="portal_contract_page_date_start"
+    inherit_id="contract.portal_contract_page"
+    name="Show Date Start"
+    active="True"
+    customize_show="True"
+  >
         <xpath expr="//th[@name='th_recurring_next_date']" position="before">
-            <th
-                name="th_start_sale_date"
-                class="text-right"
-            >Date start</th>
+            <th name="th_start_sale_date" class="text-right">Date start</th>
         </xpath>
         <xpath expr="//td[@name='td_recurring_next_date']" position="before">
-            <td
-                name="td_start_sale_date"
-                class="text-right"
-            >
-                <span
-                    t-field="line.date_start"
-                />
+            <td name="td_start_sale_date" class="text-right">
+                <span t-field="line.date_start" />
             </td>
         </xpath>
     </template>

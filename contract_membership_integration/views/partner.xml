@@ -1,13 +1,15 @@
-<?xml version="1.0" encoding="utf-8"?>
-
+<?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <record id="view_partner_form" model="ir.ui.view">
         <field name="name">Partner membership: contract line</field>
         <field name="model">res.partner</field>
-        <field name="inherit_id" ref="membership.view_partner_form"/>
+        <field name="inherit_id" ref="membership.view_partner_form" />
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='member_lines']/tree/field[@name='state']" position="after">
-                <field name="contract_line_id" optional="hide"/>
+            <xpath
+        expr="//field[@name='member_lines']/tree/field[@name='state']"
+        position="after"
+      >
+                <field name="contract_line_id" optional="hide" />
             </xpath>
         </field>
     </record>

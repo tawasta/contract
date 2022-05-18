@@ -126,7 +126,8 @@ class InvoiceMemberWizard(models.TransientModel):
                 "views": [
                     (
                         self.env.ref(
-                            "contract_mass_action_invoice_member.contract_mass_action_invoice_member_form_log"
+                            "contract_mass_action_invoice_member."
+                            "contract_mass_action_invoice_member_form_log"
                         ).id,
                         "form",
                     )
