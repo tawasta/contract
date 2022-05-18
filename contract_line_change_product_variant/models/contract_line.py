@@ -18,7 +18,7 @@ class ContractLine(models.Model):
     def change_product_variant(
         self, contract_id=None, new_product_id=None, contract_line=None
     ):
-        """ This function is callable inside other models. """
+        """This function is callable inside other models."""
         if contract_id and new_product_id and contract_line:
             self.env["contract.line.change.product.variant"].change_product_variant(
                 contract_id=contract_id,

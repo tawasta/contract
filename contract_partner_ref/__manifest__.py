@@ -23,7 +23,7 @@
     "summary": "Contract Partner Ref",
     "version": "14.0.1.0.0",
     "category": "Sales",
-    "website": "https://gitlab.com/tawasta/odoo/contract/",
+    "website": "https://gitlab.com/tawasta/odoo/contract",
     "author": "Tawasta",
     "license": "AGPL-3",
     "application": False,

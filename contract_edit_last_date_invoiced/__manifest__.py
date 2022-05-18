@@ -23,7 +23,7 @@
     "summary": "Allows editing last invoiced date (in case of refunds etc.)",
     "version": "14.0.1.0.2",
     "category": "Contract Management",
-    "website": "https://gitlab.com/tawasta/odoo/contract/",
+    "website": "https://gitlab.com/tawasta/odoo/contract",
     "author": "Tawasta",
     "license": "AGPL-3",
     "application": False,

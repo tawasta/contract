@@ -21,9 +21,9 @@ class ContractLineChangeProductVariant(models.TransientModel):
     def change_product_variant(
         self, contract_id=None, new_product_id=None, contract_line=None
     ):
-        """ This function creates a new contract line and a new invoice with
+        """This function creates a new contract line and a new invoice with
         appropriate values based on a chosen product and the old contract
-        line. """
+        line."""
 
         contract = contract_id or self.contract_id
         contract_line = contract_line or self.contract_line

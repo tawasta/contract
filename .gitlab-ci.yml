@@ -1,21 +1,10 @@
-image: odoo:latest
+image: python:3.8.5
 
 stages:
-  - build
   - test
 
-cache:
-  paths:
-    - node_modules/
-
-install_dependencies:
-  stage: build
-  script:
-    - npm install
-  artifacts:
-    paths:
-      - node_modules/
-
-test_with_lab:
+code-check:
   stage: test
-  script: npm test
+  script:
+    - pip3 install pre-commit
+    - pre-commit run --all-files
