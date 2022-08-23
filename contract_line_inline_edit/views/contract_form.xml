@@ -6,24 +6,21 @@
         <field name="inherit_id" ref="contract.contract_contract_form_view" />
         <field name="arch" type="xml">
 
-            <xpath
-        expr="//field[@name='contract_line_ids']/tree"
-        position="attributes"
-      >
+            <xpath expr="//field[@name='contract_line_ids']/tree" position="attributes">
                 <attribute name="editable">bottom</attribute>
             </xpath>
 
             <xpath
-        expr="//field[@name='contract_line_ids']/tree/field[@name='last_date_invoiced']"
-        position="after"
-      >
+                expr="//field[@name='contract_line_ids']/tree/field[@name='last_date_invoiced']"
+                position="after"
+            >
                 <button
-          name="action_open_line"
-          type="object"
-          icon="fa-external-link text-success"
-          optional="show"
-          class="oe_read_only"
-        />
+                    name="action_open_line"
+                    type="object"
+                    icon="fa-external-link text-success"
+                    optional="show"
+                    class="oe_read_only"
+                />
             </xpath>
 
         </field>

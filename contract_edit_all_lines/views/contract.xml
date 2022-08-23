@@ -9,10 +9,10 @@
                 <group name="set_line_values">
                     <group>
                         <field
-              name="set_recurring_next_date"
-              class="oe_edit_only"
-              attrs="{'invisible': [('line_recurrence', '=', False)]}"
-            />
+                            name="set_recurring_next_date"
+                            class="oe_edit_only"
+                            attrs="{'invisible': [('line_recurrence', '=', False)]}"
+                        />
                     </group>
                     <group />
                 </group>

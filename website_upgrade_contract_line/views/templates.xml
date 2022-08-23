@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <template
-    id="assets_frontend"
-    inherit_id="website.assets_frontend"
-    name="Upgrade contract line js"
-  >
+        id="assets_frontend"
+        inherit_id="website.assets_frontend"
+        name="Upgrade contract line js"
+    >
         <xpath expr="//script[last()]" position="after">
             <script
-        type="text/javascript"
-        src="/website_upgrade_contract_line/static/src/js/upgradeline.js"
-      />
+                type="text/javascript"
+                src="/website_upgrade_contract_line/static/src/js/upgradeline.js"
+            />
         </xpath>
     </template>
     <template
-    id="portal_contract_page"
-    inherit_id="website_stop_contract_line.portal_contract_page"
-    name="Upgrade contract"
-    customize_show="True"
-    active="True"
-  >
+        id="portal_contract_page"
+        inherit_id="website_stop_contract_line.portal_contract_page"
+        name="Upgrade contract"
+        customize_show="True"
+        active="True"
+    >
         <xpath expr="//th[@name='th_stop_line']" position="after">
             <th name="th_upgrade_line" class="text-right" />
         </xpath>
@@ -26,12 +26,12 @@
             <t t-if="line.state not in ['closed', 'upcoming-close']">
                 <td>
                     <button
-            type="button"
-            class="btn btn-primary btn-sm upgrade-line"
-            t-att-data-line-id="line.id"
-            data-toggle="modal"
-            data-target="#upgradeModal"
-          >
+                        type="button"
+                        class="btn btn-primary btn-sm upgrade-line"
+                        t-att-data-line-id="line.id"
+                        data-toggle="modal"
+                        data-target="#upgradeModal"
+                    >
                         Change your membership product
                     </button>
                 </td>
@@ -42,27 +42,27 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <form
-              id="upgrade-line-form"
-              t-attf-action="/contract/line/upgrade"
-              method="post"
-              enctype="multipart/form-data"
-            >
+                            id="upgrade-line-form"
+                            t-attf-action="/contract/line/upgrade"
+                            method="post"
+                            enctype="multipart/form-data"
+                        >
                             <input
-                type="hidden"
-                name="csrf_token"
-                t-att-value="request.csrf_token()"
-              />
+                                type="hidden"
+                                name="csrf_token"
+                                t-att-value="request.csrf_token()"
+                            />
                             <div class="modal-header">
                                 <h4
-                  class="modal-title"
-                  id="upgrade_line_title"
-                >Change your membership product</h4>
+                                    class="modal-title"
+                                    id="upgrade_line_title"
+                                >Change your membership product</h4>
                                 <button
-                  type="button"
-                  class="close"
-                  data-dismiss="modal"
-                  aria-label="Close"
-                >
+                                    type="button"
+                                    class="close"
+                                    data-dismiss="modal"
+                                    aria-label="Close"
+                                >
                                     <span aria-label="Close">&amp;times;</span>
                                 </button>
                             </div>
@@ -71,27 +71,27 @@
                                     <div id="div_upgrade_line" />
                                 </div>
                                 <input
-                  type="hidden"
-                  id="upgrade_line_id"
-                  name="upgrade_line_id"
-                />
+                                    type="hidden"
+                                    id="upgrade_line_id"
+                                    name="upgrade_line_id"
+                                />
                             </div>
                             <div class="modal-footer">
                                 <button
-                  type="button"
-                  class="btn btn-default"
-                  data-dismiss="modal"
-                >Cancel</button>
+                                    type="button"
+                                    class="btn btn-default"
+                                    data-dismiss="modal"
+                                >Cancel</button>
                                 <input
-                  type="hidden"
-                  name="return_url"
-                  t-att-value="request.httprequest.path"
-                />
+                                    type="hidden"
+                                    name="return_url"
+                                    t-att-value="request.httprequest.path"
+                                />
                                 <button
-                  id="accept-agreement"
-                  class="btn btn-primary"
-                  type="submit"
-                >Accept</button>
+                                    id="accept-agreement"
+                                    class="btn btn-primary"
+                                    type="submit"
+                                >Accept</button>
                             </div>
                         </form>
                     </div>
@@ -107,24 +107,24 @@
                     <div class="row">
                         <div class="form-group col-md-12">
                             <span>Current product <t
-                  t-esc="current_line.product_id.name"
-                /></span>
+                                    t-esc="current_line.product_id.name"
+                                /></span>
                         </div>
                         <div class="form-group col-md-12">
                             <label for="name">New product</label>
                             <select
-                class="form-control input-lg"
-                name="product_id"
-                id="product_id"
-                required="1"
-              >
+                                class="form-control input-lg"
+                                name="product_id"
+                                id="product_id"
+                                required="1"
+                            >
                                 <option value="">
                                     Select product...
                                 </option>
                                 <t t-foreach="products" t-as="p">
                                     <option t-att-value="p.id">[<t
-                      t-esc="p.default_code"
-                    />] <t t-esc="p.name" /></option>
+                                            t-esc="p.default_code"
+                                        />] <t t-esc="p.name" /></option>
                                 </t>
                             </select>
                         </div>

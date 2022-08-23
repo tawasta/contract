@@ -7,25 +7,25 @@
         <field name="arch" type="xml">
 
             <xpath
-        expr="//field[@name='contract_line_ids']/tree/field[@name='last_date_invoiced']"
-        position="after"
-      >
+                expr="//field[@name='contract_line_ids']/tree/field[@name='last_date_invoiced']"
+                position="after"
+            >
                 <field
-          name="membership_line_ids"
-          optional="hide"
-          widget="many2many_tags"
-        />
+                    name="membership_line_ids"
+                    optional="hide"
+                    widget="many2many_tags"
+                />
             </xpath>
 
             <xpath
-        expr="//field[@name='contract_line_fixed_ids']/tree/field[@name='last_date_invoiced']"
-        position="after"
-      >
+                expr="//field[@name='contract_line_fixed_ids']/tree/field[@name='last_date_invoiced']"
+                position="after"
+            >
                 <field
-          name="membership_line_ids"
-          optional="hide"
-          widget="many2many_tags"
-        />
+                    name="membership_line_ids"
+                    optional="hide"
+                    widget="many2many_tags"
+                />
             </xpath>
 
             <page name="recurring_invoice_line" position="after">

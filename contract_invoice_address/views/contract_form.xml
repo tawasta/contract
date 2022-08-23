@@ -7,9 +7,9 @@
         <field name="arch" type="xml">
             <field name="partner_id" position="after">
                 <field
-          name="partner_invoice_id"
-          groups="sale.group_delivery_invoice_address"
-        />
+                    name="partner_invoice_id"
+                    groups="sale.group_delivery_invoice_address"
+                />
             </field>
         </field>
     </record>
