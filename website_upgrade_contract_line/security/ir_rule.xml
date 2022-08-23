@@ -3,8 +3,8 @@
     <function name="write" model="ir.model.data">
         <function name="search" model="ir.model.data">
             <value
-        eval="[('module', '=', 'account'), ('name', '=', 'account_invoice_line_rule_portal')]"
-      />
+                eval="[('module', '=', 'account'), ('name', '=', 'account_invoice_line_rule_portal')]"
+            />
         </function>
         <value eval="{'noupdate': False}" />
     </function>
@@ -12,16 +12,16 @@
         <field name="name">Portal Invoice Lines</field>
         <field name="model_id" ref="account.model_account_move_line" />
         <field
-      name="domain_force"
-    >[('move_id.move_type', 'in', ('out_invoice', 'out_refund', 'in_invoice', 'in_refund')), '|', ('move_id.invoice_user_id', '=', user.id), ('move_id.invoice_user_id', '=', False)]</field>
+            name="domain_force"
+        >[('move_id.move_type', 'in', ('out_invoice', 'out_refund', 'in_invoice', 'in_refund')), '|', ('move_id.invoice_user_id', '=', user.id), ('move_id.invoice_user_id', '=', False)]</field>
         <field name="groups" eval="[(4, ref('base.group_portal'))]" />
     </record>
 
     <function name="write" model="ir.model.data">
         <function name="search" model="ir.model.data">
             <value
-        eval="[('module', '=', 'account'), ('name', '=', 'account_invoice_rule_portal')]"
-      />
+                eval="[('module', '=', 'account'), ('name', '=', 'account_invoice_rule_portal')]"
+            />
         </function>
         <value eval="{'noupdate': False}" />
     </function>
@@ -29,27 +29,27 @@
         <field name="name">Portal Personal Account Invoices</field>
         <field name="model_id" ref="account.model_account_move" />
         <field
-      name="domain_force"
-    >[('move_type', 'in', ('out_invoice', 'out_refund', 'in_invoice', 'in_refund')), ('invoice_user_id', '=', user.id)]</field>
+            name="domain_force"
+        >[('move_type', 'in', ('out_invoice', 'out_refund', 'in_invoice', 'in_refund')), ('invoice_user_id', '=', user.id)]</field>
         <field name="groups" eval="[(4, ref('base.group_portal'))]" />
     </record>
 
     <function name="write" model="ir.model.data">
         <function name="search" model="ir.model.data">
             <value
-        eval="[('module', '=', 'base'), ('name', '=', 'res_partner_portal_public_rule')]"
-      />
+                eval="[('module', '=', 'base'), ('name', '=', 'res_partner_portal_public_rule')]"
+            />
         </function>
         <value eval="{'noupdate': False}" />
     </function>
     <record model="ir.rule" id="base.res_partner_portal_public_rule">
         <field
-      name="name"
-    >res_partner: portal/public: read access on my commercial partner</field>
+            name="name"
+        >res_partner: portal/public: read access on my commercial partner</field>
         <field name="model_id" ref="base.model_res_partner" />
         <field
-      name="domain_force"
-    >[('id', 'child_of', user.commercial_partner_id.id)]</field>
+            name="domain_force"
+        >[('id', 'child_of', user.commercial_partner_id.id)]</field>
         <field name="groups" eval="[(6, 0, [ref('base.group_public')])]" />
         <field name="perm_create" eval="False" />
         <field name="perm_unlink" eval="False" />
@@ -60,8 +60,8 @@
         <field name="name">res_partner: portal: access to partners</field>
         <field name="model_id" ref="base.model_res_partner" />
         <field
-      name="domain_force"
-    >['|', ('type', '!=', 'private'), ('type', '=', False)]</field>
+            name="domain_force"
+        >['|', ('type', '!=', 'private'), ('type', '=', False)]</field>
         <field name="groups" eval="[(4, ref('base.group_portal'))]" />
         <field name="perm_create" eval="False" />
         <field name="perm_unlink" eval="False" />

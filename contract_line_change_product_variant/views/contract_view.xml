@@ -1,37 +1,35 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
     <record id="contract_contract_form_view" model="ir.ui.view">
-        <field
-      name="name"
-    >contract.contract.form.view.change.product.variant</field>
+        <field name="name">contract.contract.form.view.change.product.variant</field>
         <field name="model">contract.contract</field>
         <field name="inherit_id" ref="contract.contract_contract_form_view" />
         <field name="arch" type="xml">
             <xpath
-        expr="//field[@name='contract_line_fixed_ids']//field[@name='is_canceled']"
-        position="after"
-      >
+                expr="//field[@name='contract_line_fixed_ids']//field[@name='is_canceled']"
+                position="after"
+            >
                 <field name="state" invisible="1" />
                 <button
-          name="change_product_variant_wizard"
-          type="object"
-          string="Change Membership"
-          attrs="{'invisible': [('state', 'not in', ['upcoming','in-progress','to-renew'])]}"
-          class="oe_highlight"
-        />
+                    name="change_product_variant_wizard"
+                    type="object"
+                    string="Change Membership"
+                    attrs="{'invisible': [('state', 'not in', ['upcoming','in-progress','to-renew'])]}"
+                    class="oe_highlight"
+                />
             </xpath>
             <xpath
-        expr="//field[@name='contract_line_ids']//field[@name='is_canceled']"
-        position="after"
-      >
+                expr="//field[@name='contract_line_ids']//field[@name='is_canceled']"
+                position="after"
+            >
                 <field name="state" invisible="1" />
                 <button
-          name="change_product_variant_wizard"
-          type="object"
-          string="Change Membership"
-          attrs="{'invisible': [('state', 'not in', ['upcoming','in-progress','to-renew'])]}"
-          class="oe_highlight"
-        />
+                    name="change_product_variant_wizard"
+                    type="object"
+                    string="Change Membership"
+                    attrs="{'invisible': [('state', 'not in', ['upcoming','in-progress','to-renew'])]}"
+                    class="oe_highlight"
+                />
             </xpath>
         </field>
     </record>

@@ -1,0 +1,21 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* contract_portal_date_end
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-08-23 16:47+0000\n"
+"PO-Revision-Date: 2022-08-23 16:47+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: contract_portal_date_end
+#: model_terms:ir.ui.view,arch_db:contract_portal_date_end.portal_contract_page_date_end
+msgid "Date End"
+msgstr "Päättymispäivä"

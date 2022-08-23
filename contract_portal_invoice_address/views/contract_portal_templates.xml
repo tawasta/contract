@@ -2,12 +2,12 @@
 <odoo>
 
     <template
-    id="portal_contract_page"
-    inherit_id="contract.portal_contract_page"
-    name="Portal contract template invoice address"
-    customize_show="True"
-    active="True"
-  >
+        id="portal_contract_page"
+        inherit_id="contract.portal_contract_page"
+        name="Portal contract template invoice address"
+        customize_show="True"
+        active="True"
+    >
         <xpath expr="//div[@t-if='contract.user_id']" position="after">
             <div t-if="contract.partner_invoice_id" class="col-12 col-md-6">
                 <h6>
@@ -16,23 +16,23 @@
                 <div class="row">
                     <div class="col flex-grow-0 pr-3">
                         <img
-              t-if="contract.partner_invoice_id.image_128"
-              class="rounded-circle mt-1 o_portal_contact_img"
-              t-att-src="image_data_uri(contract.partner_invoice_id.image_128)"
-              alt="Invoice Address Contact"
-            />
+                            t-if="contract.partner_invoice_id.image_128"
+                            class="rounded-circle mt-1 o_portal_contact_img"
+                            t-att-src="image_data_uri(contract.partner_invoice_id.image_128)"
+                            alt="Invoice Address Contact"
+                        />
                         <img
-              t-else=""
-              class="rounded-circle mt-1 o_portal_contact_img"
-              src="/web/static/src/img/user_menu_avatar.png"
-              alt="Invoice Address Contact"
-            />
+                            t-else=""
+                            class="rounded-circle mt-1 o_portal_contact_img"
+                            src="/web/static/src/img/user_menu_avatar.png"
+                            alt="Invoice Address Contact"
+                        />
                     </div>
                     <div class="col pl-sm-0">
                         <address
-              t-field="contract.partner_invoice_id"
-              t-options='{"widget": "contact", "fields": ["name", "email", "phone", "address"]}'
-            />
+                            t-field="contract.partner_invoice_id"
+                            t-options='{"widget": "contact", "fields": ["name", "email", "phone", "address"]}'
+                        />
                     </div>
                 </div>
             </div>

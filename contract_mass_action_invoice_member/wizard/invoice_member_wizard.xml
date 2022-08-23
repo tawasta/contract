@@ -23,20 +23,17 @@
                 </group>
                 <footer>
                     <button
-            string="Confirm"
-            name="action_invoice_member"
-            type="object"
-            class="oe_highlight"
-          />
+                        string="Confirm"
+                        name="action_invoice_member"
+                        type="object"
+                        class="oe_highlight"
+                    />
                     <button string="Cancel" class="oe_link" special="cancel" />
                 </footer>
             </form>
         </field>
     </record>
-    <record
-    model="ir.ui.view"
-    id="contract_mass_action_invoice_member_form_log"
-  >
+    <record model="ir.ui.view" id="contract_mass_action_invoice_member_form_log">
         <field name="name">contract.mass.action.invoice.member.form.log</field>
         <field name="model">invoice.member.wizard</field>
         <field name="arch" type="xml">

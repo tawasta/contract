@@ -8,29 +8,29 @@
                 <div id="change_member_product">
                     <group>
                         <field
-              name="old_product_id"
-              readonly="1"
-              options="{'no_open': True}"
-            />
+                            name="old_product_id"
+                            readonly="1"
+                            options="{'no_open': True}"
+                        />
                         <div>Which product you want to switch to?</div>
                         <field
-              name="product_id"
-              options="{'no_edit': True, 'no_open': True}"
-            />
+                            name="product_id"
+                            options="{'no_edit': True, 'no_open': True}"
+                        />
                         <field
-              name="contract_line"
-              options="{'no_open': True}"
-              invisible="1"
-            />
+                            name="contract_line"
+                            options="{'no_open': True}"
+                            invisible="1"
+                        />
                         <field name="available_variants" invisible="1" />
                     </group>
                     <separator />
                     <button
-            type="object"
-            name="change_product_variant"
-            string="Confirm"
-            class="oe_highlight"
-          />
+                        type="object"
+                        name="change_product_variant"
+                        string="Confirm"
+                        class="oe_highlight"
+                    />
                     <button special="cancel" string="Cancel" />
                     <footer />
                 </div>

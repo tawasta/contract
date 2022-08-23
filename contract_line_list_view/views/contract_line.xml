@@ -58,16 +58,16 @@
         <field name="type">ir.actions.act_window</field>
         <field name="view_mode">tree,form</field>
         <field
-      name="search_view_id"
-      ref="contract_line_list_view.contract_line_search_view"
-    />
+            name="search_view_id"
+            ref="contract_line_list_view.contract_line_search_view"
+        />
     </record>
 
     <menuitem
-    id="contract_line_list"
-    name="Contract Lines"
-    action="action_contract_lines"
-    parent="account.menu_finance_receivables"
-  />
+        id="contract_line_list"
+        name="Contract Lines"
+        action="action_contract_lines"
+        parent="account.menu_finance_receivables"
+    />
 
 </odoo>
