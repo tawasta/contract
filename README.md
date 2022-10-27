@@ -13,6 +13,7 @@ Available addons
 addon | version | maintainers | summary
 --- | --- | --- | ---
 [contract_auditlog](contract_auditlog/) | 14.0.1.0.0 |  | Adds audit log rules for contract and contract line
+[contract_cancellation_reason](contract_cancellation_reason/) | 14.0.1.0.0 |  | Contract Cancellation Reason
 [contract_cost_pricelist](contract_cost_pricelist/) | 14.0.1.1.0 |  | Allow using pricelists for computing line cost on contracts
 [contract_default_invoicing_contact](contract_default_invoicing_contact/) | 14.0.1.0.0 |  | Contract Default invoicing contact
 [contract_default_name](contract_default_name/) | 14.0.1.0.0 |  | Default name for contracts lastname firstname
