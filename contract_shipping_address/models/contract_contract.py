@@ -9,17 +9,15 @@ class Contract(models.Model):
         comodel_name="res.partner", string="Delivery Address"
     )
 
-    # THIS FUNCTION HAS NOT BEEN PORTED YET!!
-    # WAIT UNTIL contract_sale_generation HAS BEEN PORTED
-    # def _prepare_sale(self, *args, **kwargs):
-    #     # Super will handle ensure_one() and other validation
-    #     res = super(Contract, self)._prepare_sale(*args, **kwargs)
+    def _prepare_sale(self, *args, **kwargs):
+        # Super will handle ensure_one() and other validation
+        res = super(Contract, self)._prepare_sale(*args, **kwargs)
 
-    #     # Add shipping address id to writable values
-    #     if self.partner_shipping_id:
-    #         res['partner_shipping_id'] = self.partner_shipping_id.id
+        # Add shipping address id to writable values
+        if self.partner_shipping_id:
+            res["partner_shipping_id"] = self.partner_shipping_id.id
 
-    #     return res
+        return res
 
     def _prepare_invoice(self, *args, **kwargs):
         # Super will handle ensure_one() and other validation

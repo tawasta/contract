@@ -14,6 +14,7 @@ addon | version | maintainers | summary
 --- | --- | --- | ---
 [contract_auditlog](contract_auditlog/) | 14.0.1.0.0 |  | Adds audit log rules for contract and contract line
 [contract_cancellation_reason](contract_cancellation_reason/) | 14.0.1.0.0 |  | Contract Cancellation Reason
+[contract_comment](contract_comment/) | 14.0.1.0.0 |  | Add comment to contracts
 [contract_cost_pricelist](contract_cost_pricelist/) | 14.0.1.1.0 |  | Allow using pricelists for computing line cost on contracts
 [contract_default_invoicing_contact](contract_default_invoicing_contact/) | 14.0.1.0.0 |  | Contract Default invoicing contact
 [contract_default_name](contract_default_name/) | 14.0.1.0.0 |  | Default name for contracts lastname firstname
@@ -44,7 +45,7 @@ addon | version | maintainers | summary
 [contract_recurring_invoice_queue](contract_recurring_invoice_queue/) | 14.0.1.0.2 |  | Create recurring invoices as queued jobs
 [contract_remove_unlink_right](contract_remove_unlink_right/) | 14.0.1.0.0 |  | Contract remove unlink right
 [contract_send_messages](contract_send_messages/) | 14.0.1.0.0 |  | Contract line messages
-[contract_shipping_address](contract_shipping_address/) | 14.0.1.0.0 |  | Add shipping address to contracts
+[contract_shipping_address](contract_shipping_address/) | 14.0.1.0.1 |  | Add shipping address to contracts
 [contract_stop_ignore_recurring_next_date](contract_stop_ignore_recurring_next_date/) | 14.0.1.0.0 |  | When contract is stopped, clear the recurring next date
 [contract_template](contract_template/) | 14.0.1.0.0 |  | Contract Template
 [contract_use_existing_invoice](contract_use_existing_invoice/) | 14.0.1.0.0 |  | Add lines to an existing invoice instead of creating a new invoice
