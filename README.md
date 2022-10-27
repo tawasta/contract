@@ -16,6 +16,7 @@ addon | version | maintainers | summary
 [contract_cancellation_reason](contract_cancellation_reason/) | 14.0.1.0.0 |  | Contract Cancellation Reason
 [contract_comment](contract_comment/) | 14.0.1.0.0 |  | Add comment to contracts
 [contract_cost_pricelist](contract_cost_pricelist/) | 14.0.1.1.0 |  | Allow using pricelists for computing line cost on contracts
+[contract_customer_contact](contract_customer_contact/) | 14.0.1.0.0 |  | Add customer contact to contracts
 [contract_default_invoicing_contact](contract_default_invoicing_contact/) | 14.0.1.0.0 |  | Contract Default invoicing contact
 [contract_default_name](contract_default_name/) | 14.0.1.0.0 |  | Default name for contracts lastname firstname
 [contract_defaults](contract_defaults/) | 14.0.1.0.0 |  | Allows defining global defaults for contracts
