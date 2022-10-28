@@ -19,15 +19,17 @@
 ##############################################################################
 
 {
-    "name": "Contract invoice line view",
-    "summary": "Add a readonly contract invoice line view",
-    "version": "14.0.1.0.1",
+    "name": "Contract: show period on lines",
+    "summary": "Automatically show invoice period on lines",
+    "version": "14.0.1.0.0",
     "category": "Contract Management",
     "website": "https://gitlab.com/tawasta/odoo/contract",
     "author": "Tawasta",
     "license": "AGPL-3",
     "application": False,
-    "installable": True,
-    "depends": ["contract", "contract_customer_address_details", "sale"],
-    "data": ["views/contract_line_tree.xml"],
+    "installable": False,
+    "depends": [
+        "contract",
+    ],
+    "data": ["views/contract_view.xml"],
 }
