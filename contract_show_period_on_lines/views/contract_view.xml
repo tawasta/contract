@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="contract_contract_customer_form_view" model="ir.ui.view">
+        <field name="name">contract.contract.show.period.on.lines</field>
+        <field name="model">contract.contract</field>
+        <field name="inherit_id" ref="contract.contract_contract_customer_form_view" />
+        <field name="arch" type="xml">
+            <field name="recurring_next_date" position="after">
+                <field name="show_period_on_lines" />
+
+                <label for="invoicing_period_date_from" string="Next period" />
+                <div id="invoicing-period-div">
+                    <field name="invoicing_period_date_from" /> - <field
+                        name="invoicing_period_date_to"
+                    />
+                </div>
+            </field>
+        </field>
+    </record>
+</odoo>

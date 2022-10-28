@@ -62,4 +62,11 @@ addon | version | maintainers | summary
 [website_stop_contract_line](website_stop_contract_line/) | 14.0.1.0.0 |  | Website stop contract line
 [website_upgrade_contract_line](website_upgrade_contract_line/) | 14.0.1.0.0 |  | Website upgrade contract line
 
+
+Unported addons
+---------------
+addon | version | maintainers | summary
+--- | --- | --- | ---
+[contract_show_period_on_lines](contract_show_period_on_lines/) | 14.0.1.0.0 (unported) |  | Automatically show invoice period on lines
+
 [//]: # (end addons)
