@@ -1,0 +1,140 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* contract_invoice_shipping_line_view
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-10-28 08:32+0000\n"
+"PO-Revision-Date: 2022-10-28 11:36+0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: fi\n"
+"X-Generator: Poedit 2.0.6\n"
+
+#. module: contract_invoice_shipping_line_view
+#: model:ir.model.fields,field_description:contract_invoice_shipping_line_view.field_contract_line__contract_id_shipping_city
+#: model_terms:ir.ui.view,arch_db:contract_invoice_shipping_line_view.view_contract_invoice_shipping_line_search
+msgid "City"
+msgstr "Kaupunki"
+
+#. module: contract_invoice_shipping_line_view
+#: model:ir.model.fields,field_description:contract_invoice_shipping_line_view.field_contract_line__contract_id_shipping_commercial_partner_id
+msgid "Commercial Entity"
+msgstr "Kaupallinen yksikkö"
+
+#. module: contract_invoice_shipping_line_view
+#: model:ir.model,name:contract_invoice_shipping_line_view.model_contract_line
+msgid "Contract Line"
+msgstr "Sopimusrivi"
+
+#. module: contract_invoice_shipping_line_view
+#: model_terms:ir.ui.view,arch_db:contract_invoice_shipping_line_view.view_contract_invoice_shipping_line_tree
+msgid "Contract Shipping Lines"
+msgstr "Sopimuksen toimitusrivit"
+
+#. module: contract_invoice_shipping_line_view
+#: model_terms:ir.ui.view,arch_db:contract_invoice_shipping_line_view.view_contract_invoice_shipping_line_search
+msgid "Contract name"
+msgstr "Sopimuksen nimi"
+
+#. module: contract_invoice_shipping_line_view
+#: model:ir.actions.act_window,name:contract_invoice_shipping_line_view.contract_invoice_shipping_line_action
+#: model:ir.ui.menu,name:contract_invoice_shipping_line_view.menu_contract_invoice_shipping_line
+msgid "Contract shipping lines"
+msgstr "Sopimuksen toimitusrivit"
+
+#. module: contract_invoice_shipping_line_view
+#: model:ir.model.fields,field_description:contract_invoice_shipping_line_view.field_contract_line__contract_id_shipping_country_id
+#: model_terms:ir.ui.view,arch_db:contract_invoice_shipping_line_view.view_contract_invoice_shipping_line_search
+msgid "Country"
+msgstr "Maa"
+
+#. module: contract_invoice_shipping_line_view
+#: model:ir.model.fields,field_description:contract_invoice_shipping_line_view.field_contract_line__display_name
+msgid "Display Name"
+msgstr "Näyttönimi"
+
+#. module: contract_invoice_shipping_line_view
+#: model:ir.model.fields,field_description:contract_invoice_shipping_line_view.field_contract_line__contract_id_date_end
+msgid "End date"
+msgstr "Päättymispäivä"
+
+#. module: contract_invoice_shipping_line_view
+#: model_terms:ir.ui.view,arch_db:contract_invoice_shipping_line_view.view_contract_invoice_shipping_line_search
+msgid "Finished"
+msgstr "Päätetty"
+
+#. module: contract_invoice_shipping_line_view
+#: model_terms:ir.ui.view,arch_db:contract_invoice_shipping_line_view.view_contract_invoice_shipping_line_search
+msgid "Group By..."
+msgstr "Ryhmittele.."
+
+#. module: contract_invoice_shipping_line_view
+#: model:ir.model.fields,field_description:contract_invoice_shipping_line_view.field_contract_line__id
+msgid "ID"
+msgstr "ID"
+
+#. module: contract_invoice_shipping_line_view
+#: model:ir.model.fields,field_description:contract_invoice_shipping_line_view.field_contract_line____last_update
+msgid "Last Modified on"
+msgstr "Viimeksi muokattu"
+
+#. module: contract_invoice_shipping_line_view
+#: model:ir.model.fields,field_description:contract_invoice_shipping_line_view.field_contract_line__contract_id_shipping_name
+#: model:ir.model.fields,field_description:contract_invoice_shipping_line_view.field_contract_line__contract_id_shipping_name_conditional
+#: model_terms:ir.ui.view,arch_db:contract_invoice_shipping_line_view.view_contract_invoice_shipping_line_search
+msgid "Name"
+msgstr "Nimi"
+
+#. module: contract_invoice_shipping_line_view
+#: model:ir.model.fields,field_description:contract_invoice_shipping_line_view.field_contract_line__contract_id_partner_shipping_id
+#: model_terms:ir.ui.view,arch_db:contract_invoice_shipping_line_view.view_contract_invoice_shipping_line_search
+msgid "Partner"
+msgstr "Kumppani"
+
+#. module: contract_invoice_shipping_line_view
+#: model_terms:ir.ui.view,arch_db:contract_invoice_shipping_line_view.view_contract_invoice_shipping_line_search
+msgid "Product"
+msgstr "Tuote"
+
+#. module: contract_invoice_shipping_line_view
+#: model:ir.model.fields,field_description:contract_invoice_shipping_line_view.field_contract_line__contract_id_shipping_user_id
+#: model_terms:ir.ui.view,arch_db:contract_invoice_shipping_line_view.view_contract_invoice_shipping_line_search
+msgid "Salesperson"
+msgstr "Myyjä"
+
+#. module: contract_invoice_shipping_line_view
+#: model:ir.model.fields,field_description:contract_invoice_shipping_line_view.field_contract_line__contract_id_shipping_street
+msgid "Street"
+msgstr "Katuosoite"
+
+#. module: contract_invoice_shipping_line_view
+#: model:ir.model.fields,field_description:contract_invoice_shipping_line_view.field_contract_line__contract_id_shipping_street2
+msgid "Street 2"
+msgstr "Katuosoite 2"
+
+#. module: contract_invoice_shipping_line_view
+#: model:ir.model.fields,help:contract_invoice_shipping_line_view.field_contract_line__contract_id_shipping_user_id
+msgid "The internal user in charge of this contact."
+msgstr "Sisiäinen käyttäjä, joka hallitsee tätä yhteystietoa."
+
+#. module: contract_invoice_shipping_line_view
+#: model_terms:ir.ui.view,arch_db:contract_invoice_shipping_line_view.view_contract_invoice_shipping_line_tree
+msgid "Total"
+msgstr "Yhteensä"
+
+#. module: contract_invoice_shipping_line_view
+#: model_terms:ir.ui.view,arch_db:contract_invoice_shipping_line_view.view_contract_invoice_shipping_line_search
+msgid "Valid"
+msgstr "Voimassa"
+
+#. module: contract_invoice_shipping_line_view
+#: model:ir.model.fields,field_description:contract_invoice_shipping_line_view.field_contract_line__contract_id_shipping_zip
+msgid "Zip"
+msgstr "Postinumero"
