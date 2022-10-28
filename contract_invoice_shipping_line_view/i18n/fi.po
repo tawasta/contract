@@ -122,7 +122,7 @@ msgstr "Katuosoite 2"
 #. module: contract_invoice_shipping_line_view
 #: model:ir.model.fields,help:contract_invoice_shipping_line_view.field_contract_line__contract_id_shipping_user_id
 msgid "The internal user in charge of this contact."
-msgstr "Sisiäinen käyttäjä, joka hallitsee tätä yhteystietoa."
+msgstr "Sisäinen käyttäjä, joka hallitsee tätä yhteystietoa."
 
 #. module: contract_invoice_shipping_line_view
 #: model_terms:ir.ui.view,arch_db:contract_invoice_shipping_line_view.view_contract_invoice_shipping_line_tree
