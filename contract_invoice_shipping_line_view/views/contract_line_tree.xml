@@ -1,23 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
-    <record id="view_contract_line_tree" model="ir.ui.view">
-        <field name="name">contract.line.tree.view</field>
+    <record id="view_contract_invoice_shipping_line_tree" model="ir.ui.view">
+        <field name="name">contract.line.shipping.tree.view</field>
         <field name="model">contract.line</field>
         <field name="arch" type="xml">
             <tree
-                string="Contract Lines"
+                string="Contract Shipping Lines"
                 create="false"
                 delete="false"
-                default_order='analytic_account_id'
+                default_order='contract_id'
             >
-                <field name="analytic_account_id" />
+                <field name="contract_id" />
                 <field name="contract_id_code" />
-                <field name="contract_id_partner_id" />
-                <field name="contract_id_street" />
-                <field name="contract_id_street2" />
-                <field name="contract_id_zip" />
-                <field name="contract_id_city" />
-                <field name="contract_id_country_id" />
+                <field name="name" />
+                <field name="contract_id_shipping_user_id" />
+                <field name="contract_id_shipping_commercial_partner_id" />
+                <field name="contract_id_shipping_name_conditional" />
+                <field name="contract_id_shipping_street" />
+                <field name="contract_id_shipping_street2" />
+                <field name="contract_id_shipping_zip" />
+                <field name="contract_id_shipping_city" />
+                <field name="contract_id_shipping_country_id" />
                 <field name="product_id" />
                 <field name="quantity" sum='Total' />
                 <field name="price_subtotal" sum='Total' />
@@ -25,22 +28,24 @@
         </field>
     </record>
 
-    <record id="contract_line_action" model="ir.actions.act_window">
-        <field name="name">Contract lines</field>
+    <record id="contract_invoice_shipping_line_action" model="ir.actions.act_window">
+        <field name="name">Contract shipping lines</field>
         <field name="res_model">contract.line</field>
         <field name="view_mode">tree</field>
-        <field name="view_id" ref="view_contract_line_tree" />
+        <field name="view_id" ref="view_contract_invoice_shipping_line_tree" />
         <field name="context">{'search_default_not_finished': 1}</field>
     </record>
 
-    <record id="view_contract_line_search" model="ir.ui.view">
-        <field name="name">contract.line.search</field>
+    <record id="view_contract_invoice_shipping_line_search" model="ir.ui.view">
+        <field name="name">contract.line.shipping.search</field>
         <field name="model">contract.line</field>
         <field name="arch" type="xml">
             <search string="Contract name">
                 <field string="Product" name="product_id" />
-                <field string="Partner" name="contract_id_partner_id" />
-                <field string="City" name="contract_id_city" />
+                <field string="Name" name="name" />
+                <field string="Salesperson" name="contract_id_shipping_user_id" />
+                <field string="Partner" name="contract_id_partner_shipping_id" />
+                <field string="City" name="contract_id_shipping_city" />
 
                 <separator />
                 <filter
@@ -65,19 +70,19 @@
                         name="partner"
                         string="Partner"
                         domain="[]"
-                        context="{'group_by':'contract_id_partner_id'}"
+                        context="{'group_by':'contract_id_partner_shipping_id'}"
                     />
                     <filter
                         name="city"
                         string="City"
                         domain="[]"
-                        context="{'group_by':'contract_id_city'}"
+                        context="{'group_by':'contract_id_shipping_city'}"
                     />
                     <filter
                         name="country"
                         string="Country"
                         domain="[]"
-                        context="{'group_by':'contract_id_country_id'}"
+                        context="{'group_by':'contract_id_shipping_country_id'}"
                     />
                 </group>
             </search>
@@ -85,8 +90,8 @@
     </record>
 
     <menuitem
-        id="menu_analytic_account_invoice_line"
-        action="contract_line_action"
+        id="menu_contract_invoice_shipping_line"
+        action="contract_invoice_shipping_line_action"
         parent="sale.sale_order_menu"
         sequence="160"
     />
