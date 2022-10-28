@@ -30,7 +30,6 @@
     "installable": True,
     "depends": [
         "contract_invoice_address",
-        "contract_invoice_address_separate_invoice_address",
     ],
     "data": ["views/contract_view.xml"],
 }
