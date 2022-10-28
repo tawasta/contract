@@ -27,8 +27,9 @@ addon | version | maintainers | summary
 [contract_invoice_address](contract_invoice_address/) | 14.0.1.0.2 |  | Add invoice address to contracts
 [contract_invoice_address_details](contract_invoice_address_details/) | 14.0.1.0.0 |  | Add invoice address details to contracts
 [contract_invoice_address_on_tree_view](contract_invoice_address_on_tree_view/) | 14.0.1.0.0 |  | Adds invoice address to contract tree view
-[contract_invoice_line_view](contract_invoice_line_view/) | 14.0.1.0.0 |  | Add a readonly contract invoice line view
+[contract_invoice_line_view](contract_invoice_line_view/) | 14.0.1.0.1 |  | Add a readonly contract invoice line view
 [contract_invoice_lines_quantity_invisible](contract_invoice_lines_quantity_invisible/) | 14.0.1.0.0 |  | Use this module to hide contract's quantity-field on invoice lines
+[contract_invoice_shipping_line_view](contract_invoice_shipping_line_view/) | 14.0.1.0.0 |  | Add a readonly contract invoice shipping line view
 [contract_line_change_product_variant](contract_line_change_product_variant/) | 14.0.1.0.2 |  | Contract Line Change product variant
 [contract_line_cost](contract_line_cost/) | 14.0.1.1.0 |  | Add cost price to contract lines and move it to the invoice
 [contract_line_inline_edit](contract_line_inline_edit/) | 14.0.1.0.1 |  | Allows editing non-fixed contract lines inline

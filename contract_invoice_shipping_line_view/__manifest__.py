@@ -1,7 +1,7 @@
 ##############################################################################
 #
 #    Author: Oy Tawasta OS Technologies Ltd.
-#    Copyright 2019 Oy Tawasta OS Technologies Ltd. (https://tawasta.fi)
+#    Copyright 2020 Oy Tawasta OS Technologies Ltd. (https://tawasta.fi)
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -19,15 +19,20 @@
 ##############################################################################
 
 {
-    "name": "Contract invoice line view",
-    "summary": "Add a readonly contract invoice line view",
-    "version": "14.0.1.0.1",
+    "name": "Contract invoice shipping line view",
+    "summary": "Add a readonly contract invoice shipping line view",
+    "version": "14.0.1.0.0",
     "category": "Contract Management",
     "website": "https://gitlab.com/tawasta/odoo/contract",
     "author": "Tawasta",
     "license": "AGPL-3",
     "application": False,
     "installable": True,
-    "depends": ["contract", "contract_customer_address_details"],
+    "depends": [
+        "contract",
+        "contract_customer_address_details",
+        "contract_invoice_line_view",
+        "contract_shipping_address",
+    ],
     "data": ["views/contract_line_tree.xml"],
 }
