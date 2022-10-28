@@ -41,6 +41,7 @@ addon | version | maintainers | summary
 [contract_link_another_contract](contract_link_another_contract/) | 14.0.1.0.0 |  | Contract link to another contract
 [contract_mass_action_invoice_member](contract_mass_action_invoice_member/) | 14.0.1.0.1 |  | Mass action to set default invoice address and create a new invoice
 [contract_membership_integration](contract_membership_integration/) | 14.0.1.3.2 |  | Show memberships in contract, and end the membership if contract line is ended
+[contract_name_as_customer_name](contract_name_as_customer_name/) | 14.0.1.0.0 |  | Contract Name depends on Customer name
 [contract_name_from_customer_name_and_product_name](contract_name_from_customer_name_and_product_name/) | 14.0.1.0.0 |  | Customer & Product Name is used as Contract's name
 [contract_note_to_invoice_comment](contract_note_to_invoice_comment/) | 14.0.1.0.0 |  | Contract note content is updated to invoice's comment field
 [contract_partner_ref](contract_partner_ref/) | 14.0.1.0.0 |  | Contract Partner Ref
