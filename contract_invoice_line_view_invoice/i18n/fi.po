@@ -1,0 +1,135 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* contract_invoice_line_view_invoice
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-10-28 13:02+0000\n"
+"PO-Revision-Date: 2022-10-28 16:06+0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: fi\n"
+"X-Generator: Poedit 2.0.6\n"
+
+#. module: contract_invoice_line_view_invoice
+#: model:ir.model.fields,field_description:contract_invoice_line_view_invoice.field_contract_line__contract_id_invoice_city
+#: model_terms:ir.ui.view,arch_db:contract_invoice_line_view_invoice.view_contract_invoice_invoice_line_search
+msgid "City"
+msgstr "Kaupunki"
+
+#. module: contract_invoice_line_view_invoice
+#: model:ir.model.fields,field_description:contract_invoice_line_view_invoice.field_contract_line__contract_id_invoice_commercial_partner_id
+msgid "Commercial Entity"
+msgstr "Kaupallinen yksikkö"
+
+#. module: contract_invoice_line_view_invoice
+#: model_terms:ir.ui.view,arch_db:contract_invoice_line_view_invoice.view_contract_invoice_invoice_line_tree
+msgid "Contract Invoice Lines"
+msgstr "Sopimuksen laskurivit"
+
+#. module: contract_invoice_line_view_invoice
+#: model:ir.model,name:contract_invoice_line_view_invoice.model_contract_line
+msgid "Contract Line"
+msgstr "Sopimusrivi"
+
+#. module: contract_invoice_line_view_invoice
+#: model:ir.actions.act_window,name:contract_invoice_line_view_invoice.contract_invoice_invoice_line_action
+#: model:ir.ui.menu,name:contract_invoice_line_view_invoice.menu_contract_invoice_invoice_line
+msgid "Contract invoice lines"
+msgstr "Sopimuksen laskurivit"
+
+#. module: contract_invoice_line_view_invoice
+#: model_terms:ir.ui.view,arch_db:contract_invoice_line_view_invoice.view_contract_invoice_invoice_line_search
+msgid "Contract name"
+msgstr "Sopimuksen nimi"
+
+#. module: contract_invoice_line_view_invoice
+#: model:ir.model.fields,field_description:contract_invoice_line_view_invoice.field_contract_line__contract_id_invoice_country_id
+#: model_terms:ir.ui.view,arch_db:contract_invoice_line_view_invoice.view_contract_invoice_invoice_line_search
+msgid "Country"
+msgstr "Maa"
+
+#. module: contract_invoice_line_view_invoice
+#: model:ir.model.fields,field_description:contract_invoice_line_view_invoice.field_contract_line__display_name
+msgid "Display Name"
+msgstr "Näyttönimi"
+
+#. module: contract_invoice_line_view_invoice
+#: model_terms:ir.ui.view,arch_db:contract_invoice_line_view_invoice.view_contract_invoice_invoice_line_search
+msgid "Finished"
+msgstr "Päätetty"
+
+#. module: contract_invoice_line_view_invoice
+#: model_terms:ir.ui.view,arch_db:contract_invoice_line_view_invoice.view_contract_invoice_invoice_line_search
+msgid "Group By..."
+msgstr "Ryhmittele.."
+
+#. module: contract_invoice_line_view_invoice
+#: model:ir.model.fields,field_description:contract_invoice_line_view_invoice.field_contract_line__id
+msgid "ID"
+msgstr "ID"
+
+#. module: contract_invoice_line_view_invoice
+#: model:ir.model.fields,field_description:contract_invoice_line_view_invoice.field_contract_line____last_update
+msgid "Last Modified on"
+msgstr "Viimeksi muokattu"
+
+#. module: contract_invoice_line_view_invoice
+#: model:ir.model.fields,field_description:contract_invoice_line_view_invoice.field_contract_line__contract_id_invoice_name
+#: model:ir.model.fields,field_description:contract_invoice_line_view_invoice.field_contract_line__contract_id_invoice_name_conditional
+#: model_terms:ir.ui.view,arch_db:contract_invoice_line_view_invoice.view_contract_invoice_invoice_line_search
+msgid "Name"
+msgstr "Nimi"
+
+#. module: contract_invoice_line_view_invoice
+#: model:ir.model.fields,field_description:contract_invoice_line_view_invoice.field_contract_line__contract_id_partner_invoice_id
+#: model_terms:ir.ui.view,arch_db:contract_invoice_line_view_invoice.view_contract_invoice_invoice_line_search
+msgid "Partner"
+msgstr "Kumppani"
+
+#. module: contract_invoice_line_view_invoice
+#: model_terms:ir.ui.view,arch_db:contract_invoice_line_view_invoice.view_contract_invoice_invoice_line_search
+msgid "Product"
+msgstr "Tuote"
+
+#. module: contract_invoice_line_view_invoice
+#: model:ir.model.fields,field_description:contract_invoice_line_view_invoice.field_contract_line__contract_id_invoice_user_id
+#: model_terms:ir.ui.view,arch_db:contract_invoice_line_view_invoice.view_contract_invoice_invoice_line_search
+msgid "Salesperson"
+msgstr "Myyjä"
+
+#. module: contract_invoice_line_view_invoice
+#: model:ir.model.fields,field_description:contract_invoice_line_view_invoice.field_contract_line__contract_id_invoice_street
+msgid "Street"
+msgstr "Katuosoite"
+
+#. module: contract_invoice_line_view_invoice
+#: model:ir.model.fields,field_description:contract_invoice_line_view_invoice.field_contract_line__contract_id_invoice_street2
+msgid "Street 2"
+msgstr "Katuosoite 2"
+
+#. module: contract_invoice_line_view_invoice
+#: model:ir.model.fields,help:contract_invoice_line_view_invoice.field_contract_line__contract_id_invoice_user_id
+msgid "The internal user in charge of this contact."
+msgstr "Sisäinen käyttäjä, joka hallitsee tätä yhteystietoa."
+
+#. module: contract_invoice_line_view_invoice
+#: model_terms:ir.ui.view,arch_db:contract_invoice_line_view_invoice.view_contract_invoice_invoice_line_tree
+msgid "Total"
+msgstr "Yhteensä"
+
+#. module: contract_invoice_line_view_invoice
+#: model_terms:ir.ui.view,arch_db:contract_invoice_line_view_invoice.view_contract_invoice_invoice_line_search
+msgid "Valid"
+msgstr "Voimassa"
+
+#. module: contract_invoice_line_view_invoice
+#: model:ir.model.fields,field_description:contract_invoice_line_view_invoice.field_contract_line__contract_id_invoice_zip
+msgid "Zip"
+msgstr "Postinumero"
