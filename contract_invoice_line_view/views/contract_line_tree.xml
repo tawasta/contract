@@ -28,7 +28,6 @@
     <record id="contract_line_action" model="ir.actions.act_window">
         <field name="name">Contract lines</field>
         <field name="res_model">contract.line</field>
-        <field name="view_type">form</field>
         <field name="view_mode">tree</field>
         <field name="view_id" ref="view_contract_line_tree" />
         <field name="context">{'search_default_not_finished': 1}</field>
