@@ -15,6 +15,7 @@ addon | version | maintainers | summary
 [contract_auditlog](contract_auditlog/) | 14.0.1.0.0 |  | Adds audit log rules for contract and contract line
 [contract_cancellation_reason](contract_cancellation_reason/) | 14.0.1.0.0 |  | Contract Cancellation Reason
 [contract_comment](contract_comment/) | 14.0.1.0.0 |  | Add comment to contracts
+[contract_contract_tree_hide_tag_ids](contract_contract_tree_hide_tag_ids/) | 14.0.1.0.0 |  | Contract tree view hide tag_ids
 [contract_cost_pricelist](contract_cost_pricelist/) | 14.0.1.1.0 |  | Allow using pricelists for computing line cost on contracts
 [contract_customer_address_details](contract_customer_address_details/) | 14.0.1.0.0 |  | Add partner address details to contracts
 [contract_customer_contact](contract_customer_contact/) | 14.0.1.0.0 |  | Add customer contact to contracts
@@ -58,6 +59,7 @@ addon | version | maintainers | summary
 [contract_shipping_address](contract_shipping_address/) | 14.0.1.0.1 |  | Add shipping address to contracts
 [contract_stop_ignore_recurring_next_date](contract_stop_ignore_recurring_next_date/) | 14.0.1.0.0 |  | When contract is stopped, clear the recurring next date
 [contract_template](contract_template/) | 14.0.1.0.0 |  | Contract Template
+[contract_tree_add_user_id](contract_tree_add_user_id/) | 14.0.1.0.0 |  | Contract tree view add user_id
 [contract_use_existing_invoice](contract_use_existing_invoice/) | 14.0.1.0.0 |  | Add lines to an existing invoice instead of creating a new invoice
 [generate_recurring_invoices_from_contracts_limit](generate_recurring_invoices_from_contracts_limit/) | 14.0.1.0.0 |  | Define limit to how many invoices to generate at a time. Defaults to 5000.
 [website_stop_contract_line](website_stop_contract_line/) | 14.0.1.0.0 |  | Website stop contract line
