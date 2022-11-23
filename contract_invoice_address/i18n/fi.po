@@ -74,7 +74,7 @@ msgstr "Viimeksi muokattu"
 
 #. module: contract_invoice_address
 #: model_terms:ir.ui.view,arch_db:contract_invoice_address.contract_contract_search_view
-msgid "Separate invoice adddress"
+msgid "Separate invoice address"
 msgstr "Erillinen laskutusosoite"
 
 #. module: contract_invoice_address
