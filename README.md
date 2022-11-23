@@ -27,7 +27,6 @@ addon | version | maintainers | summary
 [contract_enable_ending_nonpaid](contract_enable_ending_nonpaid/) | 14.0.1.0.0 |  | Dont set the last_date_invoiced field until the bill is paid
 [contract_invoice_address](contract_invoice_address/) | 14.0.1.0.2 |  | Add invoice address to contracts
 [contract_invoice_address_details](contract_invoice_address_details/) | 14.0.1.0.0 |  | Add invoice address details to contracts
-[contract_invoice_address_on_tree_view](contract_invoice_address_on_tree_view/) | 14.0.1.0.0 |  | Adds invoice address to contract tree view
 [contract_invoice_line_view](contract_invoice_line_view/) | 14.0.1.0.1 |  | Add a readonly contract invoice line view
 [contract_invoice_line_view_invoice](contract_invoice_line_view_invoice/) | 14.0.1.0.0 |  | Add a readonly contract line view for invoice address
 [contract_invoice_lines_quantity_invisible](contract_invoice_lines_quantity_invisible/) | 14.0.1.0.0 |  | Use this module to hide contract's quantity-field on invoice lines
