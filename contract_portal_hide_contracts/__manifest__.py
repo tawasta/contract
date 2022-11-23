@@ -22,7 +22,7 @@
     "version": "14.0.1.0.0",
     "category": "Contract Management",
     "summary": "Hide contracts from portal",
-    "website": "https://gitlab.com/tawasta/odoo",
+    "website": "https://gitlab.com/tawasta/odoo/contract",
     "author": "Tawasta",
     "license": "AGPL-3",
     "application": False,
