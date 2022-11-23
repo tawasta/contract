@@ -6,7 +6,7 @@
 Contract: mass edit lines
 =========================
 
-Allows mass editing contract lines from contract tree view"
+Allows mass editing contract lines from contract tree view
 
 Configuration
 =============
