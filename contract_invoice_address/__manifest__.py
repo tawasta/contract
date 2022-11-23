@@ -29,5 +29,5 @@
     "application": False,
     "installable": True,
     "depends": ["contract"],
-    "data": ["views/contract_form.xml", "views/contract_line.xml"],
+    "data": ["views/contract.xml", "views/contract_line.xml"],
 }
