@@ -46,6 +46,7 @@ addon | version | maintainers | summary
 [contract_name_as_customer_name](contract_name_as_customer_name/) | 14.0.1.0.0 |  | Contract Name depends on Customer name
 [contract_name_from_customer_name_and_product_name](contract_name_from_customer_name_and_product_name/) | 14.0.1.0.0 |  | Customer & Product Name is used as Contract's name
 [contract_note_to_invoice_comment](contract_note_to_invoice_comment/) | 14.0.1.0.0 |  | Contract note content is updated to invoice's comment field
+[contract_optional_fields](contract_optional_fields/) | 14.0.1.0.0 |  | Set contract fields as optional in tree view
 [contract_partner_ref](contract_partner_ref/) | 14.0.1.0.0 |  | Contract Partner Ref
 [contract_partners_invoice_method](contract_partners_invoice_method/) | 14.0.1.0.0 |  | Contract Customer Invoice Transmission Method
 [contract_portal_date_end](contract_portal_date_end/) | 14.0.1.0.0 |  | Show Date End on Contract Portal Views
