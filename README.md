@@ -23,7 +23,7 @@ addon | version | maintainers | summary
 [contract_default_name](contract_default_name/) | 14.0.1.0.0 |  | Default name for contracts lastname firstname
 [contract_defaults](contract_defaults/) | 14.0.1.0.0 |  | Allows defining global defaults for contracts
 [contract_edit_all_lines](contract_edit_all_lines/) | 14.0.1.0.1 |  | Edit all contract lines at once
-[contract_edit_last_date_invoiced](contract_edit_last_date_invoiced/) | 14.0.1.0.2 |  | Allows editing last invoiced date (in case of refunds etc.)
+[contract_edit_last_date_invoiced](contract_edit_last_date_invoiced/) | 14.0.1.1.0 |  | Allows editing last invoiced date (in case of refunds etc.)
 [contract_enable_ending_nonpaid](contract_enable_ending_nonpaid/) | 14.0.1.0.0 |  | Dont set the last_date_invoiced field until the bill is paid
 [contract_invoice_address](contract_invoice_address/) | 14.0.1.0.2 |  | Add invoice address to contracts
 [contract_invoice_address_details](contract_invoice_address_details/) | 14.0.1.0.0 |  | Add invoice address details to contracts
@@ -46,6 +46,7 @@ addon | version | maintainers | summary
 [contract_name_as_customer_name](contract_name_as_customer_name/) | 14.0.1.0.0 |  | Contract Name depends on Customer name
 [contract_name_from_customer_name_and_product_name](contract_name_from_customer_name_and_product_name/) | 14.0.1.0.0 |  | Customer & Product Name is used as Contract's name
 [contract_note_to_invoice_comment](contract_note_to_invoice_comment/) | 14.0.1.0.0 |  | Contract note content is updated to invoice's comment field
+[contract_optional_fields](contract_optional_fields/) | 14.0.1.0.0 |  | Set contract fields as optional in tree view
 [contract_partner_ref](contract_partner_ref/) | 14.0.1.0.0 |  | Contract Partner Ref
 [contract_partners_invoice_method](contract_partners_invoice_method/) | 14.0.1.0.0 |  | Contract Customer Invoice Transmission Method
 [contract_portal_date_end](contract_portal_date_end/) | 14.0.1.0.0 |  | Show Date End on Contract Portal Views
