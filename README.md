@@ -53,6 +53,7 @@ addon | version | maintainers | summary
 [contract_portal_date_end](contract_portal_date_end/) | 14.0.1.0.0 |  | Show Date End on Contract Portal Views
 [contract_portal_date_start](contract_portal_date_start/) | 14.0.1.0.0 |  | Show Date Start on Contract Portal Views
 [contract_portal_hide_contracts](contract_portal_hide_contracts/) | 14.0.1.0.0 |  | Hide contracts from portal
+[contract_portal_hide_message_thread](contract_portal_hide_message_thread/) | 14.0.1.0.0 |  | Contract portal hide message thread
 [contract_portal_invoice_address](contract_portal_invoice_address/) | 14.0.1.0.0 |  | Contract portal invoice address
 [contract_portal_product_default_code](contract_portal_product_default_code/) | 14.0.1.0.0 |  | Show Product Default Code on Contract Portal Views
 [contract_product_analytic_tags](contract_product_analytic_tags/) | 14.0.1.0.0 |  | Adds contract line analytic tags from products
