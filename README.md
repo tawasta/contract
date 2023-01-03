@@ -25,8 +25,9 @@ addon | version | maintainers | summary
 [contract_edit_all_lines](contract_edit_all_lines/) | 14.0.1.0.1 |  | Edit all contract lines at once
 [contract_edit_last_date_invoiced](contract_edit_last_date_invoiced/) | 14.0.1.1.0 |  | Allows editing last invoiced date (in case of refunds etc.)
 [contract_enable_ending_nonpaid](contract_enable_ending_nonpaid/) | 14.0.1.0.0 |  | Dont set the last_date_invoiced field until the bill is paid
-[contract_invoice_address](contract_invoice_address/) | 14.0.1.0.2 |  | Add invoice address to contracts
+[contract_invoice_address](contract_invoice_address/) | 14.0.1.0.3 |  | Add invoice address to contracts
 [contract_invoice_address_details](contract_invoice_address_details/) | 14.0.1.0.0 |  | Add invoice address details to contracts
+[contract_invoice_header](contract_invoice_header/) | 14.0.1.0.0 |  | Add invoice header to contracts
 [contract_invoice_line_view](contract_invoice_line_view/) | 14.0.1.0.1 |  | Add a readonly contract invoice line view
 [contract_invoice_line_view_invoice](contract_invoice_line_view_invoice/) | 14.0.1.0.0 |  | Add a readonly contract line view for invoice address
 [contract_invoice_lines_quantity_invisible](contract_invoice_lines_quantity_invisible/) | 14.0.1.0.0 |  | Use this module to hide contract's quantity-field on invoice lines
@@ -47,6 +48,7 @@ addon | version | maintainers | summary
 [contract_name_as_customer_name](contract_name_as_customer_name/) | 14.0.1.0.0 |  | Contract Name depends on Customer name
 [contract_name_from_customer_name_and_product_name](contract_name_from_customer_name_and_product_name/) | 14.0.1.0.0 |  | Customer & Product Name is used as Contract's name
 [contract_note_to_invoice_comment](contract_note_to_invoice_comment/) | 14.0.1.0.0 |  | Contract note content is updated to invoice's comment field
+[contract_open_invoices](contract_open_invoices/) | 14.0.1.0.0 |  | Warns of open invoices when ending a contract and adds a button to cancel them.
 [contract_optional_fields](contract_optional_fields/) | 14.0.1.0.0 |  | Set contract fields as optional in tree view
 [contract_partner_ref](contract_partner_ref/) | 14.0.1.0.0 |  | Contract Partner Ref
 [contract_partners_invoice_method](contract_partners_invoice_method/) | 14.0.1.0.0 |  | Contract Customer Invoice Transmission Method

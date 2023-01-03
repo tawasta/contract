@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="contract_contract_form_view" model="ir.ui.view">
+        <field name="name">Contract form: header text</field>
+        <field name="model">contract.contract</field>
+        <field name="inherit_id" ref="contract.contract_contract_form_view" />
+        <field name="arch" type="xml">
+            <field name="date_start" position="before">
+                <field name="header_text" />
+            </field>
+        </field>
+    </record>
+
+
+    <record id="contract_contract_tree_view" model="ir.ui.view">
+        <field name="name">Contract tree: header text</field>
+        <field name="model">contract.contract</field>
+        <field name="inherit_id" ref="contract.contract_contract_tree_view" />
+        <field name="arch" type="xml">
+            <field name="code" position="after">
+                <field name="header_text" optional="hide" />
+            </field>
+        </field>
+    </record>
+
+    <record id="contract_contract_search_view" model="ir.ui.view">
+        <field name="name">Contract search: header text</field>
+        <field name="model">contract.contract</field>
+        <field name="inherit_id" ref="contract.contract_contract_search_view" />
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="header_text" />
+            </field>
+        </field>
+    </record>
+</odoo>
