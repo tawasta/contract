@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <template
+        id="portal_contract_page"
+        inherit_id="contract.portal_contract_page"
+        name="Contract hide message thread"
+        customize_show="True"
+        active="True"
+    >
+        <xpath expr="//div[@id='contract_communication']" position="replace" />
+    </template>
+</odoo>
