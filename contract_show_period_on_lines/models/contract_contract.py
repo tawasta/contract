@@ -1,4 +1,4 @@
-from odoo import api, fields, models
+from odoo import fields, models
 
 
 class ContractContract(models.Model):
@@ -9,5 +9,5 @@ class ContractContract(models.Model):
         string="Show Invoice Period on Lines",
         help="If this is checked, each generated invoice line will \
         also show the time span of the invoice",
-        default=True
+        default=True,
     )
