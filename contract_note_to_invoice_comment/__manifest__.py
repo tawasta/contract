@@ -21,7 +21,7 @@
 {
     "name": "Contract Note to Invoice Comment",
     "summary": "Contract note content is updated to invoice's comment field",
-    "version": "14.0.1.0.0",
+    "version": "14.0.1.0.1",
     "category": "Contract",
     "website": "https://gitlab.com/tawasta/odoo/contract",
     "author": "Tawasta",
