@@ -25,8 +25,10 @@ addon | version | maintainers | summary
 [contract_edit_all_lines](contract_edit_all_lines/) | 14.0.1.0.1 |  | Edit all contract lines at once
 [contract_edit_last_date_invoiced](contract_edit_last_date_invoiced/) | 14.0.1.1.0 |  | Allows editing last invoiced date (in case of refunds etc.)
 [contract_enable_ending_nonpaid](contract_enable_ending_nonpaid/) | 14.0.1.0.0 |  | Dont set the last_date_invoiced field until the bill is paid
-[contract_invoice_address](contract_invoice_address/) | 14.0.1.0.2 |  | Add invoice address to contracts
+[contract_invoice_address](contract_invoice_address/) | 14.0.1.0.3 |  | Add invoice address to contracts
 [contract_invoice_address_details](contract_invoice_address_details/) | 14.0.1.0.0 |  | Add invoice address details to contracts
+[contract_invoice_contract_id_origin](contract_invoice_contract_id_origin/) | 14.0.1.0.0 |  | Invoice - Contract information
+[contract_invoice_header](contract_invoice_header/) | 14.0.1.0.0 |  | Add invoice header to contracts
 [contract_invoice_line_view](contract_invoice_line_view/) | 14.0.1.0.1 |  | Add a readonly contract invoice line view
 [contract_invoice_line_view_invoice](contract_invoice_line_view_invoice/) | 14.0.1.0.0 |  | Add a readonly contract line view for invoice address
 [contract_invoice_lines_quantity_invisible](contract_invoice_lines_quantity_invisible/) | 14.0.1.0.0 |  | Use this module to hide contract's quantity-field on invoice lines
@@ -61,6 +63,7 @@ addon | version | maintainers | summary
 [contract_remove_unlink_right](contract_remove_unlink_right/) | 14.0.1.0.0 |  | Contract remove unlink right
 [contract_send_messages](contract_send_messages/) | 14.0.1.0.0 |  | Contract line messages
 [contract_shipping_address](contract_shipping_address/) | 14.0.1.0.1 |  | Add shipping address to contracts
+[contract_show_period_on_lines](contract_show_period_on_lines/) | 14.0.1.0.0 |  | Automatically show invoice period on lines
 [contract_stop_ignore_recurring_next_date](contract_stop_ignore_recurring_next_date/) | 14.0.1.0.0 |  | When contract is stopped, clear the recurring next date
 [contract_template](contract_template/) | 14.0.1.0.0 |  | Contract Template
 [contract_tree_add_user_id](contract_tree_add_user_id/) | 14.0.1.0.0 |  | Contract tree view add user_id
@@ -68,12 +71,5 @@ addon | version | maintainers | summary
 [generate_recurring_invoices_from_contracts_limit](generate_recurring_invoices_from_contracts_limit/) | 14.0.1.0.0 |  | Define limit to how many invoices to generate at a time. Defaults to 5000.
 [website_stop_contract_line](website_stop_contract_line/) | 14.0.1.0.0 |  | Website stop contract line
 [website_upgrade_contract_line](website_upgrade_contract_line/) | 14.0.1.0.0 |  | Website upgrade contract line
-
-
-Unported addons
----------------
-addon | version | maintainers | summary
---- | --- | --- | ---
-[contract_show_period_on_lines](contract_show_period_on_lines/) | 14.0.1.0.0 (unported) |  | Automatically show invoice period on lines
 
 [//]: # (end addons)

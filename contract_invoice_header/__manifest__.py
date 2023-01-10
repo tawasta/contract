@@ -1,7 +1,7 @@
 ##############################################################################
 #
 #    Author: Oy Tawasta OS Technologies Ltd.
-#    Copyright 2020 Oy Tawasta OS Technologies Ltd. (https://tawasta.fi)
+#    Copyright 2023 Oy Tawasta OS Technologies Ltd. (https://tawasta.fi)
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -19,15 +19,15 @@
 ##############################################################################
 
 {
-    "name": "Contract invoice address",
-    "summary": "Add invoice address to contracts",
+    "name": "Contract invoice header",
+    "summary": "Add invoice header to contracts",
     "category": "Contract Management",
-    "version": "14.0.1.0.3",
+    "version": "14.0.1.0.0",
     "website": "https://gitlab.com/tawasta/odoo/contract",
     "author": "Tawasta",
     "license": "AGPL-3",
     "application": False,
     "installable": True,
-    "depends": ["contract"],
-    "data": ["views/contract.xml", "views/contract_line.xml"],
+    "depends": ["contract", "sale_order_header"],
+    "data": ["views/contract.xml"],
 }
