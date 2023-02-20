@@ -11,7 +11,7 @@ class AccountMoveLine(models.Model):
             res = f"{self.contract_line_id.contract_id.name} / {res}"
 
         # If the product is a membership product, add the period
-        if self.product_id.membership:
+        if self.product_id.membership and self.product_id.membership_date_from:
             res = f"{res} {self.product_id.membership_date_from.year}"
 
         return res
