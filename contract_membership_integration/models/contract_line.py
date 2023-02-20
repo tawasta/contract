@@ -26,7 +26,7 @@ class ContractLine(models.Model):
         res["name"] = f"{self.contract_id.name} / {res['name']}"
 
         # If the product is a membership product, add the period and customer number
-        if self.product_id.membership:
+        if self.product_id.membership and self.product_id.membership_date_from:
             res["name"] = f"{res['name']} {self.product_id.membership_date_from.year} "
 
             # If contract partner has customer number, add it to the line description
