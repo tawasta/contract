@@ -9,7 +9,7 @@
 
                 <group>
                     <field name="recurring_next_date" />
-                    <field name="end_date" />
+                    <field name="date_end" />
                 </group>
 
                 <footer>
