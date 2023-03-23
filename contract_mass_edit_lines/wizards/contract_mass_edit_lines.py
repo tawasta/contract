@@ -10,8 +10,10 @@ class ContractMassEditLines(models.TransientModel):
     _description = "Mass edit contract lines"
 
     recurring_next_date = fields.Date("Date of next invoice")
+    end_date = fields.Date("End Date")
 
     def action_mass_edit_lines(self):
+        """Update Date of next invoice and End Date"""
         contract_ids = self.env["contract.contract"].browse(
             self._context.get("active_ids")
         )
@@ -23,6 +25,7 @@ class ContractMassEditLines(models.TransientModel):
 
         values = {
             "recurring_next_date": self.recurring_next_date,
+            "end_date": self.end_date,
         }
 
         active_lines.write(values)
