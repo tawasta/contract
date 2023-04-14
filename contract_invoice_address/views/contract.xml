@@ -11,12 +11,13 @@
                     groups="sale.group_delivery_invoice_address"
                 />
 
-                <!-- invoice_partner_id basically does the same thing as partner_invoice_id,
-                     but has a stricter domain -->
-                <xpath expr="[@name='invoice_partner_id']" position="attributes">
-                    <attribute name="invisible">1</attribute>
-                </xpath>
             </field>
+
+            <!-- invoice_partner_id basically does the same thing as partner_invoice_id,
+                 but has a stricter domain -->
+            <xpath expr="//field[@name='invoice_partner_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
         </field>
     </record>
 
