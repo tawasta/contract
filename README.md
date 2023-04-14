@@ -25,7 +25,7 @@ addon | version | maintainers | summary
 [contract_edit_all_lines](contract_edit_all_lines/) | 14.0.1.0.1 |  | Edit all contract lines at once
 [contract_edit_last_date_invoiced](contract_edit_last_date_invoiced/) | 14.0.1.1.0 |  | Allows editing last invoiced date (in case of refunds etc.)
 [contract_enable_ending_nonpaid](contract_enable_ending_nonpaid/) | 14.0.1.0.0 |  | Dont set the last_date_invoiced field until the bill is paid
-[contract_invoice_address](contract_invoice_address/) | 14.0.1.0.3 |  | Add invoice address to contracts
+[contract_invoice_address](contract_invoice_address/) | 14.0.1.0.4 |  | Add invoice address to contracts
 [contract_invoice_address_details](contract_invoice_address_details/) | 14.0.1.0.0 |  | Add invoice address details to contracts
 [contract_invoice_contract_id_origin](contract_invoice_contract_id_origin/) | 14.0.1.0.0 |  | Invoice - Contract information
 [contract_invoice_header](contract_invoice_header/) | 14.0.1.0.0 |  | Add invoice header to contracts
