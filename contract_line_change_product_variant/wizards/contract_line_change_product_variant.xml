@@ -23,6 +23,7 @@
                             invisible="1"
                         />
                         <field name="available_variants" invisible="1" />
+                        <field name="recurring_next_date_update" />
                     </group>
                     <separator />
                     <button
