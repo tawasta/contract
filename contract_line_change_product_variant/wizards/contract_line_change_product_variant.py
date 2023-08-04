@@ -74,7 +74,7 @@ class ContractLineChangeProductVariant(models.TransientModel):
             "contract_id": contract.id,
             "recurring_next_date": self.recurring_next_date_update or now_date,
             "last_date_invoiced": contract_line.recurring_next_date,
-            "date_start": contract_line.date_start,
+            "date_start": now_date,
             "uom_id": contract_line.uom_id.id,
             "recurring_interval": 1,
             "recurring_rule_type": "yearly",
@@ -106,9 +106,9 @@ class ContractLineChangeProductVariant(models.TransientModel):
         # new_contract_line._update_recurring_next_date()
 
         # Stop a previous contract line
-        stop_date = contract_line.last_date_invoiced or now_date.date()
+        contract_line.last_date_invoiced or now_date.date()
 
-        contract_line.stop(stop_date)
+        contract_line.stop(now_date.date())
 
         if self.recurring_next_date_update:
             new_contract_line.write(
