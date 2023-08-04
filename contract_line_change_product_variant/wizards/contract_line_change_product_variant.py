@@ -17,6 +17,7 @@ class ContractLineChangeProductVariant(models.TransientModel):
     contract_line = fields.Many2one("contract.line", readonly=True)
     contract_id = fields.Many2one("contract.contract", readonly=True)
     available_variants = fields.Many2many("product.product")
+    recurring_next_date_update = fields.Date("Recurring next date")
 
     def change_product_variant(
         self, contract_id=None, new_product_id=None, contract_line=None
@@ -30,7 +31,6 @@ class ContractLineChangeProductVariant(models.TransientModel):
         product = new_product_id or self.product_id
         old_product = contract_line and contract_line.product_id
         now_date = datetime.now()
-        contract_line.recurring_next_date = now_date.date()
         if contract_line.recurring_next_date < now_date.date():
             raise ValidationError(
                 _(
@@ -72,12 +72,13 @@ class ContractLineChangeProductVariant(models.TransientModel):
             "price_unit": product.lst_price,
             "name": product.display_name,
             "contract_id": contract.id,
-            "recurring_next_date": now_date,
+            "recurring_next_date": self.recurring_next_date_update or now_date,
+            "last_date_invoiced": contract_line.recurring_next_date,
             "date_start": now_date,
             "uom_id": contract_line.uom_id.id,
             "recurring_interval": 1,
             "recurring_rule_type": "yearly",
-            "ignore_recurring_next_date": True,
+            "ignore_recurring_next_date": False,
         }
 
         # Create a new contract line
@@ -85,7 +86,7 @@ class ContractLineChangeProductVariant(models.TransientModel):
 
         # Create a new invoice with a new contract line information
         invoice_values = []
-        date_ref = contract.recurring_next_date
+        date_ref = self.recurring_next_date_update or now_date
         invoice_vals, move_form = contract._prepare_invoice(date_ref)
         account_move_line = new_contract_line._prepare_invoice_line(move_form=move_form)
         # Set invoice line's price as the difference between old contract
@@ -94,22 +95,27 @@ class ContractLineChangeProductVariant(models.TransientModel):
         account_move_line["price_unit"] = new_line_price
         invoice_vals["invoice_line_ids"] = []
         invoice_vals["invoice_line_ids"].append((0, 0, account_move_line))
-        invoice_vals["invoice_date"] = now_date
         invoice_values.append(invoice_vals)
         del invoice_vals["line_ids"]
         move_id = self.env["account.move"].sudo().create(invoice_values)
         contract._invoice_followers(move_id)
-        contract._compute_recurring_next_date()
 
         # This line of code can cause errors, so check it first in case some
         # problems appear when using this module.
-        new_contract_line._update_recurring_next_date()
-
-        new_contract_line.last_date_invoiced = now_date
+        # Timo: Commented out on 31.7.2023 so it will not update recurring next date.
+        # new_contract_line._update_recurring_next_date()
 
         # Stop a previous contract line
-        stop_date = now_date.date()
+        contract_line.last_date_invoiced or now_date.date()
 
-        contract_line.stop(stop_date)
+        contract_line.stop(now_date.date())
+
+        if self.recurring_next_date_update:
+            new_contract_line.write(
+                {
+                    "last_date_invoiced": contract_line.recurring_next_date,
+                    "recurring_next_date": self.recurring_next_date_update,
+                }
+            )
 
         return move_id

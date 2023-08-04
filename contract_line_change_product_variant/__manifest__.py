@@ -21,7 +21,7 @@
 {
     "name": "Contract Line Change product variant",
     "summary": "Contract Line Change product variant",
-    "version": "14.0.1.0.2",
+    "version": "14.0.1.0.4",
     "category": "Contract Management",
     "website": "https://gitlab.com/tawasta/odoo/contract",
     "author": "Tawasta",

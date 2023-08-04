@@ -22,7 +22,7 @@
     "name": "Contract invoice address",
     "summary": "Add invoice address to contracts",
     "category": "Contract Management",
-    "version": "14.0.1.0.3",
+    "version": "14.0.1.0.4",
     "website": "https://gitlab.com/tawasta/odoo/contract",
     "author": "Tawasta",
     "license": "AGPL-3",

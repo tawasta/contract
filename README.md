@@ -25,7 +25,7 @@ addon | version | maintainers | summary
 [contract_edit_all_lines](contract_edit_all_lines/) | 14.0.1.0.1 |  | Edit all contract lines at once
 [contract_edit_last_date_invoiced](contract_edit_last_date_invoiced/) | 14.0.1.1.0 |  | Allows editing last invoiced date (in case of refunds etc.)
 [contract_enable_ending_nonpaid](contract_enable_ending_nonpaid/) | 14.0.1.0.0 |  | Dont set the last_date_invoiced field until the bill is paid
-[contract_invoice_address](contract_invoice_address/) | 14.0.1.0.3 |  | Add invoice address to contracts
+[contract_invoice_address](contract_invoice_address/) | 14.0.1.0.4 |  | Add invoice address to contracts
 [contract_invoice_address_details](contract_invoice_address_details/) | 14.0.1.0.0 |  | Add invoice address details to contracts
 [contract_invoice_contract_id_origin](contract_invoice_contract_id_origin/) | 14.0.1.0.0 |  | Invoice - Contract information
 [contract_invoice_header](contract_invoice_header/) | 14.0.1.0.0 |  | Add invoice header to contracts
@@ -33,7 +33,7 @@ addon | version | maintainers | summary
 [contract_invoice_line_view_invoice](contract_invoice_line_view_invoice/) | 14.0.1.0.0 |  | Add a readonly contract line view for invoice address
 [contract_invoice_lines_quantity_invisible](contract_invoice_lines_quantity_invisible/) | 14.0.1.0.0 |  | Use this module to hide contract's quantity-field on invoice lines
 [contract_invoice_shipping_line_view](contract_invoice_shipping_line_view/) | 14.0.1.0.0 |  | Add a readonly contract invoice shipping line view
-[contract_line_change_product_variant](contract_line_change_product_variant/) | 14.0.1.0.2 |  | Contract Line Change product variant
+[contract_line_change_product_variant](contract_line_change_product_variant/) | 14.0.1.0.4 |  | Contract Line Change product variant
 [contract_line_cost](contract_line_cost/) | 14.0.1.1.0 |  | Add cost price to contract lines and move it to the invoice
 [contract_line_inline_edit](contract_line_inline_edit/) | 14.0.1.0.1 |  | Allows editing non-fixed contract lines inline
 [contract_line_list_view](contract_line_list_view/) | 14.0.1.0.0 |  | Adds list view of contract lines
