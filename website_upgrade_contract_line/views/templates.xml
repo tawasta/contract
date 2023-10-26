@@ -28,6 +28,9 @@
         customize_show="True"
         active="True"
     >
+        <xpath expr="//table[@id='sales_order_table']" position="attributes">
+            <attribute name="class">table table-responsive</attribute>
+        </xpath>
         <xpath expr="//th[@name='th_stop_line']" position="after">
             <th name="th_upgrade_line" class="text-right" />
         </xpath>
