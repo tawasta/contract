@@ -28,6 +28,6 @@
     "license": "AGPL-3",
     "application": False,
     "installable": True,
-    "depends": ["contract", "portal"],
-    "data": ["views/templates.xml"],
+    "depends": ["contract", "portal", "product"],
+    "data": ["views/product.xml","views/templates.xml"],
 }

@@ -43,7 +43,7 @@
                     <span class="badge badge-pill badge-warning">Closed</span>
                 </t>
             </td>
-            <t t-if="line.state not in ['closed', 'upcoming-close']">
+            <t t-if="line.state not in ['closed', 'upcoming-close'] and line.product_id.categ_id.allow_cancel">
                 <td name="td_cancel_btn">
                     <button
                         type="button"
