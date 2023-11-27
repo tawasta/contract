@@ -5,7 +5,15 @@
 =============================
 upload_and_generate_contracts
 =============================
-* 
+
+Tämä moduuli tarjoaa toiminnallisuuden CSV-tiedoston lataamiseen, jonka avulla voidaan luodaa res.partner, contract.contract ja contract.line tietueita
+
+CSV-tiedoston vaatimukset:
+- CSV-tiedostossa tulee olla otsikot, jotka vastaavat odotettuja kenttiä kumppaneille ja sopimuksille.
+- Kumppaneille vaadittavat kentät sisältävät 'Etunimi', 'Sukunimi', 'Sähköposti', 'Osoite', 'Postinumero', 'Sukupuoli', 'Puhelin' ja 'Kaupunki'.
+- Sopimuksille vaadittavat kentät sisältävät 'Vastuuhenkilö', 'Mallipohja', 'Tyyppi', 'Tuote' ja 'Hinta'.
+- 'Tyyppi'-kenttää käytetään tunnistamaan ja linkittämään yhteen liittyvät sopimukset.
+
 
 Configuration
 =============
