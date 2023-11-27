@@ -29,5 +29,5 @@
     "application": False,
     "installable": True,
     "depends": ["contract", "portal", "product"],
-    "data": ["views/product.xml","views/templates.xml"],
+    "data": ["views/product.xml", "views/templates.xml"],
 }

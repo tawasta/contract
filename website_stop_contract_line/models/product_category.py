@@ -1,4 +1,4 @@
-from odoo import _, api, fields, models
+from odoo import fields, models
 
 
 class ProductCategory(models.Model):
@@ -8,4 +8,3 @@ class ProductCategory(models.Model):
         string="Allow cancel",
         default=False,
     )
-

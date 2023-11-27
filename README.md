@@ -70,6 +70,7 @@ addon | version | maintainers | summary
 [contract_tree_add_user_id](contract_tree_add_user_id/) | 14.0.1.0.0 |  | Contract tree view add user_id
 [contract_use_existing_invoice](contract_use_existing_invoice/) | 14.0.1.0.0 |  | Add lines to an existing invoice instead of creating a new invoice
 [generate_recurring_invoices_from_contracts_limit](generate_recurring_invoices_from_contracts_limit/) | 14.0.1.0.0 |  | Define limit to how many invoices to generate at a time. Defaults to 5000.
+[upload_and_generate_contracts](upload_and_generate_contracts/) | 14.0.1.0.0 |  | upload_and_generate_contracts
 [website_stop_contract_line](website_stop_contract_line/) | 14.0.1.0.0 |  | Website stop contract line
 [website_upgrade_contract_line](website_upgrade_contract_line/) | 14.0.1.0.0 |  | Website upgrade contract line
 

@@ -12,10 +12,7 @@
             />
         </xpath>
     </template>
-    <template
-        id="portal_contract_page"
-        inherit_id="contract.portal_contract_page"
-    >
+    <template id="portal_contract_page" inherit_id="contract.portal_contract_page">
         <xpath expr="//table[@id='sales_order_table']" position="attributes">
             <attribute name="class">table table-responsive</attribute>
         </xpath>
