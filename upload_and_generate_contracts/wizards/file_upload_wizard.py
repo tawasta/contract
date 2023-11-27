@@ -24,7 +24,6 @@ class FileUploadWizard(models.TransientModel):
         previous_product = None # Muuttuja edellisen sopimuksen tuotteen tallentamiseen
         # Käsittele tiedoston rivit
         for row in rows:
-            logging.info(row);
             if any(row.values()):
                 # Luo res.partner tietue
                 partner_values = {
@@ -57,10 +56,8 @@ class FileUploadWizard(models.TransientModel):
 
                 # Onko tyyppi KIRJAIN + NUMEROSARJA...tämän avulla voidaan tehdään sopimuksien välillä kytkyjä
                 if type_match:
-                    logging.info("====TYPE MATCH======");
                     # Jos nykyinen tyyppi on sama kuin edellinen, luo kytky alkuperäiseen sopimukseen
                     if current_type == previous_type:
-                        logging.info("=====ON SAMA ELI KYTKY TEHTAVA====");
                         # Tässä kohdassa tulisi luoda kytky sopimusten välille
                         contract.sudo().write({"parent_contract_id": previous_contract.id})
 
@@ -84,7 +81,6 @@ class FileUploadWizard(models.TransientModel):
                         product_id = self.env["product.product"].sudo().search([
                             ('id', '=', int(row.get("Tuote").strip()))
                         ])
-                        logging.info(product_id);
 
                         previous_product = product_id
 
@@ -98,12 +94,10 @@ class FileUploadWizard(models.TransientModel):
                         self.env['contract.line'].create(contract_line_values)
 
                 else:
-
-                    # Luo contract.line tietueita
+                    # Luodaan normaalisti sopimusrivi
                     product_id = self.env["product.product"].sudo().search([
                         ('id', '=', int(row.get("Tuote").strip()))
                     ])
-                    logging.info(product_id);
 
                     contract_line_values = {
                         'contract_id': contract.id,
