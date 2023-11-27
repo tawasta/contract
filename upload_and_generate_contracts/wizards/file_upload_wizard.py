@@ -62,7 +62,7 @@ class FileUploadWizard(models.TransientModel):
                         contract.sudo().write({"parent_contract_id": previous_contract.id})
 
                         # Luodaan sopimusrivit
-                        for product in previous_product.product_tmpl_id.free_products_ids:
+                        for product in previous_product.product_tmpl_id.extra_products_ids:
                             contract_line_values = {
                                 'contract_id': contract.id,
                                 'product_id': product.id,
