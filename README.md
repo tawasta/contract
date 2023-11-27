@@ -59,6 +59,7 @@ addon | version | maintainers | summary
 [contract_portal_invoice_address](contract_portal_invoice_address/) | 14.0.1.0.0 |  | Contract portal invoice address
 [contract_portal_product_default_code](contract_portal_product_default_code/) | 14.0.1.0.0 |  | Show Product Default Code on Contract Portal Views
 [contract_product_analytic_tags](contract_product_analytic_tags/) | 14.0.1.0.0 |  | Adds contract line analytic tags from products
+[contract_product_usage](contract_product_usage/) | 14.0.1.0.0 |  | Show contracts and contract lines where product is used in
 [contract_recurring_invoice_queue](contract_recurring_invoice_queue/) | 14.0.1.0.2 |  | Create recurring invoices as queued jobs
 [contract_remove_unlink_right](contract_remove_unlink_right/) | 14.0.1.0.0 |  | Contract remove unlink right
 [contract_send_messages](contract_send_messages/) | 14.0.1.0.0 |  | Contract line messages
