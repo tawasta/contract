@@ -54,13 +54,14 @@ class FileUploadWizard(models.TransientModel):
                 current_type = row.get("Tyyppi", "").strip()
                 type_match = re.match(r"^[A-Za-z]+\d+$", current_type)
 
-                # Onko tyyppi KIRJAIN + NUMEROSARJA...tämän avulla voidaan tehdään sopimuksien välillä kytkyjä
+                # Onko tyyppi KIRJAIN + NUMEROSARJA...tämän avulla voidaan tehdään sopimuksien välillä kytkyjä esim perheenjäsenyyksissä
                 if type_match:
-                    # Jos nykyinen tyyppi on sama kuin edellinen, luo kytky alkuperäiseen sopimukseen
+                    # Jos nykyinen tyyppi on sama kuin edellinen, luo kytky alkuperäiseen sopimukseen jolla vastaava previous_type arvo
                     if current_type == previous_type:
                         # Tässä kohdassa tulisi luoda kytky sopimusten välille
                         contract.sudo().write({"parent_contract_id": previous_contract.id})
 
+                        # Luodaan sopimusrivit
                         for product in previous_product.product_tmpl_id.free_products_ids:
                             contract_line_values = {
                                 'contract_id': contract.id,
@@ -70,7 +71,7 @@ class FileUploadWizard(models.TransientModel):
                             }
 
                             self.env['contract.line'].create(contract_line_values)
-
+                    # Jos tyyppi onkin eri niin tallennetaan tietoja muuttujiin sekä luodaan normaalisti sopimusrivi
                     else:
 
 
