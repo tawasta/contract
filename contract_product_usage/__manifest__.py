@@ -30,7 +30,6 @@
     "installable": True,
     "depends": [
         "contract",
-        "contract_line_list_view",
         "product",
     ],
     "data": ["views/product_template.xml"],
