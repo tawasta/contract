@@ -59,6 +59,7 @@ addon | version | maintainers | summary
 [contract_portal_invoice_address](contract_portal_invoice_address/) | 14.0.1.0.0 |  | Contract portal invoice address
 [contract_portal_product_default_code](contract_portal_product_default_code/) | 14.0.1.0.0 |  | Show Product Default Code on Contract Portal Views
 [contract_product_analytic_tags](contract_product_analytic_tags/) | 14.0.1.0.0 |  | Adds contract line analytic tags from products
+[contract_product_usage](contract_product_usage/) | 14.0.1.0.0 |  | Show contracts and contract lines where product is used in
 [contract_recurring_invoice_queue](contract_recurring_invoice_queue/) | 14.0.1.0.2 |  | Create recurring invoices as queued jobs
 [contract_remove_unlink_right](contract_remove_unlink_right/) | 14.0.1.0.0 |  | Contract remove unlink right
 [contract_send_messages](contract_send_messages/) | 14.0.1.0.0 |  | Contract line messages
@@ -69,6 +70,7 @@ addon | version | maintainers | summary
 [contract_tree_add_user_id](contract_tree_add_user_id/) | 14.0.1.0.0 |  | Contract tree view add user_id
 [contract_use_existing_invoice](contract_use_existing_invoice/) | 14.0.1.0.0 |  | Add lines to an existing invoice instead of creating a new invoice
 [generate_recurring_invoices_from_contracts_limit](generate_recurring_invoices_from_contracts_limit/) | 14.0.1.0.0 |  | Define limit to how many invoices to generate at a time. Defaults to 5000.
+[upload_and_generate_contracts](upload_and_generate_contracts/) | 14.0.1.0.0 |  | upload_and_generate_contracts
 [website_stop_contract_line](website_stop_contract_line/) | 14.0.1.0.0 |  | Website stop contract line
 [website_upgrade_contract_line](website_upgrade_contract_line/) | 14.0.1.0.0 |  | Website upgrade contract line
 

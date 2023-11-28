@@ -1,7 +1,7 @@
 ##############################################################################
 #
-#    Author: Tawasta
-#    Copyright 2020 Oy Tawasta OS Technologies Ltd. (https://tawasta.fi)
+#    Author: Oy Tawasta OS Technologies Ltd.
+#    Copyright 2018 Oy Tawasta OS Technologies Ltd. (http://www.tawasta.fi)
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -19,15 +19,26 @@
 ##############################################################################
 
 {
-    "name": "Website stop contract line",
-    "summary": "Website stop contract line",
+    "name": "upload_and_generate_contracts",
+    "summary": "upload_and_generate_contracts",
     "version": "14.0.1.0.0",
-    "category": "contract",
+    "category": "Specific Industry Applications",
     "website": "https://gitlab.com/tawasta/odoo/contract",
     "author": "Tawasta",
     "license": "AGPL-3",
     "application": False,
     "installable": True,
-    "depends": ["contract", "portal", "product"],
-    "data": ["views/product.xml", "views/templates.xml"],
+    "depends": [
+        "membership",
+        "contacts",
+        "contract",
+        "account",
+        "sale_generate_membership",
+    ],
+    "external_dependencies": {"python": ["openpyxl"]},
+    "data": [
+        "security/ir.model.access.csv",
+        "views/menu.xml",
+        "wizards/file_upload_wizard_view.xml",
+    ],
 }

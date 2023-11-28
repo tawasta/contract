@@ -12,6 +12,12 @@
             />
         </xpath>
     </template>
+    <template id="portal_contract_page" inherit_id="contract.portal_contract_page">
+        <xpath expr="//table[@id='sales_order_table']" position="attributes">
+            <attribute name="class">table table-responsive</attribute>
+        </xpath>
+
+    </template>
     <template
         id="portal_contract_page"
         inherit_id="website_stop_contract_line.portal_contract_page"
@@ -19,6 +25,9 @@
         customize_show="True"
         active="True"
     >
+        <xpath expr="//table[@id='sales_order_table']" position="attributes">
+            <attribute name="class">table table-responsive</attribute>
+        </xpath>
         <xpath expr="//th[@name='th_stop_line']" position="after">
             <th name="th_upgrade_line" class="text-right" />
         </xpath>
