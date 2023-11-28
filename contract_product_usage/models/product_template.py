@@ -58,7 +58,7 @@ class ProductTemplate(models.Model):
     def action_show_contract_lines(self):
         self.ensure_one()
         tree_view = self.env.ref(
-            "contract_line_list_view.view_contract_line_tree", raise_if_not_found=False
+            "contract.contract_line_tree_view", raise_if_not_found=False
         )
         ctx = dict(self.env.context)
 
