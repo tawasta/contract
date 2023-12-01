@@ -27,6 +27,9 @@ class FileUploadWizard(models.TransientModel):
         for row in rows:
             if any(row.values()):
                 # Luo res.partner tietue
+                logging.info("=======================ROW RIVI========================");
+                logging.info(row);
+                logging.info(row.values());
                 partner_values = {
                     "name": f"{row.get('Etunimi')} {row.get('Sukunimi')}",
                     "email": row.get("Sähköposti").strip(),
