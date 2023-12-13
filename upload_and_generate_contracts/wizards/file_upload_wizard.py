@@ -1,15 +1,17 @@
-from odoo import models, fields, api, exceptions
-from datetime import datetime
 import base64
 import csv
-import re
 import io
 import logging
+import re
+from datetime import datetime
+
+from odoo import exceptions, fields, models
 from odoo.tools.translate import _
 
+
 class FileUploadWizard(models.TransientModel):
-    _name = 'file.upload.wizard'
-    file_data = fields.Binary('File', required=True)
+    _name = "file.upload.wizard"
+    file_data = fields.Binary("File", required=True)
 
     def create_partner_and_contract(self):
         if not self.file_data:
@@ -21,15 +23,12 @@ class FileUploadWizard(models.TransientModel):
         rows = list(csv.DictReader(file_stream))
 
         previous_type = None  # Muuttuja edellisen rivin tyypin tallentamiseen
-        previous_contract = None # Muuttuja edellisen sopimuksen tallentamiseen
-        previous_product = None # Muuttuja edellisen sopimuksen tuotteen tallentamiseen
+        previous_contract = None  # Muuttuja edellisen sopimuksen tallentamiseen
+        previous_product = None  # Muuttuja edellisen sopimuksen tuotteen tallentamiseen
         # Käsittele tiedoston rivit
         for row in rows:
             if any(row.values()):
                 # Luo res.partner tietue
-                logging.info("=======================ROW RIVI========================");
-                logging.info(row);
-                logging.info(row.values());
                 partner_values = {
                     "name": f"{row.get('Etunimi')} {row.get('Sukunimi')}",
                     "email": row.get("Sähköposti").strip(),
@@ -41,8 +40,8 @@ class FileUploadWizard(models.TransientModel):
                     "city": row.get("Kaupunki").strip(),
                     "ref": row.get("Viite").strip(),
                 }
-                logging.info(partner_values);
-                partner = self.env['res.partner'].create(partner_values)
+                logging.info(partner_values)
+                partner = self.env["res.partner"].create(partner_values)
 
                 # Luo contract.contract tietue
                 contract_values = {
@@ -50,77 +49,96 @@ class FileUploadWizard(models.TransientModel):
                     "name": partner.name,
                     "user_id": row.get("Vastuuhenkilo").strip(),
                     "line_recurrence": False,
-                    #alkamispäivä = excelista jäsenpvm
+                    # alkamispäivä = excelista jäsenpvm
                 }
                 date_start_str = row.get("Alkamispäivä").strip()
-                start_date = datetime.strptime(date_start_str, "%d.%m.%Y").strftime("%Y-%m-%d")
+                start_date = datetime.strptime(date_start_str, "%d.%m.%Y").strftime(
+                    "%Y-%m-%d"
+                )
                 contract_values.update({"date_start": start_date})
 
-                contract = self.env['contract.contract'].create(contract_values)
-                contract_template_id = int(row.get("Mallipohja").strip()) if row.get("Mallipohja") else False
+                contract = self.env["contract.contract"].create(contract_values)
+                contract_template_id = (
+                    int(row.get("Mallipohja").strip())
+                    if row.get("Mallipohja")
+                    else False
+                )
                 contract.sudo().write({"contract_template_id": contract_template_id})
                 contract._onchange_contract_template_id()
 
                 current_type = row.get("Tyyppi", "").strip()
                 type_match = re.match(r"^[A-Za-z]+\d+$", current_type)
 
-                # Onko tyyppi KIRJAIN + NUMEROSARJA...tämän avulla voidaan tehdään sopimuksien välillä kytkyjä esim perheenjäsenyyksissä
+                # Onko tyyppi KIRJAIN + NUMEROSARJA...tämän avulla voidaan tehdään
+                # sopimuksien välillä kytkyjä esim perheenjäsenyyksissä
                 if type_match:
-                    # Jos nykyinen tyyppi on sama kuin edellinen, luo kytky alkuperäiseen sopimukseen jolla vastaava previous_type arvo
+                    # Jos nykyinen tyyppi on sama kuin edellinen, luo kytky alkuperäiseen
+                    # sopimukseen jolla vastaava previous_type arvo
                     if current_type == previous_type:
                         # Tässä kohdassa tulisi luoda kytky sopimusten välille
-                        contract.sudo().write({"parent_contract_id": previous_contract.id})
+                        contract.sudo().write(
+                            {"parent_contract_id": previous_contract.id}
+                        )
 
                         # Luodaan sopimusrivit
-                        for product in previous_product.product_tmpl_id.extra_products_ids:
+                        for (
+                            product
+                        ) in previous_product.product_tmpl_id.extra_products_ids:
                             contract_line_values = {
-                                'contract_id': contract.id,
-                                'product_id': product.id,
-                                'name': product.name,
-                                'price_unit': row.get("Hinta").strip(),
+                                "contract_id": contract.id,
+                                "product_id": product.id,
+                                "name": product.name,
+                                "price_unit": row.get("Hinta").strip(),
                             }
 
-                            self.env['contract.line'].create(contract_line_values)
-                    # Jos tyyppi onkin eri niin tallennetaan tietoja muuttujiin sekä luodaan normaalisti sopimusrivi
+                            self.env["contract.line"].create(contract_line_values)
+                    # Jos tyyppi onkin eri niin tallennetaan tietoja muuttujiin sekä
+                    # luodaan normaalisti sopimusrivi
                     else:
 
-
-                        previous_type = current_type  # Päivitä edellinen tyyppi nykyiseksi
-                        previous_contract = contract # Päivitä edellinen sopimus nykyiseksi
+                        previous_type = (
+                            current_type  # Päivitä edellinen tyyppi nykyiseksi
+                        )
+                        previous_contract = (
+                            contract  # Päivitä edellinen sopimus nykyiseksi
+                        )
 
                         # Luo contract.line tietueita
-                        product_id = self.env["product.product"].sudo().search([
-                            ('id', '=', int(row.get("Tuote").strip()))
-                        ])
+                        product_id = (
+                            self.env["product.product"]
+                            .sudo()
+                            .search([("id", "=", int(row.get("Tuote").strip()))])
+                        )
 
                         previous_product = product_id
 
                         contract_line_values = {
-                            'contract_id': contract.id,
-                            'product_id': product_id.id,
-                            'name': product_id.name,
-                            'price_unit': row.get("Hinta").strip(),
+                            "contract_id": contract.id,
+                            "product_id": product_id.id,
+                            "name": product_id.name,
+                            "price_unit": row.get("Hinta").strip(),
                         }
 
-                        self.env['contract.line'].create(contract_line_values)
+                        self.env["contract.line"].create(contract_line_values)
 
                 else:
                     # Luodaan normaalisti sopimusrivi
-                    product_id = self.env["product.product"].sudo().search([
-                        ('id', '=', int(row.get("Tuote").strip()))
-                    ])
+                    product_id = (
+                        self.env["product.product"]
+                        .sudo()
+                        .search([("id", "=", int(row.get("Tuote").strip()))])
+                    )
 
                     contract_line_values = {
-                        'contract_id': contract.id,
-                        'product_id': product_id.id,
-                        'name': product_id.name,
-                        'price_unit': row.get("Hinta").strip(),
+                        "contract_id": contract.id,
+                        "product_id": product_id.id,
+                        "name": product_id.name,
+                        "price_unit": row.get("Hinta").strip(),
                     }
 
-                    self.env['contract.line'].create(contract_line_values)
-
+                    self.env["contract.line"].create(contract_line_values)
 
         return {
-            'type': 'ir.actions.client',
-            'tag': 'reload',
+            "type": "ir.actions.client",
+            "tag": "reload",
         }

@@ -28,7 +28,13 @@
     "license": "AGPL-3",
     "application": False,
     "installable": True,
-    "depends": ["membership", "contacts", "contract", "account", "sale_generate_membership"],
+    "depends": [
+        "membership",
+        "contacts",
+        "contract",
+        "account",
+        "sale_generate_membership",
+    ],
     "external_dependencies": {"python": ["openpyxl"]},
     "data": [
         "security/ir.model.access.csv",
