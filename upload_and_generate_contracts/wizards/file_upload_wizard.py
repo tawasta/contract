@@ -3,6 +3,7 @@ import csv
 import io
 import logging
 import re
+from datetime import datetime
 
 from odoo import exceptions, fields, models
 from odoo.tools.translate import _
@@ -37,6 +38,7 @@ class FileUploadWizard(models.TransientModel):
                     "company_type": "person",
                     "phone": row.get("Puhelin").strip(),
                     "city": row.get("Kaupunki").strip(),
+                    "ref": row.get("Viite").strip(),
                 }
                 logging.info(partner_values)
                 partner = self.env["res.partner"].create(partner_values)
@@ -47,7 +49,14 @@ class FileUploadWizard(models.TransientModel):
                     "name": partner.name,
                     "user_id": row.get("Vastuuhenkilo").strip(),
                     "line_recurrence": False,
+                    # alkamispäivä = excelista jäsenpvm
                 }
+                date_start_str = row.get("Alkamispäivä").strip()
+                start_date = datetime.strptime(date_start_str, "%d.%m.%Y").strftime(
+                    "%Y-%m-%d"
+                )
+                contract_values.update({"date_start": start_date})
+
                 contract = self.env["contract.contract"].create(contract_values)
                 contract_template_id = (
                     int(row.get("Mallipohja").strip())
@@ -60,11 +69,11 @@ class FileUploadWizard(models.TransientModel):
                 current_type = row.get("Tyyppi", "").strip()
                 type_match = re.match(r"^[A-Za-z]+\d+$", current_type)
 
-                # Onko tyyppi KIRJAIN + NUMEROSARJA...tämän avulla voidaan tehdä
+                # Onko tyyppi KIRJAIN + NUMEROSARJA...tämän avulla voidaan tehdään
                 # sopimuksien välillä kytkyjä esim perheenjäsenyyksissä
                 if type_match:
-                    # Jos nykyinen tyyppi on sama kuin edellinen,
-                    # luo kytky alkuperäiseen sopimukseen jolla vastaava previous_type arvo
+                    # Jos nykyinen tyyppi on sama kuin edellinen, luo kytky alkuperäiseen
+                    # sopimukseen jolla vastaava previous_type arvo
                     if current_type == previous_type:
                         # Tässä kohdassa tulisi luoda kytky sopimusten välille
                         contract.sudo().write(
@@ -83,8 +92,8 @@ class FileUploadWizard(models.TransientModel):
                             }
 
                             self.env["contract.line"].create(contract_line_values)
-                    # Jos tyyppi onkin eri niin tallennetaan tietoja muuttujiin
-                    # sekä luodaan normaalisti sopimusrivi
+                    # Jos tyyppi onkin eri niin tallennetaan tietoja muuttujiin sekä
+                    # luodaan normaalisti sopimusrivi
                     else:
 
                         previous_type = (
