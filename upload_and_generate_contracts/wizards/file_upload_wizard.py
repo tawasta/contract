@@ -149,7 +149,7 @@ class FileUploadWizard(models.TransientModel):
 
                 if not partner_user:
                     login = partner.email
-                    user_id = users_res.create(
+                    user_id = res_users.create(
                         {
                             "name": partner.name,
                             "partner_id": partner.id,
