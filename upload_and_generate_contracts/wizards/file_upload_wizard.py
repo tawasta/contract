@@ -142,7 +142,7 @@ class FileUploadWizard(models.TransientModel):
                 partner_user = (
                     partner.user_ids and partner.user_ids[0] or False
                 )
-                res_users = request.env["res.users"].sudo()
+                res_users = self.env["res.users"].sudo()
 
                 if not partner_user:
                     partner_user = res_users.search([("login", "=", partner.email)])
