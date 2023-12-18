@@ -143,6 +143,7 @@ class FileUploadWizard(models.TransientModel):
                     partner.user_ids and partner.user_ids[0] or False
                 )
                 res_users = self.env["res.users"].sudo()
+                portal_group_id = self.env.ref("base.group_portal").id
 
                 if not partner_user:
                     partner_user = res_users.search([("login", "=", partner.email)])
