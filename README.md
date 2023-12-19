@@ -28,6 +28,7 @@ addon | version | maintainers | summary
 [contract_invoice_address](contract_invoice_address/) | 14.0.1.0.4 |  | Add invoice address to contracts
 [contract_invoice_address_details](contract_invoice_address_details/) | 14.0.1.0.0 |  | Add invoice address details to contracts
 [contract_invoice_contract_id_origin](contract_invoice_contract_id_origin/) | 14.0.1.0.0 |  | Invoice - Contract information
+[contract_invoice_dates](contract_invoice_dates/) | 14.0.1.0.0 |  | Add information about next contract invoicing
 [contract_invoice_header](contract_invoice_header/) | 14.0.1.0.0 |  | Add invoice header to contracts
 [contract_invoice_line_view](contract_invoice_line_view/) | 14.0.1.0.1 |  | Add a readonly contract invoice line view
 [contract_invoice_line_view_invoice](contract_invoice_line_view_invoice/) | 14.0.1.0.0 |  | Add a readonly contract line view for invoice address

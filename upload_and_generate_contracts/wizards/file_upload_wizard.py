@@ -138,10 +138,7 @@ class FileUploadWizard(models.TransientModel):
 
                     self.env["contract.line"].create(contract_line_values)
 
-
-                partner_user = (
-                    partner.user_ids and partner.user_ids[0] or False
-                )
+                partner_user = partner.user_ids and partner.user_ids[0] or False
                 res_users = self.env["res.users"].sudo()
                 portal_group_id = self.env.ref("base.group_portal").id
 
@@ -150,7 +147,7 @@ class FileUploadWizard(models.TransientModel):
 
                 if not partner_user:
                     login = partner.email
-                    user_id = res_users.create(
+                    res_users.create(
                         {
                             "name": partner.name,
                             "partner_id": partner.id,
