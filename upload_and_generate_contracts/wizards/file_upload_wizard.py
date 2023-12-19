@@ -138,6 +138,34 @@ class FileUploadWizard(models.TransientModel):
 
                     self.env["contract.line"].create(contract_line_values)
 
+                partner_user = partner.user_ids and partner.user_ids[0] or False
+                res_users = self.env["res.users"].sudo()
+                portal_group_id = self.env.ref("base.group_portal").id
+
+                if not partner_user:
+                    partner_user = res_users.search([("login", "=", partner.email)])
+
+                if not partner_user:
+                    login = partner.email
+                    res_users.create(
+                        {
+                            "name": partner.name,
+                            "partner_id": partner.id,
+                            "login": login,
+                            "groups_id": [(6, 0, [portal_group_id])],
+                            "tz": self._context.get("tz"),
+                        }
+                    )
+                    # new_user = request.env["res.users"].sudo()._signup_create_user(values)
+                    # if new_user:
+                    #     website = request.env["website"].get_current_website()
+                    #     new_user.sudo().write(
+                    #         {
+                    #             "company_id": website.company_id.id,
+                    #             "company_ids": [(6, 0, website.company_id.ids)],
+                    #         }
+                    #     )
+
         return {
             "type": "ir.actions.client",
             "tag": "reload",
