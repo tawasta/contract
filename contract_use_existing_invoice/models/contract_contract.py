@@ -53,6 +53,16 @@ class Contract(models.Model):
 
                 move_ids.append(move)
             else:
+                if (
+                    hasattr(self, "partner_invoice_id")
+                    and record.partner_invoice_id
+                    and record.partner_invoice_id != record.partner_id
+                ):
+                    # Leave shipping address and contact address empty
+                    for index, _invoice_values in enumerate(invoices_values):
+                        invoices_values[index].pop("partner_shipping_id", None)
+                        invoices_values[index].pop("customer_contact_id", None)
+
                 moves = account_move.create(invoices_values)
                 move_ids += moves.ids
 

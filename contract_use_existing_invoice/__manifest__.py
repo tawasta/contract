@@ -22,7 +22,7 @@
     "name": "Contract: use an existing invoice when creating recurring invoices",
     "summary": "Add lines to an existing invoice instead of creating a new invoice",
     "category": "Contract Management",
-    "version": "14.0.1.0.0",
+    "version": "14.0.1.0.1",
     "website": "https://gitlab.com/tawasta/odoo/contract",
     "author": "Tawasta",
     "license": "AGPL-3",
