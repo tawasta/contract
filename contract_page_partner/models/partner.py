@@ -55,10 +55,10 @@ class ResPartner(models.Model):
         for partner in self:
             logging.info("==");
             partner.contract_start = self.env['contract.line'].search([
-                ('partner', '=', partner.id), ('is_canceled', '!=', True)
+                ('partner_id', '=', partner.id), ('is_canceled', '!=', True)
             ], limit=1, order='date_start').date_start
             partner.contract_stop = self.env['contract.line'].search([
-                ('partner', '=', partner.id), ('is_canceled', '!=', True)
+                ('partner_id', '=', partner.id), ('is_canceled', '!=', True)
             ], limit=1, order='date_end desc').date_end
 
     # 3. Default methods
