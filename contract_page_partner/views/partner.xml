@@ -29,4 +29,27 @@
                 </notebook>
             </field>
         </record>
+
+        <record model="ir.ui.view" id="view_partner_form_hide">
+            <field name="name">res.partner.form.inherit</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="membership.view_partner_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='membership']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_res_partner_member_filter" model="ir.ui.view">
+            <field name="name">res.partner.select</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="membership.view_res_partner_member_filter"/>
+            <field name="arch" type="xml">
+                <filter name="all_members" position="attributes">
+                    <attribute name="domain">['&amp;', ('contract_start', '!=', False), '|', ('contract_stop', '=', False), ('contract_stop', '>', 'today()')]</attribute>
+                </filter>
+            </field>
+        </record>
+
 </odoo>
