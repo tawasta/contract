@@ -40,6 +40,32 @@ class FileUploadWizard(models.TransientModel):
                     "city": row.get("Kaupunki").strip(),
                     "ref": row.get("Viite").strip(),
                 }
+
+                birth_year = row.get("Syntymävuosi")
+                category_ids = []
+                category_names = row.get("Tunnisteet")
+                if category_names:
+                    # Jaa kategoriat pilkulla ja käsittele jokainen kategoria
+                    for category_name in category_names.split(","):
+                        category_name = category_name.strip()  # Poista mahdolliset ylimääräiset välilyönnit
+                        if category_name:
+                            category = self.env["res.partner.category"].sudo().search([
+                                ('name', '=', category_name)
+                            ], limit=1)
+                            if not category:
+                                # Kategoriaa ei löytynyt, joten luodaan uusi
+                                category = self.env["res.partner.category"].sudo().create({"name": category_name})
+                            category_ids.append(category.id)
+                            
+                partner_values["category_id"] = [(6, 0, category_ids)]
+                if birth_year is not None:
+                    birth_year_found = self.env["res.birth.year"].sudo().search([
+                        ('name', '=', birth_year.strip())
+                    ])
+                    if not birth_year_found:
+                        birth_year_found = self.env["res.birth.year"].sudo().create({"name": birth_year.strip()})
+                    partner_values["birth_year"] = birth_year_found.id
+
                 logging.info(partner_values)
                 partner = self.env["res.partner"].create(partner_values)
 
@@ -138,33 +164,30 @@ class FileUploadWizard(models.TransientModel):
 
                     self.env["contract.line"].create(contract_line_values)
 
-                partner_user = partner.user_ids and partner.user_ids[0] or False
-                res_users = self.env["res.users"].sudo()
-                portal_group_id = self.env.ref("base.group_portal").id
+                create_res_user = self.env['ir.config_parameter'].sudo().get_param('create_res_user_import')
 
-                if not partner_user:
-                    partner_user = res_users.search([("login", "=", partner.email)])
+                if create_res_user and create_res_user.value == 'True':
+                    logging.info("======LUODAAN TUNNUKSET=====")
 
-                if not partner_user:
-                    login = partner.email
-                    res_users.create(
-                        {
-                            "name": partner.name,
-                            "partner_id": partner.id,
-                            "login": login,
-                            "groups_id": [(6, 0, [portal_group_id])],
-                            "tz": self._context.get("tz"),
-                        }
-                    )
-                    # new_user = request.env["res.users"].sudo()._signup_create_user(values)
-                    # if new_user:
-                    #     website = request.env["website"].get_current_website()
-                    #     new_user.sudo().write(
-                    #         {
-                    #             "company_id": website.company_id.id,
-                    #             "company_ids": [(6, 0, website.company_id.ids)],
-                    #         }
-                    #     )
+                    partner_user = partner.user_ids and partner.user_ids[0] or False
+                    res_users = self.env["res.users"].sudo()
+                    portal_group_id = self.env.ref("base.group_portal").id
+
+                    if not partner_user:
+                        partner_user = res_users.search([("login", "=", partner.email)])
+
+                    if not partner_user:
+                        login = partner.email
+                        res_users.create(
+                            {
+                                "name": partner.name,
+                                "partner_id": partner.id,
+                                "login": login,
+                                "groups_id": [(6, 0, [portal_group_id])],
+                                "tz": self._context.get("tz"),
+                            }
+                        )
+
 
         return {
             "type": "ir.actions.client",
