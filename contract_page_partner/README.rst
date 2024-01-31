@@ -5,7 +5,7 @@
 =====================
 Contract Page Partner
 =====================
-* Contract Page Partner
+* This Odoo module enhances partner management by associating them with their contract lines, tracking the start and end dates of contracts, and listing all products and companies linked through these contracts. It provides a comprehensive view of a partner's engagements, ensuring all contract-related information is easily accessible and up-to-date within the partner's record.
 
 Configuration
 =============
