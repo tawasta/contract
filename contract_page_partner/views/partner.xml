@@ -11,6 +11,8 @@
                             <group>
                                 <field name="contract_start"/>
                                 <field name="contract_stop" />
+                                <field name="contract_line_product_ids" widget="many2many_tags" />
+                                <field name="contract_line_company_ids" widget="many2many_tags" />
                             </group>
                         </group>
                         <field name="contract_lines" nolabel="1" colspan="4" readonly="1">

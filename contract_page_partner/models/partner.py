@@ -40,13 +40,56 @@ class ResPartner(models.Model):
     # 2. Fields declaration
     contract_lines = fields.One2many(comodel_name="contract.line", inverse_name='partner_id', string='Contract lines')
 
-    contract_start = fields.Date(compute='_compute_contract_state',
+    contract_start = fields.Date(compute='_compute_contract_state', # OTETAANKIN HEADERISTA
         string ='Contract Start Date', store=True,
         help="Date from which contract becomes active.")
 
-    contract_stop = fields.Date(compute='_compute_contract_state',
+    contract_stop = fields.Date(compute='_compute_contract_state', # OTETAANKIN HEADERISTA
         string ='Contract End Date', store=True,
         help="Date until which contract remains active.")
+
+    contract_line_company_ids = fields.Many2many()
+    #Many2many otetaan yritykset tuotteen takaa
+
+    contract_line_product_ids = fields.Many2many(
+        comodel_name='product.product',
+        compute='_compute_contract_line_product_ids',
+        string='Products',
+        store=True,
+    )
+
+    contract_line_company_ids = fields.Many2many(
+        comodel_name='res.company',
+        compute='_compute_contract_line_company_ids',
+        string='Companies',
+        store=True,
+    )
+
+    @api.depends('contract_lines','contract_lines.product_id.company_id', 'contract_lines.product_id.product_tmpl_id.company_id')
+    def _compute_contract_line_company_ids(self):
+        for partner in self:
+            companies = self.env['res.company']
+            for contract_line in partner.contract_lines:
+                # Add the company from the product of each contract line to the recordset
+                if contract_line.product_id.company_id:
+                    companies |= contract_line.product_id.company_id
+                
+                # Also add the company from the product template of each contract line to the recordset
+                if contract_line.product_id.product_tmpl_id.company_id:
+                    companies |= contract_line.product_id.product_tmpl_id.company_id
+
+            partner.contract_line_company_ids = companies
+
+    @api.depends('contract_lines','contract_lines.product_id')
+    def _compute_contract_line_product_ids(self):
+        for partner in self:
+            products = self.env['product.product']
+            # Iterate over all contract lines related to the partner
+            for contract_line in partner.contract_lines:
+                # Add the product from each contract line to the recordset
+                products |= contract_line.product_id
+
+            partner.contract_line_product_ids = products
 
 
     @api.depends('contract_lines',)
@@ -54,11 +97,11 @@ class ResPartner(models.Model):
         today = fields.Date.today()
         for partner in self:
             logging.info("==");
-            partner.contract_start = self.env['contract.line'].search([
-                ('partner_id', '=', partner.id), ('is_canceled', '!=', True)
+            partner.contract_start = self.env['contract.contract'].search([
+                ('partner_id', '=', partner.id)
             ], limit=1, order='date_start').date_start
-            partner.contract_stop = self.env['contract.line'].search([
-                ('partner_id', '=', partner.id), ('is_canceled', '!=', True)
+            partner.contract_stop = self.env['contract.contract'].search([
+                ('partner_id', '=', partner.id)
             ], limit=1, order='date_end desc').date_end
 
     # 3. Default methods
