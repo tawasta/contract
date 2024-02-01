@@ -88,7 +88,9 @@ class ResPartner(models.Model):
     @api.depends('contract_lines',)
     def _compute_contract_state(self):
         today = fields.Date.today()
-        for partner in self:
+        # Filter partners with contract_lines
+        partners_with_lines = self.filtered(lambda p: p.contract_lines)
+        for partner in partners_with_lines:
             logging.info("==");
             partner.contract_start = self.env['contract.contract'].search([
                 ('partner_id', '=', partner.id)
