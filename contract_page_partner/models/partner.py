@@ -67,29 +67,22 @@ class ResPartner(models.Model):
 
     @api.depends('contract_lines','contract_lines.product_id.company_id', 'contract_lines.product_id.product_tmpl_id.company_id')
     def _compute_contract_line_company_ids(self):
-        for partner in self:
-            companies = self.env['res.company']
-            for contract_line in partner.contract_lines:
-                # Add the company from the product of each contract line to the recordset
-                if contract_line.product_id.company_id:
-                    companies |= contract_line.product_id.company_id
-                
-                # Also add the company from the product template of each contract line to the recordset
-                if contract_line.product_id.product_tmpl_id.company_id:
-                    companies |= contract_line.product_id.product_tmpl_id.company_id
+        # Filter partners with contract_lines
+        partners_with_lines = self.filtered(lambda p: p.contract_lines)
+        for partner in partners_with_lines:
+            # Collect companies from products and product templates
+            companies_from_products = partner.contract_lines.mapped("product_id.company_id").filtered(lambda c: c)
+            companies_from_templates = partner.contract_lines.mapped("product_id.product_tmpl_id.company_id").filtered(lambda c: c)
 
-            partner.contract_line_company_ids = companies
+            # Combine the two company sets and assign to partner
+            partner.contract_line_company_ids = companies_from_products | companies_from_templates
 
     @api.depends('contract_lines','contract_lines.product_id')
     def _compute_contract_line_product_ids(self):
-        for partner in self:
-            products = self.env['product.product']
-            # Iterate over all contract lines related to the partner
-            for contract_line in partner.contract_lines:
-                # Add the product from each contract line to the recordset
-                products |= contract_line.product_id
-
-            partner.contract_line_product_ids = products
+        # Filter partners with contract_lines
+        partners_with_lines = self.filtered(lambda p: p.contract_lines)
+        for partner in partners_with_lines:
+            partner.contract_line_product_ids = partner.contract_lines.mapped("product_id")
 
 
     @api.depends('contract_lines',)
