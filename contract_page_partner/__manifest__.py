@@ -28,6 +28,6 @@
     "license": "AGPL-3",
     "application": False,
     "installable": True,
-    "depends": ["contract", "membership", "product_variant_company"],
+    "depends": ["contract", "membership", "product_variant_variant_company"],
     "data": ["views/partner.xml"],
 }
