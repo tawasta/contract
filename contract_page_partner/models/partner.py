@@ -40,11 +40,11 @@ class ResPartner(models.Model):
     # 2. Fields declaration
     contract_lines = fields.One2many(comodel_name="contract.line", inverse_name='partner_id', string='Contract lines')
 
-    contract_start = fields.Date(compute='_compute_contract_state', # OTETAANKIN HEADERISTA
+    contract_start = fields.Date(compute='_compute_contract_state',
         string ='Contract Start Date', store=True,
         help="Date from which contract becomes active.")
 
-    contract_stop = fields.Date(compute='_compute_contract_state', # OTETAANKIN HEADERISTA
+    contract_stop = fields.Date(compute='_compute_contract_state',
         string ='Contract End Date', store=True,
         help="Date until which contract remains active.")
 
@@ -65,13 +65,13 @@ class ResPartner(models.Model):
         store=True,
     )
 
-    @api.depends('contract_lines','contract_lines.product_id.company_id', 'contract_lines.product_id.product_tmpl_id.company_id')
+    @api.depends('contract_lines','contract_lines.product_id.variant_company_id', 'contract_lines.product_id.product_tmpl_id.company_id')
     def _compute_contract_line_company_ids(self):
         # Filter partners with contract_lines
         partners_with_lines = self.filtered(lambda p: p.contract_lines)
         for partner in partners_with_lines:
             # Collect companies from products and product templates
-            companies_from_products = partner.contract_lines.mapped("product_id.company_id").filtered(lambda c: c)
+            companies_from_products = partner.contract_lines.mapped("product_id.variant_company_id").filtered(lambda c: c)
             companies_from_templates = partner.contract_lines.mapped("product_id.product_tmpl_id.company_id").filtered(lambda c: c)
 
             # Combine the two company sets and assign to partner
