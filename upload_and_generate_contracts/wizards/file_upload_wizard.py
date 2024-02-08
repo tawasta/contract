@@ -47,23 +47,37 @@ class FileUploadWizard(models.TransientModel):
                 if category_names:
                     # Jaa kategoriat pilkulla ja käsittele jokainen kategoria
                     for category_name in category_names.split(","):
-                        category_name = category_name.strip()  # Poista mahdolliset ylimääräiset välilyönnit
+                        category_name = (
+                            category_name.strip()
+                        )  # Poista mahdolliset ylimääräiset välilyönnit
                         if category_name:
-                            category = self.env["res.partner.category"].sudo().search([
-                                ('name', '=', category_name)
-                            ], limit=1)
+                            category = (
+                                self.env["res.partner.category"]
+                                .sudo()
+                                .search([("name", "=", category_name)], limit=1)
+                            )
                             if not category:
                                 # Kategoriaa ei löytynyt, joten luodaan uusi
-                                category = self.env["res.partner.category"].sudo().create({"name": category_name})
+                                category = (
+                                    self.env["res.partner.category"]
+                                    .sudo()
+                                    .create({"name": category_name})
+                                )
                             category_ids.append(category.id)
-                            
+
                 partner_values["category_id"] = [(6, 0, category_ids)]
                 if birth_year is not None:
-                    birth_year_found = self.env["res.birth.year"].sudo().search([
-                        ('name', '=', birth_year.strip())
-                    ])
+                    birth_year_found = (
+                        self.env["res.birth.year"]
+                        .sudo()
+                        .search([("name", "=", birth_year.strip())])
+                    )
                     if not birth_year_found:
-                        birth_year_found = self.env["res.birth.year"].sudo().create({"name": birth_year.strip()})
+                        birth_year_found = (
+                            self.env["res.birth.year"]
+                            .sudo()
+                            .create({"name": birth_year.strip()})
+                        )
                     partner_values["birth_year"] = birth_year_found.id
 
                 logging.info(partner_values)
@@ -164,9 +178,13 @@ class FileUploadWizard(models.TransientModel):
 
                     self.env["contract.line"].create(contract_line_values)
 
-                create_res_user = self.env['ir.config_parameter'].sudo().get_param('create_res_user_import')
+                create_res_user = (
+                    self.env["ir.config_parameter"]
+                    .sudo()
+                    .get_param("create_res_user_import")
+                )
 
-                if create_res_user and create_res_user.value == 'True':
+                if create_res_user and create_res_user.value == "True":
                     logging.info("======LUODAAN TUNNUKSET=====")
 
                     partner_user = partner.user_ids and partner.user_ids[0] or False
@@ -187,7 +205,6 @@ class FileUploadWizard(models.TransientModel):
                                 "tz": self._context.get("tz"),
                             }
                         )
-
 
         return {
             "type": "ir.actions.client",

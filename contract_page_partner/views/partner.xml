@@ -3,25 +3,36 @@
     <record model="ir.ui.view" id="view_partner_form">
             <field name="name">res.partner.form.inherit</field>
             <field name="model">res.partner</field>
-            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="inherit_id" ref="base.view_partner_form" />
             <field name="arch" type="xml">
                 <notebook position="inside">
                     <page string="Contract" name="contract">
                         <group>
                             <group>
-                                <field name="contract_start"/>
+                                <field name="contract_start" />
                                 <field name="contract_stop" />
-                                <field name="contract_line_product_ids" widget="many2many_tags" />
-                                <field name="contract_line_company_ids" widget="many2many_tags" />
+                                <field
+                                name="contract_line_product_ids"
+                                widget="many2many_tags"
+                            />
+                                <field
+                                name="contract_line_company_ids"
+                                widget="many2many_tags"
+                            />
                             </group>
                         </group>
-                        <field name="contract_lines" nolabel="1" colspan="4" readonly="1">
+                        <field
+                        name="contract_lines"
+                        nolabel="1"
+                        colspan="4"
+                        readonly="1"
+                    >
                             <tree string="Contract">
                                 <field name="contract_id" />
                                 <field name="product_id" />
-                                <field name="quantity"/>
-                                <field name="price_unit"/>
-                                <field name="date_start"/>
+                                <field name="quantity" />
+                                <field name="price_unit" />
+                                <field name="date_start" />
                                 <field name="date_end" />
                                 <field name="state" />
                             </tree>
@@ -46,10 +57,12 @@
         <record id="view_res_partner_member_filter" model="ir.ui.view">
             <field name="name">res.partner.select</field>
             <field name="model">res.partner</field>
-            <field name="inherit_id" ref="membership.view_res_partner_member_filter"/>
+            <field name="inherit_id" ref="membership.view_res_partner_member_filter" />
             <field name="arch" type="xml">
                 <filter name="all_members" position="attributes">
-                    <attribute name="domain">['&amp;', ('contract_start', '!=', False), '|', ('contract_stop', '=', False), ('contract_stop', '>', 'today()')]</attribute>
+                    <attribute
+                    name="domain"
+                >['&amp;', ('contract_start', '!=', False), '|', ('contract_stop', '=', False), ('contract_stop', '>', 'today()')]</attribute>
                 </filter>
             </field>
         </record>

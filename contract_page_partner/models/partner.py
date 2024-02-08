@@ -22,9 +22,10 @@
 
 # 2. Known third party imports:
 
-# 3. Odoo imports (openerp):
-from odoo import fields, models, api
 import logging
+
+# 3. Odoo imports (openerp):
+from odoo import api, fields, models
 
 # 4. Imports from Odoo modules:
 
@@ -38,66 +39,93 @@ class ResPartner(models.Model):
     _inherit = "res.partner"
 
     # 2. Fields declaration
-    contract_lines = fields.One2many(comodel_name="contract.line", inverse_name='partner_id', string='Contract lines')
+    contract_lines = fields.One2many(
+        comodel_name="contract.line", inverse_name="partner_id", string="Contract lines"
+    )
 
-    contract_start = fields.Date(compute='_compute_contract_state',
-        string ='Contract Start Date', store=True,
-        help="Date from which contract becomes active.")
+    contract_start = fields.Date(
+        compute="_compute_contract_state",
+        string="Contract Start Date",
+        store=True,
+        help="Date from which contract becomes active.",
+    )
 
-    contract_stop = fields.Date(compute='_compute_contract_state',
-        string ='Contract End Date', store=True,
-        help="Date until which contract remains active.")
+    contract_stop = fields.Date(
+        compute="_compute_contract_state",
+        string="Contract End Date",
+        store=True,
+        help="Date until which contract remains active.",
+    )
 
     contract_line_company_ids = fields.Many2many()
-    #Many2many otetaan yritykset tuotteen takaa
+    # Many2many otetaan yritykset tuotteen takaa
 
     contract_line_product_ids = fields.Many2many(
-        comodel_name='product.product',
-        compute='_compute_contract_line_product_ids',
-        string='Products',
+        comodel_name="product.product",
+        compute="_compute_contract_line_product_ids",
+        string="Products",
         store=True,
     )
 
     contract_line_company_ids = fields.Many2many(
-        comodel_name='res.company',
-        compute='_compute_contract_line_company_ids',
-        string='Companies',
+        comodel_name="res.company",
+        compute="_compute_contract_line_company_ids",
+        string="Companies",
         store=True,
     )
 
-    @api.depends('contract_lines','contract_lines.product_id.variant_company_id', 'contract_lines.product_id.product_tmpl_id.company_id')
+    @api.depends(
+        "contract_lines",
+        "contract_lines.product_id.variant_company_id",
+        "contract_lines.product_id.product_tmpl_id.company_id",
+    )
     def _compute_contract_line_company_ids(self):
         # Filter partners with contract_lines
         partners_with_lines = self.filtered(lambda p: p.contract_lines)
         for partner in partners_with_lines:
             # Collect companies from products and product templates
-            companies_from_products = partner.contract_lines.mapped("product_id.variant_company_id").filtered(lambda c: c)
-            companies_from_templates = partner.contract_lines.mapped("product_id.product_tmpl_id.company_id").filtered(lambda c: c)
+            companies_from_products = partner.contract_lines.mapped(
+                "product_id.variant_company_id"
+            ).filtered(lambda c: c)
+            companies_from_templates = partner.contract_lines.mapped(
+                "product_id.product_tmpl_id.company_id"
+            ).filtered(lambda c: c)
 
             # Combine the two company sets and assign to partner
-            partner.contract_line_company_ids = companies_from_products | companies_from_templates
+            partner.contract_line_company_ids = (
+                companies_from_products | companies_from_templates
+            )
 
-    @api.depends('contract_lines','contract_lines.product_id')
+    @api.depends("contract_lines", "contract_lines.product_id")
     def _compute_contract_line_product_ids(self):
         # Filter partners with contract_lines
         partners_with_lines = self.filtered(lambda p: p.contract_lines)
         for partner in partners_with_lines:
-            partner.contract_line_product_ids = partner.contract_lines.mapped("product_id")
+            partner.contract_line_product_ids = partner.contract_lines.mapped(
+                "product_id"
+            )
 
-
-    @api.depends('contract_lines',)
+    @api.depends(
+        "contract_lines",
+    )
     def _compute_contract_state(self):
-        today = fields.Date.today()
+        fields.Date.today()
         # Filter partners with contract_lines
         partners_with_lines = self.filtered(lambda p: p.contract_lines)
         for partner in partners_with_lines:
-            logging.info("==");
-            partner.contract_start = self.env['contract.contract'].search([
-                ('partner_id', '=', partner.id)
-            ], limit=1, order='date_start').date_start
-            partner.contract_stop = self.env['contract.contract'].search([
-                ('partner_id', '=', partner.id)
-            ], limit=1, order='date_end desc').date_end
+            logging.info("==")
+            partner.contract_start = (
+                self.env["contract.contract"]
+                .search([("partner_id", "=", partner.id)], limit=1, order="date_start")
+                .date_start
+            )
+            partner.contract_stop = (
+                self.env["contract.contract"]
+                .search(
+                    [("partner_id", "=", partner.id)], limit=1, order="date_end desc"
+                )
+                .date_end
+            )
 
     # 3. Default methods
 
