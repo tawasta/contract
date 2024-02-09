@@ -184,7 +184,7 @@ class FileUploadWizard(models.TransientModel):
                     .get_param("create_res_user_import")
                 )
 
-                if create_res_user and create_res_user.value == "True":
+                if create_res_user:
                     logging.info("======LUODAAN TUNNUKSET=====")
 
                     partner_user = partner.user_ids and partner.user_ids[0] or False
