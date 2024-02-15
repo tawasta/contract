@@ -6,7 +6,7 @@
 Contract remove unlink right
 ============================
 
-Contract remove unlink right
+Don't allow deleting contracts for contract manager
 
 Configuration
 =============

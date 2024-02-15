@@ -6,7 +6,8 @@
 Contract link to another contract
 =================================
 
-Contract link to another contract
+Allows linking contract to another contract.
+Shows all contracts with the same payee company on the "main" contract.
 
 Configuration
 =============
