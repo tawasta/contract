@@ -39,6 +39,7 @@ class FileUploadWizard(models.TransientModel):
                     "phone": row.get("Puhelin").strip(),
                     "city": row.get("Kaupunki").strip(),
                     "ref": row.get("Viite").strip(),
+                    "is_customer": True,
                 }
 
                 birth_year = row.get("Syntymävuosi")
@@ -89,6 +90,7 @@ class FileUploadWizard(models.TransientModel):
                     "name": partner.name,
                     "user_id": row.get("Vastuuhenkilo").strip(),
                     "line_recurrence": False,
+                    "contract_type": "sale",
                     # alkamispäivä = excelista jäsenpvm
                 }
                 date_start_str = row.get("Alkamispäivä").strip()
@@ -103,8 +105,6 @@ class FileUploadWizard(models.TransientModel):
                     if row.get("Mallipohja")
                     else False
                 )
-                contract.sudo().write({"contract_template_id": contract_template_id})
-                contract._onchange_contract_template_id()
 
                 current_type = row.get("Tyyppi", "").strip()
                 type_match = re.match(r"^[A-Za-z]+\d+$", current_type)
@@ -129,6 +129,7 @@ class FileUploadWizard(models.TransientModel):
                                 "product_id": product.id,
                                 "name": product.name,
                                 "price_unit": row.get("Hinta").strip(),
+                                "date_start": start_date,
                             }
 
                             self.env["contract.line"].create(contract_line_values)
@@ -157,6 +158,7 @@ class FileUploadWizard(models.TransientModel):
                             "product_id": product_id.id,
                             "name": product_id.name,
                             "price_unit": row.get("Hinta").strip(),
+                            "date_start": start_date,
                         }
 
                         self.env["contract.line"].create(contract_line_values)
@@ -174,9 +176,13 @@ class FileUploadWizard(models.TransientModel):
                         "product_id": product_id.id,
                         "name": product_id.name,
                         "price_unit": row.get("Hinta").strip(),
+                        "date_start": start_date,
                     }
 
                     self.env["contract.line"].create(contract_line_values)
+
+                contract.sudo().write({"contract_template_id": contract_template_id})
+                contract._onchange_contract_template_id()
 
                 create_res_user = (
                     self.env["ir.config_parameter"]
