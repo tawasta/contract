@@ -105,7 +105,6 @@ class FileUploadWizard(models.TransientModel):
                     if row.get("Mallipohja")
                     else False
                 )
-                
 
                 current_type = row.get("Tyyppi", "").strip()
                 type_match = re.match(r"^[A-Za-z]+\d+$", current_type)
@@ -131,7 +130,6 @@ class FileUploadWizard(models.TransientModel):
                                 "name": product.name,
                                 "price_unit": row.get("Hinta").strip(),
                                 "date_start": start_date,
-
                             }
 
                             self.env["contract.line"].create(contract_line_values)
