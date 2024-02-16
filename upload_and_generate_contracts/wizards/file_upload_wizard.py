@@ -39,6 +39,7 @@ class FileUploadWizard(models.TransientModel):
                     "phone": row.get("Puhelin").strip(),
                     "city": row.get("Kaupunki").strip(),
                     "ref": row.get("Viite").strip(),
+                    "is_customer": True,
                 }
 
                 birth_year = row.get("Syntymävuosi")
@@ -89,6 +90,7 @@ class FileUploadWizard(models.TransientModel):
                     "name": partner.name,
                     "user_id": row.get("Vastuuhenkilo").strip(),
                     "line_recurrence": False,
+                    "contract_type": "sale",
                     # alkamispäivä = excelista jäsenpvm
                 }
                 date_start_str = row.get("Alkamispäivä").strip()
