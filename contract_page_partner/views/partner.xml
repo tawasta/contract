@@ -42,6 +42,27 @@
                 </notebook>
             </field>
         </record>
+
+        <record id="membership_members_tree" model="ir.ui.view">
+            <field name="name">res.partner.hide.field.tree</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="membership.membership_members_tree" />
+            <field name="arch" type="xml">
+                <field name="name" position="after">
+                    <field name="contract_start" />
+                    <field name="contract_stop" />
+                </field>
+                <field name="membership_state" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+                <field name="membership_start" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+                <field name="membership_stop" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+            </field>
+        </record>
 <!-- Otetaan jossain vaiheessa käyttöön -->
 <!--         <record model="ir.ui.view" id="view_partner_form_hide">
             <field name="name">res.partner.form.inherit</field>
