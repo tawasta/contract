@@ -42,17 +42,41 @@
                 </notebook>
             </field>
         </record>
-<!-- Otetaan jossain vaiheessa käyttöön -->
-<!--         <record model="ir.ui.view" id="view_partner_form_hide">
+
+        <record id="membership_members_tree" model="ir.ui.view">
+            <field name="name">res.partner.hide.field.tree</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="membership.membership_members_tree" />
+            <field name="arch" type="xml">
+                <field name="name" position="after">
+                    <field name="contract_start" />
+                    <field name="contract_stop" />
+                </field>
+                <field name="membership_state" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+                <field name="associate_member" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+                <field name="membership_start" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+                <field name="membership_stop" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_partner_form_hide">
             <field name="name">res.partner.form.inherit</field>
             <field name="model">res.partner</field>
-            <field name="inherit_id" ref="membership.view_partner_form"/>
+            <field name="inherit_id" ref="membership.view_partner_form" />
             <field name="arch" type="xml">
                 <xpath expr="//page[@name='membership']" position="attributes">
                     <attribute name="invisible">1</attribute>
                 </xpath>
             </field>
-        </record> -->
+        </record>
 
         <record id="view_res_partner_member_filter" model="ir.ui.view">
             <field name="name">res.partner.select</field>
