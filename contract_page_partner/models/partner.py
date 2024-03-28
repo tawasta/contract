@@ -76,25 +76,33 @@ class ResPartner(models.Model):
 
     @api.depends(
         "contract_lines",
+        "contract_lines.contract_id.date_end",
         "contract_lines.product_id.variant_company_id",
         "contract_lines.product_id.product_tmpl_id.company_id",
     )
     def _compute_contract_line_company_ids(self):
-        # Filter partners with contract_lines
-        partners_with_lines = self.filtered(lambda p: p.contract_lines)
-        for partner in partners_with_lines:
-            # Collect companies from products and product templates
-            companies_from_products = partner.contract_lines.mapped(
-                "product_id.variant_company_id"
-            ).filtered(lambda c: c)
-            companies_from_templates = partner.contract_lines.mapped(
-                "product_id.product_tmpl_id.company_id"
-            ).filtered(lambda c: c)
-
-            # Combine the two company sets and assign to partner
-            partner.contract_line_company_ids = (
-                companies_from_products | companies_from_templates
+        for partner in self:
+            # Vain voimassa olevat sopimuslinjat huomioidaan
+            valid_contract_lines = partner.contract_lines.filtered(
+                lambda cl: cl.contract_id.date_end and cl.contract_id.date_end >= date.today()
             )
+
+            if valid_contract_lines:
+                # Kerää yhtiöt tuotteista ja tuotemalleista
+                companies_from_products = valid_contract_lines.mapped(
+                    "product_id.variant_company_id"
+                ).filtered('id')  # Varmista, että company_id on asetettu
+                companies_from_templates = valid_contract_lines.mapped(
+                    "product_id.product_tmpl_id.company_id"
+                ).filtered('id')  # Varmista, että company_id on asetettu
+
+                # Yhdistä yhtiöiden joukot ja määritä partnerille
+                partner.contract_line_company_ids = (
+                    companies_from_products | companies_from_templates
+                )
+            else:
+                # Jos ei löydy voimassa olevia sopimuslinjoja, tyhjennä kenttä
+                partner.contract_line_company_ids = False
 
     @api.depends("contract_lines", "contract_lines.product_id")
     def _compute_contract_line_product_ids(self):
