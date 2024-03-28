@@ -18,11 +18,11 @@
 #
 ##############################################################################
 
-# 1. Standard library imports:
-
 # 2. Known third party imports:
-
 import logging
+
+# 1. Standard library imports:
+from datetime import date
 
 # 3. Odoo imports (openerp):
 from odoo import api, fields, models
@@ -84,17 +84,22 @@ class ResPartner(models.Model):
         for partner in self:
             # Vain voimassa olevat sopimuslinjat huomioidaan
             valid_contract_lines = partner.contract_lines.filtered(
-                lambda cl: cl.contract_id.date_end and cl.contract_id.date_end >= date.today()
+                lambda cl: cl.contract_id.date_end
+                and cl.contract_id.date_end >= date.today()
             )
 
             if valid_contract_lines:
                 # Kerää yhtiöt tuotteista ja tuotemalleista
                 companies_from_products = valid_contract_lines.mapped(
                     "product_id.variant_company_id"
-                ).filtered('id')  # Varmista, että company_id on asetettu
+                ).filtered(
+                    "id"
+                )  # Varmista, että company_id on asetettu
                 companies_from_templates = valid_contract_lines.mapped(
                     "product_id.product_tmpl_id.company_id"
-                ).filtered('id')  # Varmista, että company_id on asetettu
+                ).filtered(
+                    "id"
+                )  # Varmista, että company_id on asetettu
 
                 # Yhdistä yhtiöiden joukot ja määritä partnerille
                 partner.contract_line_company_ids = (
