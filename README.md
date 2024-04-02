@@ -37,7 +37,7 @@ addon | version | maintainers | summary
 [contract_line_change_product_variant](contract_line_change_product_variant/) | 14.0.1.0.4 |  | Contract Line Change product variant
 [contract_line_cost](contract_line_cost/) | 14.0.1.1.0 |  | Add cost price to contract lines and move it to the invoice
 [contract_line_inline_edit](contract_line_inline_edit/) | 14.0.1.0.1 |  | Allows editing non-fixed contract lines inline
-[contract_line_list_view](contract_line_list_view/) | 14.0.1.0.0 |  | Adds list view of contract lines
+[contract_line_list_view](contract_line_list_view/) | 14.0.1.0.1 |  | Adds list view of contract lines
 [contract_line_optional_fields](contract_line_optional_fields/) | 14.0.1.0.1 |  | Set contract line fields as optional, so users can hide them
 [contract_line_partner_address_label](contract_line_partner_address_label/) | 14.0.1.0.0 |  | Contract Line Partner Address Label
 [contract_line_stop_ignore_last_date_invoice](contract_line_stop_ignore_last_date_invoice/) | 14.0.1.0.0 |  | When stopping a contract line, the 'Last Date Invoiced' is ignored

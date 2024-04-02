@@ -18,11 +18,10 @@
 #
 ##############################################################################
 
-# 1. Standard library imports:
-
 # 2. Known third party imports:
 
-import logging
+# 1. Standard library imports:
+from datetime import date
 
 # 3. Odoo imports (openerp):
 from odoo import api, fields, models
@@ -94,10 +93,14 @@ class ResPartner(models.Model):
                 # Kerää yhtiöt tuotteista ja tuotemalleista
                 companies_from_products = valid_contract_lines.mapped(
                     "product_id.variant_company_id"
-                ).filtered(lambda c: c)  # Varmista, että company_id on asetettu
+                ).filtered(
+                    lambda c: c
+                )  # Varmista, että company_id on asetettu
                 companies_from_templates = valid_contract_lines.mapped(
                     "product_id.product_tmpl_id.company_id"
-                ).filtered(lambda c: c)  # Varmista, että company_id on asetettu
+                ).filtered(
+                    lambda c: c
+                )  # Varmista, että company_id on asetettu
 
                 # Yhdistä yhtiöiden joukot ja määritä partnerille
                 partner.contract_line_company_ids = (
@@ -110,18 +113,20 @@ class ResPartner(models.Model):
     @api.depends(
         "contract_lines",
         "contract_lines.product_id",
-        "contract_lines.contract_id.date_end"
+        "contract_lines.contract_id.date_end",
     )
     def _compute_contract_line_product_ids(self):
         today = date.today()
         for partner in self.filtered(lambda p: p.contract_lines):
             # Filtteröi vain voimassa olevat sopimuslinjat
             valid_contract_lines = partner.contract_lines.filtered(
-                lambda line: line.contract_id.date_end and line.contract_id.date_end >= today
+                lambda line: line.contract_id.date_end
+                and line.contract_id.date_end >= today
             )
             # Määritetään partnerin tuote-ID:t voimassa olevien sopimuslinjojen perusteella
-            partner.contract_line_product_ids = valid_contract_lines.mapped("product_id")
-
+            partner.contract_line_product_ids = valid_contract_lines.mapped(
+                "product_id"
+            )
 
     @api.depends(
         "contract_lines",
@@ -131,7 +136,6 @@ class ResPartner(models.Model):
         # Filter partners with contract_lines
         partners_with_lines = self.filtered(lambda p: p.contract_lines)
         for partner in partners_with_lines:
-            logging.info("==")
             partner.contract_start = (
                 self.env["contract.contract"]
                 .search([("partner_id", "=", partner.id)], limit=1, order="date_start")
