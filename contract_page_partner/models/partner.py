@@ -81,20 +81,23 @@ class ResPartner(models.Model):
         "contract_lines.product_id.product_tmpl_id.company_id",
     )
     def _compute_contract_line_company_ids(self):
-        for partner in self:
-            # Vain voimassa olevat sopimuslinjat huomioidaan
+        today = date.today()
+        partners_with_lines = self.filtered(lambda p: p.contract_lines)
+        for partner in partners_with_lines:
+            # Filtteröi vain voimassa olevat sopimuslinjat
             valid_contract_lines = partner.contract_lines.filtered(
-                lambda cl: cl.contract_id.date_end and cl.contract_id.date_end >= date.today()
+                lambda cl: cl.contract_id.date_end and cl.contract_id.date_end >= today
             )
 
+            # Jos on voimassa olevia sopimuslinjoja
             if valid_contract_lines:
                 # Kerää yhtiöt tuotteista ja tuotemalleista
                 companies_from_products = valid_contract_lines.mapped(
                     "product_id.variant_company_id"
-                ).filtered('id')  # Varmista, että company_id on asetettu
+                ).filtered(lambda c: c)  # Varmista, että company_id on asetettu
                 companies_from_templates = valid_contract_lines.mapped(
                     "product_id.product_tmpl_id.company_id"
-                ).filtered('id')  # Varmista, että company_id on asetettu
+                ).filtered(lambda c: c)  # Varmista, että company_id on asetettu
 
                 # Yhdistä yhtiöiden joukot ja määritä partnerille
                 partner.contract_line_company_ids = (
@@ -104,14 +107,21 @@ class ResPartner(models.Model):
                 # Jos ei löydy voimassa olevia sopimuslinjoja, tyhjennä kenttä
                 partner.contract_line_company_ids = False
 
-    @api.depends("contract_lines", "contract_lines.product_id")
+    @api.depends(
+        "contract_lines",
+        "contract_lines.product_id",
+        "contract_lines.contract_id.date_end"
+    )
     def _compute_contract_line_product_ids(self):
-        # Filter partners with contract_lines
-        partners_with_lines = self.filtered(lambda p: p.contract_lines)
-        for partner in partners_with_lines:
-            partner.contract_line_product_ids = partner.contract_lines.mapped(
-                "product_id"
+        today = date.today()
+        for partner in self.filtered(lambda p: p.contract_lines):
+            # Filtteröi vain voimassa olevat sopimuslinjat
+            valid_contract_lines = partner.contract_lines.filtered(
+                lambda line: line.contract_id.date_end and line.contract_id.date_end >= today
             )
+            # Määritetään partnerin tuote-ID:t voimassa olevien sopimuslinjojen perusteella
+            partner.contract_line_product_ids = valid_contract_lines.mapped("product_id")
+
 
     @api.depends(
         "contract_lines",
