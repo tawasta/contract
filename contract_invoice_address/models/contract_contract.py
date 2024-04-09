@@ -42,6 +42,18 @@ class Contract(models.Model):
 
         # Add shipping address to writable values
         if self.partner_invoice_id:
-            invoice_vals["partner_id"] = self.partner_invoice_id.id
+            partner = self.partner_invoice_id
+        else:
+            partner = self.partner_id
+
+        if (
+            self.env["ir.config_parameter"]
+            .sudo()
+            .get_param("contract_force_commercial_partner")
+        ):
+            # Force commercial partner
+            partner = partner.commercial_partner_id
+
+        invoice_vals["partner_id"] = partner.id
 
         return invoice_vals, move_form
