@@ -20,7 +20,7 @@
 
 {
     "name": "Contract remove unlink right",
-    "summary": "Contract remove unlink right",
+    "summary": "Don't allow deleting contracts for contract manager",
     "category": "Contract Management",
     "version": "14.0.1.0.0",
     "website": "https://gitlab.com/tawasta/odoo/contract",

@@ -20,7 +20,7 @@
 
 {
     "name": "Contract link to another contract",
-    "summary": "Contract link to another contract",
+    "summary": "Allows linking contract to another contract",
     "category": "Contract Management",
     "version": "14.0.1.0.0",
     "website": "https://gitlab.com/tawasta/odoo/contract",

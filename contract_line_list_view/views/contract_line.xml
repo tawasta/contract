@@ -45,6 +45,7 @@
         <field name="model">contract.line</field>
         <field name="arch" type="xml">
             <search>
+                <field name="partner_id" />
                 <field name="name" />
                 <field name="product_id" />
                 <field name="recurring_next_date" />

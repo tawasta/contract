@@ -15,7 +15,9 @@ class Contract(models.Model):
     all_related_contract_ids = fields.Many2many(
         comodel_name="contract.contract",
         relation="all_related_contracts_rel",
-        string="All related batches",
+        string="All related contracts",
+        help="Contracts directly referring to this contract, "
+        "and other contracts with the same company as the payee",
         compute="_compute_all_related_contract_ids",
         readonly=True,
     )

@@ -10,7 +10,6 @@
                     name="partner_invoice_id"
                     groups="sale.group_delivery_invoice_address"
                 />
-
             </field>
 
             <!-- invoice_partner_id basically does the same thing as partner_invoice_id,

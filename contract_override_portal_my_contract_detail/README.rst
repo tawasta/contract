@@ -2,11 +2,12 @@
    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
-============================
-Contract remove unlink right
-============================
+===========================================
+Contract override portal my contract detail
+===========================================
 
-Don't allow deleting contracts for contract manager
+* The portal user can terminate the contract line.
+
 
 Configuration
 =============
@@ -16,10 +17,9 @@ Usage
 =====
 \-
 
-Bug Tracker
-===========
-Bugs are tracked on `GitHub Issues
-<https://github.com/tawasta/contract/issues>`_.
+Known issues / Roadmap
+======================
+\-
 
 Credits
 =======
