@@ -51,8 +51,14 @@ class Contract(models.Model):
             .sudo()
             .get_param("contract_force_commercial_partner")
         ):
-            # Force commercial partner
-            partner = partner.commercial_partner_id
+
+            if (
+                self.partner_invoice_id.type != "invoice"
+                and self.partner_invoice_id
+                != self.partner_invoice_id.commercial_partner_id
+            ):
+                # Force commercial partner
+                partner = partner.commercial_partner_id
 
         invoice_vals["partner_id"] = partner.id
 
