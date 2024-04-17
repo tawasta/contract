@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="contract_contract_tree_view" model="ir.ui.view">
+        <field name="name">Contract tree: optional fields</field>
+        <field name="model">contract.contract</field>
+        <field name="inherit_id" ref="contract.contract_contract_tree_view" />
+        <field name="arch" type="xml">
+
+            <field name="code" position="attributes">
+                <attribute name="optional">show</attribute>
+            </field>
+
+            <field name="journal_id" position="attributes">
+                <attribute name="optional">show</attribute>
+            </field>
+
+            <field name="partner_id" position="attributes">
+                <attribute name="optional">show</attribute>
+            </field>
+
+            <field name="tag_ids" position="attributes">
+                <attribute name="optional">show</attribute>
+            </field>
+
+            <field name="company_id" position="attributes">
+                <attribute name="optional">show</attribute>
+            </field>
+
+            <field name="partner_id" position="after">
+                <field name="date_start" optional="hide" />
+                <field name="date_end" optional="hide" />
+                <field name="recurring_next_date" optional="hide" />
+                <field name="user_id" optional="hide" />
+            </field>
+
+        </field>
+    </record>
+</odoo>
