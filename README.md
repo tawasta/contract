@@ -7,4 +7,11 @@ Contracts
 This repository provides features extending Contracts.
 
 [//]: # (addons)
+
+Available addons
+----------------
+addon | version | maintainers | summary
+--- | --- | --- | ---
+[contract_optional_fields](contract_optional_fields/) | 17.0.1.0.0 |  | Set contract fields as optional in tree view
+
 [//]: # (end addons)
