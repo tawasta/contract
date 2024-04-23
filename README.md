@@ -12,6 +12,7 @@ Available addons
 ----------------
 addon | version | maintainers | summary
 --- | --- | --- | ---
+[contract_line_optional_fields](contract_line_optional_fields/) | 17.0.1.0.0 |  | Set contract line fields as optional, so users can hide them
 [contract_optional_fields](contract_optional_fields/) | 17.0.1.0.0 |  | Set contract fields as optional in tree view
 
 [//]: # (end addons)
