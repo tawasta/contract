@@ -133,17 +133,16 @@ class ResPartner(models.Model):
         "contract_lines",
     )
     def _compute_contract_state(self):
-        fields.Date.today()
         # Filter partners with contract_lines
         partners_with_lines = self.filtered(lambda p: p.contract_lines)
         for partner in partners_with_lines:
             partner.contract_start = (
-                self.env["contract.contract"]
+                self.env["contract.line"]
                 .search([("partner_id", "=", partner.id)], limit=1, order="date_start")
                 .date_start
             )
             partner.contract_stop = (
-                self.env["contract.contract"]
+                self.env["contract.line"]
                 .search(
                     [("partner_id", "=", partner.id)], limit=1, order="date_end desc"
                 )

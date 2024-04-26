@@ -21,7 +21,7 @@
 {
     "name": "Contract Page Partner",
     "summary": "Contract Page Partner",
-    "version": "14.0.1.0.0",
+    "version": "14.0.1.1.0",
     "category": "Sales",
     "website": "https://gitlab.com/tawasta/odoo/contract",
     "author": "Tawasta",
