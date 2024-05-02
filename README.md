@@ -36,6 +36,7 @@ addon | version | maintainers | summary
 [contract_invoice_shipping_line_view](contract_invoice_shipping_line_view/) | 14.0.1.0.0 |  | Add a readonly contract invoice shipping line view
 [contract_line_change_product_variant](contract_line_change_product_variant/) | 14.0.1.0.4 |  | Contract Line Change product variant
 [contract_line_cost](contract_line_cost/) | 14.0.1.1.0 |  | Add cost price to contract lines and move it to the invoice
+[contract_line_helper_fields](contract_line_helper_fields/) | 14.0.1.0.0 |  | Helper fields for contract lines to help searching related information
 [contract_line_inline_edit](contract_line_inline_edit/) | 14.0.1.0.1 |  | Allows editing non-fixed contract lines inline
 [contract_line_list_view](contract_line_list_view/) | 14.0.1.0.1 |  | Adds list view of contract lines
 [contract_line_optional_fields](contract_line_optional_fields/) | 14.0.1.0.1 |  | Set contract line fields as optional, so users can hide them
