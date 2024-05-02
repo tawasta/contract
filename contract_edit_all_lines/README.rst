@@ -2,11 +2,11 @@
    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
-========================
-Contract: edit all lines
-========================
+==============================================
+Contract: edit all lines' Date of Next Invoice
+==============================================
 
-Edit all contract lines at once
+* Edit all contract lines' Date of Next Invoice at once
 
 Configuration
 =============
@@ -14,7 +14,8 @@ Configuration
 
 Usage
 =====
-\-
+* Open a contract where "Recurrence at line level?" is enabled
+* In Recurring Invoices tab, Set "New Date of Next Invoice" and click "Set for All Lines"
 
 Bug Tracker
 ===========
@@ -28,6 +29,7 @@ Contributors
 ------------
 
 * Jarmo Kortetjärvi <jarmo.kortetjarvi@tawasta.fi>
+* Timo Talvitie <timo.talvitie@tawasta.fi>
 
 Maintainer
 ----------

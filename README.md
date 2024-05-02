@@ -22,7 +22,7 @@ addon | version | maintainers | summary
 [contract_default_invoicing_contact](contract_default_invoicing_contact/) | 14.0.1.0.0 |  | Contract Default invoicing contact
 [contract_default_name](contract_default_name/) | 14.0.1.0.0 |  | Default name for contracts lastname firstname
 [contract_defaults](contract_defaults/) | 14.0.1.0.0 |  | Allows defining global defaults for contracts
-[contract_edit_all_lines](contract_edit_all_lines/) | 14.0.1.0.1 |  | Edit all contract lines at once
+[contract_edit_all_lines](contract_edit_all_lines/) | 14.0.1.1.0 |  | Edit all contract's lines' Date of Next Invoice at once
 [contract_edit_last_date_invoiced](contract_edit_last_date_invoiced/) | 14.0.1.1.0 |  | Allows editing last invoiced date (in case of refunds etc.)
 [contract_enable_ending_nonpaid](contract_enable_ending_nonpaid/) | 14.0.1.0.0 |  | Dont set the last_date_invoiced field until the bill is paid
 [contract_invoice_address](contract_invoice_address/) | 14.0.1.1.1 |  | Add invoice address to contracts

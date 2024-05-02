@@ -1,4 +1,5 @@
-from odoo import api, fields, models
+from odoo import _, fields, models
+from odoo.exceptions import ValidationError
 
 
 class Contract(models.Model):
@@ -6,14 +7,28 @@ class Contract(models.Model):
     _inherit = "contract.contract"
 
     set_recurring_next_date = fields.Date(
-        string="Set invoice date", help="Set next invoice date for all lines"
+        string="New Date of Next Invoice", help="Set next invoice date for all lines"
     )
 
-    @api.onchange("set_recurring_next_date")
-    def onchange_set_recurring_next_date(self):
-        for record in self:
-            if record.line_recurrence and record.set_recurring_next_date:
-                for line in record.contract_line_ids:
-                    line.recurring_next_date = record.set_recurring_next_date
-                # Set the helper field as empty to prevent misunderstandings
-                record.set_recurring_next_date = False
+    def set_recurring_next_date_for_lines(self):
+        """
+        Iterate through all the contract lines and set their Date of Next Invoice
+        according to user selection
+        """
+
+        self.ensure_one()
+
+        if not self.set_recurring_next_date:
+            raise ValidationError(_("Please select a date"))
+
+        if not self.line_recurrence:
+            raise ValidationError(
+                _(
+                    "'Recurrence at line level?' must be enabled to use this functionality"
+                )
+            )
+
+        for line in self.contract_line_ids:
+            line.recurring_next_date = self.set_recurring_next_date
+        # Set the helper field back to empty to prevent misunderstandings
+        self.set_recurring_next_date = False
