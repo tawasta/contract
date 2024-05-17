@@ -6,7 +6,10 @@ class ContractLine(models.Model):
     _inherit = "contract.line"
 
     product_variant_company = fields.Many2one(
-        string="Variant Company", comodel_name="res.company", compute="_compute_company"
+        string="Variant Company",
+        comodel_name="res.company",
+        compute="_compute_company",
+        store=True,
     )
 
     @api.depends("product_id")
