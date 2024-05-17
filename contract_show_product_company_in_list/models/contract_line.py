@@ -14,3 +14,5 @@ class ContractLine(models.Model):
         for line in self:
             if line.product_id.variant_company_id:
                 line.product_variant_company = line.product_id.variant_company_id.id
+            else:
+                line.product_variant_company = False
