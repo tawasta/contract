@@ -86,7 +86,7 @@ class ResPartner(models.Model):
             # Filtteröi vain voimassa olevat sopimuslinjat
             valid_contract_lines = partner.contract_lines.filtered(
                 lambda cl: not cl.contract_id.date_end
-                or cl.contract_id.date_end >= today
+                or cl.contract_id.date_end > today
             )
 
             # Jos on voimassa olevia sopimuslinjoja
@@ -122,7 +122,7 @@ class ResPartner(models.Model):
             # Filtteröi vain voimassa olevat sopimuslinjat
             valid_contract_lines = partner.contract_lines.filtered(
                 lambda cl: not cl.contract_id.date_end
-                or cl.contract_id.date_end >= today
+                or cl.contract_id.date_end > today
             )
             # Määritetään partnerin tuote-ID:t voimassa olevien sopimuslinjojen perusteella
             partner.contract_line_product_ids = valid_contract_lines.mapped(
