@@ -20,7 +20,7 @@
 
 {
     "name": "Website upgrade contract line",
-    "summary": "Website upgrade contract line",
+    "summary": "Allows upgrading contract line from user portal",
     "version": "14.0.1.0.0",
     "category": "contract",
     "website": "https://gitlab.com/tawasta/odoo/contract",
