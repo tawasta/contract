@@ -20,7 +20,7 @@
 
 {
     "name": "Contract portal hide message thread",
-    "summary": "Contract portal hide message thread",
+    "summary": "Hide contract message thread from portal",
     "version": "14.0.1.0.0",
     "category": "contract",
     "website": "https://gitlab.com/tawasta/odoo/contract",

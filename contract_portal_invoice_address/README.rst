@@ -6,7 +6,7 @@
 Contract portal invoice address
 ===============================
 
-- Contract portal invoice address
+Show contract invoice address in portal
 
 Configuration
 =============

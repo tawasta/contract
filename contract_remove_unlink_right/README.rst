@@ -6,7 +6,7 @@
 Contract remove unlink right
 ============================
 
-Don't allow deleting contracts for contract manager
+Disallow deleting contracts (always archive them)
 
 Configuration
 =============

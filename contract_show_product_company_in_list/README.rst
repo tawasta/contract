@@ -2,11 +2,11 @@
    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
-=============================
-Contract Line Variant Company
-=============================
+======================================
+Contract: Show Product variant Company
+======================================
 
-- Adds product variant company information to contract line
+Show product variant company on contract line
 
 Configuration
 =============
@@ -14,7 +14,7 @@ Configuration
 
 Usage
 =====
-Just install this module.
+\-
 
 Known issues / Roadmap
 ======================
@@ -26,13 +26,13 @@ Credits
 Contributors
 ------------
 
-* Valtteri Lattu <valtteri.lattu@tawasta.fi>
+* Kalle Rantalainen <kalle.rantalainen@tawasta.fi>
 
 Maintainer
 ----------
 
 .. image:: https://tawasta.fi/templates/tawastrap/images/logo.png
    :alt: Oy Tawasta OS Technologies Ltd.
-   :target: https://tawasta.fi/
+   :target: http://tawasta.fi/
 
 This module is maintained by Oy Tawasta OS Technologies Ltd.

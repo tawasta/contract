@@ -20,7 +20,7 @@
 
 {
     "name": "Contract link to another contract",
-    "summary": "Allows linking contract to another contract",
+    "summary": "Shows all contracts with the same payee on the main contract",
     "category": "Contract Management",
     "version": "14.0.1.0.0",
     "website": "https://gitlab.com/tawasta/odoo/contract",
