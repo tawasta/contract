@@ -20,7 +20,7 @@
 
 {
     "name": "Contract portal invoice address",
-    "summary": "Contract portal invoice address",
+    "summary": "Show contract invoice address in portal",
     "version": "14.0.1.0.0",
     "category": "Contract Management",
     "website": "https://gitlab.com/tawasta/odoo/contract",
