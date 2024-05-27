@@ -12,7 +12,7 @@ class ContractLine(models.Model):
         store=True,
     )
 
-    @api.depends("product_id")
+    @api.depends("product_id.variant_company_id")
     def _compute_company(self):
         for line in self:
             if line.product_id.variant_company_id:
