@@ -20,7 +20,7 @@
 
 {
     "name": "Contract Line Variant Company",
-    "summary": "Contract Line Variant Company",
+    "summary": "Adds product variant company information to contract line",
     "version": "14.0.1.0.0",
     "category": "Contract Management",
     "website": "https://gitlab.com/tawasta/odoo/contract",
