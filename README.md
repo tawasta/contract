@@ -69,11 +69,7 @@ addon | version | maintainers | summary
 [contract_send_messages](contract_send_messages/) | 14.0.1.0.0 |  | Contract line messages
 [contract_shipping_address](contract_shipping_address/) | 14.0.1.0.1 |  | Add shipping address to contracts
 [contract_show_period_on_lines](contract_show_period_on_lines/) | 14.0.1.0.0 |  | Automatically show invoice period on lines
-<<<<<<< HEAD
 [contract_show_product_company_in_list](contract_show_product_company_in_list/) | 14.0.1.0.0 |  | Show product's variant company on contract line
-=======
-[contract_show_product_company_in_list](contract_show_product_company_in_list/) | 14.0.1.0.0 |  | Show product variant company on contract line
->>>>>>> 14.0-dev
 [contract_stop_ignore_recurring_next_date](contract_stop_ignore_recurring_next_date/) | 14.0.1.0.0 |  | When contract is stopped, clear the recurring next date
 [contract_template](contract_template/) | 14.0.1.0.0 |  | Contract Template
 [contract_terminate_reason_default](contract_terminate_reason_default/) | 14.0.1.0.0 |  | Fetch default termination reason from settings
