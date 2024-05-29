@@ -19,8 +19,8 @@
 ##############################################################################
 
 {
-    "name": "Contract Show Procuct Company",
-    "summary": "Show product's company on contract line",
+    "name": "Contract Show Product Variant Company",
+    "summary": "Show product's variant company on contract line",
     "version": "14.0.1.0.0",
     "category": "Contract Management",
     "website": "https://gitlab.com/tawasta/odoo/contract",
