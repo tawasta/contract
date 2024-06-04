@@ -6,7 +6,7 @@
 Contract portal hide message thread
 ===================================
 
-\-
+Hide contract message thread from portal
 
 
 Configuration

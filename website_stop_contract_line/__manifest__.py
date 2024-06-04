@@ -20,7 +20,7 @@
 
 {
     "name": "Website stop contract line",
-    "summary": "Website stop contract line",
+    "summary": "Allows stopping contract line from user portal",
     "version": "14.0.1.0.0",
     "category": "contract",
     "website": "https://gitlab.com/tawasta/odoo/contract",

@@ -1,7 +1,7 @@
 ##############################################################################
 #
 #    Author: Oy Tawasta OS Technologies Ltd.
-#    Copyright 2020 Oy Tawasta OS Technologies Ltd. (https://tawasta.fi)
+#    Copyright 2024 Oy Tawasta OS Technologies Ltd. (https://tawasta.fi)
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -19,15 +19,17 @@
 ##############################################################################
 
 {
-    "name": "Contract remove unlink right",
-    "summary": "Disallow deleting contracts (always archive them)",
-    "category": "Contract Management",
+    "name": "Sale order contract relation",
+    "summary": "Add a related contract to sale order",
     "version": "14.0.1.0.0",
+    "category": "Contract Management",
     "website": "https://gitlab.com/tawasta/odoo/contract",
     "author": "Tawasta",
     "license": "AGPL-3",
     "application": False,
     "installable": True,
-    "depends": ["contract"],
-    "data": ["security/ir.model.access.csv"],
+    "depends": ["contract", "sale"],
+    "data": [
+        "views/sale_order.xml",
+    ],
 }

@@ -1,7 +1,7 @@
 ##############################################################################
 #
 #    Author: Oy Tawasta OS Technologies Ltd.
-#    Copyright 2020 Oy Tawasta OS Technologies Ltd. (https://tawasta.fi)
+#    Copyright 2019 Oy Tawasta OS Technologies Ltd. (https://tawasta.fi)
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -19,8 +19,8 @@
 ##############################################################################
 
 {
-    "name": "Contract remove unlink right",
-    "summary": "Disallow deleting contracts (always archive them)",
+    "name": "Contract note HTML",
+    "summary": "Add a HTML note field for contracts",
     "category": "Contract Management",
     "version": "14.0.1.0.0",
     "website": "https://gitlab.com/tawasta/odoo/contract",
@@ -28,6 +28,8 @@
     "license": "AGPL-3",
     "application": False,
     "installable": True,
-    "depends": ["contract"],
-    "data": ["security/ir.model.access.csv"],
+    "depends": [
+        "contract",
+    ],
+    "data": [],
 }

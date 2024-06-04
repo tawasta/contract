@@ -6,7 +6,7 @@
 Website upgrade contract line
 =============================
 
-* The portal user can update existing contract lines. The product in the contract line can be updated with the same product variation. 
+The portal user can update existing contract lines. The product in the contract line can be updated with the same product variation.
 
 
 Configuration

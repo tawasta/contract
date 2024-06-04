@@ -2,11 +2,11 @@
    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
-=============================
-Contract Line Variant Company
-=============================
+============================
+Sale order contract relation
+============================
 
-- Adds product variant company information to contract line
+Add a related contract to sale order
 
 Configuration
 =============
@@ -14,7 +14,7 @@ Configuration
 
 Usage
 =====
-Just install this module.
+\-
 
 Known issues / Roadmap
 ======================
@@ -26,7 +26,7 @@ Credits
 Contributors
 ------------
 
-* Valtteri Lattu <valtteri.lattu@tawasta.fi>
+* Jarmo Kortetjärvi <jarmo.kortetjarvi@tawasta.fi>
 
 Maintainer
 ----------
