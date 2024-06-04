@@ -20,8 +20,8 @@
 
 {
     "name": "Sale order contract relation",
-    "summary": "Add a related contract to sale order",
-    "version": "14.0.1.0.0",
+    "summary": "Add a related contract to SO and SO line",
+    "version": "14.0.1.1.0",
     "category": "Contract Management",
     "website": "https://gitlab.com/tawasta/odoo/contract",
     "author": "Tawasta",

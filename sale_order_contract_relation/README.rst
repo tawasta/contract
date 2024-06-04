@@ -6,7 +6,7 @@
 Sale order contract relation
 ============================
 
-Add a related contract to sale order
+Add a related contract to SO and SO line
 
 Configuration
 =============
