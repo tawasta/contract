@@ -81,7 +81,7 @@ class ResPartner(models.Model):
         "contract_lines.product_id.product_tmpl_id.company_id",
     )
     def _compute_contract_line_company_ids(self):
-        today = date.today()
+        date.today()
         partners_with_lines = self.filtered(lambda p: p.contract_lines)
         for partner in partners_with_lines:
             # Filtteröi vain voimassa olevat sopimuslinjat
@@ -118,7 +118,7 @@ class ResPartner(models.Model):
         "contract_lines.contract_id.date_end",
     )
     def _compute_contract_line_product_ids(self):
-        today = date.today()
+        date.today()
         for partner in self.filtered(lambda p: p.contract_lines):
             # Filtteröi vain voimassa olevat sopimuslinjat
             valid_contract_lines = partner.contract_lines.filtered(
