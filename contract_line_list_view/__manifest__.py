@@ -1,7 +1,7 @@
 ##############################################################################
 #
 #    Author: Oy Tawasta OS Technologies Ltd.
-#    Copyright 2021- Oy Tawasta OS Technologies Ltd. (https://tawasta.fi)
+#    Copyright 2019 Oy Tawasta OS Technologies Ltd. (https://tawasta.fi)
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -19,15 +19,15 @@
 ##############################################################################
 
 {
-    "name": "Contract: helper fields on lines",
-    "summary": "Helper fields for contract lines to help searching related information",
-    "version": "17.0.1.0.1",
+    "name": "Contract Line List View",
+    "summary": "Adds list view of contract lines",
+    "version": "17.0.1.0.0",
     "category": "Contract Management",
     "website": "https://gitlab.com/tawasta/odoo/contract",
     "author": "Tawasta",
     "license": "AGPL-3",
     "application": False,
     "installable": True,
-    "depends": ["contract", "contract_line_list_view"],
-    "data": [],
+    "depends": ["contract"],
+    "data": ["views/contract_line.xml"],
 }
