@@ -18,6 +18,7 @@ addon | version | maintainers | summary
 [contract_line_list_view](contract_line_list_view/) | 17.0.1.0.0 |  | Adds list view of contract lines
 [contract_line_optional_fields](contract_line_optional_fields/) | 17.0.1.0.0 |  | Set contract line fields as optional, so users can hide them
 [contract_optional_fields](contract_optional_fields/) | 17.0.1.0.0 |  | Set contract fields as optional in tree view
+[contract_portal_date_end](contract_portal_date_end/) | 17.0.1.0.0 |  | Toggleable showing of Date End in Contract Portal View's lines
 [contract_portal_date_start](contract_portal_date_start/) | 17.0.1.0.0 |  | Toggleable showing of Date Start on Contract Portal Views
 [contract_use_existing_invoice](contract_use_existing_invoice/) | 17.0.1.0.0 |  | Add lines to an existing invoice instead of creating a new invoice
 
