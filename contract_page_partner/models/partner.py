@@ -131,6 +131,9 @@ class ResPartner(models.Model):
 
     @api.depends(
         "contract_lines",
+        "contract_lines.state",
+        "contract_lines.product_id",
+        "contract_lines.contract_id.date_end",
     )
     def _compute_contract_state(self):
         # Filter partners with contract_lines
