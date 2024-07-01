@@ -13,6 +13,7 @@ Available addons
 addon | version | maintainers | summary
 --- | --- | --- | ---
 [contract_edit_all_lines_next_invoice_date](contract_edit_all_lines_next_invoice_date/) | 17.0.1.0.0 |  | Edit all contract's lines' Date of Next Invoice at once
+[contract_edit_last_date_invoiced](contract_edit_last_date_invoiced/) | 17.0.1.0.0 |  | Allows editing last invoiced date (in case of refunds etc.)
 [contract_invoice_address](contract_invoice_address/) | 17.0.1.0.0 |  | Add invoice address to contracts and force its commercial partner
 [contract_line_helper_fields](contract_line_helper_fields/) | 17.0.1.0.1 |  | Helper fields for contract lines to help searching related information
 [contract_line_list_view](contract_line_list_view/) | 17.0.1.0.0 |  | Adds list view of contract lines
