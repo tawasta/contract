@@ -1,0 +1,38 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* contract_line_recurring_next_date_synchronized
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0-20240126\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-07-01 10:52+0000\n"
+"PO-Revision-Date: 2024-07-01 14:20+0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 3.0.1\n"
+
+#. module: contract_line_recurring_next_date_synchronized
+#: model:ir.model,name:contract_line_recurring_next_date_synchronized.model_contract_contract
+msgid "Contract"
+msgstr "Sopimus"
+
+#. module: contract_line_recurring_next_date_synchronized
+#: model:ir.model.fields,field_description:contract_line_recurring_next_date_synchronized.field_contract_contract__recurring_next_date_synchronized
+msgid "Invoicing synchronized"
+msgstr "Laskutus synkronoitu"
+
+#. module: contract_line_recurring_next_date_synchronized
+#: model:ir.model.fields,help:contract_line_recurring_next_date_synchronized.field_contract_contract__recurring_next_date_synchronized
+msgid "The recurring next invoice dates for all active lines are in sync"
+msgstr "Aktiivisten sopimusrivien laskutussykli on synkronoitu"
+
+#. module: contract_line_recurring_next_date_synchronized
+#: model_terms:ir.ui.view,arch_db:contract_line_recurring_next_date_synchronized.contract_contract_search_view
+msgid "Unsynchronized invoicing"
+msgstr "Synkronoimaton laskutussykli"
