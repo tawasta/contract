@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="res_config_settings_form_view" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.contract.defaults</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="30" />
+        <field name="inherit_id" ref="contract.res_config_settings_form_view" />
+        <field name="arch" type="xml">
+
+            <xpath
+                expr="//block[@class='row mt16 o_settings_container']"
+                position="inside"
+            >
+                <setting
+                    id="contract_line_recurring_interval"
+                    help="Define the recurring interval for contracts"
+                >
+                    <field name="contract_line_recurring_interval" />
+                </setting>
+
+                <setting
+                    id="contract_line_recurring_rule_type"
+                    help="Define the recurring rule type for contracts"
+                >
+                    <field name="contract_line_recurring_rule_type" />
+                </setting>
+            </xpath>
+
+        </field>
+    </record>
+
+</odoo>
