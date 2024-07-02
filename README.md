@@ -12,6 +12,7 @@ Available addons
 ----------------
 addon | version | maintainers | summary
 --- | --- | --- | ---
+[contract_default_name](contract_default_name/) | 17.0.1.0.0 |  | Default name for contracts lastname firstname
 [contract_edit_all_lines_next_invoice_date](contract_edit_all_lines_next_invoice_date/) | 17.0.1.0.0 |  | Edit all contract's lines' Date of Next Invoice at once
 [contract_edit_last_date_invoiced](contract_edit_last_date_invoiced/) | 17.0.1.0.0 |  | Allows editing last invoiced date (in case of refunds etc.)
 [contract_invoice_address](contract_invoice_address/) | 17.0.1.0.0 |  | Add invoice address to contracts and force its commercial partner
