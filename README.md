@@ -31,6 +31,7 @@ addon | version | maintainers | summary
 [contract_product_usage](contract_product_usage/) | 17.0.1.0.0 |  | Show contracts and contract lines where product is used in
 [contract_remove_unlink_right](contract_remove_unlink_right/) | 17.0.1.0.0 |  | Disallow deleting contracts (always archive them)
 [contract_template_additional_fields](contract_template_additional_fields/) | 17.0.1.0.0 |  | Adds invoice interval, payment term and responsible person fields to Contract Template
+[contract_use_customer_as_invoicing_contact](contract_use_customer_as_invoicing_contact/) | 17.0.1.0.0 |  | Default value to a contract's invoicing contact
 [contract_use_existing_invoice](contract_use_existing_invoice/) | 17.0.1.0.0 |  | Add lines to an existing invoice instead of creating a new invoice
 
 [//]: # (end addons)
