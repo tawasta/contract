@@ -19,6 +19,7 @@ addon | version | maintainers | summary
 [contract_line_helper_fields](contract_line_helper_fields/) | 17.0.1.0.1 |  | Helper fields for contract lines to help searching related information
 [contract_line_list_view](contract_line_list_view/) | 17.0.1.0.0 |  | Adds list view of contract lines
 [contract_line_optional_fields](contract_line_optional_fields/) | 17.0.1.0.0 |  | Set contract line fields as optional, so users can hide them
+[contract_line_recurring_defaults](contract_line_recurring_defaults/) | 17.0.1.0.0 |  | Allows defining global defaults for contract lines
 [contract_line_recurring_next_date_synchronized](contract_line_recurring_next_date_synchronized/) | 17.0.1.0.0 |  | Add information about next contract invoicing if they are synchronized
 [contract_optional_fields](contract_optional_fields/) | 17.0.1.0.0 |  | Set contract fields as optional in tree view
 [contract_partner_ref](contract_partner_ref/) | 17.0.1.0.0 |  | Show partner membership number in contract views
