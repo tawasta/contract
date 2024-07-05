@@ -25,6 +25,7 @@ addon | version | maintainers | summary
 [contract_line_stop_ignore_last_date_invoice](contract_line_stop_ignore_last_date_invoice/) | 17.0.1.0.0 |  | When stopping a contract line, the 'Last Date Invoiced' is ignored
 [contract_mass_edit_lines](contract_mass_edit_lines/) | 17.0.1.0.0 |  | Allows mass editing contract lines from contract tree view
 [contract_optional_fields](contract_optional_fields/) | 17.0.1.0.0 |  | Set contract fields as optional in tree view
+[contract_page_partner](contract_page_partner/) | 17.0.1.0.0 |  | Contract Page Partner
 [contract_partner_ref](contract_partner_ref/) | 17.0.1.0.0 |  | Show partner membership number in contract views
 [contract_portal_date_end](contract_portal_date_end/) | 17.0.1.0.0 |  | Toggleable showing of Date End in Contract Portal View's lines
 [contract_portal_date_start](contract_portal_date_start/) | 17.0.1.0.0 |  | Toggleable showing of Date Start on Contract Portal Views
