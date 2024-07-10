@@ -34,6 +34,7 @@ addon | version | maintainers | summary
 [contract_invoice_line_view_invoice](contract_invoice_line_view_invoice/) | 14.0.1.0.0 |  | Add a readonly contract line view for invoice address
 [contract_invoice_lines_quantity_invisible](contract_invoice_lines_quantity_invisible/) | 14.0.1.0.0 |  | Use this module to hide contract's quantity-field on invoice lines
 [contract_invoice_shipping_line_view](contract_invoice_shipping_line_view/) | 14.0.1.0.0 |  | Add a readonly contract invoice shipping line view
+[contract_latest_paid_invoice](contract_latest_paid_invoice/) | 14.0.1.0.0 |  | Show latest paid invoice and invoice date on contract
 [contract_line_change_product_variant](contract_line_change_product_variant/) | 14.0.1.0.4 |  | Contract Line Change product variant
 [contract_line_cost](contract_line_cost/) | 14.0.1.1.0 |  | Add cost price to contract lines and move it to the invoice
 [contract_line_helper_fields](contract_line_helper_fields/) | 14.0.1.0.0 |  | Helper fields for contract lines to help searching related information
