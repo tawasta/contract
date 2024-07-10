@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="contract_contract_form_view" model="ir.ui.view">
+        <field name="name">Contract form: latest paid invoice</field>
+        <field name="model">contract.contract</field>
+        <field name="inherit_id" ref="contract.contract_contract_form_view" />
+        <field name="arch" type="xml">
+            <field name="journal_id" position="after">
+                <field
+                    name="latest_paid_invoice_id"
+                    attrs="{'invisible': [('latest_paid_invoice_id', '=', False)]}"
+                />
+                <field
+                    name="latest_paid_invoice_due_date"
+                    attrs="{'invisible': [('latest_paid_invoice_id', '=', False)]}"
+                />
+            </field>
+        </field>
+    </record>
+
+    <record id="contract_contract_tree_view" model="ir.ui.view">
+        <field name="name">Contract tree: latest paid invoice</field>
+        <field name="model">contract.contract</field>
+        <field name="inherit_id" ref="contract.contract_contract_tree_view" />
+        <field name="arch" type="xml">
+            <field name="journal_id" position="after">
+                <field name="latest_paid_invoice_id" optional="hide" />
+                <field name="latest_paid_invoice_due_date" optional="hide" />
+            </field>
+        </field>
+    </record>
+
+    <record id="contract_contract_search_view" model="ir.ui.view">
+        <field name="name">Contract search: latest paid invoice date</field>
+        <field name="model">contract.contract</field>
+        <field name="inherit_id" ref="contract.contract_contract_search_view" />
+        <field name="arch" type="xml">
+            <filter name="group_by_next_invoice" position="after">
+                <filter
+                    name="group_by_latest_paid_invoice"
+                    string="Latest paid invoice date"
+                    domain="[('latest_paid_invoice_due_date', '!=', False)]"
+                    context="{'group_by': 'latest_paid_invoice_due_date'}"
+                />
+            </filter>
+        </field>
+    </record>
+
+</odoo>

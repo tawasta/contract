@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo noupdate="1">
+
+    <record
+        id="ir_cron_contract_latest_paid_invoice"
+        model="ir.cron"
+        forcecreate="True"
+    >
+        <field name="name">Contract: Latest paid invoice</field>
+        <field name="model_id" ref="model_contract_contract" />
+        <field name="state">code</field>
+        <field name="code">model.action_cron_update_latest_paid_invoice()</field>
+        <field name="active" eval="True" />
+        <field name="user_id" ref="base.user_root" />
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="numbercall">-1</field>
+        <field eval="False" name="doall" />
+    </record>
+
+</odoo>
