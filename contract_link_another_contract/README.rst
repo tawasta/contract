@@ -1,0 +1,40 @@
+.. image:: https://img.shields.io/badge/licence-AGPL--3-blue.svg
+   :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
+   :alt: License: AGPL-3
+
+==================================
+Contract: Link to Another Contract
+==================================
+
+* Allows linking contract to another contract.
+* Shows all contracts with the same payee company on the "main" contract.
+
+Configuration
+=============
+\-
+
+Usage
+=====
+\-
+
+Bug Tracker
+===========
+\-
+
+Credits
+=======
+
+Contributors
+------------
+
+* Valtteri Lattu <valtteri.lattu@tawasta.fi>
+* Timo Talvitie <timo.talvitie@tawasta.fi>
+
+Maintainer
+----------
+
+.. image:: https://tawasta.fi/templates/tawastrap/images/logo.png
+   :alt: Oy Tawasta OS Technologies Ltd.
+   :target: https://tawasta.fi/
+
+This module is maintained by Oy Tawasta OS Technologies Ltd.
