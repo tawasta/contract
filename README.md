@@ -23,6 +23,7 @@ addon | version | maintainers | summary
 [contract_line_recurring_defaults](contract_line_recurring_defaults/) | 17.0.1.0.0 |  | Allows defining global defaults for contract lines
 [contract_line_recurring_next_date_synchronized](contract_line_recurring_next_date_synchronized/) | 17.0.1.0.0 |  | Add information about next contract invoicing if they are synchronized
 [contract_line_stop_ignore_last_date_invoice](contract_line_stop_ignore_last_date_invoice/) | 17.0.1.0.0 |  | When stopping a contract line, the 'Last Date Invoiced' is ignored
+[contract_link_another_contract](contract_link_another_contract/) | 17.0.1.0.0 |  | Shows all contracts with the same payee on the main contract
 [contract_mass_edit_lines](contract_mass_edit_lines/) | 17.0.1.0.0 |  | Allows mass editing contract lines from contract tree view
 [contract_optional_fields](contract_optional_fields/) | 17.0.1.0.0 |  | Set contract fields as optional in tree view
 [contract_page_partner](contract_page_partner/) | 17.0.1.0.0 |  | Contract Page Partner
