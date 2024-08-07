@@ -78,7 +78,15 @@ class Contract(models.Model):
             "user_id": self.user_id.id,
         }
 
-        subscription_id = self.env["sale.subscription"].create(subscription_values)
+        sale_subscription = self.env["sale.subscription"]
+
+        if hasattr(sale_subscription, "invoice_ref"):
+            subscription_values["invoice_ref"] = self.code
+
+        if hasattr(sale_subscription, "partner_shipping_id"):
+            subscription_values["partner_shipping_id"] = self.partner_shipping_id
+
+        subscription_id = sale_subscription.create(subscription_values)
 
         # Link existing invoices to subscription
         self._get_related_invoices().write({"subscription_id": subscription_id.id})
