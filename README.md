@@ -42,5 +42,6 @@ addon | version | maintainers | summary
 [contract_use_existing_invoice](contract_use_existing_invoice/) | 17.0.1.0.0 |  | Add lines to an existing invoice instead of creating a new invoice
 [subscription_customer_reference](subscription_customer_reference/) | 17.0.1.0.0 |  | Add customer reference to subscriptions
 [subscription_shipping_address](subscription_shipping_address/) | 17.0.1.0.0 |  | Add shipping address to subscriptions
+[subscription_use_existing_invoice](subscription_use_existing_invoice/) | 17.0.1.0.0 |  | Add subscription lines to an existing draft invoice
 
 [//]: # (end addons)
