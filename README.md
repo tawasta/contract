@@ -36,6 +36,7 @@ addon | version | maintainers | summary
 [contract_portal_product_default_code](contract_portal_product_default_code/) | 17.0.1.0.0 |  | Toggleable showing of internal reference in separate column on contract lines
 [contract_product_usage](contract_product_usage/) | 17.0.1.0.0 |  | Show contracts and contract lines where product is used in
 [contract_remove_unlink_right](contract_remove_unlink_right/) | 17.0.1.0.0 |  | Disallow deleting contracts (always archive them)
+[contract_shipping_address](contract_shipping_address/) | 17.0.1.0.1 |  | Add shipping address to contracts
 [contract_template_additional_fields](contract_template_additional_fields/) | 17.0.1.0.0 |  | Adds invoice interval, payment term and responsible person fields to Contract Template
 [contract_to_subscription](contract_to_subscription/) | 17.0.1.0.0 |  | Migrate contracts to subscriptions
 [contract_use_customer_as_invoicing_contact](contract_use_customer_as_invoicing_contact/) | 17.0.1.0.0 |  | Default value to a contract's invoicing contact
