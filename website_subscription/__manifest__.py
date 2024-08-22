@@ -28,8 +28,17 @@
     "license": "AGPL-3",
     "application": False,
     "installable": True,
-    "depends": ["portal", "subscription_oca",],
-    "data": ["security/ir.model.access.csv", "views/subscription_portal_templates.xml"],
+    "depends": [
+        "portal",
+        "subscription_oca",
+    ],
+    "data": [
+        "security/ir.model.access.csv",
+        "views/subscription_portal_my.xml",
+        "views/subscription_portal_page.xml",
+        "views/subscription_portal_template_home.xml",
+        "views/subscription_portal_template_menu.xml",
+    ],
     # "assets": {
     #     "web.assets_frontend": [
     #         "website_subscription/static/src/js/main.esm.js",

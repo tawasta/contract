@@ -45,7 +45,6 @@ class PortalSubscription(CustomerPortal):
         )
         return request.render("website_subscription.portal_my_subscriptions", values)
 
-
     @http.route(
         ["/my/subscriptions/<int:subscription_id>"],
         type="http",
@@ -53,9 +52,8 @@ class PortalSubscription(CustomerPortal):
         website=True,
     )
     def portal_my_subscription_detail(self, subscription_id, **kw):
-
         subscription = request.env["sale.subscription"].browse(subscription_id)
-        values = {"subscription":subscription}
+        values = {"subscription": subscription}
         return request.render("website_subscription.portal_subscription_page", values)
 
     # Otetaan myöhemmin käyttöön

@@ -1,126 +1,130 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* website_my_events
+# 	* website_subscription
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 14.0\n"
+"Project-Id-Version: Odoo Server 17.0-20240711\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-25 17:00+0000\n"
-"PO-Revision-Date: 2021-10-25 17:00+0000\n"
+"POT-Creation-Date: 2024-08-22 10:37+0000\n"
+"PO-Revision-Date: 2024-08-22 13:40+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
+"Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: \n"
-"Plural-Forms: \n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.4.3\n"
 
-#. module: website_my_events
-#: model_terms:ir.ui.view,arch_db:website_my_events.portal_my_events
-msgid "<span aria-label=\"Close\">&amp;times;</span>"
-msgstr ""
+#. module: website_subscription
+#: model_terms:ir.ui.view,arch_db:website_subscription.portal_subscription_page
+msgid "<span>Date end</span>"
+msgstr "<span>Päättymispäivä</span>"
 
-#. module: website_my_events
-#: model_terms:ir.ui.view,arch_db:website_my_events.portal_my_events
-msgid "<span class=\"badge badge-pill badge-info\">Confirmed</span>"
-msgstr "<span class=\"badge badge-pill badge-info\">Vahvistettu</span>"
+#. module: website_subscription
+#: model_terms:ir.ui.view,arch_db:website_subscription.portal_subscription_page
+msgid "<span>Date start</span>"
+msgstr "<span>Alkamispäivä</span>"
 
-#. module: website_my_events
-#: model_terms:ir.ui.view,arch_db:website_my_events.portal_my_events
-msgid "<span class=\"badge badge-pill badge-info\">Unconfirmed</span>"
-msgstr "<span class=\"badge badge-pill badge-info\">Vahvistamaton</span>"
+#. module: website_subscription
+#: model_terms:ir.ui.view,arch_db:website_subscription.portal_subscription_page
+msgid "<span>Next invoice</span>"
+msgstr "<span>Seuraava lasku</span>"
 
-#. module: website_my_events
-#: model_terms:ir.ui.view,arch_db:website_my_events.portal_my_events
-msgid "<span class=\"badge badge-pill badge-success\">Attended</span>"
-msgstr "<span class=\"badge badge-pill badge-success\">Osallistuttu</span>"
+#. module: website_subscription
+#: model_terms:ir.ui.view,arch_db:website_subscription.portal_subscription_page
+msgid "<strong>Customer</strong>"
+msgstr "<span>Asiakas</span>"
 
-#. module: website_my_events
-#: model_terms:ir.ui.view,arch_db:website_my_events.portal_my_events
-msgid "<span class=\"badge badge-pill badge-warning\">Cancelled</span>"
-msgstr "<span class=\"badge badge-pill badge-warning\">Peruutettu</span>"
+#. module: website_subscription
+#: model_terms:ir.ui.view,arch_db:website_subscription.portal_subscription_page
+msgid "<strong>Subscription</strong>"
+msgstr "<span>Toistuvaistilaus</span>"
 
-#. module: website_my_events
-#: model_terms:ir.ui.view,arch_db:website_my_events.portal_my_events
-msgid "Booker"
-msgstr "Varaaja"
+#. module: website_subscription
+#: model_terms:ir.ui.view,arch_db:website_subscription.portal_subscription_page
+msgid "<strong>Terms and conditions</strong>"
+msgstr "<span>Sopimusehdot</span>"
 
-#. module: website_my_events
-#: model_terms:ir.ui.view,arch_db:website_my_events.portal_my_events
-msgid "Are you sure you want to continue?"
-msgstr "Halutatko varmasti jatkaa?"
+#. module: website_subscription
+#: model_terms:ir.ui.view,arch_db:website_subscription.portal_subscription_page
+msgid "Contact"
+msgstr "Kontakti"
 
-#. module: website_my_events
-#: model_terms:ir.ui.view,arch_db:website_my_events.portal_my_events
-msgid "Cancel"
-msgstr "Peruuta"
+#. module: website_subscription
+#: model_terms:ir.ui.view,arch_db:website_subscription.portal_subscription_page
+msgid "Description"
+msgstr "Kuvaus"
 
-#. module: website_my_events
-#: model_terms:ir.ui.view,arch_db:website_my_events.portal_my_events
-msgid "Cancel a registration"
-msgstr "Peruuta ilmoittautuminen"
+#. module: website_subscription
+#: model_terms:ir.ui.view,arch_db:website_subscription.portal_subscription_page
+msgid "Discount (%)"
+msgstr "Alennus (%)"
 
-#. module: website_my_events
-#: model_terms:ir.ui.view,arch_db:website_my_events.portal_my_events
-msgid "Cancel registration"
-msgstr "Peruuta ilmoittautuminen"
+#. module: website_subscription
+#: model_terms:ir.ui.view,arch_db:website_subscription.portal_my_subscriptions
+msgid "End"
+msgstr "Päättyminen"
 
-#. module: website_my_events
-#: model_terms:ir.ui.view,arch_db:website_my_events.portal_my_events
-msgid "Close"
-msgstr "Sulje"
+#. module: website_subscription
+#: model_terms:ir.ui.view,arch_db:website_subscription.portal_my_subscriptions
+msgid "Name"
+msgstr "Nimi"
 
-#. module: website_my_events
-#: model_terms:ir.ui.view,arch_db:website_my_events.portal_my_events
-msgid "Delete"
-msgstr "Poista"
+#. module: website_subscription
+#: model_terms:ir.ui.view,arch_db:website_subscription.portal_my_subscriptions
+msgid "Next invoice"
+msgstr "Seuraava lasku"
 
-#. module: website_my_events
-#: model_terms:ir.ui.view,arch_db:website_my_events.portal_my_events
-msgid "Event"
-msgstr "Tapahtuma"
+#. module: website_subscription
+#: model_terms:ir.ui.view,arch_db:website_subscription.portal_subscription_page
+msgid "Price unit"
+msgstr "Yksikköhinta"
 
-#. module: website_my_events
-#: model_terms:ir.ui.view,arch_db:website_my_events.portal_my_events
-msgid "Event Ticket"
-msgstr "Tapahtumalippu"
+#. module: website_subscription
+#: model_terms:ir.ui.view,arch_db:website_subscription.portal_my_subscriptions
+msgid "Products"
+msgstr "Tuotteet"
 
-#. module: website_my_events
-#: model_terms:ir.ui.view,arch_db:website_my_events.portal_my_events
-msgid "Event date"
-msgstr "Tapahtumapäivämäärä"
+#. module: website_subscription
+#: model_terms:ir.ui.view,arch_db:website_subscription.portal_subscription_page
+msgid "Quantity"
+msgstr "Määrä"
 
-#. module: website_my_events
-#: model_terms:ir.ui.view,arch_db:website_my_events.portal_my_home_events
-#: model_terms:ir.ui.view,arch_db:website_my_events.portal_my_home_menu_events
-msgid "Events"
-msgstr "Tapahtumat"
+#. module: website_subscription
+#: model_terms:ir.ui.view,arch_db:website_subscription.portal_my_subscriptions
+msgid "Start"
+msgstr "Alku"
 
-#. module: website_my_events
-#: model_terms:ir.ui.view,arch_db:website_my_events.portal_my_events
-msgid "Registration Date"
-msgstr "Ilmoittautumispäivämäärä"
+#. module: website_subscription
+#: model_terms:ir.ui.view,arch_db:website_subscription.portal_subscription_page
+msgid "Sub Total"
+msgstr "Välisumma"
 
-#. module: website_my_events
-#: model_terms:ir.ui.view,arch_db:website_my_events.portal_my_events
-msgid "State"
-msgstr "Tila"
+#. module: website_subscription
+#: model_terms:ir.ui.view,arch_db:website_subscription.portal_subscription_page
+msgid "Subscription -"
+msgstr "Toistuvaistilaus -"
 
-#. module: website_my_events
-#: model_terms:ir.ui.view,arch_db:website_my_events.portal_my_events
-msgid "There are currently no registrations for your account."
-msgstr "Tililläsi ei ole tällä hetkellä ilmoittautumisia."
+#. module: website_subscription
+#: model_terms:ir.ui.view,arch_db:website_subscription.portal_my_home_menu_subscriptions
+#: model_terms:ir.ui.view,arch_db:website_subscription.portal_my_home_subscription
+#: model_terms:ir.ui.view,arch_db:website_subscription.portal_my_subscriptions
+msgid "Subscriptions"
+msgstr "Toistuvaistilaukset"
 
-#. module: website_my_events
-#: model_terms:ir.ui.view,arch_db:website_my_events.portal_my_events
-msgid ""
-"You are about to <strong>cancel</strong> <span "
-"id=\"cancel_registration_object\">a registration</span>."
-msgstr ""
-"Olet <strong>peruuttamassa</strong> <span "
-"id=\"cancel_registration_object\">ilmoittautumista</span>."
+#. module: website_subscription
+#: model_terms:ir.ui.view,arch_db:website_subscription.portal_my_subscriptions
+msgid "There are currently no subscriptions for your account."
+msgstr "Tililläsi ei ole toistuvaistiauksia."
 
-#. module: website_my_events
-#: model_terms:ir.ui.view,arch_db:website_my_events.portal_my_events
-msgid "events"
-msgstr "tapahtumat"
+#. module: website_subscription
+#: model_terms:ir.ui.view,arch_db:website_subscription.portal_my_subscriptions
+msgid "Type"
+msgstr "Tyyppi"
+
+#. module: website_subscription
+#: model_terms:ir.ui.view,arch_db:website_subscription.portal_my_home_subscription
+msgid "View and manage your subscriptions"
+msgstr "Tarkastele ja hallinnoi toistuvaistilauksiasi"
