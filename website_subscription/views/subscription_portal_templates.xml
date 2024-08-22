@@ -19,6 +19,7 @@
             </li>
         </xpath>
     </template>
+
     <template
         id="portal_my_home_subscription"
         name="Show Subscriptions"
@@ -51,21 +52,26 @@
                     <thead>
                         <tr class="active">
                             <th>Name</th>
+                            <th>Products</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <t t-foreach="subscriptions" t-as="re">
+                        <t t-foreach="subscriptions" t-as="subscription">
                             <tr>
                                 <td>
                                     <a
-                                        t-attf-href="/my/subscriptions/{{re.id}}"
-                                        t-att-title="re.name"
+                                        t-attf-href="/my/subscriptions/{{subscription.id}}"
+                                        t-att-title="subscription.name"
                                     >
                                         <t
-                                            t-esc="re.name"
-                                            t-if="re.name != '/'"
+                                            t-esc="subscription.name"
+                                            t-if="subscription.name != '/'"
                                         />
                                     </a>
+                                </td>
+
+                                <td>
+                                    <t t-esc="','.join(subscription.mapped('sale_subscription_line_ids.product_id.name'))" />
                                 </td>
 
                             </tr>
