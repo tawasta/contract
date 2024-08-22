@@ -1,7 +1,7 @@
 ##############################################################################
 #
 #    Author: Oy Tawasta OS Technologies Ltd.
-#    Copyright 2021- Oy Tawasta OS Technologies Ltd. (http://www.tawasta.fi)
+#    Copyright 2024 Oy Tawasta OS Technologies Ltd. (https://tawasta.fi)
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -19,29 +19,19 @@
 ##############################################################################
 
 {
-    "name": "Website Subscriptions",
-    "summary": "Subscriptions in website portal",
+    "name": "Subscription line partner",
+    "summary": "Allows defining a partner to subscription lines",
     "version": "17.0.1.0.0",
-    "category": "Contract",
+    "category": "Contract Management",
     "website": "https://gitlab.com/tawasta/odoo/contract",
     "author": "Tawasta",
     "license": "AGPL-3",
     "application": False,
     "installable": True,
-    "depends": [
-        "portal",
-        "subscription_oca",
-    ],
+    "depends": ["subscription_oca", "website_subscription"],
     "data": [
-        "security/ir.model.access.csv",
-        "views/subscription_portal_my.xml",
-        "views/subscription_portal_page.xml",
-        "views/subscription_portal_template_home.xml",
-        "views/subscription_portal_template_menu.xml",
+        "views/partner.xml",
+        "views/subscription_form.xml",
+        "views/subscription_portal.xml",
     ],
-    # "assets": {
-    #     "web.assets_frontend": [
-    #         "website_subscription/static/src/js/main.esm.js",
-    #     ],
-    # },
 }

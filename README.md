@@ -20,6 +20,7 @@ addon | version | maintainers | summary
 [contract_line_helper_fields](contract_line_helper_fields/) | 17.0.1.0.1 |  | Helper fields for contract lines to help searching related information
 [contract_line_list_view](contract_line_list_view/) | 17.0.1.0.0 |  | Adds list view of contract lines
 [contract_line_optional_fields](contract_line_optional_fields/) | 17.0.1.0.0 |  | Set contract line fields as optional, so users can hide them
+[contract_line_partner](contract_line_partner/) | 17.0.1.0.0 |  | Allows defining a partner to contract lines
 [contract_line_recurring_defaults](contract_line_recurring_defaults/) | 17.0.1.0.0 |  | Allows defining global defaults for contract lines
 [contract_line_recurring_next_date_synchronized](contract_line_recurring_next_date_synchronized/) | 17.0.1.0.0 |  | Add information about next contract invoicing if they are synchronized
 [contract_line_stop_ignore_last_date_invoice](contract_line_stop_ignore_last_date_invoice/) | 17.0.1.0.0 |  | When stopping a contract line, the 'Last Date Invoiced' is ignored
@@ -43,7 +44,9 @@ addon | version | maintainers | summary
 [contract_use_existing_invoice](contract_use_existing_invoice/) | 17.0.1.0.0 |  | Add lines to an existing invoice instead of creating a new invoice
 [subscription_auditlog](subscription_auditlog/) | 17.0.1.0.0 |  | Adds audit log rules for sale subscription and subscription line
 [subscription_customer_reference](subscription_customer_reference/) | 17.0.1.0.0 |  | Add customer reference to subscriptions
+[subscription_line_partner](subscription_line_partner/) | 17.0.1.0.0 |  | Allows defining a partner to subscription lines
 [subscription_shipping_address](subscription_shipping_address/) | 17.0.1.0.0 |  | Add shipping address to subscriptions
 [subscription_use_existing_invoice](subscription_use_existing_invoice/) | 17.0.1.0.0 |  | Add subscription lines to an existing draft invoice
+[website_subscription](website_subscription/) | 17.0.1.0.0 |  | Subscriptions in website portal
 
 [//]: # (end addons)

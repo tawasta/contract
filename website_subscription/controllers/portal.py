@@ -26,7 +26,7 @@ class PortalSubscription(CustomerPortal):
     )
     def portal_my_subscriptions(self, **kw):
         values = self._prepare_portal_layout_values()
-        subscription_obj = request.env["event.registration"]
+        subscription_obj = request.env["sale.subscription"]
         # Avoid error if the user does not have access.
         if not subscription_obj.check_access_rights("read", raise_exception=False):
             return request.redirect("/my")
@@ -45,7 +45,6 @@ class PortalSubscription(CustomerPortal):
         )
         return request.render("website_subscription.portal_my_subscriptions", values)
 
-
     @http.route(
         ["/my/subscriptions/<int:subscription_id>"],
         type="http",
@@ -53,9 +52,8 @@ class PortalSubscription(CustomerPortal):
         website=True,
     )
     def portal_my_subscription_detail(self, subscription_id, **kw):
-        
         subscription = request.env["sale.subscription"].browse(subscription_id)
-        values = {"subscription":subscription}
+        values = {"subscription": subscription}
         return request.render("website_subscription.portal_subscription_page", values)
 
     # Otetaan myöhemmin käyttöön

@@ -1,0 +1,82 @@
+<?xml version="1.0" ?>
+<odoo>
+
+    <template id="portal_my_subscriptions" name="My subscriptions">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True" />
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">Subscriptions</t>
+            </t>
+            <t t-if="not subscriptions">
+                <p>There are currently no subscriptions for your account.</p>
+            </t>
+            <div class="container portal_my_subscriptions">
+                <t t-if="subscriptions" t-call="portal.portal_table">
+                    <thead>
+                        <tr class="active">
+                            <th name="th_name">Name</th>
+                            <th name="th_template">Type</th>
+                            <th name="th_products">Products</th>
+                            <th name="th_start">Start</th>
+                            <th name="th_end" class="d-none">End</th>
+                            <th name="th_next_invoice">Next invoice</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-foreach="subscriptions" t-as="subscription">
+                            <tr>
+                                <td name="td_name">
+                                    <a
+                                        t-attf-href="/my/subscriptions/{{subscription.id}}"
+                                        t-att-title="subscription.name"
+                                    >
+                                        <t
+                                            t-esc="subscription.name"
+                                            t-if="subscription.name != '/'"
+                                        />
+                                    </a>
+                                </td>
+
+                                <td name="td_name">
+                                    <t
+                                        t-esc="subscription.template_id.name"
+                                        t-if="subscription.template_id"
+                                    />
+                                </td>
+
+                                <td name="td_products">
+                                    <t
+                                        t-esc="','.join(subscription.mapped('sale_subscription_line_ids.product_id.name'))"
+                                    />
+                                </td>
+
+                                <td name="td_start">
+                                    <span
+                                        t-field="subscription.date_start"
+                                        t-options='{"widget": "date"}'
+                                    />
+                                </td>
+
+                                <td name="td_end" class="d-none">
+                                    <span
+                                        t-field="subscription.date"
+                                        t-options='{"widget": "date"}'
+                                    />
+                                </td>
+
+                                <td name="td_next_invoice">
+                                    <span
+                                        t-field="subscription.recurring_next_date"
+                                        t-options='{"widget": "date"}'
+                                    />
+                                </td>
+
+                            </tr>
+                        </t>
+                    </tbody>
+                </t>
+            </div>
+        </t>
+    </template>
+
+</odoo>
