@@ -26,13 +26,15 @@
         customize_show="True"
         priority="30"
     >
-        <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+        <div id="portal_client_category" position="inside">
             <t t-call="portal.portal_docs_entry">
+                <t t-set="icon" t-value="'/website_subscription/static/src/img/subscription.svg'"/>
                 <t t-set="title">Subscriptions</t>
+                <t t-set="text">View and manage your subscriptions</t>
                 <t t-set="url" t-value="'/my/subscriptions'" />
                 <t t-set="placeholder_count" t-value="'subscription_count'" />
             </t>
-        </xpath>
+        </div>
     </template>
 
     <template id="portal_my_subscriptions" name="My subscriptions">
@@ -65,7 +67,7 @@
                                         />
                                     </a>
                                 </td>
-                                
+
                             </tr>
                         </t>
                     </tbody>
@@ -84,7 +86,7 @@
                         </span>
                     </h5>
 
-                    
+
                 </t>
                 <t t-set="card_body">
                     <div id="general_information" class="portal_subscription">
