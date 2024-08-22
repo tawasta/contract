@@ -35,17 +35,17 @@ msgstr "<span>Seuraava lasku</span>"
 #. module: website_subscription
 #: model_terms:ir.ui.view,arch_db:website_subscription.portal_subscription_page
 msgid "<strong>Customer</strong>"
-msgstr "<span>Asiakas</span>"
+msgstr "<strong>Asiakas</strong>"
 
 #. module: website_subscription
 #: model_terms:ir.ui.view,arch_db:website_subscription.portal_subscription_page
 msgid "<strong>Subscription</strong>"
-msgstr "<span>Toistuvaistilaus</span>"
+msgstr "<strong>Toistuvaistilaus</strong>"
 
 #. module: website_subscription
 #: model_terms:ir.ui.view,arch_db:website_subscription.portal_subscription_page
 msgid "<strong>Terms and conditions</strong>"
-msgstr "<span>Sopimusehdot</span>"
+msgstr "<strong>Sopimusehdot</strong>"
 
 #. module: website_subscription
 #: model_terms:ir.ui.view,arch_db:website_subscription.portal_subscription_page
