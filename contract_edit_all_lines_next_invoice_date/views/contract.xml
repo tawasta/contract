@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="contract_contract_form_view" model="ir.ui.view">
+        <field
+            name="name"
+        >contract.contract.form.view.inherit.contract.edit.all.lines</field>
+        <field name="model">contract.contract</field>
+        <field name="inherit_id" ref="contract.contract_contract_form_view" />
+        <field name="arch" type="xml">
+            <field name="contract_line_ids" position="before">
+                <group
+                    name="group_set_line_values"
+                    class="oe_edit_only"
+                    invisible="not line_recurrence"
+                >
+                    <group>
+                        <label for="set_recurring_next_date" />
+                        <div class="o_row">
+                            <field name="set_recurring_next_date" />
+                            <button
+                                name="set_recurring_next_date_for_lines"
+                                string="Set Date for All Lines"
+                                type="object"
+                                icon="fa-save"
+                            />
+                        </div>
+                    </group>
+                    <group />
+                </group>
+            </field>
+        </field>
+    </record>
+</odoo>

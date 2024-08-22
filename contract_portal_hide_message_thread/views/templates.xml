@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <template
+        id="portal_contract_page"
+        inherit_id="contract.portal_contract_page"
+        name="Hide Contract's 'Communication' Section"
+        customize_show="True"
+        active="True"
+        priority="101"
+    >
+        <xpath expr="//div[@id='contract_communication']" position="replace" />
+    </template>
+</odoo>
