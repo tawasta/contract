@@ -8,4 +8,5 @@ class Partner(models.Model):
         comodel_name="sale.subscription.line",
         inverse_name="partner_id",
         string="Subscription lines",
+        domain=[("sale_subscription_id.in_progress", "=", True)],
     )
