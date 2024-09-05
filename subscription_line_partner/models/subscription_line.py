@@ -14,4 +14,9 @@ class SubscriptionLine(models.Model):
 
     def _compute_partner_id(self):
         for line in self:
-            line.partner_id = line.sale_subscription_id.partner_id
+            if line.product_id.subscription_commercial:
+                line.partner_id = (
+                    line.sale_subscription_id.partner_id.commercial_partner_id
+                )
+            else:
+                line.partner_id = line.sale_subscription_id.partner_id

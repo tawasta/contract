@@ -1,6 +1,6 @@
 ##############################################################################
 #
-#    Author: Oy Tawasta OS Technologies Ltd.
+#    Author: Tawasta
 #    Copyright 2024 Oy Tawasta OS Technologies Ltd. (https://tawasta.fi)
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -17,22 +17,24 @@
 #    along with this program. If not, see http://www.gnu.org/licenses/agpl.html
 #
 ##############################################################################
-
 {
-    "name": "Subscription line partner",
-    "summary": "Allows defining a partner to subscription lines",
-    "version": "17.0.1.0.3",
+    "name": "Subscription free product",
+    "summary": "Add a free subscription when purchasing a subscription product",
+    "version": "17.0.1.0.0",
     "category": "Contract Management",
     "website": "https://gitlab.com/tawasta/odoo/contract",
     "author": "Tawasta",
     "license": "AGPL-3",
     "application": False,
     "installable": True,
-    "depends": ["subscription_oca", "website_subscription"],
-    "data": [
-        "views/partner.xml",
-        "views/product_template_view.xml",
-        "views/subscription_form.xml",
-        "views/subscription_portal.xml",
+    "external_dependencies": {"python": [], "bin": []},
+    "depends": [
+        "product_variant_variant_company",
+        "subscription_oca",
+        "subscription_line_partner",
     ],
+    "data": [
+        "views/product_template_view.xml",
+    ],
+    "demo": [],
 }
