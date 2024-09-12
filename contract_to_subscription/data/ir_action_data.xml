@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="migrate_contract_to_subscription" model="ir.actions.server">
+       <field name="name">Change to subscription</field>
+       <field name="model_id" ref="contract.model_contract_contract" />
+       <field name="binding_model_id" ref="contract.model_contract_contract" />
+       <field name="binding_view_types">list,form</field>
+       <field name="state">code</field>
+       <field name="code">
+           action = records.action_migrate_to_subscription()
+       </field>
+    </record>
+
+</odoo>

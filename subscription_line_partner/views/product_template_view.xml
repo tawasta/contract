@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="product_template_form_view_inherit_subscription" model="ir.ui.view">
+        <field name="name">product.template.form.subscription.line.partner</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="subscription_oca.product_template_form_view" />
+        <field name="arch" type="xml">
+            <field name="subscription_template_id" position="after">
+                <field name="subscription_commercial" invisible="not subscribable" />
+            </field>
+        </field>
+    </record>
+
+</odoo>

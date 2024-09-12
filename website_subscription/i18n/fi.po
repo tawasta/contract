@@ -1,0 +1,130 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* website_subscription
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0-20240711\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-08-22 10:37+0000\n"
+"PO-Revision-Date: 2024-08-22 13:40+0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.4.3\n"
+
+#. module: website_subscription
+#: model_terms:ir.ui.view,arch_db:website_subscription.portal_subscription_page
+msgid "<span>Date end</span>"
+msgstr "<span>Päättymispäivä</span>"
+
+#. module: website_subscription
+#: model_terms:ir.ui.view,arch_db:website_subscription.portal_subscription_page
+msgid "<span>Date start</span>"
+msgstr "<span>Alkamispäivä</span>"
+
+#. module: website_subscription
+#: model_terms:ir.ui.view,arch_db:website_subscription.portal_subscription_page
+msgid "<span>Next invoice</span>"
+msgstr "<span>Seuraava lasku</span>"
+
+#. module: website_subscription
+#: model_terms:ir.ui.view,arch_db:website_subscription.portal_subscription_page
+msgid "<strong>Customer</strong>"
+msgstr "<strong>Asiakas</strong>"
+
+#. module: website_subscription
+#: model_terms:ir.ui.view,arch_db:website_subscription.portal_subscription_page
+msgid "<strong>Subscription</strong>"
+msgstr "<strong>Toistuvaistilaus</strong>"
+
+#. module: website_subscription
+#: model_terms:ir.ui.view,arch_db:website_subscription.portal_subscription_page
+msgid "<strong>Terms and conditions</strong>"
+msgstr "<strong>Sopimusehdot</strong>"
+
+#. module: website_subscription
+#: model_terms:ir.ui.view,arch_db:website_subscription.portal_subscription_page
+msgid "Contact"
+msgstr "Kontakti"
+
+#. module: website_subscription
+#: model_terms:ir.ui.view,arch_db:website_subscription.portal_subscription_page
+msgid "Description"
+msgstr "Kuvaus"
+
+#. module: website_subscription
+#: model_terms:ir.ui.view,arch_db:website_subscription.portal_subscription_page
+msgid "Discount (%)"
+msgstr "Alennus (%)"
+
+#. module: website_subscription
+#: model_terms:ir.ui.view,arch_db:website_subscription.portal_my_subscriptions
+msgid "End"
+msgstr "Päättyminen"
+
+#. module: website_subscription
+#: model_terms:ir.ui.view,arch_db:website_subscription.portal_my_subscriptions
+msgid "Name"
+msgstr "Nimi"
+
+#. module: website_subscription
+#: model_terms:ir.ui.view,arch_db:website_subscription.portal_my_subscriptions
+msgid "Next invoice"
+msgstr "Seuraava lasku"
+
+#. module: website_subscription
+#: model_terms:ir.ui.view,arch_db:website_subscription.portal_subscription_page
+msgid "Price unit"
+msgstr "Yksikköhinta"
+
+#. module: website_subscription
+#: model_terms:ir.ui.view,arch_db:website_subscription.portal_my_subscriptions
+msgid "Products"
+msgstr "Tuotteet"
+
+#. module: website_subscription
+#: model_terms:ir.ui.view,arch_db:website_subscription.portal_subscription_page
+msgid "Quantity"
+msgstr "Määrä"
+
+#. module: website_subscription
+#: model_terms:ir.ui.view,arch_db:website_subscription.portal_my_subscriptions
+msgid "Start"
+msgstr "Alku"
+
+#. module: website_subscription
+#: model_terms:ir.ui.view,arch_db:website_subscription.portal_subscription_page
+msgid "Sub Total"
+msgstr "Välisumma"
+
+#. module: website_subscription
+#: model_terms:ir.ui.view,arch_db:website_subscription.portal_subscription_page
+msgid "Subscription -"
+msgstr "Toistuvaistilaus -"
+
+#. module: website_subscription
+#: model_terms:ir.ui.view,arch_db:website_subscription.portal_my_home_menu_subscriptions
+#: model_terms:ir.ui.view,arch_db:website_subscription.portal_my_home_subscription
+#: model_terms:ir.ui.view,arch_db:website_subscription.portal_my_subscriptions
+msgid "Subscriptions"
+msgstr "Toistuvaistilaukset"
+
+#. module: website_subscription
+#: model_terms:ir.ui.view,arch_db:website_subscription.portal_my_subscriptions
+msgid "There are currently no subscriptions for your account."
+msgstr "Tililläsi ei ole toistuvaistiauksia."
+
+#. module: website_subscription
+#: model_terms:ir.ui.view,arch_db:website_subscription.portal_my_subscriptions
+msgid "Type"
+msgstr "Tyyppi"
+
+#. module: website_subscription
+#: model_terms:ir.ui.view,arch_db:website_subscription.portal_my_home_subscription
+msgid "View and manage your subscriptions"
+msgstr "Tarkastele ja hallinnoi toistuvaistilauksiasi"

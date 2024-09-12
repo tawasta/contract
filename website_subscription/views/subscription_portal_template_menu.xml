@@ -1,0 +1,25 @@
+<?xml version="1.0" ?>
+<odoo>
+    <template
+        id="portal_my_home_menu_subscriptions"
+        name="Portal layout : Subscription menu entries"
+        inherit_id="portal.portal_breadcrumbs"
+        priority="35"
+    >
+        <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
+            <li
+                t-if="page_name == 'Subscriptions'"
+                t-attf-class="breadcrumb-item #{'active ' if not subscription else ''}"
+            >
+                <a
+                    t-if="subscription"
+                    t-attf-href="/my/subscriptions?{{ keep_query() }}"
+                >Subscriptions</a>
+                <t t-else="">Subscriptions</t>
+            </li>
+            <li t-if="subscription" class="breadcrumb-item active">
+                <t t-esc="subscription.name" />
+            </li>
+        </xpath>
+    </template>
+</odoo>
