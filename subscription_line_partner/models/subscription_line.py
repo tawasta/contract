@@ -10,6 +10,7 @@ class SubscriptionLine(models.Model):
         compute="_compute_partner_id",
         precompute=True,
         store=True,
+        readonly=False,
     )
 
     def _compute_partner_id(self):
