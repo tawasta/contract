@@ -53,40 +53,55 @@ class Contract(models.Model):
             .id
         )
 
-        # Create a new subscription with initial values
-        subscription_values = {
-            # Name and code could be overridden,
-            # but it might be better to let subscription create it
-            # "code": self.code,
-            # "name": self.name,
-            "company_id": self.company_id.id,
-            "currency_id": self.currency_id.id,
-            "date": self.date_end,
-            "date_start": self.date_start,
-            "description": self.note,
-            "fiscal_position_id": self.fiscal_position_id.id,
-            "in_progress": True,
-            "journal_id": self.journal_id.id,
-            "message_follower_ids": self.message_follower_ids,
-            "partner_id": self.partner_id.id,
-            "pricelist_id": self.pricelist_id.id,
-            "recurring_next_date": self.recurring_next_date,
-            "sale_order_id": sale_order_id,
-            "stage_id": stage_id,
-            # "tag_ids": TODO,
-            "template_id": self.subscription_template_id.id,
-            "user_id": self.user_id.id,
-        }
+        partner = self.partner_id
+
+        if hasattr(self, "partner_invoice_id") and self.partner_invoice_id:
+            # Use invoice address as partner
+            partner = self.partner_invoice_id
 
         sale_subscription = self.env["sale.subscription"]
 
-        if hasattr(sale_subscription, "invoice_ref"):
-            subscription_values["invoice_ref"] = self.code
+        # Try to add line to existing contract
+        subscription_id = sale_subscription.search(
+            [
+                ("partner_id", "=", partner.id),
+            ],
+            limit=1,
+        )
 
-        if hasattr(sale_subscription, "partner_shipping_id"):
-            subscription_values["partner_shipping_id"] = self.partner_shipping_id
+        if not subscription_id:
+            # Create a new subscription with initial values
+            subscription_values = {
+                # Name and code could be overridden,
+                # but it might be better to let subscription create it
+                # "code": self.code,
+                # "name": self.name,
+                "company_id": self.company_id.id,
+                "currency_id": self.currency_id.id,
+                "date": self.date_end,
+                "date_start": self.date_start,
+                "description": self.note,
+                "fiscal_position_id": self.fiscal_position_id.id,
+                "in_progress": True,
+                "journal_id": self.journal_id.id,
+                "message_follower_ids": self.message_follower_ids,
+                "partner_id": partner.id,
+                "pricelist_id": self.pricelist_id.id,
+                "recurring_next_date": self.recurring_next_date,
+                "sale_order_id": sale_order_id,
+                "stage_id": stage_id,
+                # "tag_ids": TODO,
+                "template_id": self.subscription_template_id.id,
+                "user_id": self.user_id.id,
+            }
 
-        subscription_id = sale_subscription.create(subscription_values)
+            if hasattr(sale_subscription, "invoice_ref"):
+                subscription_values["invoice_ref"] = self.code
+
+            if hasattr(sale_subscription, "partner_shipping_id"):
+                subscription_values["partner_shipping_id"] = self.partner_shipping_id
+
+            subscription_id = sale_subscription.create(subscription_values)
 
         # Link existing invoices to subscription
         self._get_related_invoices().write({"subscription_id": subscription_id.id})
@@ -108,6 +123,10 @@ class Contract(models.Model):
                 "sale_subscription_id": subscription_id.id,
                 # "tax_ids": TODO
             }
+
+            if hasattr(subscription_line, "partner_id"):
+                line_values["partner_id"] = self.partner_id.id
+
             subscription_line.create(line_values)
 
         # Archive the contract
