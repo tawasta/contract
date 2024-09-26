@@ -71,5 +71,5 @@ class SaleOrder(models.Model):
             "product_uom_qty": 1.0,
             "tax_ids": [(6, 0, taxes.ids)],
             "currency_id": self.currency_id.id,
-            "partner_id": partner,
+            "partner_id": partner.id,
         }
