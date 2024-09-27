@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="sale_subscription_form" model="ir.ui.view">
+        <field name="name">sale.subscription.form.view.change.product.variant</field>
+        <field name="model">sale.subscription</field>
+        <field name="inherit_id" ref="subscription_oca.sale_subscription_form" />
+        <field name="arch" type="xml">
+            <xpath
+                expr="//field[@name='sale_subscription_line_ids']//field[@name='price_total']"
+                position="after"
+            >
+                <button
+                    name="change_product_variant_wizard"
+                    type="object"
+                    string="Change Membership"
+                    class="oe_highlight"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
