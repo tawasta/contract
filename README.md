@@ -46,6 +46,7 @@ addon | version | maintainers | summary
 [subscription_customer_reference](subscription_customer_reference/) | 17.0.1.0.0 |  | Add customer reference to subscriptions
 [subscription_free_product](subscription_free_product/) | 17.0.1.0.0 |  | Add a free subscription when purchasing a subscription product
 [subscription_line_partner](subscription_line_partner/) | 17.0.1.0.3 |  | Allows defining a partner to subscription lines
+[subscription_modification](subscription_modification/) | 17.0.1.0.0 |  | Add modification log to subscriptions
 [subscription_shipping_address](subscription_shipping_address/) | 17.0.1.0.0 |  | Add shipping address to subscriptions
 [subscription_use_existing_invoice](subscription_use_existing_invoice/) | 17.0.1.0.0 |  | Add subscription lines to an existing draft invoice
 [website_subscription](website_subscription/) | 17.0.1.0.0 |  | Subscriptions in website portal
