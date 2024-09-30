@@ -2,11 +2,13 @@ from odoo import api, fields, models
 
 
 class SaleSubscriptionLine(models.Model):
-
     _inherit = "sale.subscription.line"
 
     def change_product_variant(
-        self, sale_subscription_id=None, new_product_id=None, sale_subscription_line=None
+        self,
+        sale_subscription_id=None,
+        new_product_id=None,
+        sale_subscription_line=None,
     ):
         """This function is callable inside other models."""
         if sale_subscription_id and new_product_id and sale_subscription_line:
@@ -18,17 +20,13 @@ class SaleSubscriptionLine(models.Model):
         return True
 
     def change_product_variant_wizard(self):
-        print("CHANGE WIZARD")
         product = self.product_id
         sale_subscription_line = self.id
         sale_subscription_id = self.sale_subscription_id.id
-        # available_variants = product.product_tmpl_id.product_variant_ids
         available_variants = (
             self.env["product.template"]
             .sudo()
-            .search(
-                [("id", "=", product.product_tmpl_id.id)]
-            )
+            .search([("id", "=", product.product_tmpl_id.id)])
             .mapped("product_variant_ids")
         )
         view_id = self.env.ref(

@@ -13,7 +13,8 @@
                     name="change_product_variant_wizard"
                     type="object"
                     string="Change Membership"
-                    class="oe_highlight"/>
+                    class="oe_highlight"
+                />
             </xpath>
         </field>
     </record>

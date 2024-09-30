@@ -1,11 +1,9 @@
 from datetime import datetime
 
 from odoo import _, fields, models
-from odoo.exceptions import ValidationError
 
 
 class SubscriptionLineChangeProductVariant(models.TransientModel):
-
     _name = "subscription.line.change.product.variant"
 
     old_product_id = fields.Many2one("product.product", string="Previous membership")
@@ -20,10 +18,13 @@ class SubscriptionLineChangeProductVariant(models.TransientModel):
     next_invoice_date_update = fields.Date("Next invoice date")
 
     def change_product_variant(
-        self, sale_subscription_id=None, new_product_id=None, sale_subscription_line=None
+        self,
+        sale_subscription_id=None,
+        new_product_id=None,
+        sale_subscription_line=None,
     ):
-        """This function creates a new sale_subscription line and a new invoice with
-        appropriate values based on a chosen product and the old sale_subscription
+        """This function creates a new sale.subscription line and a new invoice with
+        appropriate values based on a chosen product and the old sale.subscription
         line."""
 
         sale_subscription = sale_subscription_id or self.sale_subscription_id
@@ -56,23 +57,22 @@ class SubscriptionLineChangeProductVariant(models.TransientModel):
         new_line_price = new_line_price - old_line_price
         new_line_price = 0 if new_line_price < 0 else new_line_price
 
-        sale_subscription_line.update({
-            "product_id": product.id,
-            "price_unit": product.lst_price,
-            "name": product.display_name,
-            "sale_subscription_id": sale_subscription.id,
-        })
-
-        # Create a new sale_subscription line
-#        new_sale_subscription_line = self.env["sale.subscription.line"].create(sale_subscription_line_values)
+        sale_subscription_line.update(
+            {
+                "product_id": product.id,
+                "price_unit": product.lst_price,
+                "name": product.display_name,
+                "sale_subscription_id": sale_subscription.id,
+            }
+        )
 
         # Create a new invoice with a new sale_subscription line information
         line_values = []
 
         account_move_line = sale_subscription_line._prepare_account_move_line()
 
-        # Set invoice line's price as the difference between old sale_subscription
-        # line's and new sale_subscription line's price based on sale_subscription's pricelist
+        # Set invoice line's price as the difference between old sale.subscription
+        # line's and new sale_subscription line's price based on sale.subscription's pricelist
         # rule.
         account_move_line["price_unit"] = new_line_price
 
@@ -87,13 +87,5 @@ class SubscriptionLineChangeProductVariant(models.TransientModel):
         )
 
         sale_subscription.write({"invoice_ids": [(4, invoice_id.id)]})
-
-#        move_id = self.env["account.move"].sudo().create(invoice_values)
-#        sale_subscription._invoice_followers(move_id)
-
-        # This line of code can cause errors, so check it first in case some
-        # problems appear when using this module.
-        # Timo: Commented out on 31.7.2023 so it will not update recurring next date.
-        # new_sale_subscription_line._update_recurring_next_date()
 
         return invoice_id
