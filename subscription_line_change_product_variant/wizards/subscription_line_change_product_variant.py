@@ -86,6 +86,22 @@ class SubscriptionLineChangeProductVariant(models.TransientModel):
             .create(invoice_vals)
         )
 
+        sale_subscription_modification_model = self.env[
+            "sale.subscription.modification"
+        ]
+
+        description = "'{}'{}'{}'".format(
+            old_product.display_name, " has been changed to ", product.display_name
+        )
+
+        log_vals = {
+            "date": now_date,
+            "description": description,
+            "subscription_id": sale_subscription.id,
+        }
+
+        sale_subscription_modification_model.create(log_vals)
+
         sale_subscription.write({"invoice_ids": [(4, invoice_id.id)]})
 
         return invoice_id
