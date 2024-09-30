@@ -21,7 +21,7 @@
 {
     "name": "Substriction Line Change product variant",
     "summary": "Substriction Line Change product variant and create invoice",
-    "version": "17.0.1.0.0",
+    "version": "17.0.1.1.0",
     "category": "Contract Management",
     "website": "https://gitlab.com/tawasta/odoo/contract",
     "author": "Tawasta",
@@ -30,6 +30,7 @@
     "installable": True,
     "depends": [
         "product",
+        "subscription_modification",
         "subscription_oca",
     ],
     "data": [

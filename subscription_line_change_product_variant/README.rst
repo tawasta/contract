@@ -24,7 +24,7 @@ Select a new product variant and click "Confirm". Check the new created invoice.
 
 Known issues / Roadmap
 ======================
-Track the changes on subscription lines from chatter.
+Track the changes on subscription lines from Modifications page on subscriptions.
 
 Credits
 =======
