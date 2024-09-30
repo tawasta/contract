@@ -99,7 +99,7 @@ class Contract(models.Model):
                 subscription_values["invoice_ref"] = self.code
 
             if hasattr(sale_subscription, "partner_shipping_id"):
-                subscription_values["partner_shipping_id"] = self.partner_shipping_id
+                subscription_values["partner_shipping_id"] = self.partner_shipping_id.id
 
             subscription_id = sale_subscription.create(subscription_values)
 

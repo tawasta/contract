@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+    <record id="subscription_modification_user" model="ir.model.access">
+        <field name="name">Subscription modification user</field>
+        <field name="model_id" ref="model_sale_subscription_modification" />
+        <field name="group_id" ref="account.group_account_invoice" />
+        <field name="perm_read" eval="1" />
+        <field name="perm_write" eval="1" />
+        <field name="perm_create" eval="1" />
+        <field name="perm_unlink" eval="0" />
+    </record>
+
+    <record id="subscription_modification_portal" model="ir.model.access">
+        <field name="name">Subscription modification portal</field>
+        <field name="model_id" ref="model_sale_subscription_modification" />
+        <field name="group_id" ref="base.group_portal" />
+        <field name="perm_read" eval="1" />
+        <field name="perm_write" eval="0" />
+        <field name="perm_create" eval="0" />
+        <field name="perm_unlink" eval="0" />
+    </record>
+
+</odoo>
