@@ -146,8 +146,12 @@
                                     <tr>
                                         <th
                                             name="th_name"
-                                            class="text-left"
+                                            class="text-left d-none"
                                         >Description</th>
+                                        <th
+                                            name="th_product"
+                                            class="text-left"
+                                        >Product</th>
                                         <th
                                             name="th_quantity"
                                             class="text-right"
@@ -174,8 +178,13 @@
                                         <tr
                                             class="bg-200 font-weight-bold o_line_section"
                                         >
-                                                <td name="td_name">
+                                                <td name="td_name" class="d-none">
                                                     <span t-field="line.name" />
+                                                </td>
+                                                <td name="td_product">
+                                                    <span
+                                                    t-field="line.product_id.name"
+                                                />
                                                 </td>
                                                 <td
                                                 name="td_quantity"
