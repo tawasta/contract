@@ -1,4 +1,4 @@
-from odoo import fields, models
+from odoo import api, fields, models
 
 
 class SubscriptionLine(models.Model):
@@ -21,3 +21,10 @@ class SubscriptionLine(models.Model):
                 )
             else:
                 line.partner_id = line.sale_subscription_id.partner_id
+
+    @api.depends("product_id", "partner_id")
+    def _compute_name(self):
+        super()._compute_name()
+        for record in self:
+            if record.partner_id:
+                record.name += ", {}".format(record.partner_id.name)
