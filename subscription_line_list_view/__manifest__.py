@@ -28,7 +28,7 @@
     "license": "AGPL-3",
     "application": False,
     "installable": True,
-    "depends": ["subscription_oca"],
+    "depends": ["subscription_oca", "subscription_line_partner"],
     "data": [
         "views/subscription_lines.xml",
     ],
