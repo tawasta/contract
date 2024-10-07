@@ -21,7 +21,7 @@
 {
     "name": "Subscription line partner",
     "summary": "Allows defining a partner to subscription lines",
-    "version": "17.0.1.0.3",
+    "version": "17.0.1.0.4",
     "category": "Contract Management",
     "website": "https://gitlab.com/tawasta/odoo/contract",
     "author": "Tawasta",

@@ -7,20 +7,20 @@ class SubscriptionLine(models.Model):
     partner_id = fields.Many2one(
         comodel_name="res.partner",
         string="Related partner",
-        compute="_compute_partner_id",
-        precompute=True,
-        store=True,
-        readonly=False,
     )
 
-    def _compute_partner_id(self):
-        for line in self:
-            if line.product_id.subscription_commercial:
-                line.partner_id = (
-                    line.sale_subscription_id.partner_id.commercial_partner_id
+    @api.model
+    def create(self, vals):
+        res = super().create(vals)
+        if not res.partner_id:
+            if res.product_id.subscription_commercial:
+                res.partner_id = (
+                    res.sale_subscription_id.partner_id.commercial_partner_id
                 )
             else:
-                line.partner_id = line.sale_subscription_id.partner_id
+                res.partner_id = res.sale_subscription_id.partner_id
+
+        return res
 
     @api.depends("product_id", "partner_id")
     def _compute_name(self):
