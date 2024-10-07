@@ -18,6 +18,7 @@
                     options="{'currency_field': 'currency_id'}"
                 />
                 <field name="price_total" options="{'currency_field': 'currency_id'}" />
+                <field name="partner_id" />
             </tree>
         </field>
     </record>
@@ -45,6 +46,7 @@
                         <field name="price_subtotal" />
                         <field name="amount_tax_line_amount" />
                         <field name="price_total" />
+                        <field name="partner_id" />
                     </group>
                 </group>
             </form>
