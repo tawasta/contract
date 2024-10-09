@@ -5,7 +5,7 @@ from odoo import models
 class SaleSubscription(models.Model):
     _name = "sale.subscription.modification"
     _description = "Subscription Modification"
-    _order = "date desc"
+    _order = "date DESC, id DESC"
 
     date = fields.Date(required=True)
     description = fields.Text(required=True)

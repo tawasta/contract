@@ -19,9 +19,9 @@
 ##############################################################################
 
 {
-    "name": "Subscription: modification log",
-    "summary": "Add modification log to subscriptions",
-    "version": "17.0.1.0.1",
+    "name": "Subscription: End lines",
+    "summary": "Allows ending subscription lines without deleting them",
+    "version": "17.0.1.0.0",
     "category": "Contract Management",
     "website": "https://gitlab.com/tawasta/odoo/contract",
     "author": "Tawasta",
@@ -30,9 +30,9 @@
     "installable": True,
     "depends": [
         "subscription_oca",
+        "subscription_modification",
     ],
     "data": [
-        "security/model_access.xml",
         "views/sale_subscription.xml",
     ],
 }
