@@ -53,6 +53,7 @@ addon | version | maintainers | summary
 [subscription_line_partner](subscription_line_partner/) | 17.0.1.0.4 |  | Allows defining a partner to subscription lines
 [subscription_modification](subscription_modification/) | 17.0.1.0.1 |  | Add modification log to subscriptions
 [subscription_shipping_address](subscription_shipping_address/) | 17.0.1.0.0 |  | Add shipping address to subscriptions
+[subscription_usability_improvements](subscription_usability_improvements/) | 17.0.1.0.0 |  | Add basic searches, groupings and optional fields to subscriptions
 [subscription_use_existing_invoice](subscription_use_existing_invoice/) | 17.0.1.0.0 |  | Add subscription lines to an existing draft invoice
 [website_subscription](website_subscription/) | 17.0.1.0.0 |  | Subscriptions in website portal
 
