@@ -21,7 +21,7 @@
 {
     "name": "Subscription line list views",
     "summary": "Creates a tree view for subscription lines",
-    "version": "17.0.1.0.0",
+    "version": "17.0.1.0.1",
     "category": "Contract Management",
     "website": "https://gitlab.com/tawasta/odoo/contract",
     "author": "Tawasta",
@@ -30,6 +30,7 @@
     "installable": True,
     "depends": ["subscription_oca", "subscription_line_partner"],
     "data": [
+        "views/subscription_line_search.xml",
         "views/subscription_lines.xml",
     ],
 }
