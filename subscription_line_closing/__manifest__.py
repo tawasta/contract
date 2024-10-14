@@ -21,7 +21,7 @@
 {
     "name": "Subscription: End lines",
     "summary": "Allows ending subscription lines without deleting them",
-    "version": "17.0.1.0.2",
+    "version": "17.0.1.1.0",
     "category": "Contract Management",
     "website": "https://gitlab.com/tawasta/odoo/contract",
     "author": "Tawasta",
@@ -33,6 +33,7 @@
         "subscription_modification",
     ],
     "data": [
+        "data/ir_cron.xml",
         "views/sale_subscription.xml",
     ],
 }
