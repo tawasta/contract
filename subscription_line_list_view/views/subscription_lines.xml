@@ -5,20 +5,26 @@
         <field name="name">sale.subscription.line.tree</field>
         <field name="model">sale.subscription.line</field>
         <field name="arch" type="xml">
-            <tree>
-                <field name="product_id" required="True" />
-                <field name="name" required="True" widget="section_and_note_text" />
+            <tree create="0" edit="0" import="0">
+                <field name="sale_subscription_id" optional="show" />
+                <field name="product_id" optional="show" />
+                <field name="name" optional="show" />
                 <field name="currency_id" column_invisible="1" />
-                <field name="product_uom_qty" required="True" />
-                <field name="price_unit" required="True" />
-                <field name="discount" required="True" />
-                <field name="tax_ids" widget="many2many_tags" />
+                <field name="product_uom_qty" optional="show" />
+                <field name="price_unit" optional="show" />
+                <field name="discount" optional="show" />
+                <field name="tax_ids" optional="show" widget="many2many_tags" />
                 <field
+                    optional="show"
                     name="price_subtotal"
                     options="{'currency_field': 'currency_id'}"
                 />
-                <field name="price_total" options="{'currency_field': 'currency_id'}" />
-                <field name="partner_id" />
+                <field
+                    optional="show"
+                    name="price_total"
+                    options="{'currency_field': 'currency_id'}"
+                />
+                <field optional="show" name="partner_id" />
             </tree>
         </field>
     </record>
