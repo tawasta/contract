@@ -17,17 +17,52 @@
                     icon="fa-stop text-danger"
                     invisible="not active"
                 />
-                <button
-                    name="action_start"
-                    string="Start"
-                    type="object"
-                    icon="fa-play text-success"
-                    invisible="active"
-                />
             </xpath>
 
             <xpath expr="//tree" position="attributes">
                 <attribute name="decoration-muted">not active</attribute>
+                <attribute name="delete">0</attribute>
+            </xpath>
+
+            <xpath expr="//group[@name='subscription_total']" position="after">
+                <label for="sale_subscription_closed_line_ids" string="Closed lines" />
+                <field
+                    name="sale_subscription_closed_line_ids"
+                    domain="[('active', '=', False)]"
+                >
+                    <tree create="0" edit="0">
+                        <field name="active" column_invisible="True" />
+                        <field name="product_id" optional="show" />
+                        <field
+                            name="name"
+                            optional="show"
+                            widget="section_and_note_text"
+                        />
+                        <field name="currency_id" column_invisible="1" />
+                        <field name="product_uom_qty" optional="show" />
+                        <field name="price_unit" optional="show" />
+                        <field name="discount" optional="show" />
+                        <field name="tax_ids" optional="show" widget="many2many_tags" />
+                        <field
+                            name="price_subtotal"
+                            optional="show"
+                            options="{'currency_field': 'currency_id'}"
+                        />
+                        <field
+                            name="price_total"
+                            optional="show"
+                            options="{'currency_field': 'currency_id'}"
+                        />
+                        <field name="date_end" optional="show" />
+                        <button
+                            name="action_start"
+                            string="Start"
+                            type="object"
+                            icon="fa-play text-success"
+                            invisible="active"
+                        />
+                    </tree>
+                </field>
             </xpath>
 
         </field>
