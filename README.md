@@ -48,7 +48,7 @@ addon | version | maintainers | summary
 [subscription_disable_qty_in_cart](subscription_disable_qty_in_cart/) | 17.0.1.0.0 |  | Disable changing subscription product quantity in cart
 [subscription_free_product](subscription_free_product/) | 17.0.1.0.0 |  | Add a free subscription when purchasing a subscription product
 [subscription_line_change_product_variant](subscription_line_change_product_variant/) | 17.0.1.1.0 |  | Substriction Line Change product variant and create invoice
-[subscription_line_closing](subscription_line_closing/) | 17.0.1.0.1 |  | Allows ending subscription lines without deleting them
+[subscription_line_closing](subscription_line_closing/) | 17.0.1.0.2 |  | Allows ending subscription lines without deleting them
 [subscription_line_list_view](subscription_line_list_view/) | 17.0.1.0.0 |  | Creates a tree view for subscription lines
 [subscription_line_partner](subscription_line_partner/) | 17.0.1.0.4 |  | Allows defining a partner to subscription lines
 [subscription_modification](subscription_modification/) | 17.0.1.0.1 |  | Add modification log to subscriptions

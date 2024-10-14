@@ -21,11 +21,7 @@ class SaleSubscriptionLine(models.Model):
             subscription = record.sale_subscription_id
 
             subscription.modification_add(msg)
-            subscription.recompute_total()
-            return {
-                "type": "ir.actions.client",
-                "tag": "reload",
-            }
+            subscription._compute_total()
 
     def action_start(self):
         for record in self:
@@ -39,8 +35,4 @@ class SaleSubscriptionLine(models.Model):
             subscription = record.sale_subscription_id
 
             subscription.modification_add(msg)
-            subscription.recompute_total()
-            return {
-                "type": "ir.actions.client",
-                "tag": "reload",
-            }
+            subscription._compute_total()
