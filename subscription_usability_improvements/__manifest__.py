@@ -19,18 +19,17 @@
 ##############################################################################
 
 {
-    "name": "Subscription line list views",
-    "summary": "Creates a tree view for subscription lines",
-    "version": "17.0.1.0.1",
+    "name": "Subscription usability improvements",
+    "summary": "Add basic searches, groupings and optional fields to subscriptions",
+    "version": "17.0.1.0.0",
     "category": "Contract Management",
     "website": "https://gitlab.com/tawasta/odoo/contract",
     "author": "Tawasta",
     "license": "AGPL-3",
     "application": False,
     "installable": True,
-    "depends": ["subscription_oca", "subscription_line_partner"],
+    "depends": ["subscription_oca"],
     "data": [
-        "views/subscription_line_search.xml",
-        "views/subscription_lines.xml",
+        "views/sale_subscription.xml",
     ],
 }
