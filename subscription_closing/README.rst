@@ -2,11 +2,11 @@
    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
-=======================
-Subscription: End lines
-=======================
+=================================
+End subscription to a future date
+=================================
 
-Allows ending subscription lines without deleting them
+Allows ending subscription to a future date
 
 Configuration
 =============
@@ -19,7 +19,8 @@ Usage
 Known issues / Roadmap
 ======================
 
--
+Restarting lines is not supported, and should be added
+(Archived lines is not shown)
 
 Credits
 =======

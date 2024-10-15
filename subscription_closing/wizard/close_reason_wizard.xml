@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="close_reason_wizard_view" model="ir.ui.view">
+        <field name="name">close.reason.wizard.view.end_date</field>
+        <field name="model">close.reason.wizard</field>
+        <field name="inherit_id" ref="subscription_oca.close_reason_wizard_view" />
+        <field name="arch" type="xml">
+            <field name="close_reason_id" position="after">
+                <field name="date_end" />
+            </field>
+        </field>
+    </record>
+</odoo>
