@@ -21,7 +21,7 @@
 {
     "name": "End subscription to a future date",
     "summary": "Allows ending subscription to a future date",
-    "version": "17.0.1.0.0",
+    "version": "17.0.1.0.1",
     "category": "Contract Management",
     "website": "https://gitlab.com/tawasta/odoo/contract",
     "author": "Tawasta",
