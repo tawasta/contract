@@ -36,3 +36,9 @@ class SaleSubscriptionLine(models.Model):
 
             subscription.modification_add(msg)
             subscription._compute_total()
+
+    def action_cron_stop(self):
+        # Stop all ended lines
+        records = self.search([("date_end", "<=", fields.Date.today())])
+        for record in records:
+            record.action_stop()

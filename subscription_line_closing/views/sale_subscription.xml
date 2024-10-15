@@ -9,18 +9,20 @@
                 expr="//field[@name='sale_subscription_line_ids']/tree/field[@name='price_total']"
                 position="after"
             >
+                <field name="date_end" optional="show" />
                 <field name="active" column_invisible="True" />
                 <button
                     name="action_stop"
                     string="Stop"
                     type="object"
                     icon="fa-stop text-danger"
-                    invisible="not active"
+                    invisible="not active or date_end"
                 />
             </xpath>
 
             <xpath expr="//tree" position="attributes">
                 <attribute name="decoration-muted">not active</attribute>
+                <attribute name="decoration-danger">date_end</attribute>
                 <attribute name="delete">0</attribute>
             </xpath>
 
