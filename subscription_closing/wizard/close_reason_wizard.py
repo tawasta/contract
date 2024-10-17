@@ -9,17 +9,20 @@ class CloseSubscriptionWizard(models.TransientModel):
     )
 
     def button_confirm(self):
+        print(self.close_reason_id.id)
         if self.date_end <= fields.Date.today():
             # End immediately
-            super().button_confirm
-        else:
-            # Set the end date and reason
-            sale_subscription = self.env["sale.subscription"].browse(
-                self.env.context["active_id"]
-            )
-            values = {
-                "recurring_rule_boundary": False,
-                "close_reason_id": self.close_reason_id.id,
-                "date": self.date_end,
-            }
-            sale_subscription.write(values)
+            super().button_confirm()
+
+        sale_subscription = self.env["sale.subscription"].browse(
+            self.env.context["active_id"]
+        )
+        # Set the end date and reason
+        values = {
+            "recurring_rule_boundary": False,
+            "close_reason_id": self.close_reason_id.id,
+            "date": self.date_end,
+            # Don't auto-archive
+            "active": True,
+        }
+        sale_subscription.write(values)
