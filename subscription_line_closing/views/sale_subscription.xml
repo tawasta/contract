@@ -9,6 +9,7 @@
                 expr="//field[@name='sale_subscription_line_ids']/tree/field[@name='price_total']"
                 position="after"
             >
+                <field name="date_start" optional="show" />
                 <field name="date_end" optional="show" />
                 <field name="active" column_invisible="True" />
                 <button
@@ -55,6 +56,7 @@
                             optional="show"
                             options="{'currency_field': 'currency_id'}"
                         />
+                        <field name="date_start" optional="show" />
                         <field name="date_end" optional="show" />
                         <button
                             name="action_start"

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.0-20240924\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-10 10:51+0000\n"
-"PO-Revision-Date: 2024-10-10 13:52+0300\n"
+"POT-Creation-Date: 2024-10-29 08:22+0000\n"
+"PO-Revision-Date: 2024-10-29 10:23+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fi\n"
@@ -43,6 +43,11 @@ msgid "Start"
 msgstr "Aloita"
 
 #. module: subscription_line_closing
+#: model:ir.model.fields,field_description:subscription_line_closing.field_sale_subscription_line__date_start
+msgid "Start date"
+msgstr "Alkamispäivä"
+
+#. module: subscription_line_closing
 #. odoo-python
 #: code:addons/subscription_line_closing/models/sale_subscription_line.py:0
 #, python-format
@@ -72,6 +77,21 @@ msgid "Subscription lines added to a given subscription"
 msgstr "Toistuvaistilauksen rivit lisätty toistuvaistilaukselle"
 
 #. module: subscription_line_closing
+#: model:ir.actions.server,name:subscription_line_closing.ir_cron_subscription_line_closing_ir_actions_server
+msgid "Subscription: close ending lines"
+msgstr "Toistuvaistilaus: sulje päättyvät rivit"
+
+#. module: subscription_line_closing
+#: model:ir.actions.server,name:subscription_line_closing.ir_cron_subscription_line_starting_ir_actions_server
+msgid "Subscription: open starting lines"
+msgstr "Toistuvaistilaus: aloita käynnistyvät rivit"
+
+#. module: subscription_line_closing
 #: model:ir.model.fields,help:subscription_line_closing.field_sale_subscription_line__date_end
 msgid "When subscription line ended or will end"
 msgstr "Milloin toistuvaistilauksen rivi päättyy tai on päättynyt"
+
+#. module: subscription_line_closing
+#: model:ir.model.fields,help:subscription_line_closing.field_sale_subscription_line__date_start
+msgid "When subscription line will start"
+msgstr "Milloin toistuvaistilauksen rivi alkaa"
