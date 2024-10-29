@@ -10,19 +10,28 @@ publicWidget.registry.PortalSubscription = publicWidget.Widget.extend({
      * @override
      */
     start: function () {
-        $("#cancelModal").on("show.bs.modal", function (e) {
+        $("#cancel_subscription_modal").on("show.bs.modal", function (e) {
             var cancelSubscription = $(e.relatedTarget).data("subscription-id");
             $(e.currentTarget)
                 .find('input[name="cancel_subscription_id"]')
                 .val(cancelSubscription);
         });
 
-        $(document).on("click", ".delete-confirm", function () {
+        $(document).on("click", "#delete-subscription-confirm", function () {
             var subscriptionValue = document.getElementsByName(
                 "cancel_subscription_id"
             )[0].value;
             var action = "/subscription/cancel/" + subscriptionValue;
-            $("#cancelModal").modal("hide");
+            $("#cancel_subscription_modal").modal("hide");
+            jsonrpc(action, "call", {}).then(function () {
+                location.reload();
+            });
+        });
+
+        $(document).on("click", "#delete-subscription-line-confirm", function () {
+            var subscriptionLineValue = $("#cancel_subscription_line_id")[0].value;
+            var action = "/subscription/line/cancel/" + subscriptionLineValue;
+            $("#cancel_subscription_line_modal").modal("hide");
             jsonrpc(action, "call", {}).then(function () {
                 location.reload();
             });

@@ -2,21 +2,24 @@
 <odoo>
 
     <template
-        id="portal_subscription_page"
+        id="portal_subscription_line_header"
         name="Subscription: show partner on lines"
-        inherit_id="website_subscription.portal_subscription_page"
-        customize_show="True"
-        active="True"
+        inherit_id="website_subscription.portal_subscription_line_header"
     >
         <xpath expr="//th[@name='th_name']" position="after">
             <th name="th_partner_id" class="text-right">Related partner</th>
         </xpath>
+    </template>
 
+    <template
+        id="portal_subscription_line_data"
+        name="Subscription: show partner on lines"
+        inherit_id="website_subscription.portal_subscription_line_data"
+    >
         <xpath expr="//td[@name='td_name']" position="after">
             <td name="td_partner_id" class="text-right">
                 <span t-field="line.partner_id.name" />
             </td>
         </xpath>
-
     </template>
 </odoo>

@@ -1,68 +1,84 @@
 <?xml version="1.0" ?>
 <odoo>
 
+    <template id="portal_subscription_line_header" name="Subscription line header">
+        <tr>
+            <th name="th_product" class="text-left">Product
+            </th>
+            <th name="th_name" class="text-left d-none">Description
+            </th>
+            <th name="th_quantity" class="text-right">Quantity
+            </th>
+            <th name="th_price_unit" class="text-right">Price unit
+            </th>
+            <th name="th_discount" class="text-right">Discount (%)
+            </th>
+            <th name="th_price_subtotal" class="text-right">Sub Total
+            </th>
+            <th id="subscription_line_buttons_header">
+
+            </th>
+        </tr>
+    </template>
+
+    <template id="portal_subscription_line_data" name="Subscription line data">
+        <tr class="bg-200 font-weight-bold o_line_section">
+            <td name="td_product">
+                <span t-field="line.product_id.name" />
+                <td name="td_name" class="d-none">
+                    <span t-field="line.name" />
+                </td>
+            </td>
+            <td name="td_quantity" class="text-right">
+                <span t-field="line.product_uom_qty" />
+            </td>
+            <td name="td_price_unit" class="text-right">
+                <span
+                    t-field="line.price_unit"
+                    t-options='{"widget": "monetary", "display_currency": subscription.currency_id}'
+                />
+            </td>
+            <td name="td_discount" class="text-right">
+                <span t-field="line.discount" />
+            </td>
+            <td name="td_price_subtotal" class="text-right">
+                <span
+                    t-field="line.price_subtotal"
+                    t-options='{"widget": "monetary", "display_currency": subscription.currency_id}'
+                />
+            </td>
+            <td id="subscription_line_buttons_data">
+
+            </td>
+        </tr>
+    </template>
+
     <template id="portal_subscription_page" name="My Subscription">
         <t t-call="portal.portal_layout">
             <t t-call="portal.portal_record_layout">
                 <t t-set="card_header">
-                    <h5 class="mb-0">
-                        <span>
-                            Subscription - <span t-field="subscription.name" />
+                    <t t-set="stage" t-value="subscription.stage_id" />
+                    <h5 class="mb-0" id="subscription_header">
+                        <span id="subscription_header_name">
+                            Subscription -
+                            <span t-field="subscription.name" />
                         </span>
+                        <span
+                            t-esc="subscription.stage_id.name"
+                            id="subscription_header_stage"
+                            t-attf-class="badge rounded-pill #{'text-bg-success' if stage.type == 'in_progress' else 'text-bg-danger'}"
+                        />
                     </h5>
 
                 </t>
                 <t t-set="card_body">
                     <div id="general_information" class="portal_subscription">
-                        <!-- <button type="button" class="btn btn-secondary btn-sm" t-att-data-subscription-id="subscription.id" data-bs-toggle="modal" data-bs-target="#cancelModal">
-                        <i class="fa fa-fw fa-times-circle"/> Cancel subscription
-                        </button>
-                        <div id="cancelModal" class="modal fade" role="dialog">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h4
-                                        class="modal-title"
-                                        id="cancel_subscription_title"
-                                    >Cancel subscription</h4>
-                                    <button
-                                        type="button"
-                                        class="btn-close"
-                                        data-bs-dismiss="modal"
-                                        aria-label="Close"
-                                    />
-                                </div>
-                                <div class="modal-body">
-                                    <div class="container">
-                                        <div class="col-md-12">
-                                            <p>You are about to <strong
-                                                >cancel</strong> <span
-                                                    id="cancel_subscription_object"
-                                                >subscription</span>.</p>
-                                            <p>Are you sure you want to continue?</p>
-                                        </div>
-                                    </div>
-                                    <input
-                                        type="hidden"
-                                        id="cancel_subscription_id"
-                                        name="cancel_subscription_id"
-                                    />
-                                </div>
-                                <div class="modal-footer">
-                                    <button
-                                        type="button"
-                                        class="btn btn-default"
-                                        data-dismiss="modal"
-                                    >Close</button>
-                                    <button
-                                        type="button"
-                                        class="btn btn-danger delete-confirm"
-                                    >Confirm</button>
-                                </div>
-                            </div>
+                        <div id="general_information_header">
+
                         </div>
-                    </div> -->
-                        <div id="customer_information" class="row mt4">
+                    </div>
+                    <div id="information_div" class="row mt4">
+                        <div id="customer_information" class="col-md-6 col-12">
                             <div
                                 t-if="subscription.partner_id"
                                 class="col-12 col-md-6 mb-4 mb-md-0"
@@ -94,152 +110,125 @@
                                 </div>
                             </div>
                         </div>
-                        <div id="product_information" class="row mt32">
-                            <h6>
-                                <strong>Subscription</strong>
-                            </h6>
-                            <div class="col-12 col-md-6 mb-4 mb-md-0">
-                                <div
+                        <div id="subscription_information" class="col-md-6 col-12">
+                        <h6>
+                            <strong>Subscription</strong>
+                        </h6>
+                        <div class="col-12 col-md-6 mb-4 mb-md-0">
+                            <div
                                     t-if="subscription.date_start"
                                     class="row mb-2 mb-sm-1"
                                 >
-                                    <div class="col-12 col-sm-4">
-                                        <span>Date start</span>
-                                    </div>
-                                    <div class="col-12 col-sm-8">
-                                        <span
+                                <div class="col-12 col-sm-4">
+                                    <span>Date start</span>
+                                </div>
+                                <div class="col-12 col-sm-8">
+                                    <span
                                             t-field="subscription.date_start"
                                             t-options='{"widget": "date"}'
                                         />
-                                    </div>
                                 </div>
-                                <div t-if="subscription.date" class="row mb-2 mb-sm-1">
-                                    <div class="col-12 col-sm-4">
-                                        <span>Date end</span>
-                                    </div>
-                                    <div class="col-12 col-sm-8">
-                                        <span
+                            </div>
+                            <div t-if="subscription.date" class="row mb-2 mb-sm-1">
+                                <div class="col-12 col-sm-4">
+                                    <span>Date end</span>
+                                </div>
+                                <div class="col-12 col-sm-8">
+                                    <span
                                             t-field="subscription.date"
                                             t-options='{"widget": "date"}'
                                         />
-                                    </div>
                                 </div>
-                                <div
+                            </div>
+                            <div
                                     t-if="subscription.recurring_next_date"
                                     class="row mb-2 mb-sm-1"
                                 >
-                                    <div class="col-12 col-sm-4">
-                                        <span>Next invoice</span>
-                                    </div>
-                                    <div class="col-12 col-sm-8">
-                                        <span
+                                <div class="col-12 col-sm-4">
+                                    <span>Next invoice</span>
+                                </div>
+                                <div class="col-12 col-sm-8">
+                                    <span
                                             t-field="subscription.recurring_next_date"
                                             t-options='{"widget": "date"}'
                                         />
-                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div id="item_details" class="row mt32">
-                            <table class="table table-sm" id="subscriptions_table">
-                                <thead class="bg-100">
-                                    <tr>
-                                        <th
-                                            name="th_product"
-                                            class="text-left"
-                                        >Product</th>
-                                        <th
-                                            name="th_name"
-                                            class="text-left d-none"
-                                        >Description</th>
-                                        <th
-                                            name="th_quantity"
-                                            class="text-right"
-                                        >Quantity</th>
-                                        <th
-                                            name="th_price_unit"
-                                            class="text-right"
-                                        >Price unit</th>
-                                        <th
-                                            name="th_discount"
-                                            class="text-right"
-                                        >Discount (%)</th>
-                                        <th
-                                            name="th_price_subtotal"
-                                            class="text-right"
-                                        >Sub Total</th>
-                                    </tr>
-                                </thead>
-                                <tbody class="subscription_tbody">
-                                    <t
-                                        t-foreach="subscription.sale_subscription_line_ids"
-                                        t-as="line"
-                                    >
-                                        <tr
-                                            class="bg-200 font-weight-bold o_line_section"
-                                        >
-                                                <td name="td_product">
-                                                    <span
-                                                    t-field="line.product_id.name"
-                                                />
-                                                <td name="td_name" class="d-none">
-                                                    <span t-field="line.name" />
-                                                </td>
-                                                </td>
-                                                <td
-                                                name="td_quantity"
-                                                class="text-right"
-                                            >
-                                                    <span
-                                                    t-field="line.product_uom_qty"
-                                                />
-                                                </td>
-                                                <td
-                                                name="td_price_unit"
-                                                class="text-right"
-                                            >
-                                                    <span
-                                                    t-field="line.price_unit"
-                                                    t-options='{"widget": "monetary", "display_currency": subscription.currency_id}'
-                                                />
-                                                </td>
-                                                <td
-                                                name="td_discount"
-                                                class="text-right"
-                                            >
-                                                    <span t-field="line.discount" />
-                                                </td>
-                                                <td
-                                                name="td_price_subtotal"
-                                                class="text-right"
-                                            >
-                                                    <span
-                                                    t-field="line.price_subtotal"
-                                                    t-options='{"widget": "monetary", "display_currency": subscription.currency_id}'
-                                                />
-                                                </td>
+                    </div>
+                    </div>
+                    <div id="item_details" class="row mt32">
 
-                                        </tr>
-                                    </t>
-                                </tbody>
-                            </table>
-                        </div>
-
-                        <div
-                            id="description"
-                            class="row mt32"
-                            t-if="subscription.template_id.description"
+                        <h4 class="text-primary">Active subscription lines</h4>
+                        <table
+                            class="table table-sm"
+                            id="subscriptions_table"
+                            t-if="subscription.sale_subscription_line_ids"
                         >
-                            <div class="col-12 col-md-6 mb-4 mb-md-0">
-                                <h6>
-                                    <strong>Terms and conditions</strong>
-                                </h6>
-                                <div class="row">
-                                    <div class="col pl-sm-0">
-                                        <span
-                                            t-field="subscription.template_id.description"
-                                        />
-                                    </div>
+
+                            <thead class="bg-100">
+                                <t
+                                    t-call="website_subscription.portal_subscription_line_header"
+                                />
+                            </thead>
+
+                            <tbody class="subscription_tbody">
+                                <t
+                                    t-foreach="subscription.sale_subscription_line_ids"
+                                    t-as="line"
+                                >
+                                    <t
+                                        t-call="website_subscription.portal_subscription_line_data"
+                                    />
+                                </t>
+                            </tbody>
+                        </table>
+                        <p t-else="">No active subscription lines</p>
+
+                        <h4
+                            class="text-muted mt32"
+                            t-if="subscription.sale_subscription_closed_line_ids"
+                        >Ended subscription lines</h4>
+                        <table
+                            class="table table-sm"
+                            id="subscriptions_closed_table"
+                            t-if="subscription.sale_subscription_closed_line_ids"
+                        >
+
+                            <thead class="bg-100">
+                                <t
+                                    t-call="website_subscription.portal_subscription_line_header"
+                                />
+                            </thead>
+
+                            <tbody class="subscription_tbody">
+                                <t
+                                    t-foreach="subscription.sale_subscription_closed_line_ids"
+                                    t-as="line"
+                                >
+                                    <t
+                                        t-call="website_subscription.portal_subscription_line_data"
+                                    />
+                                </t>
+                            </tbody>
+                        </table>
+                        <p t-else="">No active subscription lines</p>
+                    </div>
+
+                    <div
+                        id="description"
+                        class="row mt32 mb32"
+                        t-if="subscription.template_id.description"
+                    >
+                        <div class="col-12 col-md-6 mb-4 mb-md-0">
+                            <h6>
+                                <strong>Terms and conditions</strong>
+                            </h6>
+                            <div class="row">
+                                <div class="col pl-sm-0">
+                                    <span
+                                        t-field="subscription.template_id.description"
+                                    />
                                 </div>
                             </div>
                         </div>
