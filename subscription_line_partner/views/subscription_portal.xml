@@ -3,7 +3,7 @@
 
     <template
         id="portal_subscription_page"
-        name="Contract: show partner on lines"
+        name="Subscription: show partner on lines"
         inherit_id="website_subscription.portal_subscription_page"
         customize_show="True"
         active="True"
