@@ -56,27 +56,38 @@ class PortalSubscription(CustomerPortal):
         values = {"subscription": subscription}
         return request.render("website_subscription.portal_subscription_page", values)
 
-    # Otetaan myöhemmin käyttöön
-    # @http.route(
-    #     ["/subscription/cancel/<int:subscription_id>"],
-    #     type="http",
-    #     auth="user",
-    #     website=True,
-    #     csrf=False,
-    # )
-    # def cancel_subscription(self, subscription_id=None, **post):
-    #     subscription = (
-    #         request.env["sale.subscription"]
-    #         .sudo()
-    #         .search([("id", "=", subscription_id)])
-    #     )
-    #     closed_stage = request.env["sale.subscription.stage"].search(
-    #         [("type", "=", "post")], limit=1
-    #     )
+    @http.route(
+        ["/subscription/cancel/<int:subscription_id>"],
+        type="http",
+        auth="user",
+        website=True,
+        csrf=False,
+    )
+    def cancel_subscription(self, subscription_id=None, **post):
+        record = (
+            request.env["sale.subscription"]
+            .sudo()
+            .search([("id", "=", subscription_id)])
+        )
 
-    #     subscription.sudo().write({"stage_id": closed_stage.id})
+        record._action_close_subscription()
 
-    #     subscription.active = False
+        values = {}
+        return json.dumps(values)
 
-    #     values = {}
-    #     return json.dumps(values)
+    @http.route(
+        ["/subscription/line/cancel/<int:line_id>"],
+        type="http",
+        auth="user",
+        website=True,
+        csrf=False,
+    )
+    def cancel_subscription_line(self, line_id=None, **post):
+        record = (
+            request.env["sale.subscription.line"].sudo().search([("id", "=", line_id)])
+        )
+
+        record.action_stop()
+
+        values = {}
+        return json.dumps(values)

@@ -1,0 +1,163 @@
+<?xml version="1.0" ?>
+<odoo>
+
+    <template
+        id="portal_subscription_page_end"
+        name="Allow ending subscriptions"
+        inherit_id="website_subscription.portal_subscription_page"
+        customize_show="True"
+        active="False"
+        priority="30"
+    >
+        <xpath expr="//span[@id='subscription_header_stage']" position="after">
+            <button
+                type="button"
+                t-if="stage.type == 'in_progress'"
+                class="btn btn-danger btn-sm"
+                style="float: right;"
+                t-att-data-subscription-id="subscription.id"
+                data-bs-toggle="modal"
+                data-bs-target="#cancel_subscription_modal"
+            >
+                <i class="fa fa-fw fa-times-circle" />
+                End subscription
+            </button>
+            <div id="cancel_subscription_modal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4
+                                class="modal-title"
+                                id="cancel_subscription_title"
+                            >End subscription
+                            </h4>
+                            <button
+                                type="button"
+                                class="btn-close"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"
+                            />
+                        </div>
+                        <div class="modal-body">
+                            <div class="container">
+                                <div class="col-md-12">
+                                    <p>You are about to
+                                        <strong>end
+                                        </strong>
+                                        <span
+                                            id="cancel_subscription_object"
+                                        >the subscription
+                                        </span>
+                                        <strong t-esc="subscription.name" />.
+                                    </p>
+                                    <p>Are you sure you want to continue?</p>
+                                </div>
+                            </div>
+                            <input
+                                type="hidden"
+                                id="cancel_subscription_id"
+                                name="cancel_subscription_id"
+                            />
+                        </div>
+                        <div class="modal-footer">
+                            <button
+                                type="button"
+                                class="btn btn-default"
+                                data-dismiss="modal"
+                            >Close
+                            </button>
+                            <button
+                                type="button"
+                                id="delete-subscription-confirm"
+                                class="btn btn-danger delete-confirm"
+                            >Confirm
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </xpath>
+    </template>
+
+    <template
+        id="portal_subscription_page_end_line"
+        name="Allow ending subscription lines"
+        inherit_id="website_subscription.portal_subscription_line_data"
+        customize_show="True"
+        active="False"
+        priority="40"
+    >
+        <xpath expr="//td[@id='subscription_line_buttons_data']" position="inside">
+            <button
+                type="button"
+                t-if="line.active"
+                class="btn btn-danger btn-sm"
+                t-att-data-subscription-line-id="line.id"
+                data-bs-toggle="modal"
+                data-bs-target="#cancel_subscription_line_modal"
+            >
+                <i class="fa fa-fw fa-times-circle" />End subscription
+            </button>
+            <!--<span t-else="" class="badge rounded-pill text-bg-danger">Ended</span>-->
+            <div id="cancel_subscription_line_modal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4
+                                class="modal-title"
+                                id="cancel_subscription_title"
+                            >End subscription line
+                            </h4>
+                            <button
+                                type="button"
+                                class="btn-close"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"
+                            />
+                        </div>
+                        <div class="modal-body">
+                            <div class="container">
+                                <div class="col-md-12">
+                                    <p>You are about to
+                                        <strong>end
+                                        </strong>
+                                        <span
+                                            id="cancel_subscription_object"
+                                        >the subscription line
+                                        </span>
+                                        <strong t-esc="line.name" />.
+                                    </p>
+                                    <p>Any subscription benefits will stop on <strong
+                                            t-esc="line.sale_subscription_id.recurring_next_date"
+                                        />.
+                                    </p>
+                                    <p>Are you sure you want to continue?</p>
+                                </div>
+                            </div>
+                            <input
+                                type="hidden"
+                                id="cancel_subscription_line_id"
+                                name="cancel_subscription_line_id"
+                                t-att-value="line.id"
+                            />
+                        </div>
+                        <div class="modal-footer">
+                            <button
+                                type="button"
+                                class="btn btn-default"
+                                data-dismiss="modal"
+                            >Close
+                            </button>
+                            <button
+                                type="button"
+                                id="delete-subscription-line-confirm"
+                                class="btn btn-danger delete-confirm"
+                            >Confirm
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </xpath>
+    </template>
+</odoo>
