@@ -21,7 +21,7 @@
 {
     "name": "Website Subscriptions",
     "summary": "Subscriptions in website portal",
-    "version": "17.0.1.0.0",
+    "version": "17.0.1.2.0",
     "category": "Contract",
     "website": "https://gitlab.com/tawasta/odoo/contract",
     "author": "Tawasta",
@@ -30,18 +30,21 @@
     "installable": True,
     "depends": [
         "portal",
+        "subscription_closing",
         "subscription_oca",
+        "subscription_line_closing",
     ],
     "data": [
         "security/ir.model.access.csv",
         "views/subscription_portal_my.xml",
         "views/subscription_portal_page.xml",
+        "views/subscription_portal_page_modals.xml",
         "views/subscription_portal_template_home.xml",
         "views/subscription_portal_template_menu.xml",
     ],
-    # "assets": {
-    #     "web.assets_frontend": [
-    #         "website_subscription/static/src/js/main.esm.js",
-    #     ],
-    # },
+    "assets": {
+        "web.assets_frontend": [
+            "website_subscription/static/src/js/main.esm.js",
+        ],
+    },
 }

@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 17.0-20240826\n"
+"Project-Id-Version: Odoo Server 17.0-20240924\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-01 09:08+0000\n"
-"PO-Revision-Date: 2024-10-01 12:08+0300\n"
+"POT-Creation-Date: 2024-10-29 12:33+0000\n"
+"PO-Revision-Date: 2024-10-29 14:36+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fi\n"
@@ -16,6 +16,20 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.5\n"
+
+#. module: website_subscription
+#: model_terms:ir.ui.view,arch_db:website_subscription.portal_subscription_page_end
+msgid ""
+"<i class=\"fa fa-fw fa-times-circle\"/>\n"
+"                End subscription"
+msgstr ""
+"<i class=\"fa fa-fw fa-times-circle\"/>\n"
+"                Päätä tilaus"
+
+#. module: website_subscription
+#: model_terms:ir.ui.view,arch_db:website_subscription.portal_subscription_page_end_line
+msgid "<i class=\"fa fa-fw fa-times-circle\"/>End subscription"
+msgstr "<i class=\"fa fa-fw fa-times-circle\"/>Päätä tilaus"
 
 #. module: website_subscription
 #: model_terms:ir.ui.view,arch_db:website_subscription.portal_subscription_page
@@ -49,16 +63,44 @@ msgstr "<strong>Sopimusehdot</strong>"
 
 #. module: website_subscription
 #: model_terms:ir.ui.view,arch_db:website_subscription.portal_subscription_page
+msgid "Active subscription lines"
+msgstr "Aktiiviset tilausrivit"
+
+#. module: website_subscription
+#: model_terms:ir.ui.view,arch_db:website_subscription.portal_subscription_page_end_line
+msgid "Any subscription benefits will stop on"
+msgstr "Kaikki tilaukseen liittyvät edut päättyvät"
+
+#. module: website_subscription
+#: model_terms:ir.ui.view,arch_db:website_subscription.portal_subscription_page_end
+#: model_terms:ir.ui.view,arch_db:website_subscription.portal_subscription_page_end_line
+msgid "Are you sure you want to continue?"
+msgstr "Oletko varma että haluat jatkaa?"
+
+#. module: website_subscription
+#: model_terms:ir.ui.view,arch_db:website_subscription.portal_subscription_page_end
+#: model_terms:ir.ui.view,arch_db:website_subscription.portal_subscription_page_end_line
+msgid "Close"
+msgstr "Sulje"
+
+#. module: website_subscription
+#: model_terms:ir.ui.view,arch_db:website_subscription.portal_subscription_page_end
+#: model_terms:ir.ui.view,arch_db:website_subscription.portal_subscription_page_end_line
+msgid "Confirm"
+msgstr "Vahvista"
+
+#. module: website_subscription
+#: model_terms:ir.ui.view,arch_db:website_subscription.portal_subscription_page
 msgid "Contact"
 msgstr "Kontakti"
 
 #. module: website_subscription
-#: model_terms:ir.ui.view,arch_db:website_subscription.portal_subscription_page
+#: model_terms:ir.ui.view,arch_db:website_subscription.portal_subscription_line_header
 msgid "Description"
 msgstr "Kuvaus"
 
 #. module: website_subscription
-#: model_terms:ir.ui.view,arch_db:website_subscription.portal_subscription_page
+#: model_terms:ir.ui.view,arch_db:website_subscription.portal_subscription_line_header
 msgid "Discount (%)"
 msgstr "Alennus (%)"
 
@@ -66,6 +108,21 @@ msgstr "Alennus (%)"
 #: model_terms:ir.ui.view,arch_db:website_subscription.portal_my_subscriptions
 msgid "End"
 msgstr "Päättyminen"
+
+#. module: website_subscription
+#: model_terms:ir.ui.view,arch_db:website_subscription.portal_subscription_page_end
+msgid "End subscription"
+msgstr "Päätä tilaus"
+
+#. module: website_subscription
+#: model_terms:ir.ui.view,arch_db:website_subscription.portal_subscription_page_end_line
+msgid "End subscription line"
+msgstr "Päätä tilausrivi"
+
+#. module: website_subscription
+#: model_terms:ir.ui.view,arch_db:website_subscription.portal_subscription_page
+msgid "Ended subscription lines"
+msgstr "Päätetyt tilausrivit"
 
 #. module: website_subscription
 #: model_terms:ir.ui.view,arch_db:website_subscription.portal_my_subscriptions
@@ -79,11 +136,16 @@ msgstr "Seuraava lasku"
 
 #. module: website_subscription
 #: model_terms:ir.ui.view,arch_db:website_subscription.portal_subscription_page
+msgid "No active subscription lines"
+msgstr "Ei aktiivisia tilausrivejä"
+
+#. module: website_subscription
+#: model_terms:ir.ui.view,arch_db:website_subscription.portal_subscription_line_header
 msgid "Price unit"
 msgstr "Yksikköhinta"
 
 #. module: website_subscription
-#: model_terms:ir.ui.view,arch_db:website_subscription.portal_subscription_page
+#: model_terms:ir.ui.view,arch_db:website_subscription.portal_subscription_line_header
 msgid "Product"
 msgstr "Tuote"
 
@@ -93,17 +155,17 @@ msgid "Products"
 msgstr "Tuotteet"
 
 #. module: website_subscription
-#: model_terms:ir.ui.view,arch_db:website_subscription.portal_subscription_page
+#: model_terms:ir.ui.view,arch_db:website_subscription.portal_subscription_line_header
 msgid "Quantity"
 msgstr "Määrä"
 
 #. module: website_subscription
 #: model_terms:ir.ui.view,arch_db:website_subscription.portal_my_subscriptions
 msgid "Start"
-msgstr "Alkamispäivä"
+msgstr "Alku"
 
 #. module: website_subscription
-#: model_terms:ir.ui.view,arch_db:website_subscription.portal_subscription_page
+#: model_terms:ir.ui.view,arch_db:website_subscription.portal_subscription_line_header
 msgid "Sub Total"
 msgstr "Välisumma"
 
@@ -133,3 +195,33 @@ msgstr "Tyyppi"
 #: model_terms:ir.ui.view,arch_db:website_subscription.portal_my_home_subscription
 msgid "View and manage your subscriptions"
 msgstr "Tarkastele ja hallinnoi toistuvaistilauksiasi"
+
+#. module: website_subscription
+#: model_terms:ir.ui.view,arch_db:website_subscription.portal_subscription_page_end
+msgid ""
+"You are about to\n"
+"                                        <strong>end\n"
+"                                        </strong>\n"
+"                                        <span id=\"cancel_subscription_object\">the subscription\n"
+"                                        </span>"
+msgstr ""
+"Olet\n"
+"                                        <strong>päättämässä\n"
+"                                        </strong>\n"
+"                                        <span id=\"cancel_subscription_object\">tilauksen\n"
+"                                        </span>"
+
+#. module: website_subscription
+#: model_terms:ir.ui.view,arch_db:website_subscription.portal_subscription_page_end_line
+msgid ""
+"You are about to\n"
+"                                        <strong>end\n"
+"                                        </strong>\n"
+"                                        <span id=\"cancel_subscription_object\">the subscription line\n"
+"                                        </span>"
+msgstr ""
+"Olet\n"
+"                                        <strong>päättämässä\n"
+"                                        </strong>\n"
+"                                        <span id=\"cancel_subscription_object\">tilausrivin\n"
+"                                        </span>"
