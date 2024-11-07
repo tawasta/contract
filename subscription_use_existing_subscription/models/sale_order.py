@@ -26,4 +26,4 @@ class SaleOrder(models.Model):
             )
         else:
             # Create a new subscription
-            return super().create_subscription(lines, subscription_tmpl)
+            super().create_subscription(lines, subscription_tmpl)
