@@ -52,6 +52,7 @@ addon | version | maintainers | summary
 [subscription_line_closing](subscription_line_closing/) | 17.0.1.2.0 |  | Allows ending subscription lines without deleting them
 [subscription_line_list_view](subscription_line_list_view/) | 17.0.1.0.1 |  | Creates a tree view for subscription lines
 [subscription_line_partner](subscription_line_partner/) | 17.0.1.0.4 |  | Allows defining a partner to subscription lines
+[subscription_line_related_sale_order_line](subscription_line_related_sale_order_line/) | 17.0.1.0.0 |  | Add SO line information for subscription lines
 [subscription_modification](subscription_modification/) | 17.0.1.0.1 |  | Add modification log to subscriptions
 [subscription_shipping_address](subscription_shipping_address/) | 17.0.1.0.0 |  | Add shipping address to subscriptions
 [subscription_usability_improvements](subscription_usability_improvements/) | 17.0.1.0.0 |  | Add basic searches, groupings and optional fields to subscriptions
