@@ -56,6 +56,7 @@ addon | version | maintainers | summary
 [subscription_shipping_address](subscription_shipping_address/) | 17.0.1.0.0 |  | Add shipping address to subscriptions
 [subscription_usability_improvements](subscription_usability_improvements/) | 17.0.1.0.0 |  | Add basic searches, groupings and optional fields to subscriptions
 [subscription_use_existing_invoice](subscription_use_existing_invoice/) | 17.0.1.0.0 |  | Add subscription lines to an existing draft invoice
+[subscription_use_existing_subscription](subscription_use_existing_subscription/) | 17.0.1.0.0 |  | Add new subscription lines to existing subscription
 [website_subscription](website_subscription/) | 17.0.1.2.0 |  | Subscriptions in website portal
 
 [//]: # (end addons)
