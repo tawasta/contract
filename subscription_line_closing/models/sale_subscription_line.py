@@ -35,7 +35,7 @@ class SaleSubscriptionLine(models.Model):
             record.write(
                 {
                     "active": False,
-                    "date_end": fields.Date.today(),
+                    "date_end": record.sale_subscription_id.recurring_next_date,
                 }
             )
             msg = _("Stopped subscription line '%s'", record.name)
