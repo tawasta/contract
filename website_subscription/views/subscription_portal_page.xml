@@ -3,15 +3,19 @@
 
     <template id="portal_subscription_line_header" name="Subscription line header">
         <tr>
-            <th name="th_product" class="text-left">Product
+            <th name="th_product" class="text-left d-none">Product
             </th>
-            <th name="th_name" class="text-left d-none">Description
+            <th name="th_name" class="text-left">Description
             </th>
             <th name="th_quantity" class="text-right">Quantity
             </th>
             <th name="th_price_unit" class="text-right">Price unit
             </th>
-            <th name="th_discount" class="text-right">Discount (%)
+            <th name="th_discount" class="text-right d-none">Discount (%)
+            </th>
+            <th name="th_date_start" class="text-right">Start
+            </th>
+            <th name="th_date_end" class="text-right">End
             </th>
             <th name="th_price_subtotal" class="text-right">Sub Total
             </th>
@@ -23,11 +27,11 @@
 
     <template id="portal_subscription_line_data" name="Subscription line data">
         <tr class="bg-200 font-weight-bold o_line_section">
-            <td name="td_product">
+            <td name="td_product" class="d-none">
                 <span t-field="line.product_id.name" />
-                <td name="td_name" class="d-none">
-                    <span t-field="line.name" />
-                </td>
+            </td>
+            <td name="td_name">
+                <span t-field="line.name" />
             </td>
             <td name="td_quantity" class="text-right">
                 <span t-field="line.product_uom_qty" />
@@ -38,8 +42,14 @@
                     t-options='{"widget": "monetary", "display_currency": subscription.currency_id}'
                 />
             </td>
-            <td name="td_discount" class="text-right">
+            <td name="td_discount" class="text-right d-none">
                 <span t-field="line.discount" />
+            </td>
+            <td name="td_date_start" class="text-right">
+                <span t-field="line.date_start" />
+            </td>
+            <td name="td_date_end" class="text-right">
+                <span t-field="line.date_end" />
             </td>
             <td name="td_price_subtotal" class="text-right">
                 <span
@@ -81,7 +91,7 @@
                         <div id="customer_information" class="col-md-6 col-12">
                             <div
                                 t-if="subscription.partner_id"
-                                class="col-12 col-md-6 mb-4 mb-md-0"
+                                class="col-12 mb-4 mb-md-0"
                             >
                                 <h6>
                                     <strong>Customer</strong>
@@ -114,7 +124,7 @@
                         <h6>
                             <strong>Subscription</strong>
                         </h6>
-                        <div class="col-12 col-md-6 mb-4 mb-md-0">
+                        <div class="col-12 mb-4 mb-md-0">
                             <div
                                     t-if="subscription.date_start"
                                     class="row mb-2 mb-sm-1"
@@ -212,7 +222,6 @@
                                 </t>
                             </tbody>
                         </table>
-                        <p t-else="">No active subscription lines</p>
                     </div>
 
                     <div
@@ -220,7 +229,7 @@
                         class="row mt32 mb32"
                         t-if="subscription.template_id.description"
                     >
-                        <div class="col-12 col-md-6 mb-4 mb-md-0">
+                        <div class="col-12 mb-4 mb-md-0">
                             <h6>
                                 <strong>Terms and conditions</strong>
                             </h6>
