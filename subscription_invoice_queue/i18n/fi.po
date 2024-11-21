@@ -1,0 +1,97 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* subscription_line_closing
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0-20240924\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-10-29 08:22+0000\n"
+"PO-Revision-Date: 2024-10-29 10:23+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.5\n"
+
+#. module: subscription_line_closing
+#: model:ir.model.fields,field_description:subscription_line_closing.field_sale_subscription_line__active
+msgid "Active"
+msgstr "Aktiivinen"
+
+#. module: subscription_line_closing
+#: model_terms:ir.ui.view,arch_db:subscription_line_closing.sale_subscription_form
+msgid "Closed lines"
+msgstr "Päätetyt rivit"
+
+#. module: subscription_line_closing
+#: model:ir.model.fields,field_description:subscription_line_closing.field_sale_subscription_line__date_end
+msgid "End date"
+msgstr "Päättymispäivä"
+
+#. module: subscription_line_closing
+#: model:ir.model.fields,field_description:subscription_line_closing.field_sale_subscription__sale_subscription_closed_line_ids
+msgid "Sale Subscription Closed Line"
+msgstr "Toistuvaistilauksen suljetut rivit"
+
+#. module: subscription_line_closing
+#: model_terms:ir.ui.view,arch_db:subscription_line_closing.sale_subscription_form
+msgid "Start"
+msgstr "Aloita"
+
+#. module: subscription_line_closing
+#: model:ir.model.fields,field_description:subscription_line_closing.field_sale_subscription_line__date_start
+msgid "Start date"
+msgstr "Alkamispäivä"
+
+#. module: subscription_line_closing
+#. odoo-python
+#: code:addons/subscription_line_closing/models/sale_subscription_line.py:0
+#, python-format
+msgid "Started subscription line '%s'"
+msgstr "Aloitettu tilausrivi '%s'"
+
+#. module: subscription_line_closing
+#: model_terms:ir.ui.view,arch_db:subscription_line_closing.sale_subscription_form
+msgid "Stop"
+msgstr "Lopeta"
+
+#. module: subscription_line_closing
+#. odoo-python
+#: code:addons/subscription_line_closing/models/sale_subscription_line.py:0
+#, python-format
+msgid "Stopped subscription line '%s'"
+msgstr "Lopetettu tilausrivi '%s'"
+
+#. module: subscription_line_closing
+#: model:ir.model,name:subscription_line_closing.model_sale_subscription
+msgid "Subscription"
+msgstr "Toistuvaistilaus"
+
+#. module: subscription_line_closing
+#: model:ir.model,name:subscription_line_closing.model_sale_subscription_line
+msgid "Subscription lines added to a given subscription"
+msgstr "Toistuvaistilauksen rivit lisätty toistuvaistilaukselle"
+
+#. module: subscription_line_closing
+#: model:ir.actions.server,name:subscription_line_closing.ir_cron_subscription_line_closing_ir_actions_server
+msgid "Subscription: close ending lines"
+msgstr "Toistuvaistilaus: sulje päättyvät rivit"
+
+#. module: subscription_line_closing
+#: model:ir.actions.server,name:subscription_line_closing.ir_cron_subscription_line_starting_ir_actions_server
+msgid "Subscription: open starting lines"
+msgstr "Toistuvaistilaus: aloita käynnistyvät rivit"
+
+#. module: subscription_line_closing
+#: model:ir.model.fields,help:subscription_line_closing.field_sale_subscription_line__date_end
+msgid "When subscription line ended or will end"
+msgstr "Milloin toistuvaistilauksen rivi päättyy tai on päättynyt"
+
+#. module: subscription_line_closing
+#: model:ir.model.fields,help:subscription_line_closing.field_sale_subscription_line__date_start
+msgid "When subscription line will start"
+msgstr "Milloin toistuvaistilauksen rivi alkaa"
