@@ -6,7 +6,7 @@
 Website upgrade subscription line
 =================================
 
-\-
+* This Odoo module enables subscription product upgrades directly from the website. Users can select a new product via a modal window, and the system automatically updates the subscription line.
 
 
 Configuration
@@ -27,7 +27,7 @@ Credits
 Contributors
 ------------
 
-* Valtteri Lattu <valtteri.lattu@tawasta.fi>
+* Valtteri Lattu <valtteri.lattu@futural.fi>
 
 Maintainer
 ----------
