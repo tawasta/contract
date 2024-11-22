@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template
+        id="portal_subscription_line_data"
+        inherit_id="website_subscription.portal_subscription_line_data"
+        name="Upgrade subscription"
+        active="True"
+    >
+
+        <xpath expr="//td[@id='subscription_line_buttons_data']" position="inside">
+            <t t-if="line.active or not line.date_end">
+                <td>
+                    <button type="button" class="btn btn-primary" id="modal_subscription_line_upgrade" t-att-line-id="line.id">
+                        Upgrade
+                    </button>
+                </td>
+            </t>
+        </xpath>
+    </template>
+
+    <template id="subscription_line_upgrade_modal" name="Subscription Line Upgrade Modal">
+        <div id="modal_subscription_line_upgrade" class="modal fade" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+                <form id="subscription_line_upgrade_form" t-attf-action="/subscription/line/#{line_id}/upgrade" method="post">
+                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                    <div class="modal-content">
+                        <div class="modal-header align-items-center">
+                            <h4 class="modal-title">Upgrade Subscription Line</h4>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Select a new product for this subscription line:</p>
+                            <div class="form-group">
+                                <label for="new_product">New Product</label>
+                                <select id="new_product" name="new_product" class="form-control">
+                                    <t t-foreach="products" t-as="product">
+                                        <option t-att-value="product.id" t-esc="product.display_name"></option>
+                                    </t>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="modal-footer border-top">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                            <button type="submit" class="btn btn-primary">Upgrade</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </template>
+</odoo>
