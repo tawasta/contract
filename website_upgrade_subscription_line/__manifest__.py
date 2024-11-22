@@ -31,9 +31,10 @@
     "depends": [
         "subscription_oca",
         "subscription_line_change_product_variant",
-        "subscription_line_closing"
+        "subscription_line_closing",
     ],
     "data": [
+        "views/product.xml",
         "views/templates.xml",
     ],
     "assets": {

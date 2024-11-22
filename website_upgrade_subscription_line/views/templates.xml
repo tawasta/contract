@@ -8,7 +8,7 @@
     >
 
         <xpath expr="//td[@id='subscription_line_buttons_data']" position="inside">
-            <t t-if="line.active or not line.date_end">
+            <t t-if="line.upgrade_allowed">
                 <td>
                     <button type="button" class="btn btn-primary" id="modal_subscription_line_upgrade" t-att-line-id="line.id">
                         Upgrade

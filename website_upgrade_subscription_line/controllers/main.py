@@ -55,7 +55,7 @@ class SubscriptionController(http.Controller):
         products = (
             request.env["product.template"]
             .sudo()
-            .search([("id", "=", line_product_id.product_tmpl_id.id)])
+            .search([("id", "=", line_product_id.product_tmpl_id.id), ("change_allowed", "=", True),])
             .mapped("product_variant_ids")
         )
         
