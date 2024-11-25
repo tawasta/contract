@@ -2,11 +2,12 @@
    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
-=================================
-Website upgrade subscription line
-=================================
+===========================
+Website subscription update
+===========================
 
-* This Odoo module enables subscription product upgrades directly from the website. Users can select a new product via a modal window, and the system automatically updates the subscription line.
+This Odoo module enables subscription editing directly from the website.
+Users can select a new product via a modal window, and the system automatically updates the subscription line.
 
 
 Configuration

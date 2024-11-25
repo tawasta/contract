@@ -1,47 +1,56 @@
 /** @odoo-module **/
 
 import publicWidget from "@web/legacy/js/public/public_widget";
-import { jsonrpc } from "@web/core/network/rpc_service";
+import {jsonrpc} from "@web/core/network/rpc_service";
 import Dialog from "@web/legacy/js/core/dialog";
 import {_t} from "@web/core/l10n/translation";
 
 var SubscriptionLineUpgrade = publicWidget.Widget.extend({
-    selector: '#item_details',
+    selector: "#item_details",
     events: {
-        'click #modal_subscription_line_upgrade': '_onClickUpgradeButton',
+        "click #modal_subscription_line_upgrade": "_onClickUpgradeButton",
     },
 
     start: function () {
         this._super.apply(this, arguments);
-        $(document).on("submit", "#subscription_line_upgrade_form", this._onFormSubmit.bind(this));
+        $(document).on(
+            "submit",
+            "#subscription_line_upgrade_form",
+            this._onFormSubmit.bind(this)
+        );
     },
 
     _onClickUpgradeButton: function (ev) {
         ev.preventDefault();
         ev.stopPropagation();
-        const lineId = $(ev.currentTarget).attr('line-id');
+        const lineId = $(ev.currentTarget).attr("line-id");
 
         if (!lineId) {
             console.error("Line ID not found.");
             return;
         }
 
-        jsonrpc(`/subscription/line/${lineId}/upgrade/modal`, {}).then(function (modalContent) {
-            const $modal = $(modalContent);
-            $modal.find('.modal-body > div').removeClass('container');
-            $modal.appendTo(document.body);
-            const modalBS = new Modal($modal[0], { backdrop: 'static', keyboard: false });
-            modalBS.show();
+        jsonrpc(`/subscription/line/${lineId}/upgrade/modal`, {})
+            .then(function (modalContent) {
+                const $modal = $(modalContent);
+                $modal.find(".modal-body > div").removeClass("container");
+                $modal.appendTo(document.body);
+                const modalBS = new Modal($modal[0], {
+                    backdrop: "static",
+                    keyboard: false,
+                });
+                modalBS.show();
 
-            $modal.on('click', '.btn-close', function () {
-                $modal.remove();
+                $modal.on("click", ".btn-close", function () {
+                    $modal.remove();
+                });
+                $modal.on("hidden.bs.modal", function () {
+                    $modal.remove();
+                });
+            })
+            .catch(function (err) {
+                console.error("Failed to load modal content", err);
             });
-            $modal.on('hidden.bs.modal', function () {
-                $modal.remove();
-            });
-        }).catch(function (err) {
-            console.error("Failed to load modal content", err);
-        });
     },
 
     _onFormSubmit: function (ev) {
@@ -49,13 +58,13 @@ var SubscriptionLineUpgrade = publicWidget.Widget.extend({
         ev.stopPropagation();
 
         const $form = $(ev.currentTarget);
-        const actionUrl = $form.attr('action');
+        const actionUrl = $form.attr("action");
         const formData = new FormData($form[0]);
         this._showLoadingScreen();
 
         $.ajax({
             url: actionUrl,
-            type: 'POST',
+            type: "POST",
             data: formData,
             processData: false,
             contentType: false,
@@ -66,7 +75,7 @@ var SubscriptionLineUpgrade = publicWidget.Widget.extend({
                     this._showErrorMessage(jsonResponse.msg);
                 } else {
                     this._showSuccessMessage(jsonResponse.msg);
-                    $form.closest('.modal').modal('hide');
+                    $form.closest(".modal").modal("hide");
                 }
             },
             error: (err) => {
@@ -116,11 +125,11 @@ var SubscriptionLineUpgrade = publicWidget.Widget.extend({
                     <p>Loading, please wait...</p>
                 </div>
             </div>`;
-        $('body').append(loadingMessage);
+        $("body").append(loadingMessage);
     },
 
     _hideLoadingScreen: function () {
-        $('#loading-screen').remove();
+        $("#loading-screen").remove();
     },
 
     _showErrorMessage: function (message) {

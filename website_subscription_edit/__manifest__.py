@@ -1,7 +1,7 @@
 ##############################################################################
 #
-#    Author: Futural
-#    Copyright 2020 Oy Tawasta OS Technologies Ltd. (https://tawasta.fi)
+#    Author: Futural Oy
+#    Copyright 2024 Futural Oy (https://futural.fi)
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -19,11 +19,11 @@
 ##############################################################################
 
 {
-    "name": "Website upgrade subscription line",
-    "summary": "Allows upgrading subscription line from user portal",
+    "name": "Website subscription update",
+    "summary": "Allows editings subscriptions from user portal",
     "version": "17.0.1.0.0",
     "category": "contract",
-    "website": "https://github.com/futural/odoo/contract",
+    "website": "https://gitlab.com/tawasta/odoo/contract",
     "author": "Futural",
     "license": "AGPL-3",
     "application": False,
@@ -39,7 +39,7 @@
     ],
     "assets": {
         "web.assets_frontend": [
-            "website_upgrade_subscription_line/static/src/js/main.esm.js",
+            "website_subscription_edit/static/src/js/main.esm.js",
         ],
     },
 }

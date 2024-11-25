@@ -10,7 +10,7 @@ class SubscriptionLine(models.Model):
     )
 
     upgrade_allowed = fields.Boolean(
-        string="Upgrade Allowed", 
+        string="Upgrade Allowed",
         compute="_compute_upgrade_allowed",
         compute_sudo=True,
     )
@@ -18,7 +18,7 @@ class SubscriptionLine(models.Model):
     def _compute_upgrade_allowed(self):
         for line in self:
             base_condition = line.active or not line.date_end
-            change_condition = line.product_id.product_tmpl_id.change_allowed
+            change_condition = (
+                line.product_id.product_tmpl_id.subscription_change_allowed
+            )
             line.upgrade_allowed = base_condition and change_condition
-    
-
