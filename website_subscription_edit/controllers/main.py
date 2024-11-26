@@ -91,7 +91,7 @@ class SubscriptionController(http.Controller):
         return request.env["ir.ui.view"]._render_template(
             "website_subscription_edit.subscription_line_upgrade_modal",
             {
-                "line_id": line.id,
+                "line": line,
                 "products": products,
             },
         )
