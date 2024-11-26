@@ -12,12 +12,9 @@
                 <button
                     type="button"
                     id="modal_subscription_line_upgrade"
-                    t-if="line.active"
+                    t-if="line.active and not line.date_end"
                     class="btn btn-primary btn-sm"
                     t-att-line-id="line.id"
-                    t-att-data-subscription-line-id="line.id"
-                    data-bs-toggle="modal"
-                    data-bs-target="#cancel_subscription_line_modal"
                 >
                     <i class="fa fa-fw fa-pencil" />Edit
                 </button>
@@ -38,7 +35,7 @@
             <div class="modal-dialog modal-lg" role="document">
                 <form
                     id="subscription_line_upgrade_form"
-                    t-attf-action="/subscription/line/#{line_id}/upgrade"
+                    t-attf-action="/subscription/line/#{line.id}/upgrade"
                     method="post"
                 >
                     <input
@@ -48,7 +45,7 @@
                     />
                     <div class="modal-content">
                         <div class="modal-header align-items-center">
-                            <h4 class="modal-title">Update Subscription Line</h4>
+                            <h4 class="modal-title">Update Subscription</h4>
                             <button
                                 type="button"
                                 class="btn-close"
@@ -57,9 +54,12 @@
                             />
                         </div>
                         <div class="modal-body">
-                            <p>Select a new product for this subscription line:</p>
+                            <p>Current product: <span
+                                    class="text-info"
+                                    t-esc="line.product_id.display_name"
+                                /></p>
+                            <p>Select new product:</p>
                             <div class="form-group">
-                                <label for="new_product">New Product</label>
                                 <select
                                     id="new_product"
                                     name="new_product"
@@ -67,12 +67,18 @@
                                 >
                                     <t t-foreach="products" t-as="product">
                                         <option
+                                            t-if="product != line.product_id"
                                             t-att-value="product.id"
                                             t-esc="product.display_name"
                                         />
                                     </t>
                                 </select>
                             </div>
+                            <p class="mt16"><i
+                                    class="fa fa-info-circle text-info"
+                                /> The subscription will change on <strong
+                                    t-esc="line.sale_subscription_id.recurring_next_date"
+                                /></p>
                         </div>
                         <div class="modal-footer border-top">
                             <button

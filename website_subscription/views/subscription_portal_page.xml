@@ -45,10 +45,10 @@
             <td name="td_discount" class="text-right d-none">
                 <span t-field="line.discount" />
             </td>
-            <td name="td_date_start" class="text-right">
+            <td name="td_date_start" class="text-right text-info">
                 <span t-field="line.date_start" />
             </td>
-            <td name="td_date_end" class="text-right">
+            <td name="td_date_end" class="text-right text-danger">
                 <span t-field="line.date_end" />
             </td>
             <td name="td_price_subtotal" class="text-right">
@@ -198,20 +198,20 @@
                         <h4
                             class="text-muted mt32"
                             t-if="subscription.sale_subscription_closed_line_ids"
-                        >Ended subscription lines</h4>
+                        >Inactive subscription lines</h4>
                         <table
                             class="table table-sm"
                             id="subscriptions_closed_table"
                             t-if="subscription.sale_subscription_closed_line_ids"
                         >
 
-                            <thead class="bg-100">
+                            <thead class="bg-100 text-muted">
                                 <t
                                     t-call="website_subscription.portal_subscription_line_header"
                                 />
                             </thead>
 
-                            <tbody class="subscription_tbody">
+                            <tbody class="subscription_tbody text-muted">
                                 <t
                                     t-foreach="subscription.sale_subscription_closed_line_ids"
                                     t-as="line"
