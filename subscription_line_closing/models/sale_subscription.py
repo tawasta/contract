@@ -13,6 +13,27 @@ class SaleSubscription(models.Model):
         context={"active_test": False},
     )
 
+    def write(self, vals):
+        res = super().write(vals)
+
+        if "date" in vals:
+            # Set end date to all subscription lines that haven't one
+            for record in self:
+                for line in record.sale_subscription_line_ids.filtered(
+                    lambda r: not r.date_end
+                ):
+                    line.date_end = vals["date"]
+
+        if "start_date" in vals:
+            # Set start date to all subscription lines that haven't one
+            for record in self:
+                for line in record.sale_subscription_line_ids.filtered(
+                    lambda r: not r.start_date
+                ):
+                    line.start_date = vals["start_date"]
+
+        return res
+
     @api.depends("sale_subscription_line_ids")
     def _compute_total(self):
         res = super()._compute_total()

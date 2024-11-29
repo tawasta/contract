@@ -1,5 +1,5 @@
 [![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
-[![Pipeline Status](https://gitlab.com/tawasta/odoo/contract/badges/17.0-dev/pipeline.svg)](https://gitlab.com/tawasta/odoo/contract/-/pipelines/)
+[![Pre-commit Status](https://github.com/tawasta/contract/actions/workflows/pre-commit.yml/badge.svg?branch=17.0)](https://github.com/tawasta/contract/actions/workflows/pre-commit.yml?query=branch%3A17.0)
 
 Contracts
 =========
@@ -48,6 +48,7 @@ addon | version | maintainers | summary
 [subscription_customer_reference](subscription_customer_reference/) | 17.0.1.0.0 |  | Add customer reference to subscriptions
 [subscription_disable_qty_in_cart](subscription_disable_qty_in_cart/) | 17.0.1.0.0 |  | Disable changing subscription product quantity in cart
 [subscription_free_product](subscription_free_product/) | 17.0.1.0.0 |  | Add a free subscription when purchasing a subscription product
+[subscription_invoice_queue](subscription_invoice_queue/) | 17.0.1.0.0 |  | Create invoices as queued jobs
 [subscription_line_change_product_variant](subscription_line_change_product_variant/) | 17.0.1.1.0 |  | Substriction Line Change product variant and create invoice
 [subscription_line_closing](subscription_line_closing/) | 17.0.1.2.0 |  | Allows ending subscription lines without deleting them
 [subscription_line_list_view](subscription_line_list_view/) | 17.0.1.0.1 |  | Creates a tree view for subscription lines

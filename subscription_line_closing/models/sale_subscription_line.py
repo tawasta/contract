@@ -59,19 +59,24 @@ class SaleSubscriptionLine(models.Model):
 
     def action_start(self, immediate=True):
         # Start subscription lines
+
         for record in self:
+
             if immediate:
                 date_start = fields.Date.today().isoformat()
             else:
                 date_start = record.sale_subscription_id.recurring_next_date
 
-            record.write(
-                {
-                    "active": True,
-                    "date_end": False,
-                    "date_start": date_start,
-                }
-            )
+            vals = {
+                "active": True,
+                "date_end": False,
+            }
+            
+            if not record.date_start:
+                # Add start date if there is no existing one
+                vals["date_start"] = date_start
+
+            record.write(vals)
             msg = _("Started subscription line '%s'", record.name)
             subscription = record.sale_subscription_id
 
