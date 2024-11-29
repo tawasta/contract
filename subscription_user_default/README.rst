@@ -6,11 +6,13 @@
 Subscription user default
 =========================
 
-* Configurable Default or Core User for Sale Subscriptions
+* This module sets a default user (user_id) for Subscription models whenever a new subscription is created. If no default user is configured in system settings, the module falls back to Odoo's core logic.
 
 Configuration
 =============
-\-
+* Navigate to Settings > Technical > System Parameters.
+* Add (or edit) the parameter key: sale_subscription.default_user_id.
+* Set the value to the ID of an existing user.
 
 Usage
 =====
