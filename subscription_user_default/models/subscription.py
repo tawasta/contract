@@ -8,8 +8,10 @@ class SaleSubscription(models.Model):
     @api.model_create_multi
     def create(self, vals_list):
         # Hae oletuskäyttäjän ID järjestelmäasetuksista
-        default_user_id = self.env["ir.config_parameter"].sudo().get_param(
-            "sale_subscription.default_user_id"
+        default_user_id = (
+            self.env["ir.config_parameter"]
+            .sudo()
+            .get_param("sale_subscription.default_user_id")
         )
 
         if default_user_id:

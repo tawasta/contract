@@ -61,7 +61,6 @@ class SaleSubscriptionLine(models.Model):
         # Start subscription lines
 
         for record in self:
-
             if immediate:
                 date_start = fields.Date.today().isoformat()
             else:
@@ -71,7 +70,7 @@ class SaleSubscriptionLine(models.Model):
                 "active": True,
                 "date_end": False,
             }
-            
+
             if not record.date_start:
                 # Add start date if there is no existing one
                 vals["date_start"] = date_start

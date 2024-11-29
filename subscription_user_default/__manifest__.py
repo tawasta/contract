@@ -29,6 +29,5 @@
     "application": False,
     "installable": True,
     "depends": ["subscription_oca"],
-    "data": [
-    ],
+    "data": [],
 }
