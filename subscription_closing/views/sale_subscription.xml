@@ -8,6 +8,10 @@
             <field name="close_reason_id" position="attributes">
                 <attribute name="invisible">not close_reason_id</attribute>
             </field>
+
+            <field name="recurring_next_date" position="attributes">
+                <attribute name="invisible">0</attribute>
+            </field>
         </field>
     </record>
 </odoo>
