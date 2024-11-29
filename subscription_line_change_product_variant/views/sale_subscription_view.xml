@@ -6,14 +6,15 @@
         <field name="inherit_id" ref="subscription_oca.sale_subscription_form" />
         <field name="arch" type="xml">
             <xpath
-                expr="//field[@name='sale_subscription_line_ids']//field[@name='price_total']"
+                expr="//field[@name='sale_subscription_line_ids']//field[@name='product_id']"
                 position="after"
             >
                 <button
                     name="change_product_variant_wizard"
                     type="object"
-                    string="Change Membership"
-                    class="oe_highlight"
+                    icon="fa-repeat text-info"
+                    string="Change"
+                    optional="show"
                 />
             </xpath>
         </field>

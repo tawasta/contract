@@ -60,5 +60,6 @@ addon | version | maintainers | summary
 [subscription_use_existing_invoice](subscription_use_existing_invoice/) | 17.0.1.0.0 |  | Add subscription lines to an existing draft invoice
 [subscription_use_existing_subscription](subscription_use_existing_subscription/) | 17.0.1.0.0 |  | Add new subscription lines to existing subscription
 [website_subscription](website_subscription/) | 17.0.1.2.0 |  | Subscriptions in website portal
+[website_subscription_edit](website_subscription_edit/) | 17.0.1.0.0 |  | Allows editings subscriptions from user portal
 
 [//]: # (end addons)

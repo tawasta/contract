@@ -6,11 +6,11 @@ from odoo import _, fields, models
 class SubscriptionLineChangeProductVariant(models.TransientModel):
     _name = "subscription.line.change.product.variant"
 
-    old_product_id = fields.Many2one("product.product", string="Previous membership")
+    old_product_id = fields.Many2one("product.product", string="Previous subscription")
     product_id = fields.Many2one(
         "product.product",
         domain="[('id', 'in', available_variants)]",
-        string="New membership",
+        string="New subscription",
     )
     sale_subscription_line = fields.Many2one("sale.subscription.line", readonly=True)
     sale_subscription_id = fields.Many2one("sale.subscription", readonly=True)

@@ -186,7 +186,7 @@ msgstr "Toistuvaistilaukset"
 #. module: website_subscription
 #: model_terms:ir.ui.view,arch_db:website_subscription.portal_my_subscriptions
 msgid "There are currently no subscriptions for your account."
-msgstr "Tililläsi ei ole toistuvaistiauksia."
+msgstr "Tililläsi ei ole toistuvaistilauksia."
 
 #. module: website_subscription
 #: model_terms:ir.ui.view,arch_db:website_subscription.portal_my_subscriptions

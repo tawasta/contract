@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template
+        id="portal_subscription_line_data"
+        inherit_id="website_subscription.portal_subscription_line_data"
+        name="Edit subscription"
+        active="True"
+    >
+
+        <xpath expr="//td[@id='subscription_line_buttons_data']" position="inside">
+            <t t-if="line.upgrade_allowed">
+                <button
+                    type="button"
+                    id="modal_subscription_line_upgrade"
+                    t-if="line.active and not line.date_end"
+                    class="btn btn-primary btn-sm"
+                    t-att-line-id="line.id"
+                >
+                    <i class="fa fa-fw fa-pencil" />Edit
+                </button>
+            </t>
+        </xpath>
+    </template>
+
+    <template
+        id="subscription_line_upgrade_modal"
+        name="Subscription Line Upgrade Modal"
+    >
+        <div
+            id="modal_subscription_line_upgrade"
+            class="modal fade"
+            tabindex="-1"
+            role="dialog"
+        >
+            <div class="modal-dialog modal-lg" role="document">
+                <form
+                    id="subscription_line_upgrade_form"
+                    t-attf-action="/subscription/line/#{line.id}/upgrade"
+                    method="post"
+                >
+                    <input
+                        type="hidden"
+                        name="csrf_token"
+                        t-att-value="request.csrf_token()"
+                    />
+                    <div class="modal-content">
+                        <div class="modal-header align-items-center">
+                            <h4 class="modal-title">Update Subscription</h4>
+                            <button
+                                type="button"
+                                class="btn-close"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"
+                            />
+                        </div>
+                        <div class="modal-body">
+                            <p>Current product: <span
+                                    class="text-info"
+                                    t-esc="line.product_id.display_name"
+                                /></p>
+                            <p>Select new product:</p>
+                            <div class="form-group">
+                                <select
+                                    id="new_product"
+                                    name="new_product"
+                                    class="form-control"
+                                >
+                                    <t t-foreach="products" t-as="product">
+                                        <option
+                                            t-if="product != line.product_id"
+                                            t-att-value="product.id"
+                                            t-esc="product.display_name"
+                                        />
+                                    </t>
+                                </select>
+                            </div>
+                            <p class="mt16"><i
+                                    class="fa fa-info-circle text-info"
+                                /> The subscription will change on <strong
+                                    t-esc="line.sale_subscription_id.recurring_next_date"
+                                /></p>
+                        </div>
+                        <div class="modal-footer border-top">
+                            <button
+                                type="button"
+                                class="btn btn-secondary"
+                                data-bs-dismiss="modal"
+                            >Cancel</button>
+                            <button
+                                type="submit"
+                                class="btn btn-primary"
+                            >Update</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </template>
+</odoo>

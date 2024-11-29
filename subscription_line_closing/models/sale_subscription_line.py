@@ -1,3 +1,5 @@
+from datetime import timedelta
+
 from odoo import api
 from odoo import fields
 from odoo import models
@@ -22,7 +24,12 @@ class SaleSubscriptionLine(models.Model):
 
     def write(self, vals):
         if "date_start" in vals:
-            if fields.Date.today().isoformat() < vals.get("date_start"):
+            date_start = vals.get("date_start")
+            today = fields.Date.today()
+            if isinstance(date_start, str):
+                today = today.isoformat()
+
+            if today < date_start:
                 # Archive lines that haven't started yet
                 vals["active"] = False
         res = super().write(vals)
@@ -32,29 +39,42 @@ class SaleSubscriptionLine(models.Model):
     def action_stop(self):
         # Stop subscription lines
         for record in self:
-            record.write(
-                {
-                    "active": False,
-                    "date_end": record.sale_subscription_id.recurring_next_date,
-                }
+            date_end = record.sale_subscription_id.recurring_next_date - timedelta(
+                days=1
             )
+            vals = {
+                "date_end": date_end,
+            }
+
+            if date_end <= fields.Date.today():
+                vals["active"] = False
+
+            record.write(vals)
+
             msg = _("Stopped subscription line '%s'", record.name)
             subscription = record.sale_subscription_id
 
             subscription.modification_add(msg)
             subscription._compute_total()
 
-    def action_start(self):
+    def action_start(self, immediate=True):
         # Start subscription lines
 
         for record in self:
+
+            if immediate:
+                date_start = fields.Date.today().isoformat()
+            else:
+                date_start = record.sale_subscription_id.recurring_next_date
+
             vals = {
                 "active": True,
                 "date_end": False,
             }
+            
             if not record.date_start:
                 # Add start date if there is no existing one
-                vals["date_start"] = fields.Date.today().isoformat()
+                vals["date_start"] = date_start
 
             record.write(vals)
             msg = _("Started subscription line '%s'", record.name)

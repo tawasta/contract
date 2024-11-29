@@ -9,7 +9,6 @@ class CloseSubscriptionWizard(models.TransientModel):
     )
 
     def button_confirm(self):
-        print(self.close_reason_id.id)
         if self.date_end <= fields.Date.today():
             # End immediately
             super().button_confirm()
