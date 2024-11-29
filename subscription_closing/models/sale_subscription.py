@@ -6,21 +6,6 @@ from odoo import models
 class SaleSubscription(models.Model):
     _inherit = "sale.subscription"
 
-    def write(self, vals):
-        res = super().write(vals)
-
-        if "date" in vals and hasattr(self.env["sale.subscription.line"], "date_end"):
-            # Set end date to all subscription lines that haven't ended already
-            for record in self:
-                record.sale_subscription_line_ids.write(
-                    {
-                        "date_end": vals["date"],
-                        "active": False,
-                    }
-                )
-
-        return res
-
     def _action_close_subscription(self):
         for record in self:
             if record.in_progress:
@@ -42,8 +27,23 @@ class SaleSubscription(models.Model):
 
     def cron_subscription_management(self):
         res = super().cron_subscription_management()
-        for subscription in self.search([("date", "<=", fields.Date.today())]):
-            # Close subscriptions
-            subscription._action_close_subscription()
+
+        closed_stage = self.env["sale.subscription.stage"].search(
+            [("type", "=", "post")], limit=1
+        )
+
+        subscriptions = self.search(
+            [
+                ("stage_id", "!=", closed_stage.id),
+            ]
+        )
+
+        for subscription in subscriptions:
+            subscription_ended = (
+                subscription.date and subscription.date <= fields.Date.today()
+            )
+            if subscription_ended or not subscription.sale_subscription_line_ids:
+                # Close ended subscriptions and subscriptions without active lines
+                subscription._action_close_subscription()
 
         return res

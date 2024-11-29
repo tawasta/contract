@@ -46,14 +46,17 @@ class SaleSubscriptionLine(models.Model):
 
     def action_start(self):
         # Start subscription lines
+
         for record in self:
-            record.write(
-                {
-                    "active": True,
-                    "date_end": False,
-                    "date_start": fields.Date.today().isoformat(),
-                }
-            )
+            vals = {
+                "active": True,
+                "date_end": False,
+            }
+            if not record.date_start:
+                # Add start date if there is no existing one
+                vals["date_start"] = fields.Date.today().isoformat()
+
+            record.write(vals)
             msg = _("Started subscription line '%s'", record.name)
             subscription = record.sale_subscription_id
 
