@@ -19,27 +19,17 @@
 ##############################################################################
 
 {
-    "name": "Website subscription update",
-    "summary": "Allows editings subscriptions from user portal",
+    "name": "Subscription line cost",
+    "summary": "Allows defining a cost to subscription lines",
     "version": "17.0.1.0.0",
-    "category": "contract",
+    "category": "Contract Management",
     "website": "https://github.com/tawasta/contract",
     "author": "Futural",
     "license": "AGPL-3",
     "application": False,
     "installable": True,
-    "depends": [
-        "subscription_oca",
-        "subscription_line_change_product_variant",
-        "subscription_line_closing",
-    ],
+    "depends": ["account_invoice_margin", "subscription_oca"],
     "data": [
-        "views/product.xml",
-        "views/templates.xml",
+        "views/subscription_form.xml",
     ],
-    "assets": {
-        "web.assets_frontend": [
-            "website_subscription_edit/static/src/js/main.esm.js",
-        ],
-    },
 }

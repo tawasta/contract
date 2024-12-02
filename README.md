@@ -51,6 +51,7 @@ addon | version | maintainers | summary
 [subscription_invoice_queue](subscription_invoice_queue/) | 17.0.1.0.0 |  | Create invoices as queued jobs
 [subscription_line_change_product_variant](subscription_line_change_product_variant/) | 17.0.1.1.0 |  | Substriction Line Change product variant and create invoice
 [subscription_line_closing](subscription_line_closing/) | 17.0.1.2.0 |  | Allows ending subscription lines without deleting them
+[subscription_line_cost](subscription_line_cost/) | 17.0.1.0.0 |  | Allows defining a cost to subscription lines
 [subscription_line_list_view](subscription_line_list_view/) | 17.0.1.0.1 |  | Creates a tree view for subscription lines
 [subscription_line_partner](subscription_line_partner/) | 17.0.1.0.4 |  | Allows defining a partner to subscription lines
 [subscription_line_related_sale_order_line](subscription_line_related_sale_order_line/) | 17.0.1.0.0 |  | Add SO line information for subscription lines
