@@ -19,27 +19,15 @@
 ##############################################################################
 
 {
-    "name": "Website subscription update",
-    "summary": "Allows editings subscriptions from user portal",
+    "name": "Configurable Default or Core User for Sale Subscriptions",
+    "summary": "Configurable Default or Core User for Sale Subscriptions",
     "version": "17.0.1.0.0",
-    "category": "contract",
+    "category": "Contract Management",
     "website": "https://github.com/tawasta/contract",
     "author": "Futural",
     "license": "AGPL-3",
     "application": False,
     "installable": True,
-    "depends": [
-        "subscription_oca",
-        "subscription_line_change_product_variant",
-        "subscription_line_closing",
-    ],
-    "data": [
-        "views/product.xml",
-        "views/templates.xml",
-    ],
-    "assets": {
-        "web.assets_frontend": [
-            "website_subscription_edit/static/src/js/main.esm.js",
-        ],
-    },
+    "depends": ["subscription_oca"],
+    "data": [],
 }
