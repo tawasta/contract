@@ -29,7 +29,7 @@ class SaleSubscriptionLine(models.Model):
             if isinstance(date_start, str):
                 today = today.isoformat()
 
-            if today < date_start:
+            if date_start and today < date_start:
                 # Archive lines that haven't started yet
                 vals["active"] = False
         res = super().write(vals)
