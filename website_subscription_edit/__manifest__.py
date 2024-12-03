@@ -23,7 +23,7 @@
     "summary": "Allows editings subscriptions from user portal",
     "version": "17.0.1.0.0",
     "category": "contract",
-    "website": "https://gitlab.com/tawasta/odoo/contract",
+    "website": "https://github.com/tawasta/contract",
     "author": "Futural",
     "license": "AGPL-3",
     "application": False,
