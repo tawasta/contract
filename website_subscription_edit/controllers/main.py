@@ -38,6 +38,7 @@ class SubscriptionController(http.Controller):
 
             new_line_vals = {
                 "sale_subscription_id": subscription.id,
+                "date_start": subscription.recurring_next_date,
                 "product_id": new_product_id,
                 "product_uom_qty": line.product_uom_qty,
                 "price_unit": request.env["product.product"]
