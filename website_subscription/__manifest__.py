@@ -21,7 +21,7 @@
 {
     "name": "Website Subscriptions",
     "summary": "Subscriptions in website portal",
-    "version": "17.0.1.2.1",
+    "version": "17.0.1.2.2",
     "category": "Contract",
     "website": "https://github.com/tawasta/contract",
     "author": "Futural",
@@ -36,6 +36,7 @@
     ],
     "data": [
         "security/ir.model.access.csv",
+        "security/ir_rules.xml",
         "views/subscription_portal_my.xml",
         "views/subscription_portal_page.xml",
         "views/subscription_portal_page_modals.xml",
