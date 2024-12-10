@@ -29,24 +29,32 @@ class SaleSubscriptionLine(models.Model):
             if isinstance(date_start, str):
                 today = today.isoformat()
 
-            if today < date_start:
+            if date_start and today < date_start:
                 # Archive lines that haven't started yet
                 vals["active"] = False
         res = super().write(vals)
 
         return res
 
-    def action_stop(self):
+    def action_stop(self, immediate=False):
         # Stop subscription lines
+        today = fields.Date.today()
         for record in self:
-            date_end = record.sale_subscription_id.recurring_next_date - timedelta(
-                days=1
-            )
-            vals = {
-                "date_end": date_end,
-            }
+            vals = {}
+            date_end = record.date_end
+            if not date_end and record.sale_subscription_id.recurring_next_date:
+                date_end = record.sale_subscription_id.recurring_next_date - timedelta(
+                    days=1
+                )
 
-            if date_end <= fields.Date.today():
+                vals["date_end"] = date_end
+
+            if immediate:
+                # End immediately
+                date_end = today
+
+            if date_end <= today:
+                # Line has ended, set it as inactive
                 vals["active"] = False
 
             record.write(vals)
