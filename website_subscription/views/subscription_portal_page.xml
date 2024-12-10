@@ -1,6 +1,18 @@
 <?xml version="1.0" ?>
 <odoo>
 
+    <!-- Enable showing/hiding chatter via frontent editor settings -->
+    <template
+        id="portal_subscription_page_communication_toggle"
+        inherit_id="website_subscription.portal_subscription_page"
+        name="Hide Subscriptions' 'Communication' Section"
+        customize_show="True"
+        active="False"
+        priority="101"
+    >
+        <xpath expr="//div[@id='subscription_communication']" position="replace" />
+    </template>
+
     <template id="portal_subscription_line_header" name="Subscription line header">
         <tr>
             <th name="th_product" class="text-left d-none">Product
@@ -241,6 +253,13 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+
+                    <div id="subscription_communication" class="mt-4">
+                        <h4 class="text-primary">Communication History</h4>
+                        <t t-call="portal.message_thread">
+                            <t t-set="object" t-value="subscription" />
+                        </t>
                     </div>
                 </t>
             </t>
