@@ -1,6 +1,7 @@
 account-analytic
 contract
 bank-payment
+e-commerce https://github.com/tawasta/e-commerce
 sale https://github.com/tawasta/sale
 sale-workflow
 web
