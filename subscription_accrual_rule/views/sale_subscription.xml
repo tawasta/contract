@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="sale_subscription_form" model="ir.ui.view">
+        <field name="name">sale.subscription.form.line.accrual.rule</field>
+        <field name="model">sale.subscription</field>
+        <field name="inherit_id" ref="subscription_oca.sale_subscription_form" />
+        <field name="arch" type="xml">
+
+            <xpath
+                expr="//field[@name='sale_subscription_line_ids']/tree/field[@name='discount']"
+                position="after"
+            >
+                <field name="accrual_rule_id" optional="show" />
+            </xpath>
+
+        </field>
+    </record>
+</odoo>
