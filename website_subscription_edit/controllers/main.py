@@ -49,7 +49,9 @@ class SubscriptionController(http.Controller):
             if hasattr(line, "partner_id"):
                 new_line_vals["partner_id"] = line.partner_id.id
 
-            new_line = request.env["sale.subscription.line"].create(new_line_vals)
+            new_line = (
+                request.env["sale.subscription.line"].sudo().create(new_line_vals)
+            )
             new_line.action_start(immediate=False)
 
         except Exception:
