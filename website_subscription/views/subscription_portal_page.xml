@@ -181,59 +181,33 @@
                     </div>
                     <div id="item_details" class="row mt32">
 
-                        <h4 class="text-primary">Active subscription lines</h4>
-                        <table
-                            class="table table-sm"
-                            id="subscriptions_table"
-                            t-if="subscription.sale_subscription_line_ids"
-                        >
+                        <div id="active_subscription_lines">
+                            <h4 class="text-primary">Active subscription lines</h4>
+                            <table
+                                class="table table-sm"
+                                id="subscriptions_table"
+                                t-if="subscription.sale_subscription_line_ids"
+                            >
 
-                            <thead class="bg-100">
-                                <t
-                                    t-call="website_subscription.portal_subscription_line_header"
-                                />
-                            </thead>
-
-                            <tbody class="subscription_tbody">
-                                <t
-                                    t-foreach="subscription.sale_subscription_line_ids"
-                                    t-as="line"
-                                >
+                                <thead class="bg-100">
                                     <t
-                                        t-call="website_subscription.portal_subscription_line_data"
+                                        t-call="website_subscription.portal_subscription_line_header"
                                     />
-                                </t>
-                            </tbody>
-                        </table>
-                        <p t-else="">No active subscription lines</p>
+                                </thead>
 
-                        <h4
-                            class="text-muted mt32"
-                            t-if="subscription.sale_subscription_closed_line_ids"
-                        >Inactive subscription lines</h4>
-                        <table
-                            class="table table-sm"
-                            id="subscriptions_closed_table"
-                            t-if="subscription.sale_subscription_closed_line_ids"
-                        >
-
-                            <thead class="bg-100 text-muted">
-                                <t
-                                    t-call="website_subscription.portal_subscription_line_header"
-                                />
-                            </thead>
-
-                            <tbody class="subscription_tbody text-muted">
-                                <t
-                                    t-foreach="subscription.sale_subscription_closed_line_ids"
-                                    t-as="line"
-                                >
+                                <tbody class="subscription_tbody">
                                     <t
-                                        t-call="website_subscription.portal_subscription_line_data"
-                                    />
-                                </t>
-                            </tbody>
-                        </table>
+                                        t-foreach="subscription.sale_subscription_line_ids"
+                                        t-as="line"
+                                    >
+                                        <t
+                                            t-call="website_subscription.portal_subscription_line_data"
+                                        />
+                                    </t>
+                                </tbody>
+                            </table>
+                            <p t-else="">No active subscription lines</p>
+                        </div>
                     </div>
 
                     <div
@@ -265,4 +239,46 @@
             </t>
         </t>
     </template>
+
+    <template
+        id="portal_subscription_page_inactive_subscriptions"
+        inherit_id="website_subscription.portal_subscription_page"
+        name="Show inactive subscription lines"
+        customize_show="True"
+        active="True"
+        priority="99"
+    >
+        <xpath expr="//div[@id='active_subscription_lines']" position="after">
+            <div id="inactive_subscription_lines">
+                <h4
+                    class="text-muted mt32"
+                    t-if="subscription.sale_subscription_closed_line_ids"
+                >Inactive subscription lines</h4>
+                <table
+                    class="table table-sm"
+                    id="subscriptions_closed_table"
+                    t-if="subscription.sale_subscription_closed_line_ids"
+                >
+
+                    <thead class="bg-100 text-muted">
+                        <t
+                            t-call="website_subscription.portal_subscription_line_header"
+                        />
+                    </thead>
+
+                    <tbody class="subscription_tbody text-muted">
+                        <t
+                            t-foreach="subscription.sale_subscription_closed_line_ids"
+                            t-as="line"
+                        >
+                            <t
+                                t-call="website_subscription.portal_subscription_line_data"
+                            />
+                        </t>
+                    </tbody>
+                </table>
+            </div>
+        </xpath>
+    </template>
+
 </odoo>

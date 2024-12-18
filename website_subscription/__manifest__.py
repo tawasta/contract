@@ -21,7 +21,7 @@
 {
     "name": "Website Subscriptions",
     "summary": "Subscriptions in website portal",
-    "version": "17.0.1.2.2",
+    "version": "17.0.1.2.3",
     "category": "Contract",
     "website": "https://github.com/tawasta/contract",
     "author": "Futural",
