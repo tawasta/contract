@@ -88,7 +88,6 @@ class SubscriptionInviteController(http.Controller):
                 raise_exception=True,
                 email_values=email_values,
             )
-            body = f"An invitation has been sent to the email address: {invite_email}."
 
         except Exception as e:
             return json.dumps(
