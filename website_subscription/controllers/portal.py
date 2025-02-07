@@ -32,12 +32,18 @@ class PortalSubscription(CustomerPortal):
         if not subscription_obj.check_access_rights("read", raise_exception=False):
             return request.redirect("/my")
 
-        # Hae sopimukset, joissa käyttäjän yritys on maksajana tai hän itse on osallisena riveillä
+        # Hae sopimukset, joissa:
+        # Hae sopimukset, joissa:
+        # 1. Käyttäjän yritys on maksajana
+        # 2. Käyttäjä itse on osallisena sopimusriveillä
+        # 3. Käyttäjä itse on maksajana
         subscriptions = subscription_obj.sudo().search([
-            "|",
+            "|", "|",
             ("partner_id", "=", request.env.user.partner_id.commercial_partner_id.id),  # Yritys maksajana
-            ("sale_subscription_line_ids.partner_id", "=", user_partner_id),  # Henkilö mukana sopimusrivillä
+            ("sale_subscription_line_ids.partner_id", "=", user_partner_id),  # Käyttäjä osallisena riveillä
+            ("partner_id", "=", user_partner_id),  # Käyttäjä itse maksajana
         ])
+
         values.update(
             {
                 "subscriptions": subscriptions,
