@@ -36,7 +36,7 @@ class PortalSubscription(CustomerPortal):
         subscriptions = subscription_obj.sudo().search([
             "|",
             ("partner_id", "=", request.env.user.partner_id.commercial_partner_id.id),  # Yritys maksajana
-            ("subscription_line_ids.partner_id", "=", user_partner_id),  # Henkilö mukana sopimusrivillä
+            ("sale_subscription_line_ids.partner_id", "=", user_partner_id),  # Henkilö mukana sopimusrivillä
         ])
         values.update(
             {
