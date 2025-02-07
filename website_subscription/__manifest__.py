@@ -33,7 +33,6 @@
         "subscription_closing",
         "subscription_oca",
         "subscription_line_closing",
-        "subscription_line_partner",
     ],
     "data": [
         "security/ir.model.access.csv",
