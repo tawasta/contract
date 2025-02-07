@@ -53,7 +53,7 @@ class SaleSubscriptionLine(models.Model):
                 # End immediately
                 date_end = today
 
-            if date_end <= today:
+            if date_end and date_end <= today:
                 # Line has ended, set it as inactive
                 vals["active"] = False
 

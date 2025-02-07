@@ -43,6 +43,7 @@ addon | version | maintainers | summary
 [contract_use_customer_as_invoicing_contact](contract_use_customer_as_invoicing_contact/) | 17.0.1.0.0 |  | Default value to a contract's invoicing contact
 [contract_use_existing_invoice](contract_use_existing_invoice/) | 17.0.1.0.0 |  | Add lines to an existing invoice instead of creating a new invoice
 [only_one_subscription_in_cart](only_one_subscription_in_cart/) | 17.0.1.1.0 |  | Allow to have only one subscription in cart
+[subscription_accrual_rule](subscription_accrual_rule/) | 17.0.1.0.1 |  | Add accrual rules to subscriptions
 [subscription_auditlog](subscription_auditlog/) | 17.0.1.0.0 |  | Adds audit log rules for sale subscription and subscription line
 [subscription_closing](subscription_closing/) | 17.0.1.0.3 |  | Allows ending subscription to a future date
 [subscription_customer_reference](subscription_customer_reference/) | 17.0.1.0.0 |  | Add customer reference to subscriptions
@@ -61,7 +62,7 @@ addon | version | maintainers | summary
 [subscription_use_existing_invoice](subscription_use_existing_invoice/) | 17.0.1.0.0 |  | Add subscription lines to an existing draft invoice
 [subscription_use_existing_subscription](subscription_use_existing_subscription/) | 17.0.1.0.0 |  | Add new subscription lines to existing subscription
 [subscription_user_default](subscription_user_default/) | 17.0.1.0.0 |  | Configurable Default or Core User for Sale Subscriptions
-[website_subscription](website_subscription/) | 17.0.1.2.2 |  | Subscriptions in website portal
+[website_subscription](website_subscription/) | 17.0.1.2.3 |  | Subscriptions in website portal
 [website_subscription_edit](website_subscription_edit/) | 17.0.1.0.0 |  | Allows editings subscriptions from user portal
 
 [//]: # (end addons)
