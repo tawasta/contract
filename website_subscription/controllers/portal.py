@@ -27,15 +27,17 @@ class PortalSubscription(CustomerPortal):
     def portal_my_subscriptions(self, **kw):
         values = self._prepare_portal_layout_values()
         subscription_obj = request.env["sale.subscription"]
+        user_partner_id = request.env.user.partner_id.id
         # Avoid error if the user does not have access.
         if not subscription_obj.check_access_rights("read", raise_exception=False):
             return request.redirect("/my")
 
-        subscriptions = (
-            request.env["sale.subscription"]
-            .sudo()
-            .search([("partner_id", "=", request.env.user.partner_id.id)])
-        )
+        # Hae sopimukset, joissa käyttäjän yritys on maksajana tai hän itse on osallisena riveillä
+        subscriptions = Subscription.sudo().search([
+            "|",
+            ("partner_id", "=", request.env.user.partner_id.commercial_partner_id.id),  # Yritys maksajana
+            ("subscription_line_ids.partner_id", "=", user_partner_id),  # Henkilö mukana sopimusrivillä
+        ])
         values.update(
             {
                 "subscriptions": subscriptions,
