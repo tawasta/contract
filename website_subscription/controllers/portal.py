@@ -33,7 +33,7 @@ class PortalSubscription(CustomerPortal):
             return request.redirect("/my")
 
         # Hae sopimukset, joissa käyttäjän yritys on maksajana tai hän itse on osallisena riveillä
-        subscriptions = Subscription.sudo().search([
+        subscriptions = subscription_obj.sudo().search([
             "|",
             ("partner_id", "=", request.env.user.partner_id.commercial_partner_id.id),  # Yritys maksajana
             ("subscription_line_ids.partner_id", "=", user_partner_id),  # Henkilö mukana sopimusrivillä
