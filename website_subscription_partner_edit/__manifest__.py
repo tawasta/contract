@@ -1,7 +1,7 @@
 ##############################################################################
 #
 #    Author: Futural Oy
-#    Copyright 2021- Futural Oy (https://futural.fi)
+#    Copyright 2024 Futural Oy (https://futural.fi)
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -19,33 +19,24 @@
 ##############################################################################
 
 {
-    "name": "Website Subscriptions",
-    "summary": "Subscriptions in website portal",
-    "version": "17.0.1.2.3",
-    "category": "Contract",
+    "name": "Website subscription edit partner",
+    "summary": "Website subscription edit partner",
+    "version": "17.0.1.0.0",
+    "category": "contract",
     "website": "https://github.com/tawasta/contract",
     "author": "Futural",
     "license": "AGPL-3",
     "application": False,
     "installable": True,
     "depends": [
-        "portal",
-        "subscription_closing",
-        "subscription_oca",
-        "subscription_line_closing",
+        "website_subscription",
     ],
     "data": [
-        "security/ir.model.access.csv",
-        "security/ir_rules.xml",
-        "views/subscription_portal_my.xml",
-        "views/subscription_portal_page.xml",
-        "views/subscription_portal_page_modals.xml",
-        "views/subscription_portal_template_home.xml",
-        "views/subscription_portal_template_menu.xml",
+        "views/templates.xml",
     ],
     "assets": {
         "web.assets_frontend": [
-            "website_subscription/static/src/js/main.esm.js",
+            "website_subscription_partner_edit/static/src/js/main.esm.js",
         ],
     },
 }
