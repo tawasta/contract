@@ -1,0 +1,68 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* subscription_prorate
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0-20240924\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-02-14 13:16+0000\n"
+"PO-Revision-Date: 2025-02-14 15:17+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.5\n"
+
+#. module: subscription_prorate
+#: model_terms:ir.ui.view,arch_db:subscription_prorate.product
+msgid ""
+"<i class=\"fa fa-info-circle\"/> You have an existing subscription,<br/>and "
+"will only pay for the remaining billing period.<br/>The discounted price "
+"will be shown in the shopping cart."
+msgstr ""
+"<i class=\"fa fa-info-circle\"/> Sinulla on olemassa oleva tilaus,<br/"
+">joten maksat vain jäljellä olevan laskutuskauden.<br/>Alennettu hinta "
+"näkyy ostoskorissa."
+
+#. module: subscription_prorate
+#: model:ir.model,name:subscription_prorate.model_product_template
+msgid "Product"
+msgstr "Tuote"
+
+#. module: subscription_prorate
+#: model:ir.model,name:subscription_prorate.model_sale_order
+msgid "Sales Order"
+msgstr "Myyntitilaus"
+
+#. module: subscription_prorate
+#: model:ir.model,name:subscription_prorate.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "Myyntitilausrivi"
+
+#. module: subscription_prorate
+#: model:ir.model.fields,field_description:subscription_prorate.field_netvisor_product__subscription_price_prorate
+#: model:ir.model.fields,field_description:subscription_prorate.field_product_product__subscription_price_prorate
+#: model:ir.model.fields,field_description:subscription_prorate.field_product_template__subscription_price_prorate
+msgid "Subscription prorate"
+msgstr "Toistuvaistilauksen suhteellinen osuus"
+
+#. module: subscription_prorate
+#: model:ir.model.fields,help:subscription_prorate.field_netvisor_product__subscription_price_prorate
+#: model:ir.model.fields,help:subscription_prorate.field_product_product__subscription_price_prorate
+#: model:ir.model.fields,help:subscription_prorate.field_product_template__subscription_price_prorate
+msgid ""
+"When purchasing new subscription, prorate price according to an existing "
+"subscription"
+msgstr ""
+"Kun ostat uuden tilauksen, suhteuta hinta olemassa olevan tilauksen mukaan"
+
+#. module: subscription_prorate
+#. odoo-python
+#: code:addons/subscription_prorate/models/sale_order.py:0
+#, python-format
+msgid "months"
+msgstr "kuukautta"
