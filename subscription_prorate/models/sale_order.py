@@ -74,11 +74,17 @@ class SaleOrder(models.Model):
             if prorate_rounding == "ceil":
                 period = math.ceil(period)
 
-            if period > 11:
-                # Pre-invoicing over 11 months is not supported
+            if period < 0:
+                # If next invoice date is in the past, period would be negative
                 period = 0
 
-            discount = 100 / 12 * period
+            if period == 0:
+                # Don't give 100% discount on 0 period
+                discount = 0
+            else:
+                # Each elapsed month will give 8.33% discount
+                discount = 100 / 12 * (12 - period)
+
             if discount < 0:
                 # If the next invoice date is in the past, we'll get a negative discount
                 discount = 0
