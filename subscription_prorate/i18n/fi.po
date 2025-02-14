@@ -48,7 +48,7 @@ msgstr "Myyntitilausrivi"
 #: model:ir.model.fields,field_description:subscription_prorate.field_product_product__subscription_price_prorate
 #: model:ir.model.fields,field_description:subscription_prorate.field_product_template__subscription_price_prorate
 msgid "Subscription prorate"
-msgstr "Toistuvaistilauksen suhteellinen osuus"
+msgstr "Suhteellinen hinta"
 
 #. module: subscription_prorate
 #: model:ir.model.fields,help:subscription_prorate.field_netvisor_product__subscription_price_prorate
