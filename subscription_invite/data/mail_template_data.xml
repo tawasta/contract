@@ -4,12 +4,12 @@
         <record id="subscription_invitation_email_template" model="mail.template">
             <field name="name">Subscription: Invitation</field>
             <field name="model_id" ref="subscription_oca.model_sale_subscription_line" />
-            <field name="subject">You're invited to</field>
+            <field name="subject">You're Invited to join a subscription</field>
             <field
                 name="email_from"
             >{{ object.company_id.email }}</field>
             <field name="email_to" />
-            <field name="description">Invitation to</field>
+            <field name="description">Invitation to join a subscription</field>
             <field name="body_html" type="html">
                 <table
                     border="0"
@@ -32,7 +32,7 @@
                                         <span
                                                 style="font-size: 20px; font-weight: bold;"
                                             >
-                                            You're invited to accept:
+                                            You're Invited to join a subscription!
                                         </span>
                                     </td>
                                 </tr>
@@ -44,7 +44,10 @@
                                                 style="background-color:rgb(204,204,204);border:none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin:16px 0px 16px 0px;"
                                             />
                                         <div style="font-size: 14px;">
-                                            To accept this invitation, please click the link below:
+                                            Hello,<br /><br />
+                                            You have been invited to join the subscription for
+                                            <strong>{{ object.product_id.display_name }}</strong>.
+                                            To accept this invitation and activate your subscription, please click the button below:
                                             <br /><br />
                                             <a
                                                     t-attf-href="/invitation/{{ object.invite_id.id }}/accept?access_token={{ object.invite_id.access_token }}"
