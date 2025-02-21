@@ -46,7 +46,9 @@
                                         <div style="font-size: 14px;">
                                             Hello,<br /><br />
                                             You have been invited to join the subscription for
-                                            <strong>{{ object.product_id.display_name }}</strong>.
+                                            <strong><t
+                                                t-out="object.product_id.display_name"
+                                            /></strong>.
                                             To accept this invitation and activate your subscription, please click the button below:
                                             <br /><br />
                                             <a
