@@ -4,7 +4,7 @@
         <field name="name">subscription.invitation.tree</field>
         <field name="model">subscription.invitation</field>
         <field name="arch" type="xml">
-            <tree string="Subscription Invitations" default_order="invited_date desc">
+            <tree default_order="invited_date desc">
                 <field name="subscription_id" />
                 <field name="invite_email" />
                 <field name="invited_date" />

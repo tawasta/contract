@@ -22,12 +22,14 @@
     "summary": "Subscription: Invite Others",
     "version": "17.0.1.0.0",
     "category": "Event",
-    "website": "https://gitlab.com/tawasta/odoo/contract",
+    "website": "https://github.com/tawasta/contract",
     "author": "Tawasta",
     "license": "AGPL-3",
     "application": False,
     "installable": True,
-    "depends": ["website_subscription",],
+    "depends": [
+        "website_subscription",
+    ],
     "data": [
         "data/mail_template_data.xml",
         "views/subscription_invitation.xml",

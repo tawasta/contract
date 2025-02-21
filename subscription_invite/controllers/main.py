@@ -11,7 +11,6 @@ from odoo.http import request
 
 
 class SubscriptionInviteController(http.Controller):
-
     @http.route(
         ["/send/invitation"],
         type="http",
@@ -33,7 +32,9 @@ class SubscriptionInviteController(http.Controller):
         )
 
         if not subscription_line:
-            return json.dumps({"status": "error", "message": "Subscription line not found"})
+            return json.dumps(
+                {"status": "error", "message": "Subscription line not found"}
+            )
 
         invite_email = post.get("invite_email")
         if not invite_email:
@@ -141,7 +142,11 @@ class SubscriptionInviteController(http.Controller):
 
     # # flake8: noqa: C901
     @http.route(
-        ["/accept_subscription_invitation"], type="http", auth="user", website=True, csrf=True
+        ["/accept_subscription_invitation"],
+        type="http",
+        auth="user",
+        website=True,
+        csrf=True,
     )
     def accept_invitation_form(self, **post):
         invite_data = {
@@ -164,8 +169,9 @@ class SubscriptionInviteController(http.Controller):
             }
         )
 
-        invitation.subscription_id.sudo().write({"partner_id": request.env.user.partner_id.id})
-
+        invitation.subscription_id.sudo().write(
+            {"partner_id": request.env.user.partner_id.id}
+        )
 
         return_url = f"{invite_data['return_url']}?access_token={invite_data['access_token']}&thank_you=1"
 
