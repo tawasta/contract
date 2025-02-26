@@ -37,12 +37,23 @@ class PortalSubscription(CustomerPortal):
         # 1. Käyttäjän yritys on maksajana
         # 2. Käyttäjä itse on osallisena sopimusriveillä
         # 3. Käyttäjä itse on maksajana
-        subscriptions = subscription_obj.sudo().search([
-            "|", "|",
-            ("partner_id", "=", request.env.user.partner_id.commercial_partner_id.id),  # Yritys maksajana
-            ("sale_subscription_line_ids.partner_id", "=", user_partner_id),  # Käyttäjä osallisena riveillä
-            ("partner_id", "=", user_partner_id),  # Käyttäjä itse maksajana
-        ])
+        subscriptions = subscription_obj.sudo().search(
+            [
+                "|",
+                "|",
+                (
+                    "partner_id",
+                    "=",
+                    request.env.user.partner_id.commercial_partner_id.id,
+                ),  # Yritys maksajana
+                (
+                    "sale_subscription_line_ids.partner_id",
+                    "=",
+                    user_partner_id,
+                ),  # Käyttäjä osallisena riveillä
+                ("partner_id", "=", user_partner_id),  # Käyttäjä itse maksajana
+            ]
+        )
 
         values.update(
             {

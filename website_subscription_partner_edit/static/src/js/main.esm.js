@@ -13,11 +13,7 @@ var PartnerUpgrade = publicWidget.Widget.extend({
 
     start: function () {
         this._super.apply(this, arguments);
-        $(document).on(
-            "submit",
-            "#edit_customer_form",
-            this._onFormSubmit.bind(this)
-        );
+        $(document).on("submit", "#edit_customer_form", this._onFormSubmit.bind(this));
     },
 
     _onClickUpgradeButton: function (ev) {
