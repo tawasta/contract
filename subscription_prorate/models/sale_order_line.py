@@ -8,14 +8,17 @@ class SaleOrderLine(models.Model):
     def _compute_price_unit(self):
         res = super()._compute_price_unit()
 
-        if not self.product_id.subscription_price_prorate:
-            return res
+        for record in self:
+            if record.product_id.subscription_price_prorate:
+                (
+                    discount,
+                    period,
+                    period_name,
+                ) = record.order_id._get_subscription_prorate_info()
 
-        discount, period, period_name = self.order_id._get_subscription_prorate_info()
-
-        if discount:
-            self.discount = discount
-            self.name += _(" ({} {})").format(period, period_name)
+                if discount:
+                    record.discount = discount
+                    record.name += _(" ({} {})").format(period, period_name)
 
         return res
 
