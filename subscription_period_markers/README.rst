@@ -2,25 +2,23 @@
    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
-===========================
-Website subscription update
-===========================
+=================================================
+Subscription: show subscription period on invoice
+=================================================
 
-This Odoo module enables subscription editing directly from the website.
-Users can select a new product via a modal window, and the system automatically updates the subscription line.
-
+Support for #START# and #END# markers in subscription lines
 
 Configuration
 =============
-\-
+-
 
 Usage
 =====
-\-
+Set #START# and/or #END# to subscription line, and it will automatically show up on invoices.
 
 Known issues / Roadmap
 ======================
-\-
+-
 
 Credits
 =======
@@ -28,7 +26,7 @@ Credits
 Contributors
 ------------
 
-* Valtteri Lattu <valtteri.lattu@futural.fi>
+* Jarmo Kortetjärvi <jarmo.kortetjarvi@futural.fi>
 
 Maintainer
 ----------

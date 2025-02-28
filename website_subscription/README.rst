@@ -10,7 +10,7 @@ Website Subscription
 Configuration
 =============
 * Portal chatter functionality can be toggled on/off in
-  Website editor -> Customize -> Hide Subscriptions Communication Section 
+  Website editor -> Customize -> Hide Subscriptions Communication Section
 
 Usage
 =====
@@ -27,7 +27,7 @@ Contributors
 ------------
 
 * Valtteri Lattu <valtteri.lattu@futural.fi>
-* Timo Talvitie <timo.talvitie@tawasta.fi>
+* Timo Talvitie <timo.talvitie@futural.fi>
 
 Maintainer
 ----------
