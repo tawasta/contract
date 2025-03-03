@@ -66,5 +66,6 @@ addon | version | maintainers | summary
 [subscription_user_default](subscription_user_default/) | 17.0.1.0.0 |  | Configurable Default or Core User for Sale Subscriptions
 [website_subscription](website_subscription/) | 17.0.1.2.3 |  | Subscriptions in website portal
 [website_subscription_edit](website_subscription_edit/) | 17.0.1.0.0 |  | Allows editings subscriptions from user portal
+[website_subscription_partner_edit](website_subscription_partner_edit/) | 17.0.1.0.0 |  | Website subscription edit partner
 
 [//]: # (end addons)
