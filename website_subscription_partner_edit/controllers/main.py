@@ -4,26 +4,36 @@ import json
 
 
 class PartnerEditController(http.Controller):
-    @http.route("/update_customer/<int:partner_id>", type="http", auth="user", website=True, methods=["POST"])
+    @http.route(
+        "/update_customer/<int:partner_id>",
+        type="http",
+        auth="user",
+        website=True,
+        methods=["POST"],
+    )
     def update_customer(self, partner_id, **post):
         response = {"error": False, "msg": "Customer information updated successfully!"}
-        
+
         try:
             partner = request.env["res.partner"].browse(partner_id)
-            
+
             if not partner:
                 response.update({"error": True, "msg": "Customer not found."})
                 return json.dumps(response)
-            
+
             valid_fields = request.env["res.partner"]._fields.keys()
-            update_data = {key: value for key, value in post.items() if key in valid_fields and value}
-            
+            update_data = {
+                key: value
+                for key, value in post.items()
+                if key in valid_fields and value
+            }
+
             if update_data:
                 partner.sudo().write(update_data)
-            
+
         except Exception as e:
             response.update({"error": True, "msg": f"An error occurred: {str(e)}"})
-        
+
         return json.dumps(response)
 
     @http.route(

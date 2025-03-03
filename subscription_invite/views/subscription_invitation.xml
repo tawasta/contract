@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="view_subscription_invitation_tree">
+        <field name="name">subscription.invitation.tree</field>
+        <field name="model">subscription.invitation</field>
+        <field name="arch" type="xml">
+            <tree default_order="invited_date desc">
+                <field name="subscription_id" />
+                <field name="invite_email" />
+                <field name="invited_date" />
+                <field name="is_used" />
+                <field name="used_date" />
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_subscription_invitation_form">
+        <field name="name">subscription.invitation.form</field>
+        <field name="model">subscription.invitation</field>
+        <field name="arch" type="xml">
+            <form string="Subscription Invitation">
+                <sheet>
+                    <group>
+                        <field name="subscription_id" readonly="1" />
+                        <field name="invite_email" />
+                        <field name="invited_date" readonly="1" />
+                        <field name="is_used" />
+                        <field name="used_date" readonly="1" />
+                        <field name="access_token" readonly="1" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_subscription_invitation_search">
+        <field name="name">subscription.invitation.search</field>
+        <field name="model">subscription.invitation</field>
+        <field name="arch" type="xml">
+            <search string="Subscription Invitations">
+                <field name="subscription_id" />
+                <field name="invite_email" />
+                <field name="is_used" />
+                <field name="invited_date" />
+            </search>
+        </field>
+    </record>
+
+    <record id="action_subscription_invitation" model="ir.actions.act_window">
+        <field name="name">Subscription Invitations</field>
+        <field name="res_model">subscription.invitation</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_subscription_invitation_tree" />
+        <field name="search_view_id" ref="view_subscription_invitation_search" />
+        <field name="help" type="html">
+            <p
+                class="o_view_nocontent_smiling_face"
+            >No Subscription Invitations found!</p>
+        </field>
+    </record>
+
+    <menuitem
+        id="menu_subscription_invitations"
+        name="Subscription Invitations"
+        parent="subscription_oca.sale_subscription_configuration_menu"
+        action="action_subscription_invitation"
+        sequence="5"
+    />
+</odoo>
