@@ -38,6 +38,7 @@ class SubscriptionController(http.Controller):
 
             new_line_vals = {
                 "sale_subscription_id": subscription.id,
+                "date_start": subscription.recurring_next_date,
                 "product_id": new_product_id,
                 "product_uom_qty": line.product_uom_qty,
                 "price_unit": request.env["product.product"]
@@ -48,7 +49,9 @@ class SubscriptionController(http.Controller):
             if hasattr(line, "partner_id"):
                 new_line_vals["partner_id"] = line.partner_id.id
 
-            new_line = request.env["sale.subscription.line"].create(new_line_vals)
+            new_line = (
+                request.env["sale.subscription.line"].sudo().create(new_line_vals)
+            )
             new_line.action_start(immediate=False)
 
         except Exception:

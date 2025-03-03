@@ -126,7 +126,7 @@ msgstr "Päätä tilausrivi"
 #. module: website_subscription
 #: model_terms:ir.ui.view,arch_db:website_subscription.portal_subscription_page
 msgid "Inactive subscription lines"
-msgstr "Päätetyt tilausrivit"
+msgstr "Inaktiiviset tilausrivit"
 
 #. module: website_subscription
 #: model_terms:ir.ui.view,arch_db:website_subscription.portal_my_subscriptions

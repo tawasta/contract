@@ -1,7 +1,7 @@
 ##############################################################################
 #
 #    Author: Futural Oy
-#    Copyright 2021- Futural Oy (https://futural.fi)
+#    Copyright 2024 Futural Oy (https://futural.fi)
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -19,33 +19,20 @@
 ##############################################################################
 
 {
-    "name": "Website Subscriptions",
-    "summary": "Subscriptions in website portal",
-    "version": "17.0.1.2.3",
-    "category": "Contract",
+    "name": "Subscription: Accrual rule",
+    "summary": "Add accrual rules to subscriptions",
+    "version": "17.0.1.0.1",
+    "category": "Contract Management",
     "website": "https://github.com/tawasta/contract",
     "author": "Futural",
     "license": "AGPL-3",
     "application": False,
     "installable": True,
     "depends": [
-        "portal",
-        "subscription_closing",
+        "account_invoice_accrual_rule",
         "subscription_oca",
-        "subscription_line_closing",
     ],
     "data": [
-        "security/ir.model.access.csv",
-        "security/ir_rules.xml",
-        "views/subscription_portal_my.xml",
-        "views/subscription_portal_page.xml",
-        "views/subscription_portal_page_modals.xml",
-        "views/subscription_portal_template_home.xml",
-        "views/subscription_portal_template_menu.xml",
+        "views/sale_subscription.xml",
     ],
-    "assets": {
-        "web.assets_frontend": [
-            "website_subscription/static/src/js/main.esm.js",
-        ],
-    },
 }

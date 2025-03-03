@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <template
+        id="product"
+        inherit_id="website_sale.product_price"
+        name="Website product prorate price"
+    >
+
+        <xpath expr="//div[@itemprop='offers']" position="after">
+            <p
+                t-if="product.subscription_price_prorate and website.sale_get_order() and website.sale_get_order()._get_existing_subscription()"
+                class="text-info"
+            ><i class="fa fa-info-circle" /> You have an existing subscription,<br
+                />and will only pay for the remaining billing period.<br
+                />The discounted price will be shown in the shopping cart.</p>
+        </xpath>
+
+    </template>
+
+</odoo>
