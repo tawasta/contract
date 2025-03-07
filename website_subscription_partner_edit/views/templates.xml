@@ -23,67 +23,156 @@
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content shadow-lg border-0 overflow-hidden">
                     <div class="modal-header bg-primary text-white py-3">
-                        <h5 class="modal-title font-weight-bold">Edit Customer Information</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"/>
+                        <h5
+                            class="modal-title font-weight-bold"
+                        >Edit Customer Information</h5>
+                        <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"
+                        />
                     </div>
-                    <form id="edit_customer_form" t-attf-action="/update_customer/#{user_partner_id.id}/subscription/#{subscription.id}" method="post">
-                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                    <form
+                        id="edit_customer_form"
+                        t-attf-action="/update_customer/#{user_partner_id.id}/subscription/#{subscription.id}"
+                        method="post"
+                    >
+                        <input
+                            type="hidden"
+                            name="csrf_token"
+                            t-att-value="request.csrf_token()"
+                        />
                         <div class="modal-body bg-light">
                             <h6>Select an existing contact or add a new one</h6>
-                            <div class="row row-cols-md-2 row-cols-lg-3 g-3 flex-nowrap flex-md-wrap mb32">
-                                <div t-foreach="contacts" t-as="contact" class="one_kanban col-md">
-                                    <div class="contact-card border rounded-lg p-3 shadow-sm h-100" t-att-data-contact-id="contact.id">
-                                        <strong t-esc="contact.name" class="d-block"/>
-                                        <p t-esc="contact.email" class="text-muted small mb-1"/>
-                                        <p t-esc="contact.street" class="text-muted small"/>
+                            <div
+                                class="row row-cols-md-2 row-cols-lg-3 g-3 flex-nowrap flex-md-wrap mb32"
+                            >
+                                <div
+                                    t-foreach="contacts"
+                                    t-as="contact"
+                                    class="one_kanban col-md"
+                                >
+                                    <div
+                                        class="contact-card border rounded-lg p-3 shadow-sm h-100"
+                                        t-att-data-contact-id="contact.id"
+                                    >
+                                        <strong t-esc="contact.name" class="d-block" />
+                                        <p
+                                            t-esc="contact.email"
+                                            class="text-muted small mb-1"
+                                        />
+                                        <p
+                                            t-esc="contact.street"
+                                            class="text-muted small"
+                                        />
                                     </div>
                                 </div>
                                 <div class="one_kanban col-md">
-                                    <a role="button" href="#" class="o_wsale_add_address d-flex align-items-center justify-content-center h-100 px-4 border rounded mx-auto no-decoration" data-bs-toggle="collapse" data-bs-target="#new_contact_form">
-                                        <i class="fa fa-plus me-md-2"/><span class="d-none d-md-inline">Add new contact</span>
+                                    <a
+                                        role="button"
+                                        href="#"
+                                        class="o_wsale_add_address d-flex align-items-center justify-content-center h-100 px-4 border rounded mx-auto no-decoration"
+                                        data-bs-toggle="collapse"
+                                        data-bs-target="#new_contact_form"
+                                    >
+                                        <i class="fa fa-plus me-md-2" /><span
+                                            class="d-none d-md-inline"
+                                        >Add new contact</span>
                                     </a>
                                 </div>
                             </div>
-                            <input type="hidden" name="existing_contact" id="selected_contact"/>
+                            <input
+                                type="hidden"
+                                name="existing_contact"
+                                id="selected_contact"
+                            />
                             <div id="new_contact_form" class="collapse mt-3">
                                 <h6>Add New Contact</h6>
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group p-1">
-                                            <label for="customer_firstname" class="font-weight-bold text-dark">First Name</label>
-                                            <input type="text" class="form-control border rounded-lg shadow-sm" id="customer_firstname" name="firstname"/>
+                                            <label
+                                                for="customer_firstname"
+                                                class="font-weight-bold text-dark"
+                                            >First Name</label>
+                                            <input
+                                                type="text"
+                                                class="form-control border rounded-lg shadow-sm"
+                                                id="customer_firstname"
+                                                name="firstname"
+                                            />
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group p-1">
-                                            <label for="customer_lastname" class="font-weight-bold text-dark">Last Name</label>
-                                            <input type="text" class="form-control border rounded-lg shadow-sm" id="customer_lastname" name="lastname"/>
+                                            <label
+                                                for="customer_lastname"
+                                                class="font-weight-bold text-dark"
+                                            >Last Name</label>
+                                            <input
+                                                type="text"
+                                                class="form-control border rounded-lg shadow-sm"
+                                                id="customer_lastname"
+                                                name="lastname"
+                                            />
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group p-1">
-                                            <label for="customer_email" class="font-weight-bold text-dark">Email</label>
-                                            <input type="email" class="form-control border rounded-lg shadow-sm" id="customer_email" name="email"/>
+                                            <label
+                                                for="customer_email"
+                                                class="font-weight-bold text-dark"
+                                            >Email</label>
+                                            <input
+                                                type="email"
+                                                class="form-control border rounded-lg shadow-sm"
+                                                id="customer_email"
+                                                name="email"
+                                            />
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group p-1">
-                                            <label for="customer_phone" class="font-weight-bold text-dark">Phone</label>
-                                            <input type="text" class="form-control border rounded-lg shadow-sm" id="customer_phone" name="phone"/>
+                                            <label
+                                                for="customer_phone"
+                                                class="font-weight-bold text-dark"
+                                            >Phone</label>
+                                            <input
+                                                type="text"
+                                                class="form-control border rounded-lg shadow-sm"
+                                                id="customer_phone"
+                                                name="phone"
+                                            />
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group p-1">
-                                    <label for="customer_street" class="font-weight-bold text-dark">Street</label>
-                                    <input type="text" class="form-control border rounded-lg shadow-sm" id="customer_street" name="street"/>
+                                    <label
+                                        for="customer_street"
+                                        class="font-weight-bold text-dark"
+                                    >Street</label>
+                                    <input
+                                        type="text"
+                                        class="form-control border rounded-lg shadow-sm"
+                                        id="customer_street"
+                                        name="street"
+                                    />
                                 </div>
                             </div>
                         </div>
                         <div class="text-right mt-3 modal-footer">
-                            <button type="submit" class="btn btn-success px-4 py-2 rounded-lg shadow">Save Changes</button>
-                            <button type="button" class="btn btn-secondary px-4 py-2 rounded-lg shadow" data-bs-dismiss="modal">Cancel</button>
+                            <button
+                                type="submit"
+                                class="btn btn-success px-4 py-2 rounded-lg shadow"
+                            >Save Changes</button>
+                            <button
+                                type="button"
+                                class="btn btn-secondary px-4 py-2 rounded-lg shadow"
+                                data-bs-dismiss="modal"
+                            >Cancel</button>
                         </div>
                     </form>
                 </div>

@@ -1,9 +1,9 @@
 /** @odoo-module **/
 
 import publicWidget from "@web/legacy/js/public/public_widget";
-import { jsonrpc } from "@web/core/network/rpc_service";
+import {jsonrpc} from "@web/core/network/rpc_service";
 import Dialog from "@web/legacy/js/core/dialog";
-import { _t } from "@web/core/l10n/translation";
+import {_t} from "@web/core/l10n/translation";
 
 var PartnerUpgrade = publicWidget.Widget.extend({
     selector: "#customer_information",
@@ -33,7 +33,10 @@ var PartnerUpgrade = publicWidget.Widget.extend({
             return;
         }
 
-        jsonrpc(`/partner/${partnerID}/subscription/${subscriptionID}/upgrade/modal`, {})
+        jsonrpc(
+            `/partner/${partnerID}/subscription/${subscriptionID}/upgrade/modal`,
+            {}
+        )
             .then((modalContent) => {
                 const $modal = $(modalContent);
                 $modal.find(".modal-body > div").removeClass("container");
@@ -54,7 +57,9 @@ var PartnerUpgrade = publicWidget.Widget.extend({
                 });
 
                 // Re-initialize click event on contact cards
-                $(".contact-card").off("click").on("click", this._onSelectContact.bind(this));
+                $(".contact-card")
+                    .off("click")
+                    .on("click", this._onSelectContact.bind(this));
             })
             .catch((err) => {
                 console.error("Failed to load modal content", err);
@@ -65,7 +70,7 @@ var PartnerUpgrade = publicWidget.Widget.extend({
         ev.preventDefault();
         ev.stopPropagation();
 
-        let $selectedCard = $(ev.currentTarget);
+        const $selectedCard = $(ev.currentTarget);
 
         // Poistetaan valinta kaikilta korteilta
         $(".contact-card").removeClass("bg-primary border border-primary text-white");
@@ -73,7 +78,7 @@ var PartnerUpgrade = publicWidget.Widget.extend({
         // Lisätään valinta valitulle kortille
         $selectedCard.addClass("bg-primary border border-primary");
 
-        let contactId = $selectedCard.attr("data-contact-id");
+        const contactId = $selectedCard.attr("data-contact-id");
         $("#selected_contact").val(contactId);
 
         // Piilotetaan uuden kontaktin lomake, jos valitaan olemassa oleva kontakti
@@ -91,7 +96,6 @@ var PartnerUpgrade = publicWidget.Widget.extend({
         // Näytetään tai piilotetaan uusi kontaktin lomake
         $("#new_contact_form").collapse("toggle");
     },
-
 
     _onFormSubmit: function (ev) {
         ev.preventDefault();

@@ -34,7 +34,9 @@ class PartnerEditController(http.Controller):
                     subscription.write({"partner_id": existing_contact.id})
 
                 else:
-                    response.update({"error": True, "msg": "Selected contact not found."})
+                    response.update(
+                        {"error": True, "msg": "Selected contact not found."}
+                    )
                     return json.dumps(response)
 
             else:
@@ -87,4 +89,3 @@ class PartnerEditController(http.Controller):
                 "contacts": unique_contacts,  # Lopullinen lista ilman user_partner_id:tä
             },
         )
-
