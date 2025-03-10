@@ -1,9 +1,9 @@
 /** @odoo-module **/
 
 import publicWidget from "@web/legacy/js/public/public_widget";
-import { jsonrpc } from "@web/core/network/rpc_service";
+import {jsonrpc} from "@web/core/network/rpc_service";
 import Dialog from "@web/legacy/js/core/dialog";
-import { _t } from "@web/core/l10n/translation";
+import {_t} from "@web/core/l10n/translation";
 
 var PartnerUpgrade = publicWidget.Widget.extend({
     selector: "#customer_information",
@@ -17,7 +17,11 @@ var PartnerUpgrade = publicWidget.Widget.extend({
         $(document).on("submit", "#edit_customer_form", this._onFormSubmit.bind(this));
 
         // Lisätään event listener dynaamisesti lisättyihin elementteihin
-        $(document).on("click", ".o_wsale_add_address", this._onToggleNewContact.bind(this));
+        $(document).on(
+            "click",
+            ".o_wsale_add_address",
+            this._onToggleNewContact.bind(this)
+        );
     },
 
     _onClickUpgradeButton: function (ev) {
@@ -31,7 +35,10 @@ var PartnerUpgrade = publicWidget.Widget.extend({
             return;
         }
 
-        jsonrpc(`/partner/${partnerID}/subscription/${subscriptionID}/upgrade/modal`, {})
+        jsonrpc(
+            `/partner/${partnerID}/subscription/${subscriptionID}/upgrade/modal`,
+            {}
+        )
             .then((modalContent) => {
                 const $modal = $(modalContent);
                 $modal.find(".modal-body > div").removeClass("container");
@@ -84,13 +91,13 @@ var PartnerUpgrade = publicWidget.Widget.extend({
         ev.preventDefault();
         ev.stopPropagation();
 
-        // ** Poistetaan kaikki aiemmat valinnat ** 
+        // ** Poistetaan kaikki aiemmat valinnat **
         console.log($(".contact-card"));
         console.log($("#selected_contact").val());
         $(".contact-card").removeClass("bg-primary border border-primary text-white");
         $("#selected_contact").val("");
 
-        // ** Varmistetaan, että lomake aukeaa aina kun "Add New" painetaan ** 
+        // ** Varmistetaan, että lomake aukeaa aina kun "Add New" painetaan **
         $("#new_contact_form").collapse("show");
     },
 
