@@ -49,6 +49,7 @@ addon | version | maintainers | summary
 [subscription_customer_reference](subscription_customer_reference/) | 17.0.1.0.0 |  | Add customer reference to subscriptions
 [subscription_disable_qty_in_cart](subscription_disable_qty_in_cart/) | 17.0.1.0.0 |  | Disable changing subscription product quantity in cart
 [subscription_free_product](subscription_free_product/) | 17.0.1.0.0 |  | Add a free subscription when purchasing a subscription product
+[subscription_invite](subscription_invite/) | 17.0.1.0.0 |  | Subscription: Invite Others
 [subscription_invoice_queue](subscription_invoice_queue/) | 17.0.1.0.0 |  | Create invoices as queued jobs
 [subscription_line_change_product_variant](subscription_line_change_product_variant/) | 17.0.1.1.0 |  | Substriction Line Change product variant and create invoice
 [subscription_line_closing](subscription_line_closing/) | 17.0.1.2.0 |  | Allows ending subscription lines without deleting them
@@ -57,6 +58,7 @@ addon | version | maintainers | summary
 [subscription_line_partner](subscription_line_partner/) | 17.0.1.0.4 |  | Allows defining a partner to subscription lines
 [subscription_line_related_sale_order_line](subscription_line_related_sale_order_line/) | 17.0.1.0.0 |  | Add SO line information for subscription lines
 [subscription_modification](subscription_modification/) | 17.0.1.0.1 |  | Add modification log to subscriptions
+[subscription_prorate](subscription_prorate/) | 17.0.1.0.0 |  | Prorate subscription price to allow synchronous subscription dates
 [subscription_shipping_address](subscription_shipping_address/) | 17.0.1.0.0 |  | Add shipping address to subscriptions
 [subscription_usability_improvements](subscription_usability_improvements/) | 17.0.1.0.0 |  | Add basic searches, groupings and optional fields to subscriptions
 [subscription_use_existing_invoice](subscription_use_existing_invoice/) | 17.0.1.0.0 |  | Add subscription lines to an existing draft invoice

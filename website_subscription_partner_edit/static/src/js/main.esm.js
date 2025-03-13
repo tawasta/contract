@@ -9,28 +9,41 @@ var PartnerUpgrade = publicWidget.Widget.extend({
     selector: "#customer_information",
     events: {
         "click #modal_customer_edit": "_onClickUpgradeButton",
+        "click .contact-card": "_onSelectContact",
     },
 
     start: function () {
         this._super.apply(this, arguments);
         $(document).on("submit", "#edit_customer_form", this._onFormSubmit.bind(this));
+
+        // Lisätään event listener dynaamisesti lisättyihin elementteihin
+        $(document).on(
+            "click",
+            ".o_wsale_add_address",
+            this._onToggleNewContact.bind(this)
+        );
     },
 
     _onClickUpgradeButton: function (ev) {
         ev.preventDefault();
         ev.stopPropagation();
         const partnerID = $(ev.currentTarget).attr("partner-id");
+        const subscriptionID = $(ev.currentTarget).attr("subscription-id");
 
-        if (!partnerID) {
-            console.error("PARTNER ID not found.");
+        if (!partnerID || !subscriptionID) {
+            console.error("PARTNER ID or SUBSCRIPTION ID not found.");
             return;
         }
 
-        jsonrpc(`/partner/${partnerID}/upgrade/modal`, {})
-            .then(function (modalContent) {
+        jsonrpc(
+            `/partner/${partnerID}/subscription/${subscriptionID}/upgrade/modal`,
+            {}
+        )
+            .then((modalContent) => {
                 const $modal = $(modalContent);
                 $modal.find(".modal-body > div").removeClass("container");
                 $modal.appendTo(document.body);
+
                 // eslint-disable-next-line no-undef
                 const modalBS = new Modal($modal[0], {
                     backdrop: "static",
@@ -44,10 +57,48 @@ var PartnerUpgrade = publicWidget.Widget.extend({
                 $modal.on("hidden.bs.modal", function () {
                     $modal.remove();
                 });
+
+                // Re-initialize click event on contact cards
+                $(".contact-card")
+                    .off("click")
+                    .on("click", this._onSelectContact.bind(this));
             })
-            .catch(function (err) {
+            .catch((err) => {
                 console.error("Failed to load modal content", err);
             });
+    },
+
+    _onSelectContact: function (ev) {
+        ev.preventDefault();
+        ev.stopPropagation();
+
+        const $selectedCard = $(ev.currentTarget);
+
+        // Poistetaan valinta kaikilta korteilta
+        $(".contact-card").removeClass("bg-primary border border-primary text-white");
+
+        // Lisätään valinta valitulle kortille
+        $selectedCard.addClass("bg-primary border border-primary text-white");
+
+        const contactId = $selectedCard.attr("data-contact-id");
+        $("#selected_contact").val(contactId);
+
+        // Piilotetaan uuden kontaktin lomake, jos valitaan olemassa oleva kontakti
+        $("#new_contact_form").collapse("hide");
+    },
+
+    _onToggleNewContact: function (ev) {
+        ev.preventDefault();
+        ev.stopPropagation();
+
+        // ** Poistetaan kaikki aiemmat valinnat **
+        console.log($(".contact-card"));
+        console.log($("#selected_contact").val());
+        $(".contact-card").removeClass("bg-primary border border-primary text-white");
+        $("#selected_contact").val("");
+
+        // ** Varmistetaan, että lomake aukeaa aina kun "Add New" painetaan **
+        $("#new_contact_form").collapse("show");
     },
 
     _onFormSubmit: function (ev) {
