@@ -42,12 +42,27 @@ class PartnerEditController(http.Controller):
             else:
                 # Käyttäjä luo uuden kontaktin
                 new_contact_vals = {
-                    "name": f"{post.get('firstname', '')} {post.get('lastname', '')}",
-                    "email": post.get("email"),
-                    "phone": post.get("phone"),
-                    "street": post.get("street"),
-                    "parent_id": partner.id,  # Liitetään pääkontaktiin
+                    key: post.get(key)
+                    for key in [
+                        "name",
+                        "email",
+                        "phone",
+                        "street",
+                        "zip",
+                        "city",
+                        "company_registry",
+                    ]
                 }
+                new_contact_vals["type"] = "invoice"
+                new_contact_vals["parent_id"] = partner.id  # Liitetään pääkontaktiin
+
+                # Käsitellään kentät, jotka vaativat tyyppimuunnoksen
+                if post.get("country_id"):
+                    new_contact_vals["country_id"] = int(post["country_id"])
+
+                if post.get("customer_invoice_transmit_method_id"):
+                    new_contact_vals["customer_invoice_transmit_method_id"] = int(post["customer_invoice_transmit_method_id"])
+
                 new_contact = request.env["res.partner"].sudo().create(new_contact_vals)
                 partner.write({"child_ids": [(4, new_contact.id)]})
                 subscription.write({"partner_id": new_contact.id})

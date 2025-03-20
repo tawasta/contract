@@ -90,76 +90,78 @@
                             <div id="new_contact_form" class="collapse mt-3">
                                 <h6>Add New Contact</h6>
                                 <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group p-1">
-                                            <label
-                                                for="customer_firstname"
-                                                class="font-weight-bold text-dark"
-                                            >First Name</label>
-                                            <input
-                                                type="text"
-                                                class="form-control border rounded-lg shadow-sm"
-                                                id="customer_firstname"
-                                                name="firstname"
-                                            />
-                                        </div>
+                                    <input type="hidden" name="billing_address" value="True" />
+                                    <div class="form-group col-lg-12 mb-2">
+                                        <label class="col-form-label" for="name">Nimi</label>
+                                        <input type="text" name="name" required="1" class="form-control" />
                                     </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group p-1">
-                                            <label
-                                                for="customer_lastname"
-                                                class="font-weight-bold text-dark"
-                                            >Last Name</label>
-                                            <input
-                                                type="text"
-                                                class="form-control border rounded-lg shadow-sm"
-                                                id="customer_lastname"
-                                                name="lastname"
-                                            />
-                                        </div>
+                                    <div id="div_email" class="col-lg-6 mb-2">
+                                        <label for="email" class="col-form-label">Email</label>
+                                        <input type="email" name="email" class="form-control" />
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group p-1">
-                                            <label
-                                                for="customer_email"
-                                                class="font-weight-bold text-dark"
-                                            >Email</label>
-                                            <input
-                                                type="email"
-                                                class="form-control border rounded-lg shadow-sm"
-                                                id="customer_email"
-                                                name="email"
-                                            />
-                                        </div>
+                                    <div id="div_phone" class="col-lg-6 mb-2">
+                                        <label class="col-form-label" for="phone">Phone</label>
+                                        <input type="tel" name="phone" class="form-control" placeholder="+358" />
                                     </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group p-1">
-                                            <label
-                                                for="customer_phone"
-                                                class="font-weight-bold text-dark"
-                                            >Phone</label>
-                                            <input
-                                                type="text"
-                                                class="form-control border rounded-lg shadow-sm"
-                                                id="customer_phone"
-                                                name="phone"
-                                            />
-                                        </div>
+                                    <div class="div_company_registry_billing col-lg-6 mb-2">
+                                        <label class="col-form-label fw-normal label-optional" for="company_registry">ALV</label>
+                                        <input type="text" name="company_registry" class="form-control" />
                                     </div>
-                                </div>
-                                <div class="form-group p-1">
-                                    <label
-                                        for="customer_street"
-                                        class="font-weight-bold text-dark"
-                                    >Street</label>
-                                    <input
-                                        type="text"
-                                        class="form-control border rounded-lg shadow-sm"
-                                        id="customer_street"
-                                        name="street"
-                                    />
+                                    <t
+                t-set="methods"
+                t-value="request.env['transmit.method'].sudo().search([('website_sale_ok', '=', True)])"
+            />
+                                    <div
+                                        id="customer_invoice_transmit_method_id_div"
+                                        t-attf-class="form-group col-lg-6"
+                                        t-if="methods"
+                                    >
+                                        <label
+                                            class="col-form-label"
+                                            for="customer_invoice_transmit_method_id"
+                                        >Invoice transmit method</label>
+                                        <select
+                                            id="customer-invoice-transmit-method"
+                                            t-attf-class="form-control"
+                                            name="customer_invoice_transmit_method_id"
+                                            data-init="1"
+                                        >
+                                            <t t-foreach="methods" t-as="method">
+                                                <option
+                                                    t-att-value="method.id"
+                                                    t-att-data-code="method.code"
+                                                    t-esc="method.name"
+                                                />
+                                            </t>
+                                        </select>
+                                    </div>
+                                    <div class="div_street col-lg-12 mb-2">
+                                        <label class="col-form-label" for="street">Street</label>
+                                        <input type="text" name="street" class="form-control" required="1" />
+                                    </div>
+                                    <div class="div_zip col-md-4 mb-2">
+                                        <label class="col-form-label" for="zip">Zip</label>
+                                        <input type="text" name="zip" class="form-control" required="1" />
+                                    </div>
+                                    <div class="div_city col-md-8 mb-2">
+                                        <label class="col-form-label" for="city">City</label>
+                                        <input type="text" name="city" class="form-control" required="1" />
+                                    </div>
+                                    <t
+                t-set="countries"
+                t-value="request.env['res.country'].sudo().search([])"
+            />
+                                    <div class="div_country col-lg-6 mb-2">
+                                            <label class="col-form-label" for="country_id">Country</label>
+                                            <select id="country_id" name="country_id" t-attf-class="form-select">
+                                                <option value="">Country...</option>
+                                                <t t-foreach="countries" t-as="c">
+                                                    <option t-att-value="c.id">
+                                                        <t t-esc="c.name" />
+                                                    </option>
+                                                </t>
+                                            </select>
+                                        </div>
                                 </div>
                             </div>
                         </div>

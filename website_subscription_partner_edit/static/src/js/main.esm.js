@@ -85,6 +85,9 @@ var PartnerUpgrade = publicWidget.Widget.extend({
 
         // Piilotetaan uuden kontaktin lomake, jos valitaan olemassa oleva kontakti
         $("#new_contact_form").collapse("hide");
+
+        // Poistetaan required-attribuutit
+        this._toggleRequiredFields(false);
     },
 
     _onToggleNewContact: function (ev) {
@@ -92,13 +95,14 @@ var PartnerUpgrade = publicWidget.Widget.extend({
         ev.stopPropagation();
 
         // ** Poistetaan kaikki aiemmat valinnat **
-        console.log($(".contact-card"));
-        console.log($("#selected_contact").val());
         $(".contact-card").removeClass("bg-primary border border-primary text-white");
         $("#selected_contact").val("");
 
         // ** Varmistetaan, että lomake aukeaa aina kun "Add New" painetaan **
         $("#new_contact_form").collapse("show");
+
+        // Lisätään takaisin required-attribuutit
+        this._toggleRequiredFields(true);
     },
 
     _onFormSubmit: function (ev) {
@@ -133,6 +137,19 @@ var PartnerUpgrade = publicWidget.Widget.extend({
             complete: () => {
                 this._hideLoadingScreen();
             },
+        });
+    },
+
+    _toggleRequiredFields: function (isRequired) {
+        const fields = ["name", "zip", "city", "street"];
+
+        fields.forEach((field) => {
+            const input = $(`input[name='${field}']`);
+            if (isRequired) {
+                input.attr("required", "required");
+            } else {
+                input.removeAttr("required");
+            }
         });
     },
 
