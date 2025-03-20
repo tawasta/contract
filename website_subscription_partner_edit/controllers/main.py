@@ -61,7 +61,9 @@ class PartnerEditController(http.Controller):
                     new_contact_vals["country_id"] = int(post["country_id"])
 
                 if post.get("customer_invoice_transmit_method_id"):
-                    new_contact_vals["customer_invoice_transmit_method_id"] = int(post["customer_invoice_transmit_method_id"])
+                    new_contact_vals["customer_invoice_transmit_method_id"] = int(
+                        post["customer_invoice_transmit_method_id"]
+                    )
 
                 new_contact = request.env["res.partner"].sudo().create(new_contact_vals)
                 partner.write({"child_ids": [(4, new_contact.id)]})
