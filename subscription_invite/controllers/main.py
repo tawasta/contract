@@ -49,21 +49,39 @@ class SubscriptionInviteController(http.Controller):
 
         if not existing_user:
             # >>> Create new partner for this email
-            new_partner = request.env["res.partner"].sudo().create({
-                "name": invite_email.split("@")[0],
-                "email": invite_email,
-            })
+            new_partner = (
+                request.env["res.partner"]
+                .sudo()
+                .create(
+                    {
+                        "name": invite_email.split("@")[0],
+                        "email": invite_email,
+                    }
+                )
+            )
 
             # >>> Grant portal access via portal wizard
-            portal_wizard = request.env["portal.wizard"].sudo().create({
-                "partner_ids": [(6, 0, [new_partner.id])],
-            })
+            portal_wizard = (
+                request.env["portal.wizard"]
+                .sudo()
+                .create(
+                    {
+                        "partner_ids": [(6, 0, [new_partner.id])],
+                    }
+                )
+            )
 
-            portal_user = request.env["portal.wizard.user"].sudo().create({
-                "wizard_id": portal_wizard.id,
-                "partner_id": new_partner.id,
-                "email": invite_email,
-            })
+            portal_user = (
+                request.env["portal.wizard.user"]
+                .sudo()
+                .create(
+                    {
+                        "wizard_id": portal_wizard.id,
+                        "partner_id": new_partner.id,
+                        "email": invite_email,
+                    }
+                )
+            )
 
             portal_user.action_grant_access()
 
