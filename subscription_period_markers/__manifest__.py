@@ -33,5 +33,6 @@
     ],
     "data": [
         "views/sale_subscription.xml",
+        "views/sale_subscription_template.xml",
     ],
 }

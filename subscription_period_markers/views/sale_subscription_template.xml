@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="sale_subscription_template_form" model="ir.ui.view">
+        <field name="name">sale.subscription.template.form.period.markers</field>
+        <field name="model">sale.subscription.template</field>
+        <field
+            name="inherit_id"
+            ref="subscription_oca.sale_subscription_template_form"
+        />
+        <field name="arch" type="xml">
+            <field name="code" position="after">
+                <field name="auto_period_markers" widget="boolean_toggle" />
+                <field
+                    name="auto_period_markers_text"
+                    invisible="not auto_period_markers"
+                />
+            </field>
+        </field>
+    </record>
+</odoo>

@@ -20,17 +20,15 @@ class SaleSubscriptionLine(models.Model):
             interval = int(subscription_id.template_id.recurring_interval)
 
             first_date_invoiced = subscription_id.recurring_next_date
-            last_date_invoiced = (
-                first_date_invoiced
-                + relativedelta(**{type_interval: interval})
+            last_date_invoiced = first_date_invoiced + relativedelta(
+                **{type_interval: interval}
             )
 
             if subscription_id.recurring_invoicing_type == "post-paid":
                 # When subscription is paid after the period
                 last_date_invoiced = first_date_invoiced
-                first_date_invoiced = (
-                    last_date_invoiced
-                    - relativedelta(**{type_interval: interval})
+                first_date_invoiced = last_date_invoiced - relativedelta(
+                    **{type_interval: interval}
                 )
 
             # End the period before the next period starts
