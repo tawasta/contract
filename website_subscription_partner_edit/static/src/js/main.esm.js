@@ -22,6 +22,8 @@ var PartnerUpgrade = publicWidget.Widget.extend({
             ".o_wsale_add_address",
             this._onToggleNewContact.bind(this)
         );
+
+        $(document).on("change", "#is_company_toggle", this._onToggleIsCompany.bind(this));
     },
 
     _onClickUpgradeButton: function (ev) {
@@ -67,6 +69,19 @@ var PartnerUpgrade = publicWidget.Widget.extend({
                 console.error("Failed to load modal content", err);
             });
     },
+
+    _onToggleIsCompany: function (ev) {
+        const isChecked = $(ev.currentTarget).is(":checked");
+        console.log(isChecked);
+        const $alvField = $("#company_registry_group");
+        console.log($alvField);
+        if (isChecked) {
+            $alvField.removeClass("d-none");
+        } else {
+            $alvField.addClass("d-none");
+        }
+    },
+
 
     _onSelectContact: function (ev) {
         ev.preventDefault();
