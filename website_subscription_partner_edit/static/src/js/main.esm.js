@@ -23,7 +23,11 @@ var PartnerUpgrade = publicWidget.Widget.extend({
             this._onToggleNewContact.bind(this)
         );
 
-        $(document).on("change", "#is_company_toggle", this._onToggleIsCompany.bind(this));
+        $(document).on(
+            "change",
+            "#is_company_toggle",
+            this._onToggleIsCompany.bind(this)
+        );
     },
 
     _onClickUpgradeButton: function (ev) {
@@ -81,7 +85,6 @@ var PartnerUpgrade = publicWidget.Widget.extend({
             $alvField.addClass("d-none");
         }
     },
-
 
     _onSelectContact: function (ev) {
         ev.preventDefault();
