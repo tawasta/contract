@@ -21,7 +21,7 @@
 {
     "name": "Subscription: show subscription period on invoice",
     "summary": "Support for #START# and #END# markers in subscription lines",
-    "version": "17.0.1.0.0",
+    "version": "17.0.1.1.0",
     "category": "Contract Management",
     "website": "https://github.com/tawasta/contract",
     "author": "Futural",
@@ -31,5 +31,7 @@
     "depends": [
         "subscription_oca",
     ],
-    "data": [],
+    "data": [
+        "views/sale_subscription.xml",
+    ],
 }
