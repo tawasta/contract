@@ -78,11 +78,14 @@ var PartnerUpgrade = publicWidget.Widget.extend({
         const isChecked = $(ev.currentTarget).is(":checked");
         console.log(isChecked);
         const $alvField = $("#company_registry_group");
+        const $alvFieldInput = $("input[name='company_registry']");
         console.log($alvField);
         if (isChecked) {
             $alvField.removeClass("d-none");
+            $alvFieldInput.attr("required", "required");
         } else {
             $alvField.addClass("d-none");
+            $alvFieldInput.removeAttr("required");
         }
     },
 
