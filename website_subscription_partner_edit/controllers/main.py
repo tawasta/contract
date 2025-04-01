@@ -50,11 +50,17 @@ class PartnerEditController(http.Controller):
                         "street",
                         "zip",
                         "city",
-                        "company_registry",
                     ]
                 }
                 new_contact_vals["type"] = "invoice"
                 new_contact_vals["parent_id"] = partner.id  # Liitetään pääkontaktiin
+
+                # Käsitellään boolean checkbox: "on" → True
+                is_company = post.get("is_company") == "on"
+
+                # ALV-numero vain jos kyseessä on yritys
+                if is_company and post.get("company_registry"):
+                    new_contact_vals["company_registry"] = post.get("company_registry")
 
                 # Käsitellään kentät, jotka vaativat tyyppimuunnoksen
                 if post.get("country_id"):
