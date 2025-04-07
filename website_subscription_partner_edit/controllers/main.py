@@ -26,7 +26,6 @@ class PartnerEditController(http.Controller):
                 return json.dumps(response)
 
             if post.get("existing_contact"):
-                # Käyttäjä valitsi olemassa olevan kontaktin
                 existing_contact = request.env["res.partner"].browse(
                     int(post["existing_contact"])
                 )
@@ -40,11 +39,10 @@ class PartnerEditController(http.Controller):
                     return json.dumps(response)
 
             else:
-                # Käyttäjä luo uuden kontaktin
+                # Creating a new contact
                 new_contact_vals = {
                     key: post.get(key)
                     for key in [
-                        "name",
                         "email",
                         "phone",
                         "street",
@@ -53,23 +51,57 @@ class PartnerEditController(http.Controller):
                     ]
                 }
                 new_contact_vals["type"] = "invoice"
-                new_contact_vals["parent_id"] = partner.id  # Liitetään pääkontaktiin
+                new_contact_vals["parent_id"] = partner.id
 
-                # Käsitellään boolean checkbox: "on" → True
                 is_company = post.get("is_company") == "on"
 
-                # ALV-numero vain jos kyseessä on yritys
-                if is_company and post.get("company_registry"):
-                    new_contact_vals["company_registry"] = post.get("company_registry")
+                if is_company:
+                    # new_contact_vals["is_company"] = True
+                    new_contact_vals["name"] = post.get("name")
+                    if post.get("company_registry"):
+                        new_contact_vals["company_registry"] = post.get(
+                            "company_registry"
+                        )
+                else:
+                    firstname = post.get("firstname") or ""
+                    lastname = post.get("lastname") or ""
+                    new_contact_vals["firstname"] = firstname
+                    new_contact_vals["lastname"] = lastname
 
-                # Käsitellään kentät, jotka vaativat tyyppimuunnoksen
+                # Country & Transmit Method
+                transmit_method_id = post.get("customer_invoice_transmit_method_id")
+                if transmit_method_id:
+                    new_contact_vals["customer_invoice_transmit_method_id"] = int(
+                        transmit_method_id
+                    )
+
+                    # Fetch transmit method code
+                    method = (
+                        request.env["transmit.method"]
+                        .sudo()
+                        .browse(int(transmit_method_id))
+                    )
+                    if method and method.code == "einvoice" and is_company:
+                        # Only add these if method is 'einvoice' and customer is a company
+                        if post.get("edicode"):
+                            new_contact_vals["edicode"] = post.get("edicode")
+                        if post.get("einvoice_operator_id"):
+                            new_contact_vals["einvoice_operator_id"] = int(
+                                post["einvoice_operator_id"]
+                            )
+
+                    if method.code == "ocr":
+                        # Tarkistetaan, että kenttä on olemassa mallissa
+                        if hasattr(
+                            request.env["res.partner"], "email_invoicing_address"
+                        ):
+                            if post.get("email"):
+                                new_contact_vals["email_invoicing_address"] = post.get(
+                                    "email"
+                                )
+
                 if post.get("country_id"):
                     new_contact_vals["country_id"] = int(post["country_id"])
-
-                if post.get("customer_invoice_transmit_method_id"):
-                    new_contact_vals["customer_invoice_transmit_method_id"] = int(
-                        post["customer_invoice_transmit_method_id"]
-                    )
 
                 new_contact = request.env["res.partner"].sudo().create(new_contact_vals)
                 partner.write({"child_ids": [(4, new_contact.id)]})
