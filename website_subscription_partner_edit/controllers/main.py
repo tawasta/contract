@@ -80,6 +80,13 @@ class PartnerEditController(http.Controller):
                         if post.get("einvoice_operator_id"):
                             new_contact_vals["einvoice_operator_id"] = int(post["einvoice_operator_id"])
 
+                    if method.code == "ocr":
+                        # Tarkistetaan, että kenttä on olemassa mallissa
+                        if hasattr(request.env["res.partner"], "email_invoicing_address"):
+                            if post.get("email"):
+                                new_contact_vals["email_invoicing_address"] = post.get("email")
+
+
                 if post.get("country_id"):
                     new_contact_vals["country_id"] = int(post["country_id"])
 
