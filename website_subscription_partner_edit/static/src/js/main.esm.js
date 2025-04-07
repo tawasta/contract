@@ -29,12 +29,16 @@ var PartnerUpgrade = publicWidget.Widget.extend({
             this._onToggleIsCompany.bind(this)
         );
 
-        $(document).on("change", "#customer-invoice-transmit-method", this._onTransmitMethodChange.bind(this));
+        $(document).on(
+            "change",
+            "#customer-invoice-transmit-method",
+            this._onTransmitMethodChange.bind(this)
+        );
     },
 
     _onTransmitMethodChange: function (ev) {
         const selectedOption = $(ev.currentTarget).find("option:selected");
-        const selectedCode = selectedOption.data("code"); // from data-code="method.code"
+        const selectedCode = selectedOption.data("code"); // From data-code="method.code"
 
         const $edicode = $("#edicode-div");
         const $einvoiceOperator = $("#einvoice-operator-div");
@@ -47,7 +51,6 @@ var PartnerUpgrade = publicWidget.Widget.extend({
             $einvoiceOperator.addClass("d-none");
         }
     },
-
 
     _onClickUpgradeButton: function (ev) {
         ev.preventDefault();
@@ -110,7 +113,6 @@ var PartnerUpgrade = publicWidget.Widget.extend({
 
             $personNames.addClass("d-none");
             $personNames.find("input").removeAttr("required");
-
         } else {
             $alvField.addClass("d-none");
             $alvFieldInput.removeAttr("required");
@@ -122,7 +124,6 @@ var PartnerUpgrade = publicWidget.Widget.extend({
             $personNames.find("input").attr("required", "required");
         }
     },
-
 
     _onSelectContact: function (ev) {
         ev.preventDefault();

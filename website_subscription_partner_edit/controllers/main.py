@@ -56,10 +56,12 @@ class PartnerEditController(http.Controller):
                 is_company = post.get("is_company") == "on"
 
                 if is_company:
-                    #new_contact_vals["is_company"] = True
+                    # new_contact_vals["is_company"] = True
                     new_contact_vals["name"] = post.get("name")
                     if post.get("company_registry"):
-                        new_contact_vals["company_registry"] = post.get("company_registry")
+                        new_contact_vals["company_registry"] = post.get(
+                            "company_registry"
+                        )
                 else:
                     firstname = post.get("firstname") or ""
                     lastname = post.get("lastname") or ""
@@ -69,23 +71,34 @@ class PartnerEditController(http.Controller):
                 # Country & Transmit Method
                 transmit_method_id = post.get("customer_invoice_transmit_method_id")
                 if transmit_method_id:
-                    new_contact_vals["customer_invoice_transmit_method_id"] = int(transmit_method_id)
+                    new_contact_vals["customer_invoice_transmit_method_id"] = int(
+                        transmit_method_id
+                    )
 
                     # Fetch transmit method code
-                    method = request.env["transmit.method"].sudo().browse(int(transmit_method_id))
+                    method = (
+                        request.env["transmit.method"]
+                        .sudo()
+                        .browse(int(transmit_method_id))
+                    )
                     if method and method.code == "einvoice" and is_company:
                         # Only add these if method is 'einvoice' and customer is a company
                         if post.get("edicode"):
                             new_contact_vals["edicode"] = post.get("edicode")
                         if post.get("einvoice_operator_id"):
-                            new_contact_vals["einvoice_operator_id"] = int(post["einvoice_operator_id"])
+                            new_contact_vals["einvoice_operator_id"] = int(
+                                post["einvoice_operator_id"]
+                            )
 
                     if method.code == "ocr":
                         # Tarkistetaan, että kenttä on olemassa mallissa
-                        if hasattr(request.env["res.partner"], "email_invoicing_address"):
+                        if hasattr(
+                            request.env["res.partner"], "email_invoicing_address"
+                        ):
                             if post.get("email"):
-                                new_contact_vals["email_invoicing_address"] = post.get("email")
-
+                                new_contact_vals["email_invoicing_address"] = post.get(
+                                    "email"
+                                )
 
                 if post.get("country_id"):
                     new_contact_vals["country_id"] = int(post["country_id"])
