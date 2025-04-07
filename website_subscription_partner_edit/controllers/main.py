@@ -44,7 +44,6 @@ class PartnerEditController(http.Controller):
                 new_contact_vals = {
                     key: post.get(key)
                     for key in [
-                        "name",
                         "email",
                         "phone",
                         "street",
@@ -58,9 +57,19 @@ class PartnerEditController(http.Controller):
                 # Käsitellään boolean checkbox: "on" → True
                 is_company = post.get("is_company") == "on"
 
-                # ALV-numero vain jos kyseessä on yritys
-                if is_company and post.get("company_registry"):
-                    new_contact_vals["company_registry"] = post.get("company_registry")
+                # Nimi logiikka
+                if is_company:
+                    #new_contact_vals["is_company"] = True
+                    new_contact_vals["name"] = post.get("name")
+                    if post.get("company_registry"):
+                        new_contact_vals["company_registry"] = post.get("company_registry")
+                else:
+                    #new_contact_vals["is_company"] = False
+                    firstname = post.get("firstname") or ""
+                    lastname = post.get("lastname") or ""
+                    new_contact_vals["firstname"] = firstname
+                    new_contact_vals["lastname"] = lastname
+                    #new_contact_vals["name"] = f"{firstname} {lastname}".strip()
 
                 # Käsitellään kentät, jotka vaativat tyyppimuunnoksen
                 if post.get("country_id"):

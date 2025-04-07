@@ -28,7 +28,26 @@ var PartnerUpgrade = publicWidget.Widget.extend({
             "#is_company_toggle",
             this._onToggleIsCompany.bind(this)
         );
+
+        $(document).on("change", "#customer-invoice-transmit-method", this._onTransmitMethodChange.bind(this));
     },
+
+    _onTransmitMethodChange: function (ev) {
+        const selectedOption = $(ev.currentTarget).find("option:selected");
+        const selectedCode = selectedOption.data("code"); // from data-code="method.code"
+
+        const $edicode = $("#edicode-div");
+        const $einvoiceOperator = $("#einvoice-operator-div");
+
+        if (selectedCode === "einvoice") {
+            $edicode.removeClass("d-none");
+            $einvoiceOperator.removeClass("d-none");
+        } else {
+            $edicode.addClass("d-none");
+            $einvoiceOperator.addClass("d-none");
+        }
+    },
+
 
     _onClickUpgradeButton: function (ev) {
         ev.preventDefault();
@@ -76,18 +95,34 @@ var PartnerUpgrade = publicWidget.Widget.extend({
 
     _onToggleIsCompany: function (ev) {
         const isChecked = $(ev.currentTarget).is(":checked");
-        console.log(isChecked);
+
         const $alvField = $("#company_registry_group");
         const $alvFieldInput = $("input[name='company_registry']");
-        console.log($alvField);
+        const $companyName = $("#company_name_field");
+        const $personNames = $("#person_name_fields");
+
         if (isChecked) {
             $alvField.removeClass("d-none");
             $alvFieldInput.attr("required", "required");
+
+            $companyName.removeClass("d-none");
+            $companyName.find("input").attr("required", "required");
+
+            $personNames.addClass("d-none");
+            $personNames.find("input").removeAttr("required");
+
         } else {
             $alvField.addClass("d-none");
             $alvFieldInput.removeAttr("required");
+
+            $companyName.addClass("d-none");
+            $companyName.find("input").removeAttr("required");
+
+            $personNames.removeClass("d-none");
+            $personNames.find("input").attr("required", "required");
         }
     },
+
 
     _onSelectContact: function (ev) {
         ev.preventDefault();

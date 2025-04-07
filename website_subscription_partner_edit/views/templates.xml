@@ -113,18 +113,36 @@
                                         name="billing_address"
                                         value="True"
                                     />
-                                    <div class="form-group col-lg-12 mb-2">
+                                    <!-- <div class="form-group col-lg-12 mb-2">
                                         <label
                                             class="col-form-label"
                                             for="name"
-                                        >Nimi</label>
+                                        >Name</label>
                                         <input
                                             type="text"
                                             name="name"
                                             required="1"
                                             class="form-control"
                                         />
+                                    </div> -->
+                                    <!-- Henkilö: Etunimi + Sukunimi -->
+                                    <div id="person_name_fields" class="row">
+                                        <div class="form-group col-lg-6 mb-2">
+                                            <label class="col-form-label" for="firstname">First Name</label>
+                                            <input type="text" name="firstname" class="form-control" required="1" />
+                                        </div>
+                                        <div class="form-group col-lg-6 mb-2">
+                                            <label class="col-form-label" for="lastname">Last Name</label>
+                                            <input type="text" name="lastname" class="form-control" required="1" />
+                                        </div>
                                     </div>
+
+                                    <!-- Yritys: Nimi -->
+                                    <div id="company_name_field" class="form-group col-lg-12 mb-2 d-none">
+                                        <label class="col-form-label" for="name">Company Name</label>
+                                        <input type="text" name="name" class="form-control" />
+                                    </div>
+
                                     <div id="div_email" class="col-lg-6 mb-2">
                                         <label
                                             for="email"
@@ -190,6 +208,54 @@
                                             </t>
                                         </select>
                                     </div>
+                                    <!-- eInvoice Address (EDI-code) -->
+                                    <div
+                                        id="edicode-div"
+                                        class="form-group col-md-6 div_edicode show-company d-none"
+                                    >
+                                        <label
+                                            id="edicode-label"
+                                            class="col-form-label label-optional"
+                                            for="edicode"
+                                        >eInvoice Address (EDI-code)</label>
+                                        <input
+                                            type="text"
+                                            name="edicode"
+                                            placeholder="e.g. 003712345671"
+                                            class="form-control"
+                                        />
+                                    </div>
+
+                                    <!-- eInvoice Operator -->
+                                    <div
+                                        id="einvoice-operator-div"
+                                        class="form-group col-lg-6 div_einvoice_operator show-company d-none"
+                                    >
+                                        <t
+                                            t-set="operators"
+                                            t-value="request.env['res.partner.operator.einvoice'].sudo().search([])"
+                                        />
+                                        <label
+                                            id="einvoice-operator-label"
+                                            class="col-form-label label-optional"
+                                            for="einvoice_operator_id"
+                                        >eInvoice Operator</label>
+                                        <select
+                                            id="einvoice-operator-select"
+                                            class="form-control"
+                                            name="einvoice_operator_id"
+                                        >
+                                            <option value="">Select an operator...</option>
+                                            <t t-foreach="operators" t-as="op">
+                                                <option
+                                                    t-att-value="op.id"
+                                                >
+                                                    <t t-esc="op.name" /> (<t t-esc="op.identifier" />)
+                                                </option>
+                                            </t>
+                                        </select>
+                                    </div>
+
                                     <div class="div_street col-lg-12 mb-2">
                                         <label
                                             class="col-form-label"
