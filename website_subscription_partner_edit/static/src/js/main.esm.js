@@ -197,7 +197,7 @@ var PartnerUpgrade = publicWidget.Widget.extend({
     },
 
     _toggleRequiredFields: function (isRequired) {
-        const fields = ["name", "zip", "city", "street"];
+        const fields = ["name", "zip", "city", "street", "firstname", "lastname"];
 
         fields.forEach((field) => {
             const input = $(`input[name='${field}']`);
