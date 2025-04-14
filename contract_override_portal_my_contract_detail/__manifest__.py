@@ -23,7 +23,7 @@
     "summary": "Contract override portal my contract detail",
     "version": "14.0.1.0.0",
     "category": "contract",
-    "website": "https://gitlab.com/tawasta/odoo/contract",
+    "website": "https://github.com/tawasta/odoo/contract",
     "author": "Tawasta",
     "license": "AGPL-3",
     "application": False,

@@ -23,7 +23,7 @@
     "summary": "Contract note content is updated to invoice's comment field",
     "version": "14.0.1.0.1",
     "category": "Contract",
-    "website": "https://gitlab.com/tawasta/odoo/contract",
+    "website": "https://github.com/tawasta/odoo/contract",
     "author": "Tawasta",
     "license": "AGPL-3",
     "application": False,

@@ -23,7 +23,7 @@
     "summary": "Mass action to set default invoice address and create a new invoice",
     "version": "14.0.1.0.1",
     "category": "Contract Management",
-    "website": "https://gitlab.com/tawasta/odoo/contract",
+    "website": "https://github.com/tawasta/odoo/contract",
     "author": "Tawasta",
     "license": "AGPL-3",
     "application": False,

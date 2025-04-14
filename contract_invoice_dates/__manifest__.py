@@ -23,7 +23,7 @@
     "summary": "Add information about next contract invoicing",
     "version": "14.0.1.0.0",
     "category": "Product",
-    "website": "https://gitlab.com/tawasta/odoo/contract",
+    "website": "https://github.com/tawasta/odoo/contract",
     "author": "Tawasta",
     "license": "AGPL-3",
     "application": False,

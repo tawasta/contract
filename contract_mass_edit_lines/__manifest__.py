@@ -23,7 +23,7 @@
     "summary": "Allows mass editing contract lines from contract tree view",
     "version": "14.0.1.0.1",
     "category": "Contract Management",
-    "website": "https://gitlab.com/tawasta/odoo/contract",
+    "website": "https://github.com/tawasta/odoo/contract",
     "author": "Tawasta",
     "license": "AGPL-3",
     "application": False,
