@@ -24,7 +24,7 @@
         quantity-field on invoice lines""",
     "version": "14.0.1.0.0",
     "category": "Contract Management",
-    "website": "https://github.com/tawasta/odoo/contract",
+    "website": "https://github.com/tawasta/contract",
     "author": "Tawasta",
     "license": "AGPL-3",
     "application": False,

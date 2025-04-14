@@ -23,7 +23,7 @@
     "summary": "Edit all contract's lines' Date of Next Invoice at once",
     "category": "Contract Management",
     "version": "14.0.1.1.0",
-    "website": "https://github.com/tawasta/odoo/contract",
+    "website": "https://github.com/tawasta/contract",
     "author": "Tawasta",
     "license": "AGPL-3",
     "application": False,

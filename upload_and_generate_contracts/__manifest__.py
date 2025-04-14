@@ -23,7 +23,7 @@
     "summary": "upload_and_generate_contracts",
     "version": "14.0.1.0.0",
     "category": "Specific Industry Applications",
-    "website": "https://github.com/tawasta/odoo/contract",
+    "website": "https://github.com/tawasta/contract",
     "author": "Tawasta",
     "license": "AGPL-3",
     "application": False,
