@@ -40,6 +40,7 @@ addon | version | maintainers | summary
 [contract_line_helper_fields](contract_line_helper_fields/) | 14.0.1.0.0 |  | Helper fields for contract lines to help searching related information
 [contract_line_inline_edit](contract_line_inline_edit/) | 14.0.1.0.1 |  | Allows editing non-fixed contract lines inline
 [contract_line_list_view](contract_line_list_view/) | 14.0.1.0.1 |  | Adds list view of contract lines
+[contract_line_list_view_no_create](contract_line_list_view_no_create/) | 14.0.1.0.1 |  | Remove option to create contract lines from list view
 [contract_line_optional_fields](contract_line_optional_fields/) | 14.0.1.0.1 |  | Set contract line fields as optional, so users can hide them
 [contract_line_partner_address_label](contract_line_partner_address_label/) | 14.0.1.0.0 |  | Contract Line Partner Address Label
 [contract_line_stop_ignore_last_date_invoice](contract_line_stop_ignore_last_date_invoice/) | 14.0.1.0.0 |  | When stopping a contract line, the 'Last Date Invoiced' is ignored
