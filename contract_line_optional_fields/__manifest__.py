@@ -23,7 +23,7 @@
     "summary": "Set contract line fields as optional, so users can hide them",
     "version": "14.0.1.0.1",
     "category": "Contract Management",
-    "website": "https://gitlab.com/tawasta/odoo/contract",
+    "website": "https://github.com/tawasta/contract",
     "author": "Tawasta",
     "license": "AGPL-3",
     "application": False,
