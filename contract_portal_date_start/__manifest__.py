@@ -22,7 +22,7 @@
     "summary": "Show Date Start on Contract Portal Views",
     "version": "14.0.1.0.0",
     "category": "Contract Management",
-    "website": "https://gitlab.com/tawasta/odoo/contract",
+    "website": "https://github.com/tawasta/contract",
     "author": "Tawasta, Miika Nissi",
     "license": "AGPL-3",
     "application": False,

@@ -23,7 +23,7 @@
     "summary": "Add a HTML note field for contracts",
     "category": "Contract Management",
     "version": "14.0.1.0.0",
-    "website": "https://gitlab.com/tawasta/odoo/contract",
+    "website": "https://github.com/tawasta/contract",
     "author": "Tawasta",
     "license": "AGPL-3",
     "application": False,
