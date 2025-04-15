@@ -1,6 +1,39 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
+    <template id="subscription_links" inherit_id="portal.side_content">
+          <xpath expr="//div[@class='o_my_contact']" position="before">
+            <t t-set="user_email" t-value="request.env.user.email" />
+            <t
+                t-set="pending_invites"
+                t-value="request.env['subscription.invitation'].sudo().search([('invite_email', '=', user_email), ('is_used', '=', False)])"
+            />
 
+            <t t-if="pending_invites">
+                <div class="alert alert-info">
+                    <strong>You have pending subscription invitations!</strong><br />
+                    <ul class="mt-2">
+                        <t t-foreach="pending_invites" t-as="inv">
+                            <li class="mb-1">
+                                <t
+                                    t-esc="inv.subscription_id.product_id.name"
+                                /> – invited on
+                                <t
+                                    t-esc="inv.invited_date.strftime('%d.%m.%Y %H:%M')"
+                                />
+                                <a
+                                    t-att-href="'/invitation/%s/accept?access_token=%s' % (inv.id, inv.access_token)"
+                                    class="btn btn-sm btn-primary ms-2"
+                                >
+                                    Accept
+                                </a>
+                            </li>
+                        </t>
+                    </ul>
+                </div>
+            </t>
+        </xpath>
+
+    </template>
     <template
         id="portal_my_subscriptions_invite"
         inherit_id="website_subscription.portal_subscription_page"
