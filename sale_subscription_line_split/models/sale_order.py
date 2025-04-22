@@ -30,8 +30,6 @@ class SaleOrder(models.Model):
 
             # Step 3: Add new lines in batch
             if new_lines:
-                subscription.write({
-                    "sale_subscription_line_ids": new_lines
-                })
+                subscription.write({"sale_subscription_line_ids": new_lines})
 
         return result
