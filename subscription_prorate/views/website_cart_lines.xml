@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <template
+        id="cart_lines"
+        inherit_id="website_sale.cart_lines"
+        name="Shopping cart lines period"
+    >
+
+        <xpath expr="//span[@t-out='product_price']" position="after">
+            <p
+                t-if="line.prorated_period and line.prorated_period_name"
+                class="text-info"
+            >Price for period: <span t-field="line.prorated_period" /> <span
+                    t-field="line.prorated_period_name"
+                /></p>
+        </xpath>
+
+    </template>
+
+</odoo>
