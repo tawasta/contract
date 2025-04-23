@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.0-20240924\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-14 13:16+0000\n"
-"PO-Revision-Date: 2025-02-14 15:17+0200\n"
+"POT-Creation-Date: 2025-04-23 07:39+0000\n"
+"PO-Revision-Date: 2025-04-23 10:40+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fi\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.5\n"
+"X-Generator: Poedit 3.6\n"
 
 #. module: subscription_prorate
 #: model_terms:ir.ui.view,arch_db:subscription_prorate.product
@@ -25,13 +25,28 @@ msgid ""
 "will be shown in the shopping cart."
 msgstr ""
 "<i class=\"fa fa-info-circle\"/> Sinulla on olemassa oleva tilaus,<br/"
-">joten maksat vain jäljellä olevan laskutuskauden.<br/>Alennettu hinta "
-"näkyy ostoskorissa."
+">joten maksat vain jäljellä olevan laskutuskauden.<br/>Jakson hinta näkyy "
+"ostoskorissa."
+
+#. module: subscription_prorate
+#: model_terms:ir.ui.view,arch_db:subscription_prorate.cart_lines
+msgid "Price for period:"
+msgstr "Hinta jaksolle:"
 
 #. module: subscription_prorate
 #: model:ir.model,name:subscription_prorate.model_product_template
 msgid "Product"
 msgstr "Tuote"
+
+#. module: subscription_prorate
+#: model:ir.model.fields,field_description:subscription_prorate.field_sale_order_line__prorated_period
+msgid "Prorated Period"
+msgstr "Jakso"
+
+#. module: subscription_prorate
+#: model:ir.model.fields,field_description:subscription_prorate.field_sale_order_line__prorated_period_name
+msgid "Prorated Period Name"
+msgstr "Jakson nimi"
 
 #. module: subscription_prorate
 #: model:ir.model,name:subscription_prorate.model_sale_order

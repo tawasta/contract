@@ -19,7 +19,9 @@ class SaleOrder(models.Model):
         return res
 
     def _get_existing_subscription(self):
-        self.ensure_one()
+        partner = self.partner_id
+        if not partner:
+            partner = self.env.user.partner_id
 
         # Get an existing subscription for this partner
         subscription = (
@@ -27,7 +29,7 @@ class SaleOrder(models.Model):
             .sudo()
             .search(
                 [
-                    ("partner_id", "=", self.partner_id.id),
+                    ("partner_id", "=", partner.id),
                 ],
                 order="recurring_next_date",
                 limit=1,

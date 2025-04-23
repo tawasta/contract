@@ -19,8 +19,8 @@
 ##############################################################################
 
 {
-    "name": "Subscription prorated price",
-    "summary": "Prorate subscription price to allow synchronous subscription dates",
+    "name": "Subscription: show subscription period on invoice",
+    "summary": "Support for #START# and #END# markers in subscription lines",
     "version": "17.0.1.0.0",
     "category": "Contract Management",
     "website": "https://github.com/tawasta/contract",
@@ -28,10 +28,8 @@
     "license": "AGPL-3",
     "application": False,
     "installable": True,
-    "depends": ["subscription_oca", "website_sale"],
-    "data": [
-        "views/product_template.xml",
-        "views/website_cart_lines.xml",
-        "views/website_product.xml",
+    "depends": [
+        "subscription_oca",
     ],
+    "data": [],
 }
