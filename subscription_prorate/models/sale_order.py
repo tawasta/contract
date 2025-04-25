@@ -18,6 +18,16 @@ class SaleOrder(models.Model):
 
         return res
 
+    def _cart_update_order_line(self, product_id, quantity, order_line, **kwargs):
+        res = super()._cart_update_order_line(
+            product_id, quantity, order_line, **kwargs
+        )
+
+        # Trigger a compute when updating cart
+        res._compute_prorated_period()
+
+        return res
+
     def _get_existing_subscription(self):
         partner = self.partner_id
         if not partner:
