@@ -53,7 +53,6 @@ class SaleOrderLine(models.Model):
         if self.prorated_period and hasattr(
             self.env["account.move.line"], "accrual_rule_id"
         ):
-            print("Searching rule")
             # Try to find matching accrual rule
             rule = (
                 self.env["account.accrual.rule"]
