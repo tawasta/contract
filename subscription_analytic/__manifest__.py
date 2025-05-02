@@ -19,9 +19,9 @@
 ##############################################################################
 
 {
-    "name": "Subscription: show subscription period on invoice",
-    "summary": "Support for #START# and #END# markers in subscription lines",
-    "version": "17.0.1.1.0",
+    "name": "Subscription analytic accounting",
+    "summary": "Add analytic distribution to subscription lines",
+    "version": "17.0.1.0.0",
     "category": "Contract Management",
     "website": "https://github.com/tawasta/contract",
     "author": "Futural",
@@ -29,10 +29,10 @@
     "application": False,
     "installable": True,
     "depends": [
+        "analytic",
         "subscription_oca",
     ],
     "data": [
         "views/sale_subscription.xml",
-        "views/sale_subscription_template.xml",
     ],
 }
