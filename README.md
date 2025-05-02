@@ -45,6 +45,7 @@ addon | version | maintainers | summary
 [only_one_subscription_in_cart](only_one_subscription_in_cart/) | 17.0.1.1.0 |  | Allow to have only one subscription in cart
 [sale_subscription_line_split](sale_subscription_line_split/) | 17.0.1.0.0 |  | Splits subscription lines based on quantity when enabled on the product
 [subscription_accrual_rule](subscription_accrual_rule/) | 17.0.1.0.1 |  | Add accrual rules to subscriptions
+[subscription_analytic](subscription_analytic/) | 17.0.1.0.0 |  | Add analytic distribution to subscription lines
 [subscription_auditlog](subscription_auditlog/) | 17.0.1.0.0 |  | Adds audit log rules for sale subscription and subscription line
 [subscription_closing](subscription_closing/) | 17.0.1.0.3 |  | Allows ending subscription to a future date
 [subscription_customer_reference](subscription_customer_reference/) | 17.0.1.0.0 |  | Add customer reference to subscriptions
@@ -59,7 +60,7 @@ addon | version | maintainers | summary
 [subscription_line_partner](subscription_line_partner/) | 17.0.1.0.4 |  | Allows defining a partner to subscription lines
 [subscription_line_related_sale_order_line](subscription_line_related_sale_order_line/) | 17.0.1.0.0 |  | Add SO line information for subscription lines
 [subscription_modification](subscription_modification/) | 17.0.1.0.1 |  | Add modification log to subscriptions
-[subscription_period_markers](subscription_period_markers/) | 17.0.1.0.0 |  | Support for #START# and #END# markers in subscription lines
+[subscription_period_markers](subscription_period_markers/) | 17.0.1.1.0 |  | Support for #START# and #END# markers in subscription lines
 [subscription_prorate](subscription_prorate/) | 17.0.1.0.0 |  | Prorate subscription price to allow synchronous subscription dates
 [subscription_shipping_address](subscription_shipping_address/) | 17.0.1.0.0 |  | Add shipping address to subscriptions
 [subscription_usability_improvements](subscription_usability_improvements/) | 17.0.1.0.0 |  | Add basic searches, groupings and optional fields to subscriptions
