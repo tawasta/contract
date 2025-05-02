@@ -212,7 +212,7 @@
                                     />
                                     <div
                                         id="customer_invoice_transmit_method_id_div"
-                                        t-attf-class="form-group col-lg-6"
+                                        t-attf-class="form-group col-lg-6 d-none"
                                         t-if="methods"
                                     >
                                         <label
@@ -336,7 +336,7 @@
                                         >
                                                 <option value="">Country...</option>
                                                 <t t-foreach="countries" t-as="c">
-                                                    <option t-att-value="c.id">
+                                                    <option t-att-value="c.id" t-att-selected="'selected' if c.code == 'FI' else None">
                                                         <t t-esc="c.name" />
                                                     </option>
                                                 </t>

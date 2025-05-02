@@ -103,6 +103,7 @@ var PartnerUpgrade = publicWidget.Widget.extend({
         const $alvFieldInput = $("input[name='company_registry']");
         const $companyName = $("#company_name_field");
         const $personNames = $("#person_name_fields");
+        const $transmitMethod = $("#customer_invoice_transmit_method_id_div");
 
         if (isChecked) {
             $alvField.removeClass("d-none");
@@ -113,6 +114,8 @@ var PartnerUpgrade = publicWidget.Widget.extend({
 
             $personNames.addClass("d-none");
             $personNames.find("input").removeAttr("required");
+
+            $transmitMethod.removeClass("d-none");
         } else {
             $alvField.addClass("d-none");
             $alvFieldInput.removeAttr("required");
@@ -122,6 +125,8 @@ var PartnerUpgrade = publicWidget.Widget.extend({
 
             $personNames.removeClass("d-none");
             $personNames.find("input").attr("required", "required");
+
+            $transmitMethod.addClass("d-none");
         }
     },
 
