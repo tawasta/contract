@@ -212,7 +212,7 @@
                                     />
                                     <div
                                         id="customer_invoice_transmit_method_id_div"
-                                        t-attf-class="form-group col-lg-6 d-none"
+                                        t-attf-class="form-group col-lg-6"
                                         t-if="methods"
                                     >
                                         <label
