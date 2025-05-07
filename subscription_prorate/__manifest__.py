@@ -31,6 +31,7 @@
     "depends": ["subscription_oca", "website_sale"],
     "data": [
         "views/product_template.xml",
+        "views/website_cart_lines.xml",
         "views/website_product.xml",
     ],
 }
