@@ -138,6 +138,7 @@
                     type="button"
                     class="btn btn-primary btn-sm"
                     t-att-data-line-id="line.id"
+                    t-if="line.product_id.allow_subscription_invites"
                     data-bs-toggle="modal"
                     data-bs-target="#inviteModal"
                 >
@@ -176,6 +177,7 @@
                             class="btn btn-outline-secondary btn-sm"
                             t-att-data-line-id="line.id"
                             t-att-data-invite-id="line.invite_id.id"
+                            t-if="line.product_id.allow_subscription_invites"
                             data-bs-toggle="modal"
                             data-bs-target="#inviteModal"
                             t-att-data-resend="true"
