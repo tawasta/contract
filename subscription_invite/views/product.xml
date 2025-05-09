@@ -7,10 +7,7 @@
         <field name="inherit_id" ref="subscription_oca.product_template_form_view" />
         <field name="arch" type="xml">
             <field name="subscription_template_id" position="after">
-                <field
-                    name="allow_subscription_invites"
-                    invisible="not subscribable"
-                />
+                <field name="allow_subscription_invites" invisible="not subscribable" />
             </field>
         </field>
     </record>
