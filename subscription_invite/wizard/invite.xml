@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_subscription_invite_wizard_form" model="ir.ui.view">
+        <field name="name">subscription.invite.wizard.form</field>
+        <field name="model">subscription.invite.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Send Subscription Invitation">
+                <sheet>
+                    <group colspan="2" class="oe_subtle">
+                        <div class="o_form_label text-muted" colspan="2">
+                            Please provide recipient's email address below. Make sure both fields match.
+                        </div>
+                    </group>
+
+                    <group>
+                        <field name="invite_email" string="Recipient's Email" placeholder="email@example.com" />
+                        <field name="confirm_email" string="Confirm Email" placeholder="Repeat the same email" />
+                    </group>
+                </sheet>
+
+                <footer>
+                    <button name="action_send_invite"
+                            string="Send Invitation"
+                            type="object"
+                            class="btn-primary"
+                            icon="fa-envelope" />
+
+                    <button string="Cancel"
+                            class="btn-secondary"
+                            special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_subscription_invite_wizard" model="ir.actions.act_window">
+        <field name="name">Send Invitation</field>
+        <field name="res_model">subscription.invite.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_subscription_invite_wizard_form"/>
+        <field name="target">new</field>
+    </record>
+</odoo>
