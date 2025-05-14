@@ -151,7 +151,9 @@
             <t t-if="line.invite_id">
                 <div class="d-flex flex-column align-items-start">
                     <t t-if="line.invite_id">
-                        <span t-attf-class="badge mb-2 text-wrap #{'bg-success' if line.invite_id.is_used else 'bg-warning'}">
+                        <span
+                            t-attf-class="badge mb-2 text-wrap #{'bg-success' if line.invite_id.is_used else 'bg-warning'}"
+                        >
                             <t t-esc="line.invitation_date_display" />
                         </span>
                     </t>

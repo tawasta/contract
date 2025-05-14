@@ -13,21 +13,29 @@
                     </group>
 
                     <group>
-                        <field name="invite_email" string="Recipient's Email" placeholder="email@example.com" />
-                        <field name="confirm_email" string="Confirm Email" placeholder="Repeat the same email" />
+                        <field
+                            name="invite_email"
+                            string="Recipient's Email"
+                            placeholder="email@example.com"
+                        />
+                        <field
+                            name="confirm_email"
+                            string="Confirm Email"
+                            placeholder="Repeat the same email"
+                        />
                     </group>
                 </sheet>
 
                 <footer>
-                    <button name="action_send_invite"
-                            string="Send Invitation"
-                            type="object"
-                            class="btn-primary"
-                            icon="fa-envelope" />
+                    <button
+                        name="action_send_invite"
+                        string="Send Invitation"
+                        type="object"
+                        class="btn-primary"
+                        icon="fa-envelope"
+                    />
 
-                    <button string="Cancel"
-                            class="btn-secondary"
-                            special="cancel" />
+                    <button string="Cancel" class="btn-secondary" special="cancel" />
                 </footer>
             </form>
         </field>
@@ -37,7 +45,7 @@
         <field name="name">Send Invitation</field>
         <field name="res_model">subscription.invite.wizard</field>
         <field name="view_mode">form</field>
-        <field name="view_id" ref="view_subscription_invite_wizard_form"/>
+        <field name="view_id" ref="view_subscription_invite_wizard_form" />
         <field name="target">new</field>
     </record>
 </odoo>

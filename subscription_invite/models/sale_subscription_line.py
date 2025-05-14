@@ -46,14 +46,14 @@ class SaleSubscriptionLine(models.Model):
 
     def open_invite_wizard(self):
         return {
-            'type': 'ir.actions.act_window',
-            'name': 'Send Invitation',
-            'res_model': 'subscription.invite.wizard',
-            'view_mode': 'form',
-            'target': 'new',
-            'context': {
-                'default_subscription_line_id': self.id,
-            }
+            "type": "ir.actions.act_window",
+            "name": "Send Invitation",
+            "res_model": "subscription.invite.wizard",
+            "view_mode": "form",
+            "target": "new",
+            "context": {
+                "default_subscription_line_id": self.id,
+            },
         }
 
     invitation_status = fields.Char(
@@ -68,7 +68,12 @@ class SaleSubscriptionLine(models.Model):
         store=False,
     )
 
-    @api.depends("invite_id", "invite_id.invited_date", "invite_id.used_date", "invite_id.is_used")
+    @api.depends(
+        "invite_id",
+        "invite_id.invited_date",
+        "invite_id.used_date",
+        "invite_id.is_used",
+    )
     def _compute_invitation_status(self):
         for line in self:
             if line.invite_id:
