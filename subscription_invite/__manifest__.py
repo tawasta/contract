@@ -32,8 +32,10 @@
     ],
     "data": [
         "data/mail_template_data.xml",
+        "views/product.xml",
         "views/subscription_invitation.xml",
         "views/subscription_templates.xml",
+        "wizard/invite.xml",
         "security/ir.model.access.csv",
     ],
     "assets": {

@@ -138,6 +138,7 @@
                     type="button"
                     class="btn btn-primary btn-sm"
                     t-att-data-line-id="line.id"
+                    t-if="line.product_id.allow_subscription_invites"
                     data-bs-toggle="modal"
                     data-bs-target="#inviteModal"
                 >
@@ -148,44 +149,32 @@
 
             <!-- Jos kutsu on lähetetty, näytetään sen tila -->
             <t t-if="line.invite_id">
-
-                    <t t-if="line.invite_id.is_used">
-                        <!-- Näytetään jos kutsu on käytetty -->
-                        <div class="d-flex flex-column align-items-start">
-                            <span class="badge bg-success text-wrap">
-                                Invitation accepted on
-                                <t
-                                t-esc="line.invite_id.used_date.strftime('%d.%m.%Y %H:%M:%S')"
-                            />
-                            </span>
-                        </div>
+                <div class="d-flex flex-column align-items-start">
+                    <t t-if="line.invite_id">
+                        <span
+                            t-attf-class="badge mb-2 text-wrap #{'bg-success' if line.invite_id.is_used else 'bg-warning'}"
+                        >
+                            <t t-esc="line.invitation_date_display" />
+                        </span>
                     </t>
-                    <t t-else="">
-                        <div class="d-flex flex-column align-items-start">
-                            <span class="badge bg-warning mb-2 text-wrap">
-                                Invitation sent on
-                                <t
-                                t-esc="line.invite_id.invited_date.strftime('%d.%m.%Y %H:%M:%S')"
-                            />
-                                , not yet accepted.
-                            </span>
 
-                            <!-- Uudelleenlähetyspainike -->
-                            <button
+                    <!-- Uudelleenlähetyspainike näytetään aina, jos tuote sallii -->
+                    <t t-if="line.product_id.allow_subscription_invites">
+                        <button
                             type="button"
-                            class="btn btn-outline-secondary btn-sm"
+                            class="btn btn-outline-secondary btn-sm mt-2"
                             t-att-data-line-id="line.id"
                             t-att-data-invite-id="line.invite_id.id"
                             data-bs-toggle="modal"
                             data-bs-target="#inviteModal"
                             t-att-data-resend="true"
                         >
-                                <i class="fa fa-envelope" /> Resend Invitation
-                            </button>
-                        </div>
+                            <i class="fa fa-envelope" /> Resend Invitation
+                        </button>
                     </t>
-
+                </div>
             </t>
+
         </xpath>
     </template>
 
