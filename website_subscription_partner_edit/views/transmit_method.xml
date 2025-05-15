@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="transmit_method_form" model="ir.ui.view">
+        <field name="name">transmit.method.website.sale.form</field>
+        <field name="model">transmit.method</field>
+        <field
+            name="inherit_id"
+            ref="account_invoice_transmit_method.transmit_method_form"
+        />
+        <field name="arch" type="xml">
+            <field name="supplier_ok" position="after">
+                <field name="contract_target_type" />
+            </field>
+        </field>
+    </record>
+</odoo>

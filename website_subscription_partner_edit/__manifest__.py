@@ -30,9 +30,11 @@
     "installable": True,
     "depends": [
         "website_subscription",
+        "account_invoice_transmit_method",
     ],
     "data": [
         "views/templates.xml",
+        "views/transmit_method.xml",
     ],
     "assets": {
         "web.assets_frontend": [
