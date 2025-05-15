@@ -6,12 +6,11 @@ class TransmitMethod(models.Model):
 
     contract_target_type = fields.Selection(
         [
-            ('person', 'Person'),
-            ('company', 'Company'),
-            ('both', 'Both'),
+            ("person", "Person"),
+            ("company", "Company"),
+            ("both", "Both"),
         ],
-        default='both',
+        default="both",
         string="Visible for Contact Type",
-        help="Defines whether this transmit method is selectable for persons, companies, or both in the website subscription contact form."
+        help="Defines whether this transmit method is selectable for persons, companies, or both in the website subscription contact form.",
     )
-
