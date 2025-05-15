@@ -128,6 +128,24 @@ var PartnerUpgrade = publicWidget.Widget.extend({
 
             //$transmitMethod.addClass("d-none");
         }
+
+        $("#customer-invoice-transmit-method option").each(function () {
+            const $option = $(this);
+            const targetType = $option.data("type");
+
+            // Näytetään vain sopivat tyypit (tai "both")
+            if (
+                targetType === "both" ||
+                (isChecked && targetType === "company") ||
+                (!isChecked && targetType === "person")
+            ) {
+                $option.show();
+            } else {
+                $option.hide();
+            }
+        });
+
+        $("#customer-invoice-transmit-method").val("");
     },
 
     _onSelectContact: function (ev) {
@@ -165,6 +183,9 @@ var PartnerUpgrade = publicWidget.Widget.extend({
 
         // Lisätään takaisin required-attribuutit
         this._toggleRequiredFields(true);
+
+        const isCompanyChecked = $("#is_company_toggle").is(":checked");
+        this._onToggleIsCompany({ currentTarget: $("#is_company_toggle")[0] });
     },
 
     _onFormSubmit: function (ev) {

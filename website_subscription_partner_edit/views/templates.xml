@@ -229,6 +229,7 @@
                                                 <option
                                                     t-att-value="method.id"
                                                     t-att-data-code="method.code"
+                                                    t-att-data-type="method.contract_target_type"
                                                     t-esc="method.name"
                                                 />
                                             </t>
