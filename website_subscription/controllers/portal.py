@@ -10,11 +10,24 @@ class PortalSubscription(CustomerPortal):
         values = super()._prepare_home_portal_values(counters)
         if "subscription_count" in counters:
             subscription_model = request.env["sale.subscription"]
-            subscription_count = (
-                subscription_model.search_count([])
-                if subscription_model.check_access_rights("read", raise_exception=False)
-                else 0
-            )
+            if subscription_model.check_access_rights("read", raise_exception=False):
+                user_partner = request.env.user.partner_id
+                user_partner_id = user_partner.id
+                commercial_partner_id = user_partner.commercial_partner_id.id
+
+                # Sama domain kuin portal_my_subscriptions-funktiossa
+                domain = [
+                    "|",
+                    "|",
+                    ("partner_id", "=", commercial_partner_id),
+                    ("sale_subscription_line_ids.partner_id", "=", user_partner_id),
+                    ("partner_id", "=", user_partner_id),
+                ]
+
+                subscription_count = subscription_model.sudo().search_count(domain)
+            else:
+                subscription_count = 0
+
             values["subscription_count"] = subscription_count
         return values
 
