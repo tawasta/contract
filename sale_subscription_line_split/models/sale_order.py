@@ -27,11 +27,16 @@ class SaleSubscription(models.Model):
         old_line_ids = {line.id for line in self.sale_subscription_line_ids}
         res = super().write(vals)
 
-        new_lines = self.sale_subscription_line_ids.filtered(lambda l: l.id not in old_line_ids)
-        affected_subs = self.filtered(lambda s: any(
-            line.product_id.force_split_subscription_lines and line.product_uom_qty > 1
-            for line in new_lines
-        ))
+        new_lines = self.sale_subscription_line_ids.filtered(
+            lambda li: li.id not in old_line_ids
+        )
+        affected_subs = self.filtered(
+            lambda s: any(
+                line.product_id.force_split_subscription_lines
+                and line.product_uom_qty > 1
+                for line in new_lines
+            )
+        )
         self._split_lines(affected_subs)
         return res
 
