@@ -19,23 +19,30 @@ class SaleOrderLine(models.Model):
 
     def _compute_prorated_period(self):
         for record in self:
-            (
-                discount,
-                period,
-                period_name,
-            ) = record.order_id._get_subscription_prorate_info()
+            vals = {
+                "prorated_period": False,
+                "prorated_period_name": False,
+            }
 
-            if discount:
-                record._compute_name()
-                line_name = _("{} ({} {})").format(record.name, period, period_name)
+            if record.product_id.subscription_price_prorate:
+                (
+                    discount,
+                    period,
+                    period_name,
+                ) = record.order_id._get_subscription_prorate_info()
 
-                vals = {
-                    "name": line_name,
-                    "discount": discount,
-                    "prorated_period": period,
-                    "prorated_period_name": period_name,
-                }
-                record.write(vals)
+                if discount:
+                    record._compute_name()
+                    line_name = _("{} ({} {})").format(record.name, period, period_name)
+
+                    vals = {
+                        "name": line_name,
+                        "discount": discount,
+                        "prorated_period": period,
+                        "prorated_period_name": period_name,
+                    }
+
+            record.write(vals)
 
     def get_subscription_line_values(self):
         res = super().get_subscription_line_values()
@@ -53,7 +60,6 @@ class SaleOrderLine(models.Model):
         if self.prorated_period and hasattr(
             self.env["account.move.line"], "accrual_rule_id"
         ):
-            print("Searching rule")
             # Try to find matching accrual rule
             rule = (
                 self.env["account.accrual.rule"]
