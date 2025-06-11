@@ -68,7 +68,10 @@
             <t t-call="portal.portal_record_layout">
                 <t t-set="card_header">
                     <t t-set="stage" t-value="subscription.stage_id" />
-                    <t t-set="user_is_main_partner" t-value="subscription.partner_id.id == request.env.user.partner_id.id" />
+                    <t
+                        t-set="user_is_main_partner"
+                        t-value="subscription.partner_id.id == request.env.user.partner_id.id"
+                    />
 
                     <h5 class="mb-0" id="subscription_header">
                         <span id="subscription_header_name">
@@ -123,7 +126,11 @@
                             </div>
                         </div>
                         <!-- Näytetään Subscription info vain jos käyttäjä on toistuvaistilauksen partner -->
-                        <div id="subscription_information" class="col-md-6 col-12" t-if="user_is_main_partner">
+                        <div
+                            id="subscription_information"
+                            class="col-md-6 col-12"
+                            t-if="user_is_main_partner"
+                        >
                         <h6>
                             <strong>Subscription</strong>
                         </h6>
@@ -174,14 +181,14 @@
 
                         <div id="active_subscription_lines">
                             <h4 class="text-primary">Active subscription lines</h4>
-                            <t t-set="visible_lines" t-value="subscription.sale_subscription_line_ids if subscription.partner_id.id == request.env.user.partner_id.id else subscription.sale_subscription_line_ids.filtered(lambda l: l.partner_id.id == request.env.user.partner_id.id)" />
+                            <t
+                                t-set="visible_lines"
+                                t-value="subscription.sale_subscription_line_ids if subscription.partner_id.id == request.env.user.partner_id.id else subscription.sale_subscription_line_ids.filtered(lambda l: l.partner_id.id == request.env.user.partner_id.id)"
+                            />
 
                             <t t-if="visible_lines">
 
-                                <table
-                                    class="table table-sm"
-                                    id="subscriptions_table"
-                                >
+                                <table class="table table-sm" id="subscriptions_table">
 
                                     <thead class="bg-100">
                                         <t
@@ -191,7 +198,9 @@
 
                                     <tbody class="subscription_tbody">
                                         <t t-foreach="visible_lines" t-as="line">
-                                            <t t-call="website_subscription.portal_subscription_line_data" />
+                                            <t
+                                                t-call="website_subscription.portal_subscription_line_data"
+                                            />
                                         </t>
                                     </tbody>
                                 </table>
