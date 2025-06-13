@@ -5,9 +5,7 @@
     <record id="sale_subscription_rule_portal" model="ir.rule">
         <field name="name">Portal Personal Subscriptions</field>
         <field name="model_id" ref="subscription_oca.model_sale_subscription" />
-        <field
-            name="domain_force"
-        >[
+        <field name="domain_force">[
             '|', '|', '|',
             ('partner_id', '=', user.commercial_partner_id.id),
             ('sale_subscription_line_ids.partner_id', '=', user.partner_id.id),
