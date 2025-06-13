@@ -1,18 +1,6 @@
 <?xml version="1.0" ?>
 <odoo>
 
-    <!-- Enable showing/hiding chatter via frontent editor settings -->
-    <template
-        id="portal_subscription_page_communication_toggle"
-        inherit_id="website_subscription.portal_subscription_page"
-        name="Hide Subscriptions' 'Communication' Section"
-        customize_show="True"
-        active="False"
-        priority="101"
-    >
-        <xpath expr="//div[@id='subscription_communication']" position="replace" />
-    </template>
-
     <template id="portal_subscription_line_header" name="Subscription line header">
         <tr>
             <th name="th_product" class="text-left d-none">Product
@@ -80,6 +68,11 @@
             <t t-call="portal.portal_record_layout">
                 <t t-set="card_header">
                     <t t-set="stage" t-value="subscription.stage_id" />
+                    <t
+                        t-set="user_is_main_partner"
+                        t-value="subscription.partner_id.id == request.env.user.partner_id.id"
+                    />
+
                     <h5 class="mb-0" id="subscription_header">
                         <span id="subscription_header_name">
                             Subscription -
@@ -132,7 +125,12 @@
                                 </div>
                             </div>
                         </div>
-                        <div id="subscription_information" class="col-md-6 col-12">
+                        <!-- Näytetään Subscription info vain jos käyttäjä on toistuvaistilauksen partner -->
+                        <div
+                            id="subscription_information"
+                            class="col-md-6 col-12"
+                            t-if="user_is_main_partner"
+                        >
                         <h6>
                             <strong>Subscription</strong>
                         </h6>
@@ -183,30 +181,33 @@
 
                         <div id="active_subscription_lines">
                             <h4 class="text-primary">Active subscription lines</h4>
-                            <table
-                                class="table table-sm"
-                                id="subscriptions_table"
-                                t-if="subscription.sale_subscription_line_ids"
-                            >
+                            <t
+                                t-set="visible_lines"
+                                t-value="subscription.sale_subscription_line_ids if subscription.partner_id.id == request.env.user.partner_id.id else subscription.sale_subscription_line_ids.filtered(lambda l: l.partner_id.id == request.env.user.partner_id.id)"
+                            />
 
-                                <thead class="bg-100">
-                                    <t
-                                        t-call="website_subscription.portal_subscription_line_header"
-                                    />
-                                </thead>
+                            <t t-if="visible_lines">
 
-                                <tbody class="subscription_tbody">
-                                    <t
-                                        t-foreach="subscription.sale_subscription_line_ids"
-                                        t-as="line"
-                                    >
+                                <table class="table table-sm" id="subscriptions_table">
+
+                                    <thead class="bg-100">
                                         <t
-                                            t-call="website_subscription.portal_subscription_line_data"
+                                            t-call="website_subscription.portal_subscription_line_header"
                                         />
-                                    </t>
-                                </tbody>
-                            </table>
-                            <p t-else="">No active subscription lines</p>
+                                    </thead>
+
+                                    <tbody class="subscription_tbody">
+                                        <t t-foreach="visible_lines" t-as="line">
+                                            <t
+                                                t-call="website_subscription.portal_subscription_line_data"
+                                            />
+                                        </t>
+                                    </tbody>
+                                </table>
+                            </t>
+                            <t t-else="">
+                                <p>No active subscription lines</p>
+                            </t>
                         </div>
                     </div>
 
@@ -238,6 +239,19 @@
                 </t>
             </t>
         </t>
+    </template>
+
+
+    <!-- Enable showing/hiding chatter via frontent editor settings -->
+    <template
+        id="portal_subscription_page_communication_toggle"
+        inherit_id="website_subscription.portal_subscription_page"
+        name="Hide Subscriptions' 'Communication' Section"
+        customize_show="True"
+        active="False"
+        priority="101"
+    >
+        <xpath expr="//div[@id='subscription_communication']" position="replace" />
     </template>
 
     <template
