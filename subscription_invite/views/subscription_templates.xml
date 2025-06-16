@@ -132,7 +132,9 @@
     >
         <xpath expr="//td[@id='subscription_line_buttons_data']" position="inside">
             <!-- Näytetään kutsupainike, jos kutsuja ei ole vielä lähetetty -->
-            <t t-if="not line.invite_id">
+            <t
+                t-if="not line.invite_id and (line.sale_subscription_id.partner_id.id == request.env.user.partner_id.id or line.sale_subscription_id.partner_id.id == request.env.user.partner_id.commercial_partner_id.id)"
+            >
 
                     <button
                     type="button"
@@ -148,7 +150,9 @@
             </t>
 
             <!-- Jos kutsu on lähetetty, näytetään sen tila -->
-            <t t-if="line.invite_id">
+            <t
+                t-if="line.invite_id and (line.sale_subscription_id.partner_id.id == request.env.user.partner_id.id or line.sale_subscription_id.partner_id.id == request.env.user.partner_id.commercial_partner_id.id)"
+            >
                 <div class="d-flex flex-column align-items-start">
                     <t t-if="line.invite_id">
                         <span
