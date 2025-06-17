@@ -43,6 +43,7 @@ addon | version | maintainers | summary
 [contract_use_customer_as_invoicing_contact](contract_use_customer_as_invoicing_contact/) | 17.0.1.0.0 |  | Default value to a contract's invoicing contact
 [contract_use_existing_invoice](contract_use_existing_invoice/) | 17.0.1.0.0 |  | Add lines to an existing invoice instead of creating a new invoice
 [only_one_subscription_in_cart](only_one_subscription_in_cart/) | 17.0.1.1.0 |  | Allow to have only one subscription in cart
+[sale_subscription_line_split](sale_subscription_line_split/) | 17.0.1.0.0 |  | Splits subscription lines based on quantity when enabled on the product
 [subscription_accrual_rule](subscription_accrual_rule/) | 17.0.1.0.1 |  | Add accrual rules to subscriptions
 [subscription_analytic](subscription_analytic/) | 17.0.1.0.0 |  | Add analytic distribution to subscription lines
 [subscription_auditlog](subscription_auditlog/) | 17.0.1.0.0 |  | Adds audit log rules for sale subscription and subscription line
@@ -50,6 +51,7 @@ addon | version | maintainers | summary
 [subscription_customer_reference](subscription_customer_reference/) | 17.0.1.0.0 |  | Add customer reference to subscriptions
 [subscription_disable_qty_in_cart](subscription_disable_qty_in_cart/) | 17.0.1.0.0 |  | Disable changing subscription product quantity in cart
 [subscription_free_product](subscription_free_product/) | 17.0.1.0.0 |  | Add a free subscription when purchasing a subscription product
+[subscription_invite](subscription_invite/) | 17.0.1.0.0 |  | Subscription: Invite Others
 [subscription_invoice_queue](subscription_invoice_queue/) | 17.0.1.0.0 |  | Create invoices as queued jobs
 [subscription_line_change_product_variant](subscription_line_change_product_variant/) | 17.0.1.1.0 |  | Substriction Line Change product variant and create invoice
 [subscription_line_closing](subscription_line_closing/) | 17.0.1.2.0 |  | Allows ending subscription lines without deleting them
