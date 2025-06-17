@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+subscription_invitation_manager,subscription_invitation_manager,model_subscription_invitation,sales_team.group_sale_salesman,1,1,1,1
+access_subscription_invite_portal,access_subscription_invite_portal,model_subscription_invitation,base.group_portal,1,0,0,0
+subscription_invite_wizard_manager,subscription_invite_wizard_manager,model_subscription_invite_wizard,sales_team.group_sale_salesman,1,1,1,1
