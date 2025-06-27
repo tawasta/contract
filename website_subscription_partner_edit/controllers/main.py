@@ -56,7 +56,7 @@ class PartnerEditController(http.Controller):
                 is_company = post.get("is_company") == "on"
 
                 if is_company:
-                    # new_contact_vals["is_company"] = True
+                    new_contact_vals["is_company"] = True
                     new_contact_vals["name"] = post.get("name")
                     if post.get("company_registry"):
                         new_contact_vals["company_registry"] = post.get(
