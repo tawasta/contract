@@ -1,5 +1,6 @@
 from odoo import models, _
 
+
 class SaleSubscription(models.Model):
     _inherit = "sale.subscription"
 
@@ -11,8 +12,13 @@ class SaleSubscription(models.Model):
             # Hae kaikki tilaukseen liittyvät laskut
             invoices = subscription.invoice_ids.sorted(key=lambda r: r.id, reverse=True)
             if invoices:
-                latest_invoice = invoices[0]
-                template = self.env.ref("subscription_invoice_notify.mail_template_invoice_notify_responsible")
-                template.send_mail(subscription.id, force_send=True, email_values={
-                    "email_to": responsible_user.email,
-                })
+                template = self.env.ref(
+                    "subscription_invoice_notify.mail_template_invoice_notify_responsible"
+                )
+                template.send_mail(
+                    subscription.id,
+                    force_send=True,
+                    email_values={
+                        "email_to": responsible_user.email,
+                    },
+                )
