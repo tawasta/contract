@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="mail_template_invoice_notify_responsible" model="mail.template">
+            <field name="name">Subscription: Invoice Notification</field>
+            <field name="model_id" ref="subscription_oca.model_sale_subscription"/>
+            <field name="subject">New Invoice Created for Subscription {{ object.name }}</field>
+            <field name="email_from">{{ (object.company_id.email) }}</field>
+            <field name="email_to">{{ (object.user_id.email or '') }}</field>
+            <field name="body_html" type="html">
+<div style="font-family: Arial, sans-serif; font-size: 14px;">
+  <p>Hello <t t-out="object.user_id.name or 'Responsible User'"/>,</p>
+
+  <p>
+    A new invoice has been created for the subscription:
+    <strong><t t-out="object.name"/></strong>.
+  </p>
+
+  <!-- Haetaan uusin lasku tilauksen invoice_ids -kentästä -->
+  <t t-set="invoice" t-value="object.invoice_ids.sorted(key=lambda r: r.id, reverse=True)[:1]"/>
+  <t t-if="invoice and invoice[0]">
+    <t t-set="inv" t-value="invoice[0]"/>
+    <p>
+      <strong>Customer:</strong> <t t-out="inv.partner_id.display_name"/><br/>
+      <strong>Amount Total:</strong> <t t-out="format_amount(inv.amount_total, inv.currency_id) or '0.00'"/><br/>
+    </p>
+
+    <p style="margin-top: 20px;">
+      <a t-att-href="'/web#id=%d&amp;model=account.move&amp;view_type=form' % inv.id"
+         style="display: inline-block; padding: 10px 20px; background-color: #875A7B; color: #fff;
+                text-decoration: none; border-radius: 4px; font-weight: bold;">
+        View Invoice in Odoo
+      </a>
+    </p>
+  </t>
+
+  <p style="margin-top: 30px;">Best regards,<br/>Your Odoo System</p>
+</div>
+            </field>
+            <field name="lang">{{ object.user_id.lang or 'en_US' }}</field>
+            <field name="auto_delete" eval="True"/>
+        </record>
+
+    </data>
+</odoo>
