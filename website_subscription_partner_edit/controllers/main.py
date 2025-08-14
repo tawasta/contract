@@ -1,7 +1,9 @@
 from odoo import http, _
 from odoo.http import request
 import json
+import logging
 
+_logger = logging.getLogger(__name__)
 
 class PartnerEditController(http.Controller):
     @http.route(
@@ -15,7 +17,7 @@ class PartnerEditController(http.Controller):
         response = {"error": False, "msg": "Customer information updated successfully!"}
 
         try:
-            partner = request.env["res.partner"].browse(partner_id)
+            partner = request.env.user.partner_id
             subscription = request.env["sale.subscription"].browse(subscription_id)
 
             if not partner.exists():
@@ -51,12 +53,12 @@ class PartnerEditController(http.Controller):
                     ]
                 }
                 new_contact_vals["type"] = "invoice"
-                new_contact_vals["parent_id"] = partner.id
 
                 is_company = post.get("is_company") == "on"
 
                 if is_company:
                     new_contact_vals["is_company"] = True
+                    new_contact_vals["parent_id"] = partner.id
                     new_contact_vals["name"] = post.get("name")
                     if post.get("company_registry"):
                         new_contact_vals["company_registry"] = post.get(
@@ -127,9 +129,16 @@ class PartnerEditController(http.Controller):
 
         # Hakee kaikki kontaktit ilman user_partner_id:tä
         contacts = user_partner.child_ids
+
+        # Jos partnerilla on parent, ja se parent on kirjautuneen käyttäjän partneri
+        if user_partner.parent_id and user_partner.parent_id == request.env.user.partner_id:
+            contacts |= user_partner.parent_id.child_ids | user_partner.parent_id
+
+        # Kaupallinen partneri mukaan kuten ennenkin
         if user_partner.commercial_partner_id:
             commercial_partner = user_partner.commercial_partner_id
             contacts |= commercial_partner.child_ids | commercial_partner
+
 
         # Poistaa duplikaatit ja varmistaa, ettei user_partner_id ole listalla
         unique_contacts = request.env["res.partner"].browse(
