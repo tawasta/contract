@@ -5,6 +5,7 @@ import logging
 
 _logger = logging.getLogger(__name__)
 
+
 class PartnerEditController(http.Controller):
     @http.route(
         "/update_customer/<int:partner_id>/subscription/<int:subscription_id>",
@@ -14,9 +15,15 @@ class PartnerEditController(http.Controller):
         methods=["POST"],
     )
     def update_customer(self, partner_id, subscription_id, **post):
+        """
+        Päivittää asiakkaan tiedot tai luo uuden kontaktin liittyen tilaukseen.
+        HUOM! Käytetään aina kirjautuneen käyttäjän partneria pääpartnerina,
+        jotta uudet kontaktit kiinnittyvät oikeaan asiakkuuteen.
+        """
         response = {"error": False, "msg": "Customer information updated successfully!"}
 
         try:
+            # Käytetään kirjautuneen käyttäjän partneria aina pääpartnerina
             partner = request.env.user.partner_id
             subscription = request.env["sale.subscription"].browse(subscription_id)
 
@@ -28,6 +35,7 @@ class PartnerEditController(http.Controller):
                 return json.dumps(response)
 
             if post.get("existing_contact"):
+                # Käyttäjä valitsi jo olemassa olevan kontaktin
                 existing_contact = request.env["res.partner"].browse(
                     int(post["existing_contact"])
                 )
@@ -41,7 +49,7 @@ class PartnerEditController(http.Controller):
                     return json.dumps(response)
 
             else:
-                # Creating a new contact
+                # Luodaan uusi kontakti
                 new_contact_vals = {
                     key: post.get(key)
                     for key in [
@@ -57,6 +65,7 @@ class PartnerEditController(http.Controller):
                 is_company = post.get("is_company") == "on"
 
                 if is_company:
+                    # Luodaan laskutusosoite tyyppiä yritys
                     new_contact_vals["is_company"] = True
                     new_contact_vals["parent_id"] = partner.id
                     new_contact_vals["name"] = post.get("name")
@@ -65,19 +74,18 @@ class PartnerEditController(http.Controller):
                             "company_registry"
                         )
                 else:
+                    # Luodaan laskutusosoite tyyppiä henkilö
                     firstname = post.get("firstname") or ""
                     lastname = post.get("lastname") or ""
                     new_contact_vals["firstname"] = firstname
                     new_contact_vals["lastname"] = lastname
 
-                # Country & Transmit Method
                 transmit_method_id = post.get("customer_invoice_transmit_method_id")
                 if transmit_method_id:
                     new_contact_vals["customer_invoice_transmit_method_id"] = int(
                         transmit_method_id
                     )
 
-                    # Fetch transmit method code
                     method = (
                         request.env["transmit.method"]
                         .sudo()
@@ -121,24 +129,32 @@ class PartnerEditController(http.Controller):
         website=True,
     )
     def get_partner_upgrade_modal(self, partner_id, subscription_id):
+        """
+        Palauttaa modalin, jossa voi valita laskutusosoitteen/partnerin tilauksen päivittämiseen.
+        Erityistapaus: Jos partnerilla on parent_id, joka on kirjautuneen käyttäjän partner,
+        kyseessä on laskutusosoite, joka on tyyppiä yritys.
+        Tällöin haetaan myös parentin kaikki kontaktit ja itse parent mukaan.
+        """
         user_partner = request.env["res.partner"].browse(partner_id)
         subscription = request.env["sale.subscription"].browse(subscription_id)
 
         if not user_partner.exists() or not subscription.exists():
             return False
 
-        # Hakee kaikki kontaktit ilman user_partner_id:tä
+        # Lähtökohtaisesti käyttäjän partnerin alaiset kontaktit
         contacts = user_partner.child_ids
 
-        # Jos partnerilla on parent, ja se parent on kirjautuneen käyttäjän partneri
-        if user_partner.parent_id and user_partner.parent_id == request.env.user.partner_id:
+        # Erityistapaus: laskutusosoite (company-tyyppi) linkitettynä kirjautuneen käyttäjän partneriin
+        # Jos tämä ehto täyttyy, haetaan myös parentin kaikki kontaktit ja parent itse
+        if (
+            user_partner.parent_id
+            and user_partner.parent_id == request.env.user.partner_id
+        ):
             contacts |= user_partner.parent_id.child_ids | user_partner.parent_id
 
-        # Kaupallinen partneri mukaan kuten ennenkin
         if user_partner.commercial_partner_id:
             commercial_partner = user_partner.commercial_partner_id
             contacts |= commercial_partner.child_ids | commercial_partner
-
 
         # Poistaa duplikaatit ja varmistaa, ettei user_partner_id ole listalla
         unique_contacts = request.env["res.partner"].browse(
