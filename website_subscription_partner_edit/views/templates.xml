@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template
+        id="portal_edit_customer_button"
+        inherit_id="website_subscription.portal_subscription_page"
+        name="Add Edit Button to Customer Details"
+    >
+        <xpath expr="//div[@id='customer_information']//h6" position="inside">
+            <button
+                type="button"
+                id="modal_customer_edit"
+                class="btn btn-primary btn-sm"
+                t-att-partner-id="subscription.partner_id.id"
+                t-att-subscription-id="subscription.id"
+            >
+                    <i class="fa fa-fw fa-pencil" />Edit
+                </button>
+        </xpath>
+    </template>
+
+    <template id="portal_edit_customer_modal" name="Edit Customer Modal">
+        <div id="modal_customer_edit" class="modal fade" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg modal-dialog-scrollable" role="document">
+                <div class="modal-content shadow-lg border-0">
+                    <div class="modal-header bg-primary text-white py-3">
+                        <h5
+                            class="modal-title font-weight-bold text-white"
+                        >Edit Customer Information</h5>
+                        <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"
+                        />
+                    </div>
+                    <form
+                        id="edit_customer_form"
+                        t-attf-action="/update_customer/#{user_partner_id.id}/subscription/#{subscription.id}"
+                        method="post"
+                    >
+                        <input
+                            type="hidden"
+                            name="csrf_token"
+                            t-att-value="request.csrf_token()"
+                        />
+                        <div
+                            class="modal-body bg-light overflow-auto"
+                            style="max-height: 65vh;"
+                        >
+                            <h6>Select an existing contact or add a new one</h6>
+                            <div
+                                class="row row-cols-md-2 row-cols-lg-3 g-3 flex-nowrap flex-md-wrap mb32"
+                            >
+                                <div
+                                    t-foreach="contacts"
+                                    t-as="contact"
+                                    class="one_kanban col-md"
+                                >
+                                    <div
+                                        class="contact-card border rounded-lg p-3 shadow-sm h-100"
+                                        t-att-data-contact-id="contact.id"
+                                    >
+                                        <strong t-esc="contact.name" class="d-block" />
+                                        <p
+                                            t-esc="contact.email"
+                                            class="text-muted small mb-1"
+                                        />
+                                        <p
+                                            t-esc="contact.street"
+                                            class="text-muted small"
+                                        />
+                                    </div>
+                                </div>
+                                <div class="one_kanban col-md">
+                                    <a
+                                        role="button"
+                                        href="#"
+                                        class="o_wsale_add_address d-flex align-items-center justify-content-center h-100 px-4 border rounded mx-auto no-decoration"
+                                        data-bs-toggle="collapse"
+                                        data-bs-target="#new_contact_form"
+                                    >
+                                        <i class="fa fa-plus me-md-2" /><span
+                                            class="d-none d-md-inline"
+                                        >Add new contact</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <input
+                                type="hidden"
+                                name="existing_contact"
+                                id="selected_contact"
+                            />
+                            <div id="new_contact_form" class="collapse mt-3">
+                                <h6>Add New Contact</h6>
+                                <div
+                                    class="form-group col-lg-6 mb-2 d-flex align-items-center gap-3"
+                                >
+    <label for="is_company_toggle" class="mb-0">Person</label>
+    <div class="form-check form-switch mb-0">
+        <input
+                                            class="form-check-input"
+                                            type="checkbox"
+                                            id="is_company_toggle"
+                                            name="is_company"
+                                        />
+    </div>
+    <label class="mb-0" for="is_company_toggle">Company</label>
+</div>
+
+                                <div class="row">
+                                    <input
+                                        type="hidden"
+                                        name="billing_address"
+                                        value="True"
+                                    />
+                                    <!-- <div class="form-group col-lg-12 mb-2">
+                                        <label
+                                            class="col-form-label"
+                                            for="name"
+                                        >Name</label>
+                                        <input
+                                            type="text"
+                                            name="name"
+                                            required="1"
+                                            class="form-control"
+                                        />
+                                    </div> -->
+                                    <!-- Henkilö: Etunimi + Sukunimi -->
+                                    <div id="person_name_fields" class="row">
+                                        <div class="form-group col-lg-6 mb-2">
+                                            <label
+                                                class="col-form-label"
+                                                for="firstname"
+                                            >First Name</label>
+                                            <input
+                                                type="text"
+                                                name="firstname"
+                                                class="form-control"
+                                                required="1"
+                                            />
+                                        </div>
+                                        <div class="form-group col-lg-6 mb-2">
+                                            <label
+                                                class="col-form-label"
+                                                for="lastname"
+                                            >Last Name</label>
+                                            <input
+                                                type="text"
+                                                name="lastname"
+                                                class="form-control"
+                                                required="1"
+                                            />
+                                        </div>
+                                    </div>
+
+                                    <!-- Yritys: Nimi -->
+                                    <div
+                                        id="company_name_field"
+                                        class="form-group col-lg-12 mb-2 d-none"
+                                    >
+                                        <label
+                                            class="col-form-label"
+                                            for="name"
+                                        >Company Name</label>
+                                        <input
+                                            type="text"
+                                            name="name"
+                                            class="form-control"
+                                        />
+                                    </div>
+
+                                    <div id="div_email" class="col-lg-6 mb-2">
+                                        <label
+                                            for="email"
+                                            class="col-form-label"
+                                        >Email</label>
+                                        <input
+                                            type="email"
+                                            name="email"
+                                            class="form-control"
+                                        />
+                                    </div>
+                                    <div id="div_phone" class="col-lg-6 mb-2">
+                                        <label
+                                            class="col-form-label"
+                                            for="phone"
+                                        >Phone</label>
+                                        <input
+                                            type="tel"
+                                            name="phone"
+                                            class="form-control"
+                                            placeholder="+358"
+                                        />
+                                    </div>
+                                    <div
+                                        class="div_company_registry_billing col-lg-6 mb-2 d-none"
+                                        id="company_registry_group"
+                                    >
+                                        <label
+                                            class="col-form-label fw-normal label-optional"
+                                            for="company_registry"
+                                        >ALV</label>
+                                        <input
+                                            type="text"
+                                            name="company_registry"
+                                            class="form-control"
+                                        />
+                                    </div>
+                                    <t
+                                        t-set="methods"
+                                        t-value="request.env['transmit.method'].sudo().search([('website_sale_ok', '=', True)])"
+                                    />
+                                    <div
+                                        id="customer_invoice_transmit_method_id_div"
+                                        t-attf-class="form-group col-lg-6"
+                                        t-if="methods"
+                                    >
+                                        <label
+                                            class="col-form-label"
+                                            for="customer_invoice_transmit_method_id"
+                                        >Invoice transmit method</label>
+                                        <select
+                                            id="customer-invoice-transmit-method"
+                                            t-attf-class="form-control"
+                                            name="customer_invoice_transmit_method_id"
+                                            data-init="1"
+                                        >
+                                            <t t-foreach="methods" t-as="method">
+                                                <option
+                                                    t-att-value="method.id"
+                                                    t-att-data-code="method.code"
+                                                    t-att-data-type="method.contract_target_type"
+                                                    t-esc="method.name"
+                                                />
+                                            </t>
+                                        </select>
+                                    </div>
+                                    <!-- eInvoice Address (EDI-code) -->
+                                    <div
+                                        id="edicode-div"
+                                        class="form-group col-md-6 div_edicode show-company d-none"
+                                    >
+                                        <label
+                                            id="edicode-label"
+                                            class="col-form-label label-optional"
+                                            for="edicode"
+                                        >eInvoice Address (EDI-code)</label>
+                                        <input
+                                            type="text"
+                                            name="edicode"
+                                            placeholder="e.g. 003712345671"
+                                            class="form-control"
+                                        />
+                                    </div>
+
+                                    <!-- eInvoice Operator -->
+                                    <div
+                                        id="einvoice-operator-div"
+                                        class="form-group col-lg-6 div_einvoice_operator show-company d-none"
+                                    >
+                                        <t
+                                            t-set="operators"
+                                            t-value="request.env['res.partner.operator.einvoice'].sudo().search([])"
+                                        />
+                                        <label
+                                            id="einvoice-operator-label"
+                                            class="col-form-label label-optional"
+                                            for="einvoice_operator_id"
+                                        >eInvoice Operator</label>
+                                        <select
+                                            id="einvoice-operator-select"
+                                            class="form-control"
+                                            name="einvoice_operator_id"
+                                        >
+                                            <option
+                                                value=""
+                                            >Select an operator...</option>
+                                            <t t-foreach="operators" t-as="op">
+                                                <option t-att-value="op.id">
+                                                    <t t-esc="op.name" /> (<t
+                                                        t-esc="op.identifier"
+                                                    />)
+                                                </option>
+                                            </t>
+                                        </select>
+                                    </div>
+
+                                    <div class="div_street col-lg-12 mb-2">
+                                        <label
+                                            class="col-form-label"
+                                            for="street"
+                                        >Street</label>
+                                        <input
+                                            type="text"
+                                            name="street"
+                                            class="form-control"
+                                            required="1"
+                                        />
+                                    </div>
+                                    <div class="div_zip col-md-4 mb-2">
+                                        <label
+                                            class="col-form-label"
+                                            for="zip"
+                                        >Zip</label>
+                                        <input
+                                            type="text"
+                                            name="zip"
+                                            class="form-control"
+                                            required="1"
+                                        />
+                                    </div>
+                                    <div class="div_city col-md-8 mb-2">
+                                        <label
+                                            class="col-form-label"
+                                            for="city"
+                                        >City</label>
+                                        <input
+                                            type="text"
+                                            name="city"
+                                            class="form-control"
+                                            required="1"
+                                        />
+                                    </div>
+                                    <t
+                                        t-set="countries"
+                                        t-value="request.env['res.country'].sudo().search([])"
+                                    />
+                                    <div class="div_country col-lg-6 mb-2">
+                                            <label
+                                            class="col-form-label"
+                                            for="country_id"
+                                        >Country</label>
+                                            <select
+                                            id="country_id"
+                                            name="country_id"
+                                            t-attf-class="form-select"
+                                        >
+                                                <option value="">Country...</option>
+                                                <t t-foreach="countries" t-as="c">
+                                                    <option
+                                                    t-att-value="c.id"
+                                                    t-att-selected="'selected' if c.code == 'FI' else None"
+                                                >
+                                                        <t t-esc="c.name" />
+                                                    </option>
+                                                </t>
+                                            </select>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-right mt-3 modal-footer">
+                            <button
+                                type="submit"
+                                class="btn btn-success px-4 py-2 rounded-lg shadow"
+                            >Save Changes</button>
+                            <button
+                                type="button"
+                                class="btn btn-secondary px-4 py-2 rounded-lg shadow"
+                                data-bs-dismiss="modal"
+                            >Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </template>
+</odoo>
