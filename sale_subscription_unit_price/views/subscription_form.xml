@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="sale_subscription_tree_inherit_unit_price" model="ir.ui.view">
+        <field name="name">sale.subscription.tree.inherit.unit_price</field>
+        <field name="model">sale.subscription</field>
+        <field name="inherit_id" ref="subscription_oca.sale_subscription_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree/field[@name='amount_total']" position="before">
+                <field name="unit_price"
+                       optional="show"
+                       sum="Total Unit Price"
+                       widget="monetary"
+                       options="{'currency_field': 'currency_id'}"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
