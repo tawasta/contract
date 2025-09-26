@@ -6,7 +6,7 @@
         <field name="model">sale.subscription</field>
         <field name="inherit_id" ref="subscription_oca.sale_subscription_tree" />
         <field name="arch" type="xml">
-            <xpath expr="//tree/field[@name='amount_total']" position="before">
+            <xpath expr="//tree/field[@name='recurring_total']" position="before">
                 <field
                     name="unit_price"
                     optional="show"
