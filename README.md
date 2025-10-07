@@ -12,7 +12,7 @@ Available addons
 ----------------
 addon | version | maintainers | summary
 --- | --- | --- | ---
-[contract_auditlog](contract_auditlog/) | 17.0.1.0.0 |  | Adds audit log rules for contract and contract line
+[contract_auditlog](contract_auditlog/) | 17.0.1.1.0 |  | Adds audit log rules for contract and contract line
 [contract_default_name](contract_default_name/) | 17.0.1.0.0 |  | Default name for contracts lastname firstname
 [contract_edit_all_lines_next_invoice_date](contract_edit_all_lines_next_invoice_date/) | 17.0.1.0.0 |  | Edit all contract's lines' Date of Next Invoice at once
 [contract_edit_last_date_invoiced](contract_edit_last_date_invoiced/) | 17.0.1.0.0 |  | Allows editing last invoiced date (in case of refunds etc.)
@@ -48,7 +48,7 @@ addon | version | maintainers | summary
 [sale_subscription_unit_price](sale_subscription_unit_price/) | 17.0.1.0.0 |  | Adds unit_price (sum of line price_unit) to sale.subscription and tree view
 [subscription_accrual_rule](subscription_accrual_rule/) | 17.0.1.0.1 |  | Add accrual rules to subscriptions
 [subscription_analytic](subscription_analytic/) | 17.0.1.0.0 |  | Add analytic distribution to subscription lines
-[subscription_auditlog](subscription_auditlog/) | 17.0.1.0.0 |  | Adds audit log rules for sale subscription and subscription line
+[subscription_auditlog](subscription_auditlog/) | 17.0.1.1.0 |  | Adds audit log rules for sale subscription and subscription line
 [subscription_closing](subscription_closing/) | 17.0.1.0.3 |  | Allows ending subscription to a future date
 [subscription_customer_reference](subscription_customer_reference/) | 17.0.1.0.0 |  | Add customer reference to subscriptions
 [subscription_disable_qty_in_cart](subscription_disable_qty_in_cart/) | 17.0.1.0.0 |  | Disable changing subscription product quantity in cart
