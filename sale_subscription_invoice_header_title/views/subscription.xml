@@ -17,7 +17,7 @@
         <field name="inherit_id" ref="subscription_oca.sale_subscription_tree" />
         <field name="arch" type="xml">
             <xpath expr="//tree/field[@name='partner_id']" position="after">
-                <field name="code" optional="header_text" />
+                <field name="header_text" optional="show" />
             </xpath>
         </field>
     </record>
