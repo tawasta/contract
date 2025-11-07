@@ -12,7 +12,7 @@ Available addons
 ----------------
 addon | version | maintainers | summary
 --- | --- | --- | ---
-[contract_auditlog](contract_auditlog/) | 17.0.1.0.0 |  | Adds audit log rules for contract and contract line
+[contract_auditlog](contract_auditlog/) | 17.0.1.1.0 |  | Adds audit log rules for contract and contract line
 [contract_default_name](contract_default_name/) | 17.0.1.0.0 |  | Default name for contracts lastname firstname
 [contract_edit_all_lines_next_invoice_date](contract_edit_all_lines_next_invoice_date/) | 17.0.1.0.0 |  | Edit all contract's lines' Date of Next Invoice at once
 [contract_edit_last_date_invoiced](contract_edit_last_date_invoiced/) | 17.0.1.0.0 |  | Allows editing last invoiced date (in case of refunds etc.)
@@ -48,7 +48,7 @@ addon | version | maintainers | summary
 [sale_subscription_unit_price](sale_subscription_unit_price/) | 17.0.1.0.0 |  | Adds unit_price (sum of line price_unit) to sale.subscription and tree view
 [subscription_accrual_rule](subscription_accrual_rule/) | 17.0.1.0.1 |  | Add accrual rules to subscriptions
 [subscription_analytic](subscription_analytic/) | 17.0.1.0.0 |  | Add analytic distribution to subscription lines
-[subscription_auditlog](subscription_auditlog/) | 17.0.1.0.0 |  | Adds audit log rules for sale subscription and subscription line
+[subscription_auditlog](subscription_auditlog/) | 17.0.1.1.0 |  | Adds audit log rules for sale subscription and subscription line
 [subscription_closing](subscription_closing/) | 17.0.1.0.3 |  | Allows ending subscription to a future date
 [subscription_customer_reference](subscription_customer_reference/) | 17.0.1.0.0 |  | Add customer reference to subscriptions
 [subscription_disable_qty_in_cart](subscription_disable_qty_in_cart/) | 17.0.1.0.0 |  | Disable changing subscription product quantity in cart
@@ -68,7 +68,7 @@ addon | version | maintainers | summary
 [subscription_shipping_address](subscription_shipping_address/) | 17.0.1.0.0 |  | Add shipping address to subscriptions
 [subscription_usability_improvements](subscription_usability_improvements/) | 17.0.1.0.0 |  | Add basic searches, groupings and optional fields to subscriptions
 [subscription_use_existing_invoice](subscription_use_existing_invoice/) | 17.0.1.0.0 |  | Add subscription lines to an existing draft invoice
-[subscription_use_existing_subscription](subscription_use_existing_subscription/) | 17.0.1.0.0 |  | Add new subscription lines to existing subscription
+[subscription_use_existing_subscription](subscription_use_existing_subscription/) | 17.0.1.0.1 |  | Add new subscription lines to existing subscription
 [subscription_user_default](subscription_user_default/) | 17.0.1.0.0 |  | Configurable Default or Core User for Sale Subscriptions
 [website_subscription](website_subscription/) | 17.0.1.2.3 |  | Subscriptions in website portal
 [website_subscription_edit](website_subscription_edit/) | 17.0.1.0.0 |  | Allows editings subscriptions from user portal

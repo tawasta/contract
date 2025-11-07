@@ -11,6 +11,7 @@ class SaleOrder(models.Model):
             [
                 ("partner_id", "=", self.partner_id.id),
                 ("template_id", "=", subscription_tmpl.id),
+                ("in_progress", "=", True),
             ],
             limit=1,
         )

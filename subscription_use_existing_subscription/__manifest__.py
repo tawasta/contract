@@ -21,7 +21,7 @@
 {
     "name": "Subscription: Use existing subscription",
     "summary": "Add new subscription lines to existing subscription",
-    "version": "17.0.1.0.0",
+    "version": "17.0.1.0.1",
     "category": "Contract Management",
     "website": "https://github.com/tawasta/contract",
     "author": "Futural",
