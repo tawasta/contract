@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 from odoo import api, models
 
 
@@ -12,10 +11,13 @@ class SaleSubscription(models.Model):
             if not partner:
                 continue
 
-            existing = Employee.search([
-                ("work_contact_id", "=", partner.id),
-                ("company_id", "=", rec.company_id.id),
-            ], limit=1)
+            existing = Employee.search(
+                [
+                    ("work_contact_id", "=", partner.id),
+                    ("company_id", "=", rec.company_id.id),
+                ],
+                limit=1,
+            )
 
             if existing:
                 continue
@@ -42,5 +44,7 @@ class SaleSubscription(models.Model):
         res = super().write(values)
         if "stage_id" in values and values["stage_id"]:
             # Kutsutaan vain jos vaihetta muutettiin; suodatetaan in_progress-tilassa olevat
-            self.sudo().filtered(lambda s: s.stage_id and s.stage_id.type == "in_progress")._ensure_employee_for_partner()
+            self.sudo().filtered(
+                lambda s: s.stage_id and s.stage_id.type == "in_progress"
+            )._ensure_employee_for_partner()
         return res
