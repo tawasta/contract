@@ -51,6 +51,7 @@ addon | version | maintainers | summary
 [subscription_analytic](subscription_analytic/) | 17.0.1.0.0 |  | Add analytic distribution to subscription lines
 [subscription_auditlog](subscription_auditlog/) | 17.0.1.1.0 |  | Adds audit log rules for sale subscription and subscription line
 [subscription_closing](subscription_closing/) | 17.0.1.0.3 |  | Allows ending subscription to a future date
+[subscription_customer_contact](subscription_customer_contact/) | 17.0.1.0.0 |  | Add a Customer Contact on subscription and propagate to invoices
 [subscription_customer_reference](subscription_customer_reference/) | 17.0.1.0.0 |  | Add customer reference to subscriptions
 [subscription_disable_qty_in_cart](subscription_disable_qty_in_cart/) | 17.0.1.0.0 |  | Disable changing subscription product quantity in cart
 [subscription_free_product](subscription_free_product/) | 17.0.1.0.0 |  | Add a free subscription when purchasing a subscription product
