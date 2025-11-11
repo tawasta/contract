@@ -1,5 +1,5 @@
-# -*- coding: utf-8 -*-
 from odoo import models
+
 
 class SaleSubscriptionLine(models.Model):
     _inherit = "sale.subscription.line"
