@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="sale_subscription_form_customer_contact" model="ir.ui.view">
+        <field name="name">sale.subscription.form.customer.contact</field>
+        <field name="model">sale.subscription</field>
+        <field name="inherit_id" ref="subscription_oca.sale_subscription_form"/>
+        <field name="arch" type="xml">
+            <field name="partner_id" position="after">
+                <field name="customer_contact_id" options="{'no_create_edit': True}"/>
+            </field>
+        </field>
+    </record>
+
+    <!-- Tree view: show customer_contact_id after partner_id -->
+    <record id="sale_subscription_tree_customer_contact" model="ir.ui.view">
+        <field name="name">sale.subscription.tree.customer.contact</field>
+        <field name="model">sale.subscription</field>
+        <field name="inherit_id" ref="subscription_oca.sale_subscription_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree/field[@name='partner_id']" position="after">
+                <field name="customer_contact_id" optional="show"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
