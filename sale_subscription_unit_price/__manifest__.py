@@ -20,7 +20,7 @@
 
 {
     "name": "Unit Price on Subscriptions",
-    "summary": "Adds unit_price (sum of line price_unit) to sale.subscription and tree view",
+    "summary": "Add unit_price to sale.subscription and tree view",
     "version": "17.0.1.0.0",
     "category": "Contract Management",
     "website": "https://github.com/tawasta/contract",

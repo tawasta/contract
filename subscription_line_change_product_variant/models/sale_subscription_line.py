@@ -1,4 +1,4 @@
-from odoo import api, fields, models
+from odoo import models
 
 
 class SaleSubscriptionLine(models.Model):
@@ -12,7 +12,8 @@ class SaleSubscriptionLine(models.Model):
     ):
         """This function is callable inside other models."""
         if sale_subscription_id and new_product_id and sale_subscription_line:
-            self.env["subscription.line.change.product.variant"].change_product_variant(
+            wiz = self.env["subscription.line.change.product.variant"]
+            wiz.change_product_variant(
                 sale_subscription_id=sale_subscription_id,
                 new_product_id=new_product_id,
                 sale_subscription_line=sale_subscription_line,

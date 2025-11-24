@@ -1,4 +1,4 @@
-from odoo import api, fields, models
+from odoo import fields, models
 
 
 class SubscriptionLine(models.Model):
@@ -10,7 +10,6 @@ class SubscriptionLine(models.Model):
     )
 
     upgrade_allowed = fields.Boolean(
-        string="Upgrade Allowed",
         compute="_compute_upgrade_allowed",
         compute_sudo=True,
     )

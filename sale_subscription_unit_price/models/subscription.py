@@ -5,7 +5,6 @@ class SaleSubscription(models.Model):
     _inherit = "sale.subscription"
 
     unit_price = fields.Monetary(
-        string="Unit Price",
         compute="_compute_unit_price",
         store=True,
         readonly=True,

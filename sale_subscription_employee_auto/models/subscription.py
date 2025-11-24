@@ -1,4 +1,4 @@
-from odoo import api, models
+from odoo import models
 
 
 class SaleSubscription(models.Model):
@@ -33,17 +33,17 @@ class SaleSubscription(models.Model):
             }
             Employee.create(vals)
 
-    # 1) Tilauksen starttauspolku
+    # 1) Subscription start path
     def action_start_subscription(self):
         res = super().action_start_subscription()
         self.sudo()._ensure_employee_for_partner()
         return res
 
-    # 2) Vaiheenvaihdot (kun mennään in_progress-tyyppiseen vaiheeseen)
+    # 2) Stage changes (when moving to an in_progress type stage)
     def write(self, values):
         res = super().write(values)
         if "stage_id" in values and values["stage_id"]:
-            # Kutsutaan vain jos vaihetta muutettiin; suodatetaan in_progress-tilassa olevat
+            # Call only if the stage was changed; filter those in in_progress state
             self.sudo().filtered(
                 lambda s: s.stage_id and s.stage_id.type == "in_progress"
             )._ensure_employee_for_partner()

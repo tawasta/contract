@@ -19,7 +19,7 @@
 ##############################################################################
 {
     "name": "Contract: Show Product Internal Reference in Portal",
-    "summary": "Toggleable showing of internal reference in separate column on contract lines",
+    "summary": "Toggle internal reference in separate column on contract lines",
     "version": "17.0.1.0.0",
     "category": "Contract Management",
     "website": "https://github.com/tawasta/contract",

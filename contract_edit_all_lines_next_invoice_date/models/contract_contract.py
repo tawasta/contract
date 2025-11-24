@@ -21,11 +21,11 @@ class Contract(models.Model):
             raise ValidationError(_("Please select a date"))
 
         if not self.line_recurrence:
-            raise ValidationError(
-                _(
-                    "'Recurrence at line level?' must be enabled to use this functionality"
-                )
+            msg = _(
+                "'Recurrence at line level?' "
+                "must be enabled to use this functionality"
             )
+            raise ValidationError(msg)
 
         self.contract_line_ids.write(
             {"recurring_next_date": self.set_recurring_next_date}
