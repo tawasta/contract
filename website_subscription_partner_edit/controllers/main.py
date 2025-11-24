@@ -1,7 +1,8 @@
-from odoo import http, _
-from odoo.http import request
 import json
 import logging
+
+from odoo import http
+from odoo.http import request
 
 _logger = logging.getLogger(__name__)
 
@@ -92,7 +93,8 @@ class PartnerEditController(http.Controller):
                         .browse(int(transmit_method_id))
                     )
                     if method and method.code == "einvoice" and is_company:
-                        # Only add these if method is 'einvoice' and customer is a company
+                        # Only add these if
+                        # method is 'einvoice' and customer is a company
                         if post.get("edicode"):
                             new_contact_vals["edicode"] = post.get("edicode")
                         if post.get("einvoice_operator_id"):
@@ -130,8 +132,10 @@ class PartnerEditController(http.Controller):
     )
     def get_partner_upgrade_modal(self, partner_id, subscription_id):
         """
-        Palauttaa modalin, jossa voi valita laskutusosoitteen/partnerin tilauksen päivittämiseen.
-        Erityistapaus: Jos partnerilla on parent_id, joka on kirjautuneen käyttäjän partner,
+        Palauttaa modalin, jossa voi valita
+        laskutusosoitteen/partnerin tilauksen päivittämiseen.
+        Erityistapaus: Jos partnerilla on parent_id,
+        joka on kirjautuneen käyttäjän partner,
         kyseessä on laskutusosoite, joka on tyyppiä yritys.
         Tällöin haetaan myös parentin kaikki kontaktit ja itse parent mukaan.
         """
@@ -141,11 +145,14 @@ class PartnerEditController(http.Controller):
         if not user_partner.exists() or not subscription.exists():
             return False
 
-        # Lähtökohtaisesti käyttäjän partnerin alaiset kontaktit
+        # All partners related to users partner
         contacts = user_partner.child_ids
 
-        # Erityistapaus: laskutusosoite (company-tyyppi) linkitettynä kirjautuneen käyttäjän partneriin
-        # Jos tämä ehto täyttyy, haetaan myös parentin kaikki kontaktit ja parent itse
+        # Special case:
+        # billing address (company type) linked to the logged-in user's partner
+
+        # If this condition is met,
+        # also fetch all contacts of the parent and the parent itself
         if (
             user_partner.parent_id
             and user_partner.parent_id == request.env.user.partner_id
@@ -156,7 +163,7 @@ class PartnerEditController(http.Controller):
             commercial_partner = user_partner.commercial_partner_id
             contacts |= commercial_partner.child_ids | commercial_partner
 
-        # Poistaa duplikaatit ja varmistaa, ettei user_partner_id ole listalla
+        # Removes duplicates and ensures user_partner_id is not in the list
         unique_contacts = request.env["res.partner"].browse(
             list(set(contacts.ids) - {user_partner.id})
         )
@@ -166,6 +173,7 @@ class PartnerEditController(http.Controller):
             {
                 "user_partner_id": user_partner,
                 "subscription": subscription,
-                "contacts": unique_contacts,  # Lopullinen lista ilman user_partner_id:tä
+                # Final list without user_partner_id
+                "contacts": unique_contacts,
             },
         )

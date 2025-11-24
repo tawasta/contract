@@ -6,6 +6,7 @@ class ProductTemplate(models.Model):
 
     subscription_commercial = fields.Boolean(
         "Commercial subscription",
-        help="Always link this product subscription line to commercial entity, if possible",
+        help="Always link this product "
+        "subscription line to commercial entity, if possible",
         default=False,
     )

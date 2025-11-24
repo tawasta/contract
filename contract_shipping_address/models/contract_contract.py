@@ -10,7 +10,7 @@ class Contract(models.Model):
 
     def _prepare_sale(self, *args, **kwargs):
         # Super will handle ensure_one() and other validation
-        res = super(Contract, self)._prepare_sale(*args, **kwargs)
+        res = super()._prepare_sale(*args, **kwargs)
 
         # Add shipping address id to writable values
         if self.partner_shipping_id:

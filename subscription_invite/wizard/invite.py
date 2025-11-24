@@ -1,8 +1,9 @@
-from odoo import models, fields, api, tools
-from odoo.exceptions import UserError
+import re
 import secrets
 from datetime import datetime
-import re
+
+from odoo import _, fields, models, tools
+from odoo.exceptions import UserError
 
 
 class SubscriptionInviteWizard(models.TransientModel):
@@ -11,7 +12,7 @@ class SubscriptionInviteWizard(models.TransientModel):
 
     subscription_line_id = fields.Many2one("sale.subscription.line", required=True)
     invite_email = fields.Char(string="Email", required=True)
-    confirm_email = fields.Char(string="Confirm Email", required=True)
+    confirm_email = fields.Char(required=True)
 
     def _is_valid_email(self, email):
         email = email.strip()
@@ -24,14 +25,14 @@ class SubscriptionInviteWizard(models.TransientModel):
         confirm = (self.confirm_email or "").strip()
 
         if not self._is_valid_email(email):
-            raise UserError("Please enter a valid email address.")
+            raise UserError(_("Please enter a valid email address."))
 
         if email != confirm:
-            raise UserError("The email addresses do not match.")
+            raise UserError(_("The email addresses do not match."))
 
         line = self.subscription_line_id
         if not line:
-            raise UserError("Subscription line not found.")
+            raise UserError(_("Subscription line not found."))
 
         existing_user = (
             self.env["res.users"].sudo().search([("login", "=", email)], limit=1)
@@ -91,7 +92,7 @@ class SubscriptionInviteWizard(models.TransientModel):
             "subscription_invite.subscription_invitation_email_template"
         )
         if not template:
-            raise UserError("Email template not found")
+            raise UserError(_("Email template not found"))
 
         template.sudo().send_mail(
             line.id, force_send=True, email_values={"email_to": email}

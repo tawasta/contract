@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from odoo import _, fields, models
+from odoo import fields, models
 
 
 class SubscriptionLineChangeProductVariant(models.TransientModel):
@@ -72,8 +72,8 @@ class SubscriptionLineChangeProductVariant(models.TransientModel):
         account_move_line = sale_subscription_line._prepare_account_move_line()
 
         # Set invoice line's price as the difference between old sale.subscription
-        # line's and new sale_subscription line's price based on sale.subscription's pricelist
-        # rule.
+        # line's and new sale_subscription line's price based on
+        # sale.subscription's pricelist rule.
         account_move_line["price_unit"] = new_line_price
 
         line_values.append((0, 0, account_move_line))

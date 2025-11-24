@@ -1,9 +1,7 @@
 import json
 import secrets
-from collections import defaultdict
 from datetime import datetime
 
-import werkzeug
 from werkzeug.exceptions import Forbidden
 
 from odoo import _, http
@@ -218,6 +216,8 @@ class SubscriptionInviteController(http.Controller):
             {"partner_id": request.env.user.partner_id.id}
         )
 
-        return_url = f"{invite_data['return_url']}?access_token={invite_data['access_token']}&thank_you=1"
+        url = invite_data["return_url"]
+        token = invite_data["access_token"]
+        return_url = f"{url}?access_token={token}&thank_you=1"
 
         return request.redirect(return_url)

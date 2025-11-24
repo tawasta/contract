@@ -84,27 +84,27 @@ class ResPartner(models.Model):
         date.today()
         partners_with_lines = self.filtered(lambda p: p.contract_lines)
         for partner in partners_with_lines:
-            # Filtteröi vain voimassa olevat sopimuslinjat
+            # Filter only valid contract lines
             valid_contract_lines = partner.contract_lines.filtered(
                 lambda cl: cl.state in ["in-progress", "upcoming", "upcoming-close"]
             )
 
-            # Jos on voimassa olevia sopimuslinjoja
+            # If valid contract lines exist, gather companies
             if valid_contract_lines:
-                # Kerää yhtiöt tuotteista ja tuotemalleista
+                # Gather companies from products and product templates
                 companies_from_products = valid_contract_lines.mapped(
                     "product_id.variant_company_id"
-                ).filtered(lambda c: c)  # Varmista, että company_id on asetettu
+                ).filtered(lambda c: c)  # Ensure company_id is set
                 companies_from_templates = valid_contract_lines.mapped(
                     "product_id.product_tmpl_id.company_id"
-                ).filtered(lambda c: c)  # Varmista, että company_id on asetettu
+                ).filtered(lambda c: c)  # Ensure company_id is set
 
-                # Yhdistä yhtiöiden joukot ja määritä partnerille
+                # Combine sets of companies and assign to partner
                 partner.contract_line_company_ids = (
                     companies_from_products | companies_from_templates
                 )
             else:
-                # Jos ei löydy voimassa olevia sopimuslinjoja, tyhjennä kenttä
+                # If no valid contract lines found, clear the field
                 partner.contract_line_company_ids = False
 
     @api.depends(
@@ -116,11 +116,11 @@ class ResPartner(models.Model):
     def _compute_contract_line_product_ids(self):
         date.today()
         for partner in self.filtered(lambda p: p.contract_lines):
-            # Filtteröi vain voimassa olevat sopimuslinjat
+            # Filter only valid contract lines
             valid_contract_lines = partner.contract_lines.filtered(
                 lambda cl: cl.state in ["in-progress", "upcoming", "upcoming-close"]
             )
-            # Määritetään partnerin tuote-ID:t voimassa olevien sopimuslinjojen perusteella
+            # Determine partner's product IDs based on valid contract lines
             partner.contract_line_product_ids = valid_contract_lines.mapped(
                 "product_id"
             )

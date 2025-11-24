@@ -20,7 +20,7 @@
 
 {
     "name": "Contract: Template Additional Fields",
-    "summary": "Adds invoice interval, payment term and responsible person fields to Contract Template",
+    "summary": "Invoice interval, payment term and responsible to Contract Template",
     "version": "17.0.1.0.0",
     "category": "Contract Management",
     "website": "https://github.com/tawasta/contract",

@@ -20,7 +20,7 @@
 
 {
     "name": "Sale Subscription Line Split",
-    "summary": "Splits subscription lines based on quantity when enabled on the product",
+    "summary": "Allows splitting subscription lines based on quantity",
     "version": "17.0.1.0.0",
     "category": "Contract Management",
     "website": "https://github.com/tawasta/contract",

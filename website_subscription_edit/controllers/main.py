@@ -1,6 +1,7 @@
-from odoo import http, _
-from odoo.http import request
 import json
+
+from odoo import _, http
+from odoo.http import request
 
 
 class SubscriptionController(http.Controller):

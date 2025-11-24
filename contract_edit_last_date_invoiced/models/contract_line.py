@@ -5,14 +5,18 @@ class ContractLine(models.Model):
     _inherit = "contract.line"
 
     def _check_last_date_invoiced(self):
-        for rec in self.filtered("last_date_invoiced"):
-            # Skip the check for next invoice date / recurring next date
-            if (
-                rec.recurring_next_date
-                and rec.recurring_next_date <= rec.last_date_invoiced
-            ):
-                # Skip this constraint
-                continue
+        # Records where the check should be skipped
+        skip = self.filtered(
+            lambda r: r.last_date_invoiced
+            and r.recurring_next_date
+            and r.recurring_next_date <= r.last_date_invoiced
+        )
 
-            # Check other constraints
-            super()._check_last_date_invoiced()
+        # Records that must be validated by parent constraint
+        to_check = self.filtered("last_date_invoiced") - skip
+
+        if to_check:
+            return super(ContractLine, to_check)._check_last_date_invoiced()
+        # For others, simply return None (implicitly)
+        else:
+            return None
