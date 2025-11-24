@@ -34,19 +34,19 @@ addon | version | maintainers | summary
 [contract_portal_date_start](contract_portal_date_start/) | 17.0.1.0.0 |  | Toggleable showing of Date Start on Contract Portal Views
 [contract_portal_hide_message_thread](contract_portal_hide_message_thread/) | 17.0.1.0.0 |  | Adds a toggle for hiding the contract messaging section
 [contract_portal_invoice_address](contract_portal_invoice_address/) | 17.0.1.0.0 |  | Toggleable showing of contract's invoice address in portal
-[contract_portal_product_default_code](contract_portal_product_default_code/) | 17.0.1.0.0 |  | Toggleable showing of internal reference in separate column on contract lines
+[contract_portal_product_default_code](contract_portal_product_default_code/) | 17.0.1.0.0 |  | Toggle internal reference in separate column on contract lines
 [contract_product_usage](contract_product_usage/) | 17.0.1.0.0 |  | Show contracts and contract lines where product is used in
 [contract_remove_unlink_right](contract_remove_unlink_right/) | 17.0.1.0.0 |  | Disallow deleting contracts (always archive them)
 [contract_shipping_address](contract_shipping_address/) | 17.0.1.0.1 |  | Add shipping address to contracts
-[contract_template_additional_fields](contract_template_additional_fields/) | 17.0.1.0.0 |  | Adds invoice interval, payment term and responsible person fields to Contract Template
+[contract_template_additional_fields](contract_template_additional_fields/) | 17.0.1.0.0 |  | Invoice interval, payment term and responsible to Contract Template
 [contract_to_subscription](contract_to_subscription/) | 17.0.1.0.0 |  | Migrate contracts to subscriptions
 [contract_use_customer_as_invoicing_contact](contract_use_customer_as_invoicing_contact/) | 17.0.1.0.0 |  | Default value to a contract's invoicing contact
 [contract_use_existing_invoice](contract_use_existing_invoice/) | 17.0.1.0.0 |  | Add lines to an existing invoice instead of creating a new invoice
 [only_one_subscription_in_cart](only_one_subscription_in_cart/) | 17.0.1.1.0 |  | Allow to have only one subscription in cart
 [sale_subscription_employee_auto](sale_subscription_employee_auto/) | 17.0.1.0.0 |  | Luo hr.employee partnerin tiedoilla kun jäsenyys tulee voimaan.
 [sale_subscription_invoice_header_title](sale_subscription_invoice_header_title/) | 17.0.1.0.0 |  | Subscription Invoice Header Title
-[sale_subscription_line_split](sale_subscription_line_split/) | 17.0.1.0.0 |  | Splits subscription lines based on quantity when enabled on the product
-[sale_subscription_unit_price](sale_subscription_unit_price/) | 17.0.1.0.0 |  | Adds unit_price (sum of line price_unit) to sale.subscription and tree view
+[sale_subscription_line_split](sale_subscription_line_split/) | 17.0.1.0.0 |  | Allows splitting subscription lines based on quantity
+[sale_subscription_unit_price](sale_subscription_unit_price/) | 17.0.1.0.0 |  | Add unit_price to sale.subscription and tree view
 [subscription_accrual_rule](subscription_accrual_rule/) | 17.0.1.0.1 |  | Add accrual rules to subscriptions
 [subscription_analytic](subscription_analytic/) | 17.0.1.0.0 |  | Add analytic distribution to subscription lines
 [subscription_auditlog](subscription_auditlog/) | 17.0.1.1.0 |  | Adds audit log rules for sale subscription and subscription line
@@ -62,7 +62,7 @@ addon | version | maintainers | summary
 [subscription_line_closing](subscription_line_closing/) | 17.0.1.2.0 |  | Allows ending subscription lines without deleting them
 [subscription_line_cost](subscription_line_cost/) | 17.0.1.0.0 |  | Allows defining a cost to subscription lines
 [subscription_line_list_view](subscription_line_list_view/) | 17.0.1.0.1 |  | Creates a tree view for subscription lines
-[subscription_line_marker](subscription_line_marker/) | 17.0.1.0.0 |  | Append (#START# - #END#) to subscription line description after base compute
+[subscription_line_marker](subscription_line_marker/) | 17.0.1.0.0 |  | Append (#START# - #END#) to subscription line description
 [subscription_line_partner](subscription_line_partner/) | 17.0.1.0.4 |  | Allows defining a partner to subscription lines
 [subscription_line_related_sale_order_line](subscription_line_related_sale_order_line/) | 17.0.1.0.0 |  | Add SO line information for subscription lines
 [subscription_modification](subscription_modification/) | 17.0.1.0.1 |  | Add modification log to subscriptions

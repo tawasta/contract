@@ -1,4 +1,4 @@
-from odoo import api, models, _
+from odoo import _, api, models
 from odoo.exceptions import ValidationError
 
 
@@ -18,8 +18,10 @@ class SaleSubscription(models.Model):
             try:
                 # Muuta default_user_id kokonaisluvuksi
                 default_user_id = int(default_user_id)
-            except ValueError:
-                raise ValidationError(_("The default user ID is not a valid integer."))
+            except ValueError as e:
+                raise ValidationError(
+                    _("The default user ID is not a valid integer.")
+                ) from e
 
             # Varmista, että käyttäjä on olemassa
             user = self.env["res.users"].sudo().browse(default_user_id)
@@ -33,4 +35,4 @@ class SaleSubscription(models.Model):
                 vals["user_id"] = default_user_id
 
         # Käytä core-logiikkaa kaikille muille käsittelyille
-        return super(SaleSubscription, self).create(vals_list)
+        return super().create(vals_list)

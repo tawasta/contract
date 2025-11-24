@@ -24,7 +24,8 @@ class SubscriptionLine(models.Model):
 
     @api.depends("product_id", "partner_id")
     def _compute_name(self):
-        super()._compute_name()
+        res = super()._compute_name()
         for record in self:
             if record.partner_id:
-                record.name += ", {}".format(record.partner_id.name)
+                record.name += f", {record.partner_id.name}"
+        return res

@@ -1,4 +1,4 @@
-from odoo import _, api, fields, models
+from odoo import api, fields, models
 
 
 class SaleOrderLine(models.Model):
@@ -33,7 +33,7 @@ class SaleOrderLine(models.Model):
 
                 if discount:
                     record._compute_name()
-                    line_name = _("{} ({} {})").format(record.name, period, period_name)
+                    line_name = f"{record.name} ({period} {period_name})"
 
                     vals = {
                         "name": line_name,

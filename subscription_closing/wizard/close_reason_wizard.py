@@ -11,7 +11,8 @@ class CloseSubscriptionWizard(models.TransientModel):
     def button_confirm(self):
         if self.date_end <= fields.Date.today():
             # End immediately
-            super().button_confirm()
+            res = super().button_confirm()
+            return res
 
         sale_subscription = self.env["sale.subscription"].browse(
             self.env.context["active_id"]
@@ -24,4 +25,4 @@ class CloseSubscriptionWizard(models.TransientModel):
             # Don't auto-archive
             "active": True,
         }
-        sale_subscription.write(values)
+        return sale_subscription.write(values)

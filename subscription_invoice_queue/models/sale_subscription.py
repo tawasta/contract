@@ -1,7 +1,7 @@
 import logging
 from datetime import date
-from odoo import _
-from odoo import models
+
+from odoo import _, models
 
 _logger = logging.getLogger(__name__)
 
@@ -13,9 +13,7 @@ class SaleSubscription(models.Model):
         # Overwrite function to allow using queue
         today = date.today()
         for subscription in self.search([]):
-            job_desc = _(
-                "Generate invoice for subscription '{}'".format(subscription.name)
-            )
+            job_desc = _(f"Generate invoice for subscription '{subscription.name}'")
 
             if subscription.in_progress:
                 if (

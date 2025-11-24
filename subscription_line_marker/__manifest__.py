@@ -20,7 +20,7 @@
 
 {
     "name": "Subscription Line Marker",
-    "summary": "Append (#START# - #END#) to subscription line description after base compute",
+    "summary": "Append (#START# - #END#) to subscription line description",
     "version": "17.0.1.0.0",
     "category": "Contract Management",
     "website": "https://github.com/tawasta/contract",

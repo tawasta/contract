@@ -25,6 +25,8 @@ class SaleOrder(models.Model):
             existing_subscription.write(
                 {"sale_subscription_line_ids": subscription_lines}
             )
+            return
         else:
             # Create a new subscription
-            super().create_subscription(lines, subscription_tmpl)
+            res = super().create_subscription(lines, subscription_tmpl)
+            return res

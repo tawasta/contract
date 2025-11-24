@@ -11,6 +11,6 @@ class Product(models.Model):
             self.subscription_template_id
             and self.subscription_template_id.auto_period_markers
         ):
-            res += " {}".format(self.subscription_template_id.auto_period_markers_text)
+            res += f" {self.subscription_template_id.auto_period_markers_text}"
 
         return res
