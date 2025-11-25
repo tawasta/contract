@@ -16,7 +16,7 @@ class SubscriptionImportTemplateLine(models.Model):
     _name = "subscription.import.template.line"
     _description = "Subscription & contact import template line"
 
-    sequence = fields.Integer(string="Sequence")
+    sequence = fields.Integer()
 
     # 2. Fields declaration
     template_id = fields.Many2one(
@@ -29,16 +29,20 @@ class SubscriptionImportTemplateLine(models.Model):
         comodel_name="ir.model",
         string="Model",
         required=True,
-        domain="[('model', 'in', ['res.partner', 'product.product', 'sale.subscription', 'sale.subscription.line'])]",
+        domain="['&', ('model', 'in', ["
+        "'res.partner', "
+        "'product.product', "
+        "'sale.subscription', "
+        "'sale.subscription.line'"
+        "])]",
         ondelete="cascade",
     )
 
-    is_search_field = fields.Boolean(string="Is Search Field", default=False)
+    is_search_field = fields.Boolean(default=False)
 
-    csv_column_name = fields.Char(string="CSV Column Name", required=True)
+    csv_column_name = fields.Char(required=True)
 
     field_name = fields.Many2one(
-        string="Field Name",
         comodel_name="ir.model.fields",
         required=True,
         ondelete="cascade",

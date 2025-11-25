@@ -1,6 +1,6 @@
 ##############################################################################
 #
-#    Author: Oy Tawasta OS Technologies Ltd.
+#    Author: Futural Oy.
 #    Copyright 2018 Oy Tawasta OS Technologies Ltd. (http://www.tawasta.fi)
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -23,8 +23,8 @@
     "summary": "Upload and Generate Subscriptions",
     "version": "17.0.1.0.0",
     "category": "Specific Industry Applications",
-    "website": "https://github.com/tawasta/server-tools",
-    "author": "Futural Oy",
+    "website": "https://github.com/tawasta/contract",
+    "author": "Futural",
     "license": "AGPL-3",
     "application": False,
     "installable": True,

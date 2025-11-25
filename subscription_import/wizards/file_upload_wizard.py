@@ -3,7 +3,6 @@ import csv
 import io
 
 from odoo import _, exceptions, fields, models
-from odoo.tools.translate import _
 
 
 class FileUploadWizard(models.TransientModel):
@@ -44,7 +43,7 @@ class FileUploadWizard(models.TransientModel):
         for col_name, cell_value in row.items():
             # Find matching template lines for this CSV column
             template_lines = self.template_id.line_ids.filtered(
-                lambda l: l.csv_column_name == col_name
+                lambda li: li.csv_column_name == col_name  # noqa: B023
             )
             # Map CSV value to correct model + field
             for line in template_lines:
@@ -60,7 +59,7 @@ class FileUploadWizard(models.TransientModel):
 
         return lines_by_model
 
-    def create_records_from_file(self):
+    def create_records_from_file(self):  # noqa: C901
         """
         Main import method. Reads the CSV file and:
         - Create or finds partners
