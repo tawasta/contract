@@ -29,12 +29,7 @@ class SubscriptionImportTemplateLine(models.Model):
         comodel_name="ir.model",
         string="Model",
         required=True,
-        domain="['&', ('model', 'in', ["
-        "'res.partner', "
-        "'product.product', "
-        "'sale.subscription', "
-        "'sale.subscription.line'"
-        "])]",
+        domain="[('model', 'in', ['res.partner', 'product.product', 'sale.subscription', 'sale.subscription.line'])]",  # noqa: E501
         ondelete="cascade",
     )
 
