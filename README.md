@@ -67,6 +67,7 @@ addon | version | maintainers | summary
 [subscription_line_partner](subscription_line_partner/) | 17.0.1.0.4 |  | Allows defining a partner to subscription lines
 [subscription_line_related_sale_order_line](subscription_line_related_sale_order_line/) | 17.0.1.0.0 |  | Add SO line information for subscription lines
 [subscription_modification](subscription_modification/) | 17.0.1.0.1 |  | Add modification log to subscriptions
+[subscription_multicompany](subscription_multicompany/) | 17.0.1.0.0 |  | Adds missing multi-company support to subscriptions
 [subscription_period_markers](subscription_period_markers/) | 17.0.1.1.0 |  | Support for #START# and #END# markers in subscription lines
 [subscription_prorate](subscription_prorate/) | 17.0.1.0.0 |  | Prorate subscription price to allow synchronous subscription dates
 [subscription_shipping_address](subscription_shipping_address/) | 17.0.1.0.0 |  | Add shipping address to subscriptions
