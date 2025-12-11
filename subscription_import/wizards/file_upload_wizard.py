@@ -103,6 +103,14 @@ class FileUploadWizard(models.TransientModel):
                 partner = self.env["res.partner"].search(partner_domain, limit=1)
 
             if not partner and partner_create_vals:
+                # >>> ADD THIS DEBUG BLOCK <<<
+                for field, value in partner_create_vals.items():
+                    if value == "":
+                        raise exceptions.UserError(
+                            _("Empty required field '%(field)s'. " "Row: %(row)s")
+                            % {"field": field, "row": str(row)}
+                        )
+                # >>> END DEBUG <<<
                 partner = self.env["res.partner"].create(partner_create_vals)
             if not partner:
                 continue
