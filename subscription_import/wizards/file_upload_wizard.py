@@ -76,7 +76,7 @@ class FileUploadWizard(models.TransientModel):
 
         main_partner = False
 
-        for row in rows:
+        for row_index, row in enumerate(rows, start=2):
             if not any(row.values()):
                 continue
 
@@ -107,7 +107,29 @@ class FileUploadWizard(models.TransientModel):
                     f: (v if v not in ("", None) else False)
                     for f, v in partner_create_vals.items()
                 }
-                partner = self.env["res.partner"].create(partner_create_vals)
+
+                # --- DEBUG / USER-FRIENDLY ERROR HANDLING ---
+                try:
+                    partner = self.env["res.partner"].create(partner_create_vals)
+                except Exception as e:
+                    raise exceptions.UserError(
+                        _(
+                            "Virhe luotaessa partneria.\n\n"
+                            "CSV-rivi: %(rownum)s\n"
+                            "Rivin data: %(row)s\n\n"
+                            "Kenttäarvot: %(vals)s\n\n"
+                            "Odoo-virhe: %(error)s\n\n"
+                            "Mahdollinen syy: väärä arvo kenttään "
+                            "(esim. gender, päivämäärä, many2one, boolean, country, language)."
+                        )
+                        % {
+                            "rownum": row_index,
+                            "row": str(row),
+                            "vals": str(partner_create_vals),
+                            "error": str(e),
+                        }
+                    )
+
             if not partner:
                 continue
 
