@@ -103,6 +103,14 @@ class FileUploadWizard(models.TransientModel):
                 partner = self.env["res.partner"].search(partner_domain, limit=1)
 
             if not partner and partner_create_vals:
+                # >>> ADD THIS DEBUG BLOCK <<<
+                for field, value in partner_create_vals.items():
+                    if value == "":
+                        raise exceptions.UserError(
+                            _("CSV row contains invalid empty string for field '%s'. Row data: %s")
+                            % (field, row)
+                        )
+                # >>> END DEBUG <<<
                 partner = self.env["res.partner"].create(partner_create_vals)
             if not partner:
                 continue
