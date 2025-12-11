@@ -111,24 +111,26 @@ class FileUploadWizard(models.TransientModel):
                 # --- DEBUG / USER-FRIENDLY ERROR HANDLING ---
                 try:
                     partner = self.env["res.partner"].create(partner_create_vals)
+
                 except Exception as e:
-                    raise exceptions.UserError(
-                        _(
-                            "Virhe luotaessa partneria.\n\n"
-                            "CSV-rivi: %(rownum)s\n"
-                            "Rivin data: %(row)s\n\n"
-                            "Kenttäarvot: %(vals)s\n\n"
-                            "Odoo-virhe: %(error)s\n\n"
-                            "Mahdollinen syy: väärä arvo kenttään "
-                            "(esim. gender, päivämäärä, many2one, boolean, country, language)."
-                        )
-                        % {
-                            "rownum": row_index,
-                            "row": str(row),
-                            "vals": str(partner_create_vals),
-                            "error": str(e),
-                        }
-                    )
+                    error_message = _(
+                        "Virhe luotaessa partneria.\n\n"
+                        "CSV-rivi: %(rownum)s\n"
+                        "Rivin data: %(row)s\n\n"
+                        "Kenttäarvot: %(vals)s\n\n"
+                        "Odoo-virhe: %(error)s\n\n"
+                        "Mahdollinen syy: väärä arvo kenttään "
+                        "(esim. gender, päivämäärä,\n"
+                        "many2one, boolean,\n"
+                        "country, language)."
+                    ) % {
+                        "rownum": row_index,
+                        "row": str(row),
+                        "vals": str(partner_create_vals),
+                        "error": str(e),
+                    }
+
+                    raise exceptions.UserError(error_message) from e
 
             if not partner:
                 continue
