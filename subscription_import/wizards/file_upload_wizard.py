@@ -157,8 +157,12 @@ class FileUploadWizard(models.TransientModel):
                 product = self.env["product.product"].create(product_create_vals)
 
             # -------- SUBSCRIPTION HANDLING --------
-            subscription_create_vals = dict(lines_by_model["sale.subscription"]["create"])
-            subscription_search_vals = dict(lines_by_model["sale.subscription"]["search"])
+            subscription_create_vals = dict(
+                lines_by_model["sale.subscription"]["create"]
+            )
+            subscription_search_vals = dict(
+                lines_by_model["sale.subscription"]["search"]
+            )
 
             subscription = False
             if subscription_search_vals:
@@ -166,7 +170,9 @@ class FileUploadWizard(models.TransientModel):
                     (field_name, "=", value)
                     for field_name, value in subscription_search_vals.items()
                 ]
-                subscription = self.env["sale.subscription"].search(subscription_domain, limit=1)
+                subscription = self.env["sale.subscription"].search(
+                    subscription_domain, limit=1
+                )
 
             if not subscription:
                 if not subscription_create_vals:
@@ -179,30 +185,40 @@ class FileUploadWizard(models.TransientModel):
                 }
                 subscription_create_vals.setdefault("partner_id", partner.id)
 
-                # 2) If required fields are missing, raise a friendly error BEFORE create
+                # 2) If required fields are missing,
+                # raise a friendly error BEFORE create
                 #    (This catches the case "can't be NULL/FALSE")
                 required_missing = []
                 for fname, field in self.env["sale.subscription"]._fields.items():
-                    if field.required and subscription_create_vals.get(fname) in (False, None, ""):
+                    if field.required and subscription_create_vals.get(fname) in (
+                        False,
+                        None,
+                        "",
+                    ):
                         required_missing.append(fname)
 
                 if required_missing:
-                    raise exceptions.UserError(_(
-                        "Subscriptionilta puuttuu pakollinen kenttä/kenttiä.\n\n"
-                        "CSV-rivi: %(rownum)s\n"
-                        "Puuttuvat kentät (model field names): %(missing)s\n\n"
-                        "Rivin data: %(row)s\n\n"
-                        "Kenttäarvot (subscription): %(vals)s"
-                    ) % {
-                        "rownum": row_index,
-                        "missing": ", ".join(required_missing),
-                        "row": str(row),
-                        "vals": str(subscription_create_vals),
-                    })
+                    raise exceptions.UserError(
+                        _(
+                            "Subscriptionilta puuttuu pakollinen kenttä/kenttiä.\n\n"
+                            "CSV-rivi: %(rownum)s\n"
+                            "Puuttuvat kentät (model field names): %(missing)s\n\n"
+                            "Rivin data: %(row)s\n\n"
+                            "Kenttäarvot (subscription): %(vals)s"
+                        )
+                        % {
+                            "rownum": row_index,
+                            "missing": ", ".join(required_missing),
+                            "row": str(row),
+                            "vals": str(subscription_create_vals),
+                        }
+                    )
 
                 # 3) Create with debug error message
                 try:
-                    subscription = self.env["sale.subscription"].create(subscription_create_vals)
+                    subscription = self.env["sale.subscription"].create(
+                        subscription_create_vals
+                    )
                 except Exception as e:
                     error_message = _(
                         "Virhe luotaessa subscriptionia.\n\n"
@@ -217,7 +233,6 @@ class FileUploadWizard(models.TransientModel):
                         "error": str(e),
                     }
                     raise exceptions.UserError(error_message) from e
-
 
             # -------- SUBSCRIPTION LINE CREATION --------
 
