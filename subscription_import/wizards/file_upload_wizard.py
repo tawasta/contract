@@ -177,10 +177,62 @@ class FileUploadWizard(models.TransientModel):
             if not subscription:
                 if not subscription_create_vals:
                     continue
+
+                # 1) Convert ""/None -> False (NULL)
+                subscription_create_vals = {
+                    f: (v if v not in ("", None) else False)
+                    for f, v in subscription_create_vals.items()
+                }
                 subscription_create_vals.setdefault("partner_id", partner.id)
-                subscription = self.env["sale.subscription"].create(
-                    subscription_create_vals
-                )
+
+                # 2) If required fields are missing,
+                # raise a friendly error BEFORE create
+                #    (This catches the case "can't be NULL/FALSE")
+                required_missing = []
+                for fname, field in self.env["sale.subscription"]._fields.items():
+                    if field.required and subscription_create_vals.get(fname) in (
+                        False,
+                        None,
+                        "",
+                    ):
+                        required_missing.append(fname)
+
+                if required_missing:
+                    raise exceptions.UserError(
+                        _(
+                            "Subscriptionilta puuttuu pakollinen kenttä/kenttiä.\n\n"
+                            "CSV-rivi: %(rownum)s\n"
+                            "Puuttuvat kentät (model field names): %(missing)s\n\n"
+                            "Rivin data: %(row)s\n\n"
+                            "Kenttäarvot (subscription): %(vals)s"
+                        )
+                        % {
+                            "rownum": row_index,
+                            "missing": ", ".join(required_missing),
+                            "row": str(row),
+                            "vals": str(subscription_create_vals),
+                        }
+                    )
+
+                # 3) Create with debug error message
+                try:
+                    subscription = self.env["sale.subscription"].create(
+                        subscription_create_vals
+                    )
+                except Exception as e:
+                    error_message = _(
+                        "Virhe luotaessa subscriptionia.\n\n"
+                        "CSV-rivi: %(rownum)s\n"
+                        "Rivin data: %(row)s\n\n"
+                        "Kenttäarvot (subscription): %(vals)s\n\n"
+                        "Odoo-virhe: %(error)s\n"
+                    ) % {
+                        "rownum": row_index,
+                        "row": str(row),
+                        "vals": str(subscription_create_vals),
+                        "error": str(e),
+                    }
+                    raise exceptions.UserError(error_message) from e
 
             # -------- SUBSCRIPTION LINE CREATION --------
 
