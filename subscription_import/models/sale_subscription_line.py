@@ -64,26 +64,33 @@ class SaleSubscriptionLine(models.Model):
     def _get_or_create_product_for_part(self, name):
         """
         Return product.product for given name.
-        Avoid duplicates by searching product.template by exact name.
+        Avoid duplicates by searching product.product by exact template name.
+
+        NOTE:
+        - We do NOT use product.template anywhere.
+        - Creating product.product will automatically create the underlying template/variant as needed by Odoo,
+          but we only interact with product.product.
         """
         name = (name or "").strip()
         if not name:
             _logger.info("cron_split: Product name empty -> skip product creation")
             return False
 
-        Template = self.env["product.template"].sudo()
+        Product = self.env["product.product"].sudo()
 
-        tmpl = Template.search([("name", "=", name)], limit=1)
-        if tmpl:
+        # Search by exact template name to avoid duplicates (since display name logic can vary)
+        prod = Product.search([("product_tmpl_id.name", "=", name)], limit=1)
+        if prod:
             _logger.info(
-                "cron_split: Product exists: '%s' (template_id=%s, variant_id=%s)",
+                "cron_split: Product exists: '%s' (product_id=%s, template_id=%s)",
                 name,
-                tmpl.id,
-                tmpl.product_variant_id.id,
+                prod.id,
+                prod.product_tmpl_id.id if prod.product_tmpl_id else None,
             )
-            return tmpl.product_variant_id
+            return prod
 
-        tmpl = Template.create(
+        # Create directly on product.product (no product.template usage)
+        prod = Product.create(
             {
                 "name": name,
                 "type": "service",
@@ -91,12 +98,13 @@ class SaleSubscriptionLine(models.Model):
             }
         )
         _logger.info(
-            "cron_split: Product created: '%s' (template_id=%s, variant_id=%s)",
+            "cron_split: Product created: '%s' (product_id=%s, template_id=%s)",
             name,
-            tmpl.id,
-            tmpl.product_variant_id.id,
+            prod.id,
+            prod.product_tmpl_id.id if prod.product_tmpl_id else None,
         )
-        return tmpl.product_variant_id
+        return prod
+
 
     # -------------------------------------------------------------------------
     # SQL helper: backfill stored related company_id for ONE line if NULL
