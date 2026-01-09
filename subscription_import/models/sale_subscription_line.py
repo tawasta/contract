@@ -84,6 +84,11 @@ class SaleSubscriptionLine(models.Model):
         - Description (line.name) keeps full part text
         - Product name strips ', Partner' if present
         - Attach existing product or create new (no duplicates by name)
+
+        Safety:
+        - Ensure subscription has company_id set,
+        - taking it from the existing line (line.company_id).
+        - This prevents OCA compute crash: company.ensure_one().
         """
         Line = self.sudo()
 
@@ -106,12 +111,27 @@ class SaleSubscriptionLine(models.Model):
             )
 
         for line in lines:
+            subscription = line.sale_subscription_id
+            if not subscription:
+                continue
+
+            # ---- FIX: take company from existing line
+            # Prefer line.company_id, fallback subscription.company_id,
+            # last fallback env.company
+            target_company = (
+                line.company_id or subscription.company_id or self.env.company
+            )
+
+            if not subscription.company_id and target_company:
+                subscription.write({"company_id": target_company.id})
+
+            # ---- normal processing
             original_name = (line.name or "").strip()
             parts = self._split_semicolon_parts(original_name)
             if len(parts) < 2:
                 continue
 
-            partner_name = line.sale_subscription_id.partner_id.name or ""
+            partner_name = subscription.partner_id.name or ""
             taxes_ids = line.tax_ids.ids
 
             # Create copies so total lines == number of parts
