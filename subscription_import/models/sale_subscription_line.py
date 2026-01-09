@@ -271,7 +271,6 @@ class SaleSubscriptionLine(models.Model):
             first_product = self._get_or_create_product_for_part(first_product_name)
 
             vals_first = {
-                "name": first_desc,
                 "product_id": first_product.id if first_product else False,
                 "tax_ids": [(6, 0, taxes_ids)],
             }
@@ -297,7 +296,6 @@ class SaleSubscriptionLine(models.Model):
 
                 vals_new = {
                     "sale_subscription_id": subscription.id,
-                    "name": desc,
                     "product_id": product.id if product else False,
                     "tax_ids": [(6, 0, taxes_ids)],
                     "product_uom_qty": line.product_uom_qty,
