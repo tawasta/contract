@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 from odoo import api, models
 
 
@@ -59,11 +58,13 @@ class SaleSubscriptionLine(models.Model):
         if tmpl:
             return tmpl.product_variant_id
 
-        tmpl = Template.create({
-            "name": name,
-            "type": "service",
-            "subscribable": True,
-        })
+        tmpl = Template.create(
+            {
+                "name": name,
+                "type": "service",
+                "subscribable": True,
+            }
+        )
         return tmpl.product_variant_id
 
     # -------------------------------------------------------------------------
@@ -120,7 +121,7 @@ class SaleSubscriptionLine(models.Model):
 
             target_lines = [line] + copies
 
-            for target_line, part in zip(target_lines, parts):
+            for target_line, part in zip(target_lines, parts):  # NOQA: B905
                 description = part
                 product_name = self._strip_partner_suffix(part, partner_name)
 
