@@ -28,10 +28,6 @@ class SaleSubscriptionLine(models.Model):
     def _strip_partner_suffix(self, part, partner_name):
         """
         Remove trailing ', <partner_name>' from part if present.
-
-        Example:
-        'Säätiö - JCI Finland Foundation, Testi Kayttaja'
-        -> 'Säätiö - JCI Finland Foundation'
         """
         part = (part or "").strip()
         partner_name = (partner_name or "").strip()
@@ -115,32 +111,25 @@ class SaleSubscriptionLine(models.Model):
 
         Process logic:
         - Split name into parts
-        - Keep original line for first part, create copies for remaining parts
+        - Keep original line for first part, create NEW lines for remaining parts
         - Description (line.name) keeps full part text
         - Product name strips ', Partner' if present
         - Attach existing product or create new (no duplicates by name)
 
         Safety:
-        - Ensure subscription has company_id set,
-        - taking it from the existing line (line.company_id).
-        - This prevents OCA compute crash: company.ensure_one().
+        - Ensure subscription has company_id set (fallback to env.company).
         """
         Line = self.sudo()
 
-        _logger.info(
-            "cron_split: START limit=%s line_id=%s",
-            limit,
-            line_id,
-        )
+        _logger.info("cron_split: START limit=%s line_id=%s", limit, line_id)
 
         # If a specific line_id is provided -> process only that line
         if line_id:
             line = Line.browse(int(line_id))
             if not line.exists():
                 _logger.info("cron_split: line_id=%s not found -> nothing to do", line_id)
-                return True  # nothing to do
+                return True
 
-            # Only process if it really has ';'
             if not line.name or ";" not in line.name:
                 _logger.info(
                     "cron_split: line_id=%s has no ';' in name ('%s') -> skip",
@@ -150,22 +139,14 @@ class SaleSubscriptionLine(models.Model):
                 return True
 
             lines = line
-            _logger.info(
-                "cron_split: processing single line id=%s name='%s'",
-                line.id,
-                line.name,
-            )
+            _logger.info("cron_split: processing single line id=%s name='%s'", line.id, line.name)
         else:
-            lines = Line.search(
-                [("name", "ilike", "%;%")],
-                limit=limit,
-                order="id asc",
-            )
+            lines = Line.search([("name", "ilike", "%;%")], limit=limit, order="id asc")
             _logger.info("cron_split: found %s lines matching ';'", len(lines))
 
         processed = 0
         skipped = 0
-        created_copies = 0
+        created_lines = 0
         updated_lines = 0
 
         for line in lines:
@@ -191,7 +172,7 @@ class SaleSubscriptionLine(models.Model):
                 line.name or "",
             )
 
-            # ---- FIX: take company from existing line
+            # Ensure subscription has a company
             target_company = line.company_id or subscription.company_id or self.env.company
             if not subscription.company_id and target_company:
                 subscription.write({"company_id": target_company.id})
@@ -201,7 +182,6 @@ class SaleSubscriptionLine(models.Model):
                     subscription.id,
                 )
 
-            # ---- normal processing
             original_name = (line.name or "").strip()
             parts = self._split_semicolon_parts(original_name)
             if len(parts) < 2:
@@ -225,51 +205,66 @@ class SaleSubscriptionLine(models.Model):
                 partner_name,
             )
 
-            # Create copies so total lines == number of parts
-            copies = []
-            for i in range(len(parts) - 1):
-                new_line = line.copy(default={})
-                copies.append(new_line)
-                created_copies += 1
-                _logger.info(
-                    "cron_split: created copy %s/%s -> new_line_id=%s from original_line_id=%s",
-                    i + 1,
-                    len(parts) - 1,
-                    new_line.id,
-                    line.id,
-                )
+            # 1) Update original line with first part
+            first_part = parts[0]
+            first_desc = first_part
+            first_product_name = self._strip_partner_suffix(first_part, partner_name)
+            first_product = self._get_or_create_product_for_part(first_product_name)
 
-            target_lines = [line] + copies
+            vals_first = {
+                "name": first_desc,
+                "product_id": first_product.id if first_product else False,
+                "tax_ids": [(6, 0, taxes_ids)],
+            }
 
-            for target_line, part in zip(target_lines, parts):  # NOQA: B905
-                description = part
+            _logger.info(
+                "cron_split: update ORIGINAL line_id=%s desc='%s' product_name='%s' product_id=%s taxes=%s",
+                line.id,
+                first_desc,
+                first_product_name,
+                first_product.id if first_product else None,
+                taxes_ids,
+            )
+            line.write(vals_first)
+            updated_lines += 1
+
+            # 2) Create NEW lines for remaining parts (NO copy())
+            for idx, part in enumerate(parts[1:], start=2):
+                desc = part
                 product_name = self._strip_partner_suffix(part, partner_name)
                 product = self._get_or_create_product_for_part(product_name)
 
-                vals = {
-                    "name": description,
+                vals_new = {
+                    "sale_subscription_id": subscription.id,
+                    "name": desc,
                     "product_id": product.id if product else False,
                     "tax_ids": [(6, 0, taxes_ids)],
+                    "product_uom_qty": line.product_uom_qty,
+                    # If you need these copied as-is, uncomment:
+                    # "discount": line.discount,
+                    # "price_unit": line.price_unit,  # usually DON'T force this
                 }
 
+                new_line = Line.create(vals_new)
+                created_lines += 1
+
                 _logger.info(
-                    "cron_split: write line_id=%s (orig_line_id=%s) desc='%s' product_name='%s' product_id=%s taxes=%s",
-                    target_line.id,
-                    line.id,
-                    description,
+                    "cron_split: created NEW line %s/%s new_line_id=%s sub_id=%s desc='%s' product_name='%s' product_id=%s taxes=%s",
+                    idx,
+                    len(parts),
+                    new_line.id,
+                    subscription.id,
+                    desc,
                     product_name,
                     product.id if product else None,
                     taxes_ids,
                 )
 
-                target_line.write(vals)
-                updated_lines += 1
-
         _logger.info(
-            "cron_split: END processed=%s skipped=%s created_copies=%s updated_lines=%s",
+            "cron_split: END processed=%s skipped=%s created_lines=%s updated_lines=%s",
             processed,
             skipped,
-            created_copies,
+            created_lines,
             updated_lines,
         )
         return True
