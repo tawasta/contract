@@ -2,7 +2,6 @@ import logging
 
 from odoo import api, models
 
-
 _logger = logging.getLogger(__name__)
 
 
@@ -68,7 +67,8 @@ class SaleSubscriptionLine(models.Model):
 
         NOTE:
         - We do NOT use product.template anywhere.
-        - Creating product.product will automatically create the underlying template/variant as needed by Odoo,
+        - Creating product.product will automatically create
+          the underlying template/variant as needed by Odoo,
           but we only interact with product.product.
         """
         name = (name or "").strip()
@@ -78,7 +78,7 @@ class SaleSubscriptionLine(models.Model):
 
         Product = self.env["product.product"].sudo()
 
-        # Search by exact template name to avoid duplicates (since display name logic can vary)
+        # Search by exact template name to avoid duplicates
         prod = Product.search([("product_tmpl_id.name", "=", name)], limit=1)
         if prod:
             _logger.info(
@@ -105,15 +105,17 @@ class SaleSubscriptionLine(models.Model):
         )
         return prod
 
-
     # -------------------------------------------------------------------------
     # SQL helper: backfill stored related company_id for ONE line if NULL
     # -------------------------------------------------------------------------
 
     @api.model
-    def _sql_backfill_line_company_from_subscription(self, line_id, subscription_company_id):
+    def _sql_backfill_line_company_from_subscription(
+        self, line_id, subscription_company_id
+    ):
         """
-        sale.subscription.line.company_id is a stored related field and can be NULL in old/imported data.
+        sale.subscription.line.company_id is a stored
+        related field and can be NULL in old/imported data.
         OCA compute uses record.company_id and crashes if it's empty.
         We backfill the DB column directly for THIS line.
         """
@@ -159,7 +161,8 @@ class SaleSubscriptionLine(models.Model):
         - Attach existing product or create new (no duplicates by name)
 
         Safety:
-        - If line.company_id is NULL (stored related broken), backfill it from subscription.company_id via SQL
+        - If line.company_id is NULL (stored related broken),
+          backfill it from subscription.company_id via SQL
           BEFORE any write that triggers recompute.
         """
         Line = self.sudo()
@@ -170,7 +173,9 @@ class SaleSubscriptionLine(models.Model):
         if line_id:
             line = Line.browse(int(line_id))
             if not line.exists():
-                _logger.info("cron_split: line_id=%s not found -> nothing to do", line_id)
+                _logger.info(
+                    "cron_split: line_id=%s not found -> nothing to do", line_id
+                )
                 return True
 
             if not line.name or ";" not in line.name:
@@ -182,7 +187,9 @@ class SaleSubscriptionLine(models.Model):
                 return True
 
             lines = line
-            _logger.info("cron_split: processing single line id=%s name='%s'", line.id, line.name)
+            _logger.info(
+                "cron_split: processing single line id=%s name='%s'", line.id, line.name
+            )
         else:
             lines = Line.search([("name", "ilike", "%;%")], limit=limit, order="id asc")
             _logger.info("cron_split: found %s lines matching ';'", len(lines))
@@ -205,16 +212,6 @@ class SaleSubscriptionLine(models.Model):
                 )
                 continue
 
-            _logger.info(
-                "cron_split: LINE line_id=%s sub_id=%s partner='%s' line_company_id=%s sub_company_id=%s name='%s'",
-                line.id,
-                subscription.id,
-                subscription.partner_id.name or "",
-                line.company_id.id if line.company_id else None,
-                subscription.company_id.id if subscription.company_id else None,
-                (line.name or "")[:200],
-            )
-
             # Ensure subscription has company (normally required=True, but keep safe)
             if not subscription.company_id:
                 # fallback to env.company
@@ -227,46 +224,28 @@ class SaleSubscriptionLine(models.Model):
                     )
 
             # CRITICAL: if line.company_id is NULL in DB (broken stored related),
-            # backfill it from subscription.company_id BEFORE any write triggers recompute.
-            # Note: line.company_id may still *read* as None due to cache; we re-browse after SQL.
+            # backfill it from subscription.company_id
+            # BEFORE any write triggers recompute.
+            # Note: line.company_id may still *read* as
+            # None due to cache; we re-browse after SQL.
             if subscription.company_id:
-                self._sql_backfill_line_company_from_subscription(line.id, subscription.company_id.id)
+                self._sql_backfill_line_company_from_subscription(
+                    line.id, subscription.company_id.id
+                )
                 line = Line.browse(line.id)  # re-read from DB
                 subscription = line.sale_subscription_id
-
-            _logger.info(
-                "cron_split: AFTER backfill check line_id=%s line_company_id=%s sub_company_id=%s",
-                line.id,
-                line.company_id.id if line.company_id else None,
-                subscription.company_id.id if subscription.company_id else None,
-            )
 
             original_name = (line.name or "").strip()
             parts = self._split_semicolon_parts(original_name)
             if len(parts) < 2:
                 skipped += 1
-                _logger.info(
-                    "cron_split: SKIP line_id=%s parts=%s (<2) original='%s'",
-                    line.id,
-                    parts,
-                    original_name,
-                )
                 continue
 
             partner_name = subscription.partner_id.name or ""
             taxes_ids = line.tax_ids.ids
 
-            _logger.info(
-                "cron_split: splitting line_id=%s into %s parts, taxes=%s partner='%s'",
-                line.id,
-                len(parts),
-                taxes_ids,
-                partner_name,
-            )
-
             # 1) Update original line with first part
             first_part = parts[0]
-            first_desc = first_part
             first_product_name = self._strip_partner_suffix(first_part, partner_name)
             first_product = self._get_or_create_product_for_part(first_product_name)
 
@@ -275,22 +254,11 @@ class SaleSubscriptionLine(models.Model):
                 "tax_ids": [(6, 0, taxes_ids)],
             }
 
-            _logger.info(
-                "cron_split: update ORIGINAL line_id=%s line_company_id=%s sub_company_id=%s desc='%s' product_name='%s' product_id=%s taxes=%s",
-                line.id,
-                line.company_id.id if line.company_id else None,
-                subscription.company_id.id if subscription.company_id else None,
-                first_desc,
-                first_product_name,
-                first_product.id if first_product else None,
-                taxes_ids,
-            )
             line.write(vals_first)
             updated_lines += 1
 
             # 2) Create NEW lines for remaining parts (NO copy())
-            for idx, part in enumerate(parts[1:], start=2):
-                desc = part
+            for idx, part in enumerate(parts[1:], start=2):  # Noqa: B007
                 product_name = self._strip_partner_suffix(part, partner_name)
                 product = self._get_or_create_product_for_part(product_name)
 
@@ -306,27 +274,9 @@ class SaleSubscriptionLine(models.Model):
 
                 # Backfill new line too, just in case (shouldn't be needed, but safe)
                 if subscription.company_id:
-                    self._sql_backfill_line_company_from_subscription(new_line.id, subscription.company_id.id)
+                    self._sql_backfill_line_company_from_subscription(
+                        new_line.id, subscription.company_id.id
+                    )
                     new_line = Line.browse(new_line.id)
 
-                _logger.info(
-                    "cron_split: created NEW line %s/%s new_line_id=%s new_line_company_id=%s sub_id=%s desc='%s' product_name='%s' product_id=%s taxes=%s",
-                    idx,
-                    len(parts),
-                    new_line.id,
-                    new_line.company_id.id if new_line.company_id else None,
-                    subscription.id,
-                    desc,
-                    product_name,
-                    product.id if product else None,
-                    taxes_ids,
-                )
-
-        _logger.info(
-            "cron_split: END processed=%s skipped=%s created_lines=%s updated_lines=%s",
-            processed,
-            skipped,
-            created_lines,
-            updated_lines,
-        )
         return True
