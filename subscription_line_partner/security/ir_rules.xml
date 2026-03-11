@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo noupdate="1">
+
+    <!-- website_subscription gets installed as this module's dependency.
+     Modify its record rule to take into account this module's new partner_id field.
+
+    Note: during next migration consider removing the website_subscription
+    dependency from this module, to support the use case of not having website
+    installed at all.
+     -->
+    <record id="website_subscription.sale_subscription_rule_portal" model="ir.rule">
+        <field name="domain_force">[
+            '|', '|', '|',
+            ('partner_id', '=', user.commercial_partner_id.id),
+            ('sale_subscription_line_ids.partner_id', '=', user.partner_id.id),
+            ('partner_id', '=', user.partner_id.id),
+            ('message_partner_ids', 'child_of', [user.commercial_partner_id.id])
+        ]</field>
+    </record>
+</odoo>

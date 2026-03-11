@@ -34,5 +34,6 @@
         "views/product_template_view.xml",
         "views/subscription_form.xml",
         "views/subscription_portal.xml",
+        "security/ir_rules.xml",
     ],
 }
