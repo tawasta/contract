@@ -1,0 +1,58 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* fastapi_subscription_api
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0-20250428\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-19 11:35+0000\n"
+"PO-Revision-Date: 2026-05-19 11:35+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: fastapi_subscription_api
+#: model:ir.model.fields,field_description:fastapi_subscription_api.field_product_product__subscription_api_check_count_as_active
+#: model:ir.model.fields,field_description:fastapi_subscription_api.field_product_template__subscription_api_check_count_as_active
+msgid "API Check: Count as Having an Active Subscription"
+msgstr "API-tarkistus: lasketaan mukaan kun tarkistetaan, onko henkilöllä jäsenyys."
+
+#. module: fastapi_subscription_api
+#: model:ir.model.fields,field_description:fastapi_subscription_api.field_fastapi_endpoint__app
+msgid "App"
+msgstr ""
+
+#. module: fastapi_subscription_api
+#: model:ir.model,name:fastapi_subscription_api.model_fastapi_endpoint
+msgid "FastAPI Endpoint"
+msgstr ""
+
+#. module: fastapi_subscription_api
+#: model:res.groups,name:fastapi_subscription_api.subscription_api_group
+msgid "FastAPI Subscription API Group"
+msgstr ""
+
+#. module: fastapi_subscription_api
+#: model:ir.model,name:fastapi_subscription_api.model_product_template
+msgid "Product"
+msgstr "Tuote"
+
+#. module: fastapi_subscription_api
+#: model:ir.model.fields.selection,name:fastapi_subscription_api.selection__fastapi_endpoint__app__subscription_api
+msgid "Subscription API"
+msgstr ""
+
+#. module: fastapi_subscription_api
+#: model:ir.model.fields,help:fastapi_subscription_api.field_product_product__subscription_api_check_count_as_active
+#: model:ir.model.fields,help:fastapi_subscription_api.field_product_template__subscription_api_check_count_as_active
+msgid ""
+"When checked, an ongoing subscription line for this product makes the "
+"related partner be considered as having an active membership by the "
+"subscription-status check API."
+msgstr ""
+"Jos rastitettu, tämän tuotteen voimassa olevat toistuvaistilaukset lasketaan mukaan, kun "
+"API:n yli tarkistetaan, onko henkilöllä voimassa olevaa jäsenyyttä. "
