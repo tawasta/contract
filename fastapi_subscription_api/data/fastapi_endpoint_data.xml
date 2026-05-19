@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo noupdate="1">
+
+  <record
+        id="subscription_api_user"
+        model="res.users"
+        context="{'no_reset_password': True}"
+    >
+    <field name="name">Subscription API User</field>
+    <field name="login">subscription_api_user</field>
+    <field name="groups_id" eval="[(6, 0, [])]" />
+    <field name="active">True</field>
+  </record>
+
+  <record id="subscription_api_group" model="res.groups">
+    <field name="name">FastAPI Subscription API Group</field>
+    <field
+            name="users"
+            eval="[(4, ref('fastapi_subscription_api.subscription_api_user'))]"
+        />
+  </record>
+
+  <record id="subscription_api_key_group" model="auth.api.key.group">
+    <field name="name">Subscription API Keys</field>
+    <field name="code">subscription_api</field>
+  </record>
+
+
+  <record id="subscription_api_endpoint" model="fastapi.endpoint">
+    <field name="name">Subscription API Endpoint</field>
+    <field name="app">subscription_api</field>
+    <field name="root_path">/subscription_api</field>
+    <field name="user_id" ref="fastapi_subscription_api.subscription_api_user" />
+    <field
+            name="auth_api_key_group_id"
+            ref="fastapi_subscription_api.subscription_api_key_group"
+        />
+  </record>
+
+</odoo>
