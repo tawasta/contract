@@ -1,0 +1,1 @@
+https://github.com/HeliconiaIO/contract/archive/refs/heads/19.0-mig-contract.zip#subdirectory=contract
