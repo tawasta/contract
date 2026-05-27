@@ -2,11 +2,12 @@
    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
-======================================
-Contract: optional fields on line view
-======================================
+=======================
+Contract Line List View
+=======================
 
-Set contract fields as optional in tree view
+- Adds list view of contract lines.
+- Adds contract id to contract line.
 
 Configuration
 =============
@@ -14,7 +15,7 @@ Configuration
 
 Usage
 =====
-\-
+Just install this module.
 
 Known issues / Roadmap
 ======================
@@ -26,7 +27,8 @@ Credits
 Contributors
 ------------
 
-* Jarmo Kortetjärvi <jarmo.kortetjarvi@futural.fi>
+* Timo Kekäläinen <timo.kekalainen@futural.fi>
+* Valtteri Lattu <valtteri.lattu@futural.fi>
 * Joona Isoaho <joona.isoaho@futural.fi>
 
 Maintainer
