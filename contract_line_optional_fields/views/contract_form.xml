@@ -1,299 +1,298 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
-    <record id="contract_contract_form_view" model="ir.ui.view">
-        <field name="name">Contract form: optional fields</field>
-        <field name="model">contract.contract</field>
-        <field name="inherit_id" ref="contract.contract_contract_form_view" />
-        <field name="arch" type="xml">
+  <record id="contract_contract_form_view" model="ir.ui.view">
+    <field name="name">Contract form: optional fields</field>
+    <field name="model">contract.contract</field>
+    <field name="inherit_id" ref="contract.contract_contract_form_view" />
+    <field name="arch" type="xml">
+      <!-- Contract line id's -->
+      <xpath
+        expr="//field[@name='contract_line_ids']/list/field[@name='currency_id']"
+        position="attributes"
+      >
+        <attribute name="optional">show</attribute>
+      </xpath>
 
-            <!-- Contract line id's -->
-            <xpath
-                expr="//field[@name='contract_line_ids']/list/field[@name='currency_id']"
-                position="attributes"
-            >
-                <attribute name="optional">show</attribute>
-            </xpath>
+      <xpath
+        expr="//field[@name='contract_line_ids']/list/field[@name='display_type']"
+        position="attributes"
+      >
+        <attribute name="optional">show</attribute>
+      </xpath>
 
-            <xpath
-                expr="//field[@name='contract_line_ids']/list/field[@name='display_type']"
-                position="attributes"
-            >
-                <attribute name="optional">show</attribute>
-            </xpath>
+      <xpath
+        expr="//field[@name='contract_line_ids']/list/field[@name='sequence']"
+        position="attributes"
+      >
+        <attribute name="optional">show</attribute>
+      </xpath>
 
-            <xpath
-                expr="//field[@name='contract_line_ids']/list/field[@name='sequence']"
-                position="attributes"
-            >
-                <attribute name="optional">show</attribute>
-            </xpath>
+      <xpath
+        expr="//field[@name='contract_line_ids']/list/field[@name='product_id']"
+        position="attributes"
+      >
+        <attribute name="optional">show</attribute>
+      </xpath>
 
-            <xpath
-                expr="//field[@name='contract_line_ids']/list/field[@name='product_id']"
-                position="attributes"
-            >
-                <attribute name="optional">show</attribute>
-            </xpath>
+      <xpath
+        expr="//field[@name='contract_line_ids']/list/field[@name='name']"
+        position="attributes"
+      >
+        <attribute name="optional">show</attribute>
+      </xpath>
 
-            <xpath
-                expr="//field[@name='contract_line_ids']/list/field[@name='name']"
-                position="attributes"
-            >
-                <attribute name="optional">show</attribute>
-            </xpath>
+      <xpath
+        expr="//field[@name='contract_line_ids']/list/field[@name='analytic_distribution']"
+        position="attributes"
+      >
+        <attribute name="optional">show</attribute>
+      </xpath>
 
-            <xpath
-                expr="//field[@name='contract_line_ids']/list/field[@name='analytic_distribution']"
-                position="attributes"
-            >
-                <attribute name="optional">show</attribute>
-            </xpath>
+      <xpath
+        expr="//field[@name='contract_line_ids']/list/field[@name='quantity']"
+        position="attributes"
+      >
+        <attribute name="optional">show</attribute>
+      </xpath>
 
-            <xpath
-                expr="//field[@name='contract_line_ids']/list/field[@name='quantity']"
-                position="attributes"
-            >
-                <attribute name="optional">show</attribute>
-            </xpath>
+      <xpath
+        expr="//field[@name='contract_line_ids']/list/field[@name='uom_id']"
+        position="attributes"
+      >
+        <attribute name="optional">show</attribute>
+      </xpath>
 
-            <xpath
-                expr="//field[@name='contract_line_ids']/list/field[@name='uom_id']"
-                position="attributes"
-            >
-                <attribute name="optional">show</attribute>
-            </xpath>
+      <xpath
+        expr="//field[@name='contract_line_ids']/list/field[@name='automatic_price']"
+        position="attributes"
+      >
+        <attribute name="optional">show</attribute>
+      </xpath>
 
-            <xpath
-                expr="//field[@name='contract_line_ids']/list/field[@name='automatic_price']"
-                position="attributes"
-            >
-                <attribute name="optional">show</attribute>
-            </xpath>
+      <xpath
+        expr="//field[@name='contract_line_ids']/list/field[@name='price_unit']"
+        position="attributes"
+      >
+        <attribute name="optional">show</attribute>
+      </xpath>
 
-            <xpath
-                expr="//field[@name='contract_line_ids']/list/field[@name='price_unit']"
-                position="attributes"
-            >
-                <attribute name="optional">show</attribute>
-            </xpath>
+      <xpath
+        expr="//field[@name='contract_line_ids']/list/field[@name='specific_price']"
+        position="attributes"
+      >
+        <attribute name="optional">show</attribute>
+      </xpath>
 
-            <xpath
-                expr="//field[@name='contract_line_ids']/list/field[@name='specific_price']"
-                position="attributes"
-            >
-                <attribute name="optional">show</attribute>
-            </xpath>
+      <xpath
+        expr="//field[@name='contract_line_ids']/list/field[@name='discount']"
+        position="attributes"
+      >
+        <attribute name="optional">show</attribute>
+      </xpath>
 
-            <xpath
-                expr="//field[@name='contract_line_ids']/list/field[@name='discount']"
-                position="attributes"
-            >
-                <attribute name="optional">show</attribute>
-            </xpath>
+      <xpath
+        expr="//field[@name='contract_line_ids']/list/field[@name='price_subtotal']"
+        position="attributes"
+      >
+        <attribute name="optional">show</attribute>
+      </xpath>
 
-            <xpath
-                expr="//field[@name='contract_line_ids']/list/field[@name='price_subtotal']"
-                position="attributes"
-            >
-                <attribute name="optional">show</attribute>
-            </xpath>
+      <xpath
+        expr="//field[@name='contract_line_ids']/list/field[@name='recurring_interval']"
+        position="attributes"
+      >
+        <attribute name="optional">show</attribute>
+      </xpath>
 
-            <xpath
-                expr="//field[@name='contract_line_ids']/list/field[@name='recurring_interval']"
-                position="attributes"
-            >
-                <attribute name="optional">show</attribute>
-            </xpath>
+      <xpath
+        expr="//field[@name='contract_line_ids']/list/field[@name='recurring_rule_type']"
+        position="attributes"
+      >
+        <attribute name="optional">show</attribute>
+      </xpath>
 
-            <xpath
-                expr="//field[@name='contract_line_ids']/list/field[@name='recurring_rule_type']"
-                position="attributes"
-            >
-                <attribute name="optional">show</attribute>
-            </xpath>
+      <xpath
+        expr="//field[@name='contract_line_ids']/list/field[@name='recurring_invoicing_type']"
+        position="attributes"
+      >
+        <attribute name="optional">show</attribute>
+      </xpath>
 
-            <xpath
-                expr="//field[@name='contract_line_ids']/list/field[@name='recurring_invoicing_type']"
-                position="attributes"
-            >
-                <attribute name="optional">show</attribute>
-            </xpath>
+      <xpath
+        expr="//field[@name='contract_line_ids']/list/field[@name='date_start']"
+        position="attributes"
+      >
+        <attribute name="optional">show</attribute>
+      </xpath>
 
-            <xpath
-                expr="//field[@name='contract_line_ids']/list/field[@name='date_start']"
-                position="attributes"
-            >
-                <attribute name="optional">show</attribute>
-            </xpath>
+      <xpath
+        expr="//field[@name='contract_line_ids']/list/field[@name='date_end']"
+        position="attributes"
+      >
+        <attribute name="optional">show</attribute>
+      </xpath>
 
-            <xpath
-                expr="//field[@name='contract_line_ids']/list/field[@name='date_end']"
-                position="attributes"
-            >
-                <attribute name="optional">show</attribute>
-            </xpath>
+      <xpath
+        expr="//field[@name='contract_line_ids']/list/field[@name='recurring_next_date']"
+        position="attributes"
+      >
+        <attribute name="optional">show</attribute>
+      </xpath>
 
-            <xpath
-                expr="//field[@name='contract_line_ids']/list/field[@name='recurring_next_date']"
-                position="attributes"
-            >
-                <attribute name="optional">show</attribute>
-            </xpath>
+      <xpath
+        expr="//field[@name='contract_line_ids']/list/field[@name='last_date_invoiced']"
+        position="attributes"
+      >
+        <attribute name="optional">show</attribute>
+      </xpath>
 
-            <xpath
-                expr="//field[@name='contract_line_ids']/list/field[@name='last_date_invoiced']"
-                position="attributes"
-            >
-                <attribute name="optional">show</attribute>
-            </xpath>
+      <!-- Contract line fixed id's -->
+      <xpath
+        expr="//field[@name='contract_line_fixed_ids']/list/field[@name='currency_id']"
+        position="attributes"
+      >
+        <attribute name="optional">show</attribute>
+      </xpath>
 
-            <!-- Contract line fixed id's -->
-            <xpath
-                expr="//field[@name='contract_line_fixed_ids']/list/field[@name='currency_id']"
-                position="attributes"
-            >
-                <attribute name="optional">show</attribute>
-            </xpath>
+      <xpath
+        expr="//field[@name='contract_line_fixed_ids']/list/field[@name='display_type']"
+        position="attributes"
+      >
+        <attribute name="optional">show</attribute>
+      </xpath>
 
-            <xpath
-                expr="//field[@name='contract_line_fixed_ids']/list/field[@name='display_type']"
-                position="attributes"
-            >
-                <attribute name="optional">show</attribute>
-            </xpath>
+      <xpath
+        expr="//field[@name='contract_line_fixed_ids']/list/field[@name='sequence']"
+        position="attributes"
+      >
+        <attribute name="optional">show</attribute>
+      </xpath>
 
-            <xpath
-                expr="//field[@name='contract_line_fixed_ids']/list/field[@name='sequence']"
-                position="attributes"
-            >
-                <attribute name="optional">show</attribute>
-            </xpath>
+      <xpath
+        expr="//field[@name='contract_line_fixed_ids']/list/field[@name='product_id']"
+        position="attributes"
+      >
+        <attribute name="optional">show</attribute>
+      </xpath>
 
-            <xpath
-                expr="//field[@name='contract_line_fixed_ids']/list/field[@name='product_id']"
-                position="attributes"
-            >
-                <attribute name="optional">show</attribute>
-            </xpath>
+      <xpath
+        expr="//field[@name='contract_line_fixed_ids']/list/field[@name='name']"
+        position="attributes"
+      >
+        <attribute name="optional">show</attribute>
+      </xpath>
 
-            <xpath
-                expr="//field[@name='contract_line_fixed_ids']/list/field[@name='name']"
-                position="attributes"
-            >
-                <attribute name="optional">show</attribute>
-            </xpath>
+      <xpath
+        expr="//field[@name='contract_line_fixed_ids']/list/field[@name='analytic_distribution']"
+        position="attributes"
+      >
+        <attribute name="optional">show</attribute>
+      </xpath>
 
-            <xpath
-                expr="//field[@name='contract_line_fixed_ids']/list/field[@name='analytic_distribution']"
-                position="attributes"
-            >
-                <attribute name="optional">show</attribute>
-            </xpath>
+      <xpath
+        expr="//field[@name='contract_line_fixed_ids']/list/field[@name='quantity']"
+        position="attributes"
+      >
+        <attribute name="optional">show</attribute>
+      </xpath>
 
-            <xpath
-                expr="//field[@name='contract_line_fixed_ids']/list/field[@name='quantity']"
-                position="attributes"
-            >
-                <attribute name="optional">show</attribute>
-            </xpath>
+      <xpath
+        expr="//field[@name='contract_line_fixed_ids']/list/field[@name='uom_id']"
+        position="attributes"
+      >
+        <attribute name="optional">show</attribute>
+      </xpath>
 
-            <xpath
-                expr="//field[@name='contract_line_fixed_ids']/list/field[@name='uom_id']"
-                position="attributes"
-            >
-                <attribute name="optional">show</attribute>
-            </xpath>
+      <xpath
+        expr="//field[@name='contract_line_fixed_ids']/list/field[@name='automatic_price']"
+        position="attributes"
+      >
+        <attribute name="optional">show</attribute>
+      </xpath>
 
-            <xpath
-                expr="//field[@name='contract_line_fixed_ids']/list/field[@name='automatic_price']"
-                position="attributes"
-            >
-                <attribute name="optional">show</attribute>
-            </xpath>
+      <xpath
+        expr="//field[@name='contract_line_fixed_ids']/list/field[@name='price_unit']"
+        position="attributes"
+      >
+        <attribute name="optional">show</attribute>
+      </xpath>
 
-            <xpath
-                expr="//field[@name='contract_line_fixed_ids']/list/field[@name='price_unit']"
-                position="attributes"
-            >
-                <attribute name="optional">show</attribute>
-            </xpath>
+      <xpath
+        expr="//field[@name='contract_line_fixed_ids']/list/field[@name='specific_price']"
+        position="attributes"
+      >
+        <attribute name="optional">show</attribute>
+      </xpath>
 
-            <xpath
-                expr="//field[@name='contract_line_fixed_ids']/list/field[@name='specific_price']"
-                position="attributes"
-            >
-                <attribute name="optional">show</attribute>
-            </xpath>
+      <xpath
+        expr="//field[@name='contract_line_fixed_ids']/list/field[@name='discount']"
+        position="attributes"
+      >
+        <attribute name="optional">show</attribute>
+      </xpath>
 
-            <xpath
-                expr="//field[@name='contract_line_fixed_ids']/list/field[@name='discount']"
-                position="attributes"
-            >
-                <attribute name="optional">show</attribute>
-            </xpath>
+      <xpath
+        expr="//field[@name='contract_line_fixed_ids']/list/field[@name='price_subtotal']"
+        position="attributes"
+      >
+        <attribute name="optional">show</attribute>
+      </xpath>
 
-            <xpath
-                expr="//field[@name='contract_line_fixed_ids']/list/field[@name='price_subtotal']"
-                position="attributes"
-            >
-                <attribute name="optional">show</attribute>
-            </xpath>
+      <xpath
+        expr="//field[@name='contract_line_fixed_ids']/list/field[@name='recurring_interval']"
+        position="attributes"
+      >
+        <attribute name="optional">show</attribute>
+      </xpath>
 
-            <xpath
-                expr="//field[@name='contract_line_fixed_ids']/list/field[@name='recurring_interval']"
-                position="attributes"
-            >
-                <attribute name="optional">show</attribute>
-            </xpath>
+      <xpath
+        expr="//field[@name='contract_line_fixed_ids']/list/field[@name='recurring_rule_type']"
+        position="attributes"
+      >
+        <attribute name="optional">show</attribute>
+      </xpath>
 
-            <xpath
-                expr="//field[@name='contract_line_fixed_ids']/list/field[@name='recurring_rule_type']"
-                position="attributes"
-            >
-                <attribute name="optional">show</attribute>
-            </xpath>
+      <xpath
+        expr="//field[@name='contract_line_fixed_ids']/list/field[@name='recurring_invoicing_type']"
+        position="attributes"
+      >
+        <attribute name="optional">show</attribute>
+      </xpath>
 
-            <xpath
-                expr="//field[@name='contract_line_fixed_ids']/list/field[@name='recurring_invoicing_type']"
-                position="attributes"
-            >
-                <attribute name="optional">show</attribute>
-            </xpath>
+      <xpath
+        expr="//field[@name='contract_line_fixed_ids']/list/field[@name='recurring_next_date']"
+        position="attributes"
+      >
+        <attribute name="optional">show</attribute>
+      </xpath>
 
-            <xpath
-                expr="//field[@name='contract_line_fixed_ids']/list/field[@name='recurring_next_date']"
-                position="attributes"
-            >
-                <attribute name="optional">show</attribute>
-            </xpath>
+      <xpath
+        expr="//field[@name='contract_line_fixed_ids']/list/field[@name='date_start']"
+        position="attributes"
+      >
+        <attribute name="optional">show</attribute>
+      </xpath>
 
-            <xpath
-                expr="//field[@name='contract_line_fixed_ids']/list/field[@name='date_start']"
-                position="attributes"
-            >
-                <attribute name="optional">show</attribute>
-            </xpath>
+      <xpath
+        expr="//field[@name='contract_line_fixed_ids']/list/field[@name='date_end']"
+        position="attributes"
+      >
+        <attribute name="optional">show</attribute>
+      </xpath>
 
-            <xpath
-                expr="//field[@name='contract_line_fixed_ids']/list/field[@name='date_end']"
-                position="attributes"
-            >
-                <attribute name="optional">show</attribute>
-            </xpath>
+      <xpath
+        expr="//field[@name='contract_line_fixed_ids']/list/field[@name='last_date_invoiced']"
+        position="attributes"
+      >
+        <attribute name="optional">show</attribute>
+      </xpath>
 
-            <xpath
-                expr="//field[@name='contract_line_fixed_ids']/list/field[@name='last_date_invoiced']"
-                position="attributes"
-            >
-                <attribute name="optional">show</attribute>
-            </xpath>
-
-            <xpath
-                expr="//field[@name='contract_line_fixed_ids']/list/field[@name='create_invoice_visibility']"
-                position="attributes"
-            >
-                <attribute name="optional">show</attribute>
-            </xpath>
-        </field>
-    </record>
+      <xpath
+        expr="//field[@name='contract_line_fixed_ids']/list/field[@name='create_invoice_visibility']"
+        position="attributes"
+      >
+        <attribute name="optional">show</attribute>
+      </xpath>
+    </field>
+  </record>
 </odoo>
