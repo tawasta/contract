@@ -1,0 +1,45 @@
+<?xml version="1.0" ?>
+<odoo>
+
+    <record id="contract_line_tree_view" model="ir.ui.view">
+        <field name="name">contract.line.tree.optional</field>
+        <field name="model">contract.line</field>
+        <field name="inherit_id" ref="contract.contract_line_tree_view" />
+        <field name="arch" type="xml">
+            <field name="analytic_distribution" position="attributes">
+                <attribute name="optional">hide</attribute>
+            </field>
+            <field name="quantity" position="attributes">
+                <attribute name="optional">show</attribute>
+            </field>
+            <field name="uom_id" position="attributes">
+                <attribute name="optional">hide</attribute>
+            </field>
+            <field name="price_unit" position="attributes">
+                <attribute name="optional">show</attribute>
+            </field>
+            <field name="discount" position="attributes">
+                <attribute name="optional">hide</attribute>
+            </field>
+            <field name="automatic_price" position="attributes">
+                <attribute name="optional">hide</attribute>
+            </field>
+            <field name="price_subtotal" position="attributes">
+                <attribute name="optional">show</attribute>
+            </field>
+            <field name="date_start" position="attributes">
+                <attribute name="optional">show</attribute>
+            </field>
+            <field name="date_end" position="attributes">
+                <attribute name="optional">show</attribute>
+            </field>
+            <field name="recurring_next_date" position="attributes">
+                <attribute name="optional">show</attribute>
+            </field>
+            <field name="last_date_invoiced" position="attributes">
+                <attribute name="optional">show</attribute>
+            </field>
+        </field>
+    </record>
+
+</odoo>
