@@ -2,19 +2,19 @@
    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
-==================================
-Contract: optional fields on lines
-==================================
+=======================
+Contract: Product Usage
+=======================
 
-Set contract line fields as optional, so users can hide them
+* Show contracts and contract lines where product is used in
 
 Configuration
 =============
-\-
+* None needed
 
 Usage
 =====
-\-
+* Go to a product template, and click the new action buttons
 
 Known issues / Roadmap
 ======================
@@ -27,7 +27,7 @@ Contributors
 ------------
 
 * Jarmo Kortetjärvi <jarmo.kortetjarvi@futural.fi>
-* Timo Kekäläinen <timo.kekalainen@futural.fi>
+* Timo Talvitie <timo.talvitie@futural.fi>
 * Joona Isoaho <joona.isoaho@futural.fi>
 
 Maintainer
