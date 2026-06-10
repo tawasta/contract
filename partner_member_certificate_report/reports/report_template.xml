@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="member_certificate">
+
+
+        <t t-call="web.html_container">
+            <!-- FORCE UTF-8 -->
+            <meta charset="utf-8" />
+
+            <t t-foreach="docs" t-as="partner">
+                <div
+                    class="page"
+                    style="position: relative; min-height: 1120px; font-family: Arial, Helvetica, sans-serif; color: #111111;"
+                >
+
+                    <t t-set="company" t-value="partner.company_id or env.company" />
+                    <t t-set="partner_name" t-value="partner.name or ''" />
+                    <t
+                        t-set="today_text"
+                        t-value="context_timestamp(datetime.datetime.now()).strftime('%d.%m.%Y')"
+                    />
+                    <t
+                        t-set="signatory_name"
+                        t-value="company.member_certificate_signatory_name or ''"
+                    />
+                    <t
+                        t-set="signatory_title"
+                        t-value="company.member_certificate_signatory_title or ''"
+                    />
+                    <t
+                        t-set="subscriptions"
+                        t-value="partner.get_subscription_info()"
+                    />
+
+                    <!-- Logo -->
+                    <div style="text-align: center; margin-top: 140px;">
+                        <img
+                            t-if="company.logo"
+                            t-att-src="image_data_uri(company.logo)"
+                            style="max-height: 170px; max-width: 220px;"
+                        />
+                    </div>
+
+                    <!-- Company name -->
+                    <div style="text-align: center; margin-top: 20px; font-size: 32px;">
+                        <span>
+                            <t t-esc="company.name" />
+                        </span>
+                    </div>
+
+                    <!-- Title -->
+                    <div style="text-align: center; margin-top: 60px;">
+                        <div style="font-size: 34px;">
+                            <span>Certificate of Membership</span>
+                        </div>
+                    </div>
+
+                    <!-- Content -->
+                    <div style="text-align: center; margin-top: 50px;">
+                        <div>
+                            <span style="font-weight: bold; font-size: 28px;">
+                                <t t-esc="partner_name" />
+                            </span>
+                        </div>
+                        <div style="margin-top: 60px; font-size: 22px;">
+                            <span>We hereby state that the aforementioned
+                            is currently a member of
+                            <t t-esc="company.name" />.</span>
+                        </div>
+                        <t t-if="len(subscriptions)">
+                            <div style="margin-top: 60px; font-size: 22px;">
+                                <span>
+                                    <u>Member of divisions:</u>
+                                    <t t-foreach="subscriptions" t-as="sub">
+                                        <div>
+                                            <t t-esc="sub['name']" />
+                                        </div>
+                                    </t>
+                                </span>
+                            </div>
+                        </t>
+                        <!-- Signature date/place -->
+                        <div
+                            style="text-align: center; margin-top: 130px; font-size: 18px;"
+                        >
+                            <span t-esc="company.member_certificate_signatory_place" />
+                            <span> </span>
+                            <span t-esc="today_text" />
+                        </div>
+
+                        <!-- Signature image: only signature here -->
+                        <div
+                            style="text-align: center; margin-top: 18px; min-height: 95px;"
+                        >
+                            <img
+                                t-if="company.member_certificate_signature"
+                                t-att-src="image_data_uri(company.member_certificate_signature)"
+                                alt="Signature"
+                                style="max-height: 90px; max-width: 190px;"
+                            />
+                        </div>
+
+                        <!-- Signatory -->
+                        <div
+                            style="text-align: center; font-size: 18px; line-height: 1.2; margin-top: 2px;"
+                        >
+                            <div t-esc="signatory_name" />
+                            <div t-esc="signatory_title" />
+                        </div>
+                    </div>
+
+                    <!-- Footer -->
+                    <div
+                        style="position: absolute; left: 0; right: 0; bottom: 0px; width: 100%; text-align: center; font-size: 12px;"
+                    >
+                        <div style="border-top: 1px solid #000;" />
+
+                        <table style="width: 100%;">
+                            <tr>
+                                <td style="width: 33%; text-align: left;">
+                                    <span
+                                        t-esc="company.footer_company_definition"
+                                    /><br />
+                                    <span t-esc="company.email" />
+                                </td>
+
+                                <td style="width: 33%; text-align: center;">
+                                    <span t-esc="company.street" /><br />
+                                    <span t-esc="company.zip" />
+                                    <span t-esc="company.city" />
+                                </td>
+
+                                <td style="width: 33%; text-align: right;">
+                                    <span t-esc="company.phone" /><br />
+                                    <span t-esc="company.website" />
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

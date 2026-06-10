@@ -1,0 +1,19 @@
+<odoo>
+    <record id="action_pdf_cert_report" model="ir.actions.report">
+        <field name="name">Partner Report</field>
+        <field name="model">res.partner</field>
+        <field name="report_type">qweb-pdf</field>
+        <field
+            name="report_name"
+        >partner_member_certificate_report.member_certificate</field>
+        <field
+            name="report_file"
+        >partner_member_certificate_report.member_certificate</field>
+        <field name="binding_model_id" ref="base.model_res_partner" />
+        <field name="binding_type">report</field>
+        <field
+            name="paperformat_id"
+            ref="partner_member_certificate_report.paperformat_member_certificate"
+        />
+    </record>
+</odoo>

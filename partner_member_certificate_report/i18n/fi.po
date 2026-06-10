@@ -1,0 +1,109 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* partner_member_certificate_report
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0-20260324\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-02 13:37+0000\n"
+"PO-Revision-Date: 2026-04-02 13:37+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: partner_member_certificate_report
+#: model_terms:ir.ui.view,arch_db:partner_member_certificate_report.res_partner_view_form
+msgid "<span class=\"o_stat_text\">Print member certificate</span>"
+msgstr "<span class=\"o_stat_text\">Tulosta jäsenyystodistus</span>"
+
+#. module: partner_member_certificate_report
+#: model_terms:ir.ui.view,arch_db:partner_member_certificate_report.member_certificate
+msgid "<span>Certificate of Membership</span>"
+msgstr "<span>Jäsenyystodistus</span>"
+
+#. module: partner_member_certificate_report
+#: model_terms:ir.ui.view,arch_db:partner_member_certificate_report.member_certificate
+msgid "<u>Member of divisions:</u>"
+msgstr "<u>Jaostojen jäsenyydet:</u>"
+
+#. module: partner_member_certificate_report
+#: model_terms:ir.ui.view,arch_db:partner_member_certificate_report.view_company_form_inherit_member_certificate
+msgid "Certificate Signature"
+msgstr "Todistuksen allekirjoitus"
+
+#. module: partner_member_certificate_report
+#: model:ir.model,name:partner_member_certificate_report.model_res_company
+msgid "Companies"
+msgstr "Yritykset"
+
+#. module: partner_member_certificate_report
+#: model:ir.model,name:partner_member_certificate_report.model_res_partner
+msgid "Contact"
+msgstr "Kontakti"
+
+#. module: partner_member_certificate_report
+#: model:ir.model.fields,field_description:partner_member_certificate_report.field_res_company__footer_company_definition
+msgid "Footer company definition"
+msgstr "Footer lisämäärittely"
+
+#. module: partner_member_certificate_report
+#: model:ir.model.fields,field_description:partner_member_certificate_report.field_res_partner__has_subscriptions
+#: model:ir.model.fields,field_description:partner_member_certificate_report.field_res_users__has_subscriptions
+msgid "Has Subscriptions"
+msgstr ""
+
+#. module: partner_member_certificate_report
+#: model_terms:ir.ui.view,arch_db:partner_member_certificate_report.view_company_form_inherit_member_certificate
+msgid "Member Certificates"
+msgstr "Jäsenyystodistukset"
+
+#. module: partner_member_certificate_report
+#: model:ir.model.fields,field_description:partner_member_certificate_report.field_res_company__member_certificate_signatory_name
+msgid "Member certificate signatory name"
+msgstr "Jäsenyystodistuksen allekirjoittajan nimi"
+
+#. module: partner_member_certificate_report
+#: model:ir.model.fields,field_description:partner_member_certificate_report.field_res_company__member_certificate_signatory_place
+msgid "Member certificate signatory place"
+msgstr "Jäsenyystodistuksen allekirjoituspaikka"
+
+#. module: partner_member_certificate_report
+#: model:ir.model.fields,field_description:partner_member_certificate_report.field_res_company__member_certificate_signatory_title
+msgid "Member certificate signatory title"
+msgstr "Jäsenyystodistuksen allekirjoittajan titteli"
+
+#. module: partner_member_certificate_report
+#: model:ir.model.fields,field_description:partner_member_certificate_report.field_res_company__member_certificate_signature
+msgid "Member certificate signature"
+msgstr "Jäsenyystodistuksen allekirjoitus"
+
+#. module: partner_member_certificate_report
+#: model:ir.model,name:partner_member_certificate_report.model_partner_member_certificate_report_member_certificate
+msgid "Partner Member Certificate Report"
+msgstr ""
+
+#. module: partner_member_certificate_report
+#: model:ir.actions.report,name:partner_member_certificate_report.action_pdf_cert_report
+msgid "Partner Report"
+msgstr ""
+
+#. module: partner_member_certificate_report
+#: model_terms:ir.ui.view,arch_db:partner_member_certificate_report.res_partner_view_form
+msgid "Print PDF"
+msgstr ""
+
+#. module: partner_member_certificate_report
+#: model_terms:ir.ui.view,arch_db:partner_member_certificate_report.member_certificate
+msgid "Signature"
+msgstr "Allekirjoitus"
+
+#. module: partner_member_certificate_report
+#: model_terms:ir.ui.view,arch_db:partner_member_certificate_report.member_certificate
+msgid ""
+"We hereby state that the aforementioned\n"
+"                            is currently a member of"
+msgstr "Toteamme täten mainitun jäsenen kuuluvan: "
