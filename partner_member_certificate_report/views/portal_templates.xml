@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!-- add print option to portal sidebar-->
+    <template
+        id="side_content"
+        name="Portal Sidebar: Membership Certificate Print Link"
+        inherit_id="portal.side_content"
+    >
+        <xpath expr="//a[@href='/my/account']" position="after">
+
+            <t
+                t-if="can_print_member_certificate"
+                class="o_portal_my_home_member_certificate mt-3"
+            >
+                <p>
+                <a
+                        role="button"
+                        href="/my/membership-certificate"
+                        class="btn btn-link p-0 mt-3"
+                        target="_blank"
+                    ><i class="fa fa-print" /> Print membership certificate</a>
+                </p>
+            </t>
+
+        </xpath>
+    </template>
+</odoo>
