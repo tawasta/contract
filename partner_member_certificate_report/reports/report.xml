@@ -1,6 +1,6 @@
 <odoo>
     <record id="action_pdf_cert_report" model="ir.actions.report">
-        <field name="name">Partner Report</field>
+        <field name="name">Membership Certificate</field>
         <field name="model">res.partner</field>
         <field name="report_type">qweb-pdf</field>
         <field

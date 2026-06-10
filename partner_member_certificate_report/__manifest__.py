@@ -19,8 +19,9 @@
 ##############################################################################
 
 {
-    "name": "Partner member certificate report",
-    "summary": "Partner member certificate report",
+    "name": "Subscriptions: Partner Member Certificate Report",
+    "summary": "Enables printing a certificate PDF for a partner, listing "
+    "their ongoing subscriptions. ",
     "version": "17.0.1.0.1",
     "category": "Partner Management",
     "website": "https://github.com/tawasta/contract",
@@ -37,11 +38,11 @@
         "subscription_line_partner",
     ],
     "data": [
-        "reports/signature_company.xml",
         "reports/paperformat.xml",
         "reports/report_template.xml",
         "reports/report.xml",
-        "views/res_partner_views.xml",
+        "views/res_company_views.xml",
+        "views/portal_templates.xml",
     ],
     "demo": [],
 }

@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 17.0-20260324\n"
+"Project-Id-Version: Odoo Server 17.0-20250428\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-02 13:37+0000\n"
-"PO-Revision-Date: 2026-04-02 13:37+0000\n"
+"POT-Creation-Date: 2026-06-10 10:30+0000\n"
+"PO-Revision-Date: 2026-06-10 10:30+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,24 +16,28 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: partner_member_certificate_report
-#: model_terms:ir.ui.view,arch_db:partner_member_certificate_report.res_partner_view_form
-msgid "<span class=\"o_stat_text\">Print member certificate</span>"
-msgstr "<span class=\"o_stat_text\">Tulosta jäsenyystodistus</span>"
+#. odoo-python
+#: code:addons/partner_member_certificate_report/controllers/portal.py:0
+#, python-format
+msgid "%s - Membership Certificate.pdf"
+msgstr "%s - Jäsenyystodistus.pdf"
 
 #. module: partner_member_certificate_report
-#: model_terms:ir.ui.view,arch_db:partner_member_certificate_report.member_certificate
-msgid "<span>Certificate of Membership</span>"
-msgstr "<span>Jäsenyystodistus</span>"
+#: model_terms:ir.ui.view,arch_db:partner_member_certificate_report.side_content
+msgid "<i class=\"fa fa-print\"/> Print membership certificate"
+msgstr "<i class=\"fa fa-print\"/> Tulosta jäsenyystodistus"
 
 #. module: partner_member_certificate_report
-#: model_terms:ir.ui.view,arch_db:partner_member_certificate_report.member_certificate
-msgid "<u>Member of divisions:</u>"
-msgstr "<u>Jaostojen jäsenyydet:</u>"
+#. odoo-python
+#: code:addons/partner_member_certificate_report/controllers/portal.py:0
+#, python-format
+msgid "Certificate"
+msgstr "Jäsenyystodistus"
 
 #. module: partner_member_certificate_report
 #: model_terms:ir.ui.view,arch_db:partner_member_certificate_report.view_company_form_inherit_member_certificate
-msgid "Certificate Signature"
-msgstr "Todistuksen allekirjoitus"
+msgid "Certificate Configuration"
+msgstr "Jäsenyystodistuksen asetukset"
 
 #. module: partner_member_certificate_report
 #: model:ir.model,name:partner_member_certificate_report.model_res_company
@@ -46,15 +50,74 @@ msgid "Contact"
 msgstr "Kontakti"
 
 #. module: partner_member_certificate_report
-#: model:ir.model.fields,field_description:partner_member_certificate_report.field_res_company__footer_company_definition
-msgid "Footer company definition"
-msgstr "Footer lisämäärittely"
+#: model:ir.model.fields,help:partner_member_certificate_report.field_res_company__footer_company_definition
+msgid "Custom text to show on the footer's top-left column."
+msgstr "Räätälöity teksti, joka näytetään footerin vasemmassa yläkulmassa"
 
 #. module: partner_member_certificate_report
-#: model:ir.model.fields,field_description:partner_member_certificate_report.field_res_partner__has_subscriptions
-#: model:ir.model.fields,field_description:partner_member_certificate_report.field_res_users__has_subscriptions
-msgid "Has Subscriptions"
+#: model:ir.model.fields,help:partner_member_certificate_report.field_res_company__member_certificate_allow_portal_printing
+msgid ""
+"If enabled, members can print their own membership certificate from the "
+"customer portal."
 msgstr ""
+"Jos käytössä, jäsenet voivat tulostaa itse jäsenyystodistuksensa portaalin "
+"kautta."
+
+#. module: partner_member_certificate_report
+#: model:ir.model.fields,help:partner_member_certificate_report.field_res_company__member_certificate_main_content
+msgid ""
+"Main text paragraph on the membership certificate, shown just below the "
+"person's name."
+msgstr ""
+"Pääteksti jäsenyystodistuksella, näytetään heti henkilön nimen alapuolella."
+
+#. module: partner_member_certificate_report
+#: model:ir.model.fields,help:partner_member_certificate_report.field_res_company__member_certificate_title_content
+msgid "Main title on the membership certificate, shown just below the logo"
+msgstr "Pääotsikko jäsenyystodistuksella, näytetään heti logon alapuolella."
+
+#. module: partner_member_certificate_report
+#: model:ir.model.fields,field_description:partner_member_certificate_report.field_res_company__member_certificate_allow_portal_printing
+msgid "Member Certificate: Allow Printing from Portal"
+msgstr "Jäsenyystodistus: Salli tulostaminen portaalin kautta"
+
+#. module: partner_member_certificate_report
+#: model:ir.model.fields,field_description:partner_member_certificate_report.field_res_company__footer_company_definition
+msgid "Member Certificate: Custom Text for Footer"
+msgstr "Jäsenyystodistus: Footerin räätälöity teksti"
+
+#. module: partner_member_certificate_report
+#: model:ir.model.fields,field_description:partner_member_certificate_report.field_res_company__member_certificate_main_content
+#: model_terms:ir.ui.view,arch_db:partner_member_certificate_report.view_company_form_inherit_member_certificate
+msgid "Member Certificate: Main Content"
+msgstr "Jäsenyystodistus: päätekstisisältö"
+
+#. module: partner_member_certificate_report
+#: model:ir.model.fields,field_description:partner_member_certificate_report.field_res_company__member_certificate_shown_subscription_product_ids
+msgid "Member Certificate: Shown Subscription Products"
+msgstr "Jäsenyystodistus: näytettävät toistuvaistilaustuotteet"
+
+#. module: partner_member_certificate_report
+#: model:ir.model.fields,field_description:partner_member_certificate_report.field_res_company__member_certificate_signatory_place
+msgid "Member Certificate: Signatory Place"
+msgstr "Jäsenyystodistus: allekirjoituspaikka"
+
+#. module: partner_member_certificate_report
+#: model:ir.model.fields,field_description:partner_member_certificate_report.field_res_company__member_certificate_signatory_title
+msgid "Member Certificate: Signatory Title"
+msgstr "Jäsenyystodistus: allekirjoittajan titteli"
+
+#. module: partner_member_certificate_report
+#: model:ir.model.fields,field_description:partner_member_certificate_report.field_res_company__member_certificate_products_subheading_content
+#: model_terms:ir.ui.view,arch_db:partner_member_certificate_report.view_company_form_inherit_member_certificate
+msgid "Member Certificate: Subheading Before Subscribable Products"
+msgstr "Jäsenyystodistus: Alaotsikko ennen toistuvaistilaustuotteita"
+
+#. module: partner_member_certificate_report
+#: model:ir.model.fields,field_description:partner_member_certificate_report.field_res_company__member_certificate_title_content
+#: model_terms:ir.ui.view,arch_db:partner_member_certificate_report.view_company_form_inherit_member_certificate
+msgid "Member Certificate: Title Content"
+msgstr "Jäsenyystodistus: otsikon tekstisisältö"
 
 #. module: partner_member_certificate_report
 #: model_terms:ir.ui.view,arch_db:partner_member_certificate_report.view_company_form_inherit_member_certificate
@@ -63,47 +126,54 @@ msgstr "Jäsenyystodistukset"
 
 #. module: partner_member_certificate_report
 #: model:ir.model.fields,field_description:partner_member_certificate_report.field_res_company__member_certificate_signatory_name
-msgid "Member certificate signatory name"
-msgstr "Jäsenyystodistuksen allekirjoittajan nimi"
-
-#. module: partner_member_certificate_report
-#: model:ir.model.fields,field_description:partner_member_certificate_report.field_res_company__member_certificate_signatory_place
-msgid "Member certificate signatory place"
-msgstr "Jäsenyystodistuksen allekirjoituspaikka"
-
-#. module: partner_member_certificate_report
-#: model:ir.model.fields,field_description:partner_member_certificate_report.field_res_company__member_certificate_signatory_title
-msgid "Member certificate signatory title"
-msgstr "Jäsenyystodistuksen allekirjoittajan titteli"
+msgid "Member certificate: Signatory Name"
+msgstr "Jäsenyystodistus: allekirjoittajan nimi"
 
 #. module: partner_member_certificate_report
 #: model:ir.model.fields,field_description:partner_member_certificate_report.field_res_company__member_certificate_signature
-msgid "Member certificate signature"
-msgstr "Jäsenyystodistuksen allekirjoitus"
-
-#. module: partner_member_certificate_report
-#: model:ir.model,name:partner_member_certificate_report.model_partner_member_certificate_report_member_certificate
-msgid "Partner Member Certificate Report"
-msgstr ""
+msgid "Member certificate: Signature Image"
+msgstr "Jäsenyystodistus: allekirjoitus kuvana"
 
 #. module: partner_member_certificate_report
 #: model:ir.actions.report,name:partner_member_certificate_report.action_pdf_cert_report
-msgid "Partner Report"
-msgstr ""
+msgid "Membership Certificate"
+msgstr "Jäsenyystodistus"
 
 #. module: partner_member_certificate_report
-#: model_terms:ir.ui.view,arch_db:partner_member_certificate_report.res_partner_view_form
-msgid "Print PDF"
+#. odoo-python
+#: code:addons/partner_member_certificate_report/controllers/portal.py:0
+#, python-format
+msgid "Membership certificate printing is not possible for your account."
 msgstr ""
+"Jäsenyystodistuksen tulostaminen ei ole mahdollista käyttäjätunnuksellasi."
 
 #. module: partner_member_certificate_report
-#: model_terms:ir.ui.view,arch_db:partner_member_certificate_report.member_certificate
+#: model_terms:ir.ui.view,arch_db:partner_member_certificate_report.member_certificate_document
 msgid "Signature"
 msgstr "Allekirjoitus"
 
 #. module: partner_member_certificate_report
-#: model_terms:ir.ui.view,arch_db:partner_member_certificate_report.member_certificate
+#: model:ir.model.fields,help:partner_member_certificate_report.field_res_company__member_certificate_products_subheading_content
 msgid ""
-"We hereby state that the aforementioned\n"
-"                            is currently a member of"
-msgstr "Toteamme täten mainitun jäsenen kuuluvan: "
+"Subheading shown on the membership certificate, just above the list "
+"ofsubscribable products. This subheading is left out, if there are no "
+"matching subscribable products shown."
+msgstr ""
+"Alaotsikko, joka näytetään juuri ennen toistuvaistilaustuotteiden listaa. "
+"Tätä alaotsikkoa ei näytetä, jos näytettäviä toistuvaistilaustuotteita ei ole."
+
+#. module: partner_member_certificate_report
+#: model:ir.model.fields,help:partner_member_certificate_report.field_res_company__member_certificate_shown_subscription_product_ids
+msgid ""
+"Subscribable products listed under the main content on the membership "
+"certificate, if the person has a matching membership for them."
+msgstr ""
+"Nämä toistuvaistilaustuotteet näytetään tulosteella, jos henkilöllä on niitä"
+" vastaava käynnissä oleva toistuvaistilaus."
+
+#. module: partner_member_certificate_report
+#. odoo-python
+#: code:addons/partner_member_certificate_report/controllers/portal.py:0
+#, python-format
+msgid "You can only print your own membership certificate."
+msgstr "Voit tulostaa vain oman jäsenyystodistuksesi."

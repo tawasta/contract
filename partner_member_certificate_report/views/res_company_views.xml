@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_company_form_inherit_member_certificate" model="ir.ui.view">
+        <field name="name">res.company.form.inherit.member.certificate</field>
+        <field name="model">res.company</field>
+        <field name="inherit_id" ref="base.view_company_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//sheet/notebook" position="inside">
+                <page string="Member Certificates">
+
+                        <separator
+                        string="Member Certificate: Title Content"
+                        colspan="2"
+                    />
+                        <field
+                        name="member_certificate_title_content"
+                        widget="html"
+                        colspan="2"
+                    />
+
+                        <separator
+                        string="Member Certificate: Main Content"
+                        colspan="2"
+                    />
+                        <field
+                        name="member_certificate_main_content"
+                        widget="html"
+                        colspan="2"
+                    />
+
+                    <separator
+                        string="Member Certificate: Subheading Before Subscribable Products"
+                        colspan="2"
+                    />
+                        <field
+                        name="member_certificate_products_subheading_content"
+                        widget="html"
+                        colspan="2"
+                    />
+
+
+                        <group string="Certificate Configuration">
+                        <field
+                            name="member_certificate_shown_subscription_product_ids"
+                            widget="many2many_tags"
+                        />
+                        <field name="member_certificate_allow_portal_printing" />
+                        <field name="member_certificate_signature" widget="image" />
+                        <field name="member_certificate_signatory_name" />
+                        <field name="member_certificate_signatory_title" />
+                        <field name="member_certificate_signatory_place" />
+                        <field name="footer_company_definition" />
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>
