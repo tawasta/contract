@@ -45,6 +45,7 @@ addon | version | maintainers | summary
 [fastapi_subscription_api](fastapi_subscription_api/) | 17.0.1.0.0 |  | FastApi-based endpoint for checking for an ongoing subscription
 [only_one_subscription_in_cart](only_one_subscription_in_cart/) | 17.0.1.1.0 |  | Allow to have only one subscription in cart
 [partner_member_certificate_report](partner_member_certificate_report/) | 17.0.1.0.1 |  | Enables printing a certificate PDF for a partner, listing their ongoing subscriptions.
+[partner_overdue_subscription_invoices_field](partner_overdue_subscription_invoices_field/) | 17.0.1.0.0 |  | New computed field for easy programmatic access to partners with overdue subscription-related invoices
 [sale_subscription_employee_auto](sale_subscription_employee_auto/) | 17.0.1.0.0 |  | Luo hr.employee partnerin tiedoilla kun jäsenyys tulee voimaan.
 [sale_subscription_invoice_header_title](sale_subscription_invoice_header_title/) | 17.0.1.0.0 |  | Subscription Invoice Header Title
 [sale_subscription_line_split](sale_subscription_line_split/) | 17.0.1.0.0 |  | Allows splitting subscription lines based on quantity

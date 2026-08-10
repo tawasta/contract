@@ -1,0 +1,50 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* partner_overdue_subscription_invoices_field
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0-20250428\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-10 07:40+0000\n"
+"PO-Revision-Date: 2026-08-10 07:40+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: partner_overdue_subscription_invoices_field
+#: model:ir.model.fields,help:partner_overdue_subscription_invoices_field.field_res_partner__has_overdue_subscription_invoices
+#: model:ir.model.fields,help:partner_overdue_subscription_invoices_field.field_res_users__has_overdue_subscription_invoices
+msgid ""
+"At least one posted subscription invoice for this partner is past its due "
+"date and not fully paid. Refreshed when invoices change and nightly by a "
+"scheduled action."
+msgstr ""
+"Yksi tai useampi tämän kontaktin toistuvaistilauksiin liittyvä lasku on "
+"maksamatta eräpäivän jälkeen. Kenttä lasketaan automaattisesti uudelleen "
+"kun laskujen/maksujen tiloissa tapahtuu muutoksia, ja lisäki kerran "
+"vuorokaudessa ajastetulla toimintoja."
+
+#. module: partner_overdue_subscription_invoices_field
+#: model:ir.model,name:partner_overdue_subscription_invoices_field.model_res_partner
+msgid "Contact"
+msgstr "Kontakti"
+
+#. module: partner_overdue_subscription_invoices_field
+#: model:ir.model.fields,field_description:partner_overdue_subscription_invoices_field.field_res_partner__has_overdue_subscription_invoices
+#: model:ir.model.fields,field_description:partner_overdue_subscription_invoices_field.field_res_users__has_overdue_subscription_invoices
+msgid "Has Overdue Subscription Invoices?"
+msgstr "Toistuvaistilauslaskuja rästissä?"
+
+#. module: partner_overdue_subscription_invoices_field
+#: model_terms:ir.ui.view,arch_db:partner_overdue_subscription_invoices_field.view_res_partner_filter_overdue_subscription
+msgid "Overdue Subscription Invoices"
+msgstr "Toistuvaistilauslaskuja rästissä"
+
+#. module: partner_overdue_subscription_invoices_field
+#: model:ir.actions.server,name:partner_overdue_subscription_invoices_field.ir_cron_update_overdue_subscription_invoices_ir_actions_server
+msgid "Partners: Refresh Overdue Subscription Invoices Flag"
+msgstr "Kontakti: Laske 'Toistuvaistilauslaskuja rästissä?' kenttä uudelleen"
