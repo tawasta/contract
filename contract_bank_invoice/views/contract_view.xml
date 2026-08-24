@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="contract_contract_form_view" model="ir.ui.view">
+        <field name="name">contract.contract.form.bank</field>
+        <field name="model">contract.contract</field>
+        <field name="inherit_id" ref="contract.contract_contract_form_view" />
+        <field name="arch" type="xml">
+            <xpath
+                expr="//group[@name='main']//field[@name='user_id']"
+                position="after"
+            >
+                <field
+                    name="partner_bank_id"
+                    attrs="{'readonly': [('is_terminated','=',True)]}"
+                    required="1"
+                />
+            </xpath>
+        </field>
+    </record>
+</odoo>
