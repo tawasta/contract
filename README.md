@@ -13,6 +13,7 @@ Available addons
 addon | version | summary
 --- | --- | ---
 [contract_auditlog](contract_auditlog/) | 14.0.1.0.0 | Adds audit log rules for contract and contract line
+[contract_bank_invoice](contract_bank_invoice/) | 14.0.1.0.0 | Contract and its Invoices use the Recipient bank of the conctract
 [contract_cancellation_reason](contract_cancellation_reason/) | 14.0.1.0.0 | Contract Cancellation Reason
 [contract_comment](contract_comment/) | 14.0.1.0.0 | Add comment to contracts
 [contract_contract_tree_hide_tag_ids](contract_contract_tree_hide_tag_ids/) | 14.0.1.0.0 | Contract tree view hide tag_ids
