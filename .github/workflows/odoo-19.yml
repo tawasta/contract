@@ -3,6 +3,13 @@ name: odoo-19
 on:
   workflow_dispatch:
   workflow_call:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+  push:
+    branches:
+      - '19*'
 
 jobs:
   all:
