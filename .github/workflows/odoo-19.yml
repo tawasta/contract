@@ -1,4 +1,4 @@
-name: Futural
+name: odoo-19
 
 on:
   workflow_dispatch:
