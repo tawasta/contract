@@ -49,6 +49,7 @@ addon | version | maintainers | summary
 [only_one_subscription_in_cart](only_one_subscription_in_cart/) | 17.0.1.1.0 |  | Allow to have only one subscription in cart
 [partner_member_certificate_report](partner_member_certificate_report/) | 17.0.1.0.1 |  | Enables printing a certificate PDF for a partner, listing their ongoing subscriptions.
 [partner_overdue_subscription_invoices_field](partner_overdue_subscription_invoices_field/) | 17.0.1.0.0 |  | New computed field for easy programmatic access to partners with overdue subscription-related invoices
+[partner_subscribable_products_currently_in_progress](partner_subscribable_products_currently_in_progress/) | 17.0.1.0.0 |  | New computed field for easy programmatic access to the subscribable products a partner currently has in ongoing subscriptions
 [sale_subscription_employee_auto](sale_subscription_employee_auto/) | 17.0.1.0.0 |  | Luo hr.employee partnerin tiedoilla kun jäsenyys tulee voimaan.
 [sale_subscription_invoice_header_title](sale_subscription_invoice_header_title/) | 17.0.1.0.0 |  | Subscription Invoice Header Title
 [sale_subscription_line_split](sale_subscription_line_split/) | 17.0.1.0.0 |  | Allows splitting subscription lines based on quantity
