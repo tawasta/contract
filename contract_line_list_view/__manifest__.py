@@ -21,7 +21,7 @@
 {
     "name": "Contract Line List View",
     "summary": "Adds list view of contract lines",
-    "version": "19.0.1.0.0",
+    "version": "19.0.1.0.1",
     "category": "Contract Management",
     "website": "https://github.com/tawasta/contract",
     "author": "Futural",
