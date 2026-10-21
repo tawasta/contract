@@ -46,6 +46,7 @@
         <field name="partner_id" />
         <field name="name" />
         <field name="product_id" />
+        <field name="contract_id" />
         <field name="recurring_next_date" />
       </search>
     </field>
