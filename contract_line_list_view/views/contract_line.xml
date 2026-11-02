@@ -9,16 +9,16 @@
         <attribute name="create">true</attribute>
       </list>
       <field name="uom_id" position="attributes">
-        <attribute name="invisible">1</attribute>
+        <attribute name="column_invisible">1</attribute>
       </field>
       <field name="analytic_distribution" position="attributes">
-        <attribute name="invisible">1</attribute>
+        <attribute name="column_invisible">1</attribute>
       </field>
       <field name="discount" position="attributes">
-        <attribute name="invisible">1</attribute>
+        <attribute name="column_invisible">1</attribute>
       </field>
       <field name="automatic_price" position="attributes">
-        <attribute name="invisible">1</attribute>
+        <attribute name="column_invisible">1</attribute>
       </field>
       <field name="product_id" position="before">
         <field name="partner_id" />
