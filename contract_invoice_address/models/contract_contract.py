@@ -40,21 +40,14 @@ class Contract(models.Model):
         invoice_vals = super()._prepare_invoice(*args, **kwargs)
 
         # Add shipping address to writable values
-        if self.partner_invoice_id:
-            partner = self.partner_invoice_id
-        else:
-            partner = self.partner_id
+        partner = self.partner_invoice_id or self.invoice_partner_id
 
         if (
             self.env["ir.config_parameter"]
             .sudo()
             .get_param("contract_force_commercial_partner")
         ):
-            if (
-                self.partner_invoice_id.type != "invoice"
-                and self.partner_invoice_id
-                != self.partner_invoice_id.commercial_partner_id
-            ):
+            if partner.type != "invoice":
                 # Force commercial partner
                 partner = partner.commercial_partner_id
 

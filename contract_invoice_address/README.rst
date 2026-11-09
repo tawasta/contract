@@ -14,6 +14,12 @@ Configuration
 Go to Settings -> Invoicing and select "Force commercial partner on contracts"
 to set commercial partner to an invoice to be created.
 
+The invoice partner is the contract's "Invoice Address". If it is empty, the
+contract's invoice partner (``invoice_partner_id``) is used, so the invoice
+address logic of the core contract module and ``product_contract`` is kept. The
+setting applies to the selected partner also when no separate invoice address
+is set.
+
 Usage
 =====
 Select a contract and test its invoice creation. Use "Force commercial partner
