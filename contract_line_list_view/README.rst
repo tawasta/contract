@@ -8,6 +8,7 @@ Contract Line List View
 
 - Adds list view of contract lines.
 - Adds contract id to contract line.
+- Adds the contract field to the contract line form, so a line created from the list view can be linked to a contract.
 
 Configuration
 =============
