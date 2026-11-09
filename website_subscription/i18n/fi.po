@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 17.0-20241118\n"
+"Project-Id-Version: Odoo Server 17.0-20250428\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-10 07:20+0000\n"
-"PO-Revision-Date: 2024-12-10 07:20+0000\n"
+"POT-Creation-Date: 2026-08-20 12:53+0000\n"
+"PO-Revision-Date: 2026-08-20 12:53+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -124,9 +124,9 @@ msgid "End subscription line"
 msgstr "Päätä tilausrivi"
 
 #. module: website_subscription
-#: model_terms:ir.ui.view,arch_db:website_subscription.portal_subscription_page
+#: model_terms:ir.ui.view,arch_db:website_subscription.portal_subscription_page_inactive_subscriptions
 msgid "Inactive subscription lines"
-msgstr "Inaktiiviset tilausrivit"
+msgstr "Ei-aktiiviset tilausrivit"
 
 #. module: website_subscription
 #: model_terms:ir.ui.view,arch_db:website_subscription.portal_my_subscriptions

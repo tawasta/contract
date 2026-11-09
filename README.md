@@ -35,10 +35,13 @@ addon | version | maintainers | summary
 [contract_portal_hide_message_thread](contract_portal_hide_message_thread/) | 17.0.1.0.0 |  | Adds a toggle for hiding the contract messaging section
 [contract_portal_invoice_address](contract_portal_invoice_address/) | 17.0.1.0.0 |  | Toggleable showing of contract's invoice address in portal
 [contract_portal_product_default_code](contract_portal_product_default_code/) | 17.0.1.0.0 |  | Toggle internal reference in separate column on contract lines
+[contract_product_analytic_tags](contract_product_analytic_tags/) | 17.0.1.0.0 |  | Adds contract line analytic tags from products
 [contract_product_usage](contract_product_usage/) | 17.0.1.0.0 |  | Show contracts and contract lines where product is used in
 [contract_remove_unlink_right](contract_remove_unlink_right/) | 17.0.1.0.0 |  | Disallow deleting contracts (always archive them)
 [contract_shipping_address](contract_shipping_address/) | 17.0.1.0.1 |  | Add shipping address to contracts
+[contract_template](contract_template/) | 17.0.1.0.0 |  | Contract Template
 [contract_template_additional_fields](contract_template_additional_fields/) | 17.0.1.0.0 |  | Invoice interval, payment term and responsible to Contract Template
+[contract_terminate_reason_default](contract_terminate_reason_default/) | 17.0.1.0.0 |  | Fetch default termination reason from settings
 [contract_to_subscription](contract_to_subscription/) | 17.0.1.0.0 |  | Migrate contracts to subscriptions
 [contract_use_customer_as_invoicing_contact](contract_use_customer_as_invoicing_contact/) | 17.0.1.0.0 |  | Default value to a contract's invoicing contact
 [contract_use_existing_invoice](contract_use_existing_invoice/) | 17.0.1.0.0 |  | Add lines to an existing invoice instead of creating a new invoice
@@ -46,6 +49,7 @@ addon | version | maintainers | summary
 [only_one_subscription_in_cart](only_one_subscription_in_cart/) | 17.0.1.1.0 |  | Allow to have only one subscription in cart
 [partner_member_certificate_report](partner_member_certificate_report/) | 17.0.1.0.1 |  | Enables printing a certificate PDF for a partner, listing their ongoing subscriptions.
 [partner_overdue_subscription_invoices_field](partner_overdue_subscription_invoices_field/) | 17.0.1.0.0 |  | New computed field for easy programmatic access to partners with overdue subscription-related invoices
+[partner_subscribable_products_currently_in_progress](partner_subscribable_products_currently_in_progress/) | 17.0.1.0.0 |  | New computed field for easy programmatic access to the subscribable products a partner currently has in ongoing subscriptions
 [sale_subscription_employee_auto](sale_subscription_employee_auto/) | 17.0.1.0.0 |  | Luo hr.employee partnerin tiedoilla kun jäsenyys tulee voimaan.
 [sale_subscription_invoice_header_title](sale_subscription_invoice_header_title/) | 17.0.1.0.0 |  | Subscription Invoice Header Title
 [sale_subscription_line_split](sale_subscription_line_split/) | 17.0.1.0.0 |  | Allows splitting subscription lines based on quantity

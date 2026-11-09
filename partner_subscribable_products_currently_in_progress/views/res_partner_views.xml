@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="view_partner_form_subscribable_products_in_progress" model="ir.ui.view">
+        <field name="name">res.partner.form.subscribable.products.in.progress</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='internal_notes']" position="before">
+                <page
+                    name="subscribable_products_in_progress"
+                    string="Products in Currently Ongoing Subscription Lines"
+                    invisible="not show_subscribable_products_in_progress_page"
+                >
+
+                    <!-- Show the notebook page if configured visible in settings -->
+                    <field
+                        name="show_subscribable_products_in_progress_page"
+                        invisible="1"
+                    />
+
+                    <field
+                        name="subscribable_product_ids_in_progress"
+                        readonly="1"
+                        nolabel="1"
+                    >
+                        <tree>
+                            <field name="default_code" optional="hide" />
+                            <field name="display_name" string="Product" />
+                        </tree>
+                    </field>
+                    <div class="text-muted">
+                        For more detailed subscription info, see the subscription line view
+                    </div>
+                    <button
+                        name="action_view_subscription_lines_in_progress"
+                        type="object"
+                        string="Subscription Lines"
+                        class="btn-link ps-0"
+                        icon="fa-arrow-right"
+                    />
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_partner_tree_subscribable_products_in_progress" model="ir.ui.view">
+        <field name="name">res.partner.tree.subscribable.products.in.progress</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_tree" />
+        <field name="arch" type="xml">
+            <field name="country_id" position="after">
+                <field
+                    name="subscribable_product_ids_in_progress"
+                    widget="many2many_tags"
+                    optional="show"
+                />
+            </field>
+        </field>
+    </record>
+
+</odoo>

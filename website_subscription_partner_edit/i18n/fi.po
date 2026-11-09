@@ -1,0 +1,197 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* website_subscription_partner_edit
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0-20250428\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-20 12:55+0000\n"
+"PO-Revision-Date: 2026-08-20 12:55+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: website_subscription_partner_edit
+#: model_terms:ir.ui.view,arch_db:website_subscription_partner_edit.portal_edit_customer_modal
+msgid "+358"
+msgstr "+358"
+
+#. module: website_subscription_partner_edit
+#: model_terms:ir.ui.view,arch_db:website_subscription_partner_edit.portal_edit_customer_button
+msgid "<i class=\"fa fa-fw fa-pencil\"/>Edit"
+msgstr "<i class=\"fa fa-fw fa-pencil\"/>Muokkaa"
+
+#. module: website_subscription_partner_edit
+#: model_terms:ir.ui.view,arch_db:website_subscription_partner_edit.portal_edit_customer_modal
+msgid ""
+"<i class=\"fa fa-plus me-md-2\"/><span class=\"d-none d-md-inline\">Add new "
+"contact</span>"
+msgstr ""
+"<i class=\"fa fa-plus me-md-2\"/><span class=\"d-none d-md-inline\">Lisää "
+"uusi yhteystieto</span>"
+
+#. module: website_subscription_partner_edit
+#: model_terms:ir.ui.view,arch_db:website_subscription_partner_edit.portal_edit_customer_modal
+msgid "<option value=\"\">Country...</option>"
+msgstr "<option value=\"\">Maa...</option>"
+
+#. module: website_subscription_partner_edit
+#: model_terms:ir.ui.view,arch_db:website_subscription_partner_edit.portal_edit_customer_modal
+msgid "<option value=\"\">Select an operator...</option>"
+msgstr "<option value=\"\">Valitse operaattori...</option>"
+
+#. module: website_subscription_partner_edit
+#: model_terms:ir.ui.view,arch_db:website_subscription_partner_edit.portal_edit_customer_modal
+msgid "ALV"
+msgstr "ALV"
+
+#. module: website_subscription_partner_edit
+#: model_terms:ir.ui.view,arch_db:website_subscription_partner_edit.portal_edit_customer_modal
+msgid "Add New Contact"
+msgstr "Lisää uusi yhteystieto"
+
+#. module: website_subscription_partner_edit
+#: model:ir.model.fields.selection,name:website_subscription_partner_edit.selection__transmit_method__contract_target_type__both
+msgid "Both"
+msgstr "Molemmat"
+
+#. module: website_subscription_partner_edit
+#: model_terms:ir.ui.view,arch_db:website_subscription_partner_edit.portal_edit_customer_modal
+msgid "Cancel"
+msgstr "Peruuta"
+
+#. module: website_subscription_partner_edit
+#: model_terms:ir.ui.view,arch_db:website_subscription_partner_edit.portal_edit_customer_modal
+msgid "City"
+msgstr "Kaupunki"
+
+#. module: website_subscription_partner_edit
+#: model_terms:ir.ui.view,arch_db:website_subscription_partner_edit.portal_edit_customer_modal
+msgid "Close"
+msgstr "Sulje"
+
+#. module: website_subscription_partner_edit
+#: model:ir.model.fields.selection,name:website_subscription_partner_edit.selection__transmit_method__contract_target_type__company
+#: model_terms:ir.ui.view,arch_db:website_subscription_partner_edit.portal_edit_customer_modal
+msgid "Company"
+msgstr "Yritys"
+
+#. module: website_subscription_partner_edit
+#: model_terms:ir.ui.view,arch_db:website_subscription_partner_edit.portal_edit_customer_modal
+msgid "Company Name"
+msgstr "Yrityksen nimi"
+
+#. module: website_subscription_partner_edit
+#: model_terms:ir.ui.view,arch_db:website_subscription_partner_edit.portal_edit_customer_modal
+msgid "Country"
+msgstr "Maa"
+
+#. module: website_subscription_partner_edit
+#: model:ir.model.fields,help:website_subscription_partner_edit.field_transmit_method__contract_target_type
+msgid ""
+"Defines whether this transmit method is selectable for persons, companies, "
+"or both in the website subscription contact form."
+msgstr ""
+"Määrittää, onko tämä lähetystapa valittavissa henkilöille, yrityksille vai "
+"molemmille verkkosivuston tilauksen yhteystietolomakkeessa."
+
+#. module: website_subscription_partner_edit
+#: model_terms:ir.ui.view,arch_db:website_subscription_partner_edit.portal_edit_customer_modal
+msgid "Edit Customer Information"
+msgstr "Muokkaa asiakastietoja"
+
+#. module: website_subscription_partner_edit
+#: model_terms:ir.ui.view,arch_db:website_subscription_partner_edit.portal_edit_customer_modal
+msgid "Email"
+msgstr "Sähköposti"
+
+#. module: website_subscription_partner_edit
+#: model_terms:ir.ui.view,arch_db:website_subscription_partner_edit.portal_edit_customer_modal
+msgid "First Name"
+msgstr "Etunimi"
+
+#. module: website_subscription_partner_edit
+#: model_terms:ir.ui.view,arch_db:website_subscription_partner_edit.portal_edit_customer_modal
+msgid "Invoice transmit method"
+msgstr "Laskun lähetystapa"
+
+#. module: website_subscription_partner_edit
+#: model_terms:ir.ui.view,arch_db:website_subscription_partner_edit.portal_edit_customer_modal
+msgid "Last Name"
+msgstr "Sukunimi"
+
+#. module: website_subscription_partner_edit
+#. odoo-javascript
+#: code:addons/website_subscription_partner_edit/static/src/js/main.esm.js:0
+#: code:addons/website_subscription_partner_edit/static/src/js/main.esm.js:0
+#, python-format
+msgid "OK"
+msgstr "OK"
+
+#. module: website_subscription_partner_edit
+#: model:ir.model.fields.selection,name:website_subscription_partner_edit.selection__transmit_method__contract_target_type__person
+#: model_terms:ir.ui.view,arch_db:website_subscription_partner_edit.portal_edit_customer_modal
+msgid "Person"
+msgstr "Henkilö"
+
+#. module: website_subscription_partner_edit
+#: model_terms:ir.ui.view,arch_db:website_subscription_partner_edit.portal_edit_customer_modal
+msgid "Phone"
+msgstr "Puhelin"
+
+#. module: website_subscription_partner_edit
+#: model_terms:ir.ui.view,arch_db:website_subscription_partner_edit.portal_edit_customer_modal
+msgid "Save Changes"
+msgstr "Tallenna muutokset"
+
+#. module: website_subscription_partner_edit
+#: model_terms:ir.ui.view,arch_db:website_subscription_partner_edit.portal_edit_customer_modal
+msgid "Select an existing contact or add a new one"
+msgstr "Valitse olemassa oleva yhteystieto tai lisää uusi"
+
+#. module: website_subscription_partner_edit
+#: model_terms:ir.ui.view,arch_db:website_subscription_partner_edit.portal_edit_customer_modal
+msgid "Street"
+msgstr "Katu"
+
+#. module: website_subscription_partner_edit
+#. odoo-javascript
+#: code:addons/website_subscription_partner_edit/static/src/js/main.esm.js:0
+#: code:addons/website_subscription_partner_edit/static/src/js/main.esm.js:0
+#, python-format
+msgid "Success"
+msgstr "Onnistui"
+
+#. module: website_subscription_partner_edit
+#: model:ir.model,name:website_subscription_partner_edit.model_transmit_method
+msgid "Transmit Method of a document"
+msgstr "Dokumentin lähetystapa"
+
+#. module: website_subscription_partner_edit
+#: model:ir.model.fields,field_description:website_subscription_partner_edit.field_transmit_method__contract_target_type
+msgid "Visible for Contact Type"
+msgstr "Näkyvissä yhteystietotyypille"
+
+#. module: website_subscription_partner_edit
+#: model_terms:ir.ui.view,arch_db:website_subscription_partner_edit.portal_edit_customer_modal
+msgid "Zip"
+msgstr "Postinumero"
+
+#. module: website_subscription_partner_edit
+#: model_terms:ir.ui.view,arch_db:website_subscription_partner_edit.portal_edit_customer_modal
+msgid "e.g. 003712345671"
+msgstr "esim. 003712345671"
+
+#. module: website_subscription_partner_edit
+#: model_terms:ir.ui.view,arch_db:website_subscription_partner_edit.portal_edit_customer_modal
+msgid "eInvoice Address (EDI-code)"
+msgstr "Verkkolaskuosoite (OVT-tunnus)"
+
+#. module: website_subscription_partner_edit
+#: model_terms:ir.ui.view,arch_db:website_subscription_partner_edit.portal_edit_customer_modal
+msgid "eInvoice Operator"
+msgstr "Verkkolaskuoperaattori"
