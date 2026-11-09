@@ -21,7 +21,7 @@
 {
     "name": "Contract: Product Usage",
     "summary": "Show contracts and contract lines where product is used in",
-    "version": "19.0.1.0.0",
+    "version": "19.0.1.0.1",
     "category": "Contract Management",
     "website": "https://github.com/tawasta/contract",
     "author": "Futural",

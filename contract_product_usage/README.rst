@@ -15,6 +15,7 @@ Configuration
 Usage
 =====
 * Go to a product template, and click the new action buttons
+* The buttons are visible only to users in the "Billing" (account.group_account_invoice) group or higher, as other users have no read access to contracts
 
 Known issues / Roadmap
 ======================
