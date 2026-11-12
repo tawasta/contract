@@ -14,7 +14,11 @@ Configuration
 
 Usage
 =====
-\-
+Contract line columns that the base contract views hide with ``column_invisible``
+(recurrence interval, rule type, invoicing type, start date and next invoice date)
+are made visible and can be toggled from the optional columns menu.
+Purely technical columns (currency, display type, specific price and invoice
+visibility) are not offered as optional columns.
 
 Known issues / Roadmap
 ======================

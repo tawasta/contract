@@ -27,12 +27,14 @@
         <attribute name="optional">show</attribute>
       </field>
       <field name="date_start" position="attributes">
+        <attribute name="column_invisible">False</attribute>
         <attribute name="optional">show</attribute>
       </field>
       <field name="date_end" position="attributes">
         <attribute name="optional">show</attribute>
       </field>
       <field name="recurring_next_date" position="attributes">
+        <attribute name="column_invisible">False</attribute>
         <attribute name="optional">show</attribute>
       </field>
       <field name="last_date_invoiced" position="attributes">

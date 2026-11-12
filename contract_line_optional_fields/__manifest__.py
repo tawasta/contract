@@ -21,7 +21,7 @@
 {
     "name": "Contract: optional fields on lines",
     "summary": "Set contract line fields as optional, so users can hide them",
-    "version": "19.0.1.0.0",
+    "version": "19.0.1.0.1",
     "category": "Contract Management",
     "website": "https://github.com/tawasta/contract",
     "author": "Futural",

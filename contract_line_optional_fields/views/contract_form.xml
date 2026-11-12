@@ -7,20 +7,6 @@
     <field name="arch" type="xml">
       <!-- Contract line id's -->
       <xpath
-        expr="//field[@name='contract_line_ids']/list/field[@name='currency_id']"
-        position="attributes"
-      >
-        <attribute name="optional">show</attribute>
-      </xpath>
-
-      <xpath
-        expr="//field[@name='contract_line_ids']/list/field[@name='display_type']"
-        position="attributes"
-      >
-        <attribute name="optional">show</attribute>
-      </xpath>
-
-      <xpath
         expr="//field[@name='contract_line_ids']/list/field[@name='sequence']"
         position="attributes"
       >
@@ -77,13 +63,6 @@
       </xpath>
 
       <xpath
-        expr="//field[@name='contract_line_ids']/list/field[@name='specific_price']"
-        position="attributes"
-      >
-        <attribute name="optional">show</attribute>
-      </xpath>
-
-      <xpath
         expr="//field[@name='contract_line_ids']/list/field[@name='discount']"
         position="attributes"
       >
@@ -101,6 +80,7 @@
         expr="//field[@name='contract_line_ids']/list/field[@name='recurring_interval']"
         position="attributes"
       >
+        <attribute name="column_invisible">False</attribute>
         <attribute name="optional">show</attribute>
       </xpath>
 
@@ -108,6 +88,7 @@
         expr="//field[@name='contract_line_ids']/list/field[@name='recurring_rule_type']"
         position="attributes"
       >
+        <attribute name="column_invisible">False</attribute>
         <attribute name="optional">show</attribute>
       </xpath>
 
@@ -115,6 +96,7 @@
         expr="//field[@name='contract_line_ids']/list/field[@name='recurring_invoicing_type']"
         position="attributes"
       >
+        <attribute name="column_invisible">False</attribute>
         <attribute name="optional">show</attribute>
       </xpath>
 
@@ -147,20 +129,6 @@
       </xpath>
 
       <!-- Contract line fixed id's -->
-      <xpath
-        expr="//field[@name='contract_line_fixed_ids']/list/field[@name='currency_id']"
-        position="attributes"
-      >
-        <attribute name="optional">show</attribute>
-      </xpath>
-
-      <xpath
-        expr="//field[@name='contract_line_fixed_ids']/list/field[@name='display_type']"
-        position="attributes"
-      >
-        <attribute name="optional">show</attribute>
-      </xpath>
-
       <xpath
         expr="//field[@name='contract_line_fixed_ids']/list/field[@name='sequence']"
         position="attributes"
@@ -218,13 +186,6 @@
       </xpath>
 
       <xpath
-        expr="//field[@name='contract_line_fixed_ids']/list/field[@name='specific_price']"
-        position="attributes"
-      >
-        <attribute name="optional">show</attribute>
-      </xpath>
-
-      <xpath
         expr="//field[@name='contract_line_fixed_ids']/list/field[@name='discount']"
         position="attributes"
       >
@@ -242,6 +203,7 @@
         expr="//field[@name='contract_line_fixed_ids']/list/field[@name='recurring_interval']"
         position="attributes"
       >
+        <attribute name="column_invisible">False</attribute>
         <attribute name="optional">show</attribute>
       </xpath>
 
@@ -249,6 +211,7 @@
         expr="//field[@name='contract_line_fixed_ids']/list/field[@name='recurring_rule_type']"
         position="attributes"
       >
+        <attribute name="column_invisible">False</attribute>
         <attribute name="optional">show</attribute>
       </xpath>
 
@@ -256,6 +219,7 @@
         expr="//field[@name='contract_line_fixed_ids']/list/field[@name='recurring_invoicing_type']"
         position="attributes"
       >
+        <attribute name="column_invisible">False</attribute>
         <attribute name="optional">show</attribute>
       </xpath>
 
@@ -263,6 +227,7 @@
         expr="//field[@name='contract_line_fixed_ids']/list/field[@name='recurring_next_date']"
         position="attributes"
       >
+        <attribute name="column_invisible">False</attribute>
         <attribute name="optional">show</attribute>
       </xpath>
 
@@ -270,6 +235,7 @@
         expr="//field[@name='contract_line_fixed_ids']/list/field[@name='date_start']"
         position="attributes"
       >
+        <attribute name="column_invisible">False</attribute>
         <attribute name="optional">show</attribute>
       </xpath>
 
@@ -282,13 +248,6 @@
 
       <xpath
         expr="//field[@name='contract_line_fixed_ids']/list/field[@name='last_date_invoiced']"
-        position="attributes"
-      >
-        <attribute name="optional">show</attribute>
-      </xpath>
-
-      <xpath
-        expr="//field[@name='contract_line_fixed_ids']/list/field[@name='create_invoice_visibility']"
         position="attributes"
       >
         <attribute name="optional">show</attribute>
