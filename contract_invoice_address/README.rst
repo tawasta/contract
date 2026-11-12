@@ -20,6 +20,12 @@ Select a contract and test its invoice creation. Use "Force commercial partner
 on contracts" setting to see that the invoice gets the commercial partner of
 an invoice address of contract.
 
+The invoice partner is the contract's invoice address. If it is empty, the
+invoice-type address of the customer (``invoice_partner_id``) is used, and
+finally the customer. With the "Force commercial partner on contracts" setting
+the commercial partner is used whenever the selected invoice partner is not an
+invoice-type address, also when the contract has no separate invoice address.
+
 Known issues / Roadmap
 ======================
 \-
