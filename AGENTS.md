@@ -8,10 +8,10 @@ these rules and [REVIEW.md](REVIEW.md).
 Act as an Odoo architect. Quality before speed: the code is production-ready, clear,
 secure, efficient and as simple as possible.
 
-- **Do not assume the version.** It is visible in the path `/opt/odoo/<version>/`. Do
+- **Do not assume the version.** Check it from the branch and the manifest version. Do
   not copy a solution from one version to another without checking.
 - **Before implementing, investigate two things:**
-  - Odoo core (`ocb/`)
+  - Odoo core
   - other modules that change the same model
 
   Prove claims with `file:line` references.
@@ -28,9 +28,8 @@ secure, efficient and as simple as possible.
 3. Own name and email (`Name <email>`) in the Contributors section
 4. manifest version bumped.
 
-The quality gate (hook) checks these and runs `pre-commit run --all-files` automatically
-after every change. A pre-commit hook that does not support the machine's Python version
-may be left failing.
+`pre-commit run --all-files` passes. A pre-commit hook that does not support the
+machine's Python version may be left failing.
 
 ## Quality
 
@@ -308,8 +307,8 @@ suggested or extended.
 
 ## Before writing
 
-1. **Version** from the path `/opt/odoo/<version>/`. Read the test API of that version
-   from `/opt/odoo/<v>/ocb/odoo/tests/common.py`. Do not copy a solution from another
+1. **Version** from the branch and the manifest version. Read the test API of that
+   version from `odoo/tests/common.py` in Odoo core. Do not copy a solution from another
    version without checking.
 2. **What to test.** If the user did not name the behaviours, list the ones you propose
    (step 3) and let the user confirm them.
@@ -364,12 +363,12 @@ Pick those that apply to the change:
 
 ## A test for a bug fix must fail on the old code
 
-Ask the user to run the new test against the code without the fix and to show you the
-failure, then with the fix. If this cannot be done, the handover says
+The new test is run against the code without the fix and must fail, then with the fix.
+If this cannot be done, the handover says
 `Not verified: the test fails without the fix`.
 
 ## Permanent module rules
 
-Adding tests edits the module, so the four permanent rules of `odoo-develop` (step 3)
-apply: fi.po (state that there are no new texts), README, Contributors and the manifest
+Adding tests edits the module, so the permanent rules for every edited module apply:
+fi.po (state that there are no new texts), README, Contributors and the manifest
 version.
