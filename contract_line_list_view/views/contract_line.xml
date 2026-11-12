@@ -5,20 +5,17 @@
     <field name="model">contract.line</field>
     <field name="inherit_id" ref="contract.contract_line_tree_view" />
     <field name="arch" type="xml">
-      <list position="attributes">
-        <attribute name="create">true</attribute>
-      </list>
       <field name="uom_id" position="attributes">
-        <attribute name="invisible">1</attribute>
+        <attribute name="column_invisible">1</attribute>
       </field>
       <field name="analytic_distribution" position="attributes">
-        <attribute name="invisible">1</attribute>
+        <attribute name="column_invisible">1</attribute>
       </field>
       <field name="discount" position="attributes">
-        <attribute name="invisible">1</attribute>
+        <attribute name="column_invisible">1</attribute>
       </field>
       <field name="automatic_price" position="attributes">
-        <attribute name="invisible">1</attribute>
+        <attribute name="column_invisible">1</attribute>
       </field>
       <field name="product_id" position="before">
         <field name="partner_id" />
@@ -33,6 +30,7 @@
     <field name="inherit_id" ref="contract.contract_line_form_view" />
     <field name="arch" type="xml">
       <field name="product_id" position="before">
+        <field name="contract_id" />
         <field name="partner_id" />
       </field>
     </field>

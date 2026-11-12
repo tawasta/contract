@@ -8,6 +8,10 @@ Contract Line List View
 
 - Adds list view of contract lines.
 - Adds contract id to contract line.
+- Adds the contract field to the contract line form, so that a line created
+  from the Contract Lines menu can be saved.
+- Hides the unit of measure, analytic distribution, discount and automatic
+  price columns (header included) in the contract line list.
 
 Configuration
 =============
