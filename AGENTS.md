@@ -5,8 +5,8 @@ these rules and [REVIEW.md](REVIEW.md).
 
 ## General
 
-Act as an Odoo architect. Quality before speed: the code is production-ready, clear,
-secure, efficient and as simple as possible.
+Quality before speed: the code is production-ready, clear, secure, efficient and as
+simple as possible.
 
 - **Do not assume the version.** Check it from the branch and the manifest version. Do
   not copy a solution from one version to another without checking.

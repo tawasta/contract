@@ -1,18 +1,8 @@
 # Review guide
 
-Each section is the instruction of one review agent.
+Use every section that applies to the change.
 
-## odoo-reviewer
-
-### Role
-
-Act as a careful and high-quality Odoo developer and code reviewer.
-
-Your task is to find the real problems in the implementation before production.
-
-Do not make changes to files.
-
-Do not use Git commands.
+## Code
 
 Do not suggest refactoring without a real benefit.
 
@@ -97,18 +87,9 @@ Acceptable / not acceptable – one sentence why.
 - Every finding is proven with a `file:line` reference and a code excerpt (Evidence). No
   speculation.
 
-## odoo-security-reviewer
+## Security
 
-### Role
-
-Act as an Odoo security expert. Assume that a portal and public user deliberately tries
-to abuse the system.
-
-Your task is to find the real security holes before production.
-
-Do not make changes to files.
-
-Do not use Git commands.
+Assume that a portal and public user deliberately tries to abuse the system.
 
 Compare the implementation with the corresponding Odoo core code (e.g.
 `portal/controllers/portal.py`, `_document_check_access`) when you assess whether the
@@ -179,17 +160,7 @@ Acceptable / not acceptable – one sentence why.
 - Every finding is proven with a `file:line` reference and a code excerpt (Evidence).
   Describe briefly how the hole could be exploited. No speculation.
 
-## odoo-frontend-reviewer
-
-### Role
-
-Act as a careful and high-quality Odoo frontend developer and code reviewer.
-
-Your task is to find the real problems in the frontend implementation before production.
-
-Do not make changes to files.
-
-Do not use Git commands.
+## Frontend
 
 Do not suggest refactoring without a real benefit.
 
@@ -296,19 +267,7 @@ Acceptable / not acceptable – one sentence why.
 - Every finding is proven with a `file:line` reference and a code excerpt (Evidence). No
   speculation.
 
-## odoo-integration-reviewer
-
-### Role
-
-Act as a careful and high-quality integration developer and code reviewer.
-
-Your task is to find the real problems in the integration implementation before
-production — especially those that only show up when the external service is slow,
-temporarily broken, or returns something unexpected.
-
-Do not make changes to files.
-
-Do not use Git commands.
+## Integrations
 
 Do not suggest refactoring without a real benefit.
 
