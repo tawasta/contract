@@ -6,6 +6,8 @@ Use every section that applies to the change.
 
 Do not suggest refactoring without a real benefit.
 
+A passing CI or pre-commit check is not proof that the behaviour is correct.
+
 ### Always check
 
 #### Functionality
@@ -15,6 +17,8 @@ Do not suggest refactoring without a real benefit.
 - Are the edge cases taken into account?
 - Can the same function cause duplicates?
 - Does the change contain only what was asked, without unrelated changes?
+- Does the pull request or task description say why the change is made?
+- Does Odoo or OCA (also in other branches) already have a module that does the same?
 - Are the fields, relations, compute dependencies, inverses, constraints, defaults and
   create/write/unlink behaviour correct, also with empty values?
 
@@ -24,6 +28,8 @@ Do not suggest refactoring without a real benefit.
 - Is Odoo core logic copied needlessly?
 - Does the solution work in the active Odoo version?
 - Does the implementation belong in the right addon?
+- Does the module contain setup for one particular database that belongs in
+  configuration, not in the code?
 
 #### Manifest
 
@@ -37,6 +43,8 @@ Do not suggest refactoring without a real benefit.
   early return)?
 - Is there duplicate, dead or commented-out code?
 - Do the comments tell _why_ and not repeat the code?
+- Do the method, field and xml id names, the file names and the class member order
+  follow the naming conventions?
 
 #### ORM
 
@@ -51,6 +59,8 @@ Do not suggest refactoring without a real benefit.
   script or a configuration change needed?
 - Are data operations repeatable and non-destructive (no duplicates or lost data on a
   rerun or upgrade)?
+- Is the right part of the version bumped (major, minor or patch), and does a breaking
+  change have a migration script?
 
 #### Security
 
@@ -192,6 +202,8 @@ and do not spend time on it in depth.
   template?
 - Are the xpath selectors stable, or do they rely on fragile paths (e.g. `//div[3]`)?
 - Is the existence of fields/attributes ensured before referring to them?
+- Are the view inheritance targets and priorities and the action/menu references
+  correct, and is the same view inherited only once per module?
 
 #### JS / RPC
 

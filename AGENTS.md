@@ -56,6 +56,9 @@ machine's Python version may be left failing.
 Assisted-by: <model name, e.g. Claude Opus 5.5>
 ```
 
+The summary is at most 50 characters and in the imperative ("Add", "Fix"). One commit
+per logical change. No separate "fix pep8" or "code review" commits.
+
 # Coding conventions
 
 ## Code quality
@@ -87,6 +90,31 @@ Assisted-by: <model name, e.g. Claude Opus 5.5>
   decorator or in a create/write method.
 - Data: `noupdate="1"` for data that the customer can edit (templates, sequences,
   crons).
+- A module inherits the same view only once. `position="replace"` only with a comment
+  that explains why.
+
+## Naming
+
+- Methods: `_compute_<field>`, `_inverse_<field>`, `_search_<field>`,
+  `_default_<field>`, `_onchange_<field>`, and `_check_<name>` for constraints. Action
+  methods start with `action_` and call `self.ensure_one()` when they handle one record.
+- Fields: a Many2one ends in `_id`, a One2many or Many2many in `_ids`. A variable that
+  holds records does not end in `_id` or `_ids`.
+- XML ids: `<model_name>_view_<view_type>`, `<model_name>_action`, `<model_name>_menu`,
+  `<model_name>_group_<name>`, `<model_name>_rule_<group>`. No module name prefix.
+- Files: one file per model: `models/<model_name>.py`, `views/<model_name>_views.xml`,
+  `data/<model_name>_data.xml`.
+- Class member order: private attributes, fields, constraints (`models.Constraint`),
+  default methods, compute, inverse and search methods, `@api.constrains` and
+  `@api.onchange` methods, CRUD overrides, action methods, other business methods.
+
+## Versions and migrations
+
+- Manifest version `<odoo version>.x.y.z`: x when the data model or views change so that
+  existing databases need a migration, y for a new backward-compatible feature, z for a
+  fix.
+- A change that breaks existing data has a migration script in
+  `migrations/<new version>/pre-migration.py` or `post-migration.py`.
 
 ## ORM and performance
 
@@ -360,6 +388,13 @@ Pick those that apply to the change:
   `Form` (`odoo.tests.form`) for form and onchange behaviour.
 - Code quality rules apply to tests: no `print`, no fixed `sleep`, no commented-out
   code.
+- Dates: fixed dates with `freezegun`, not the current date.
+- A record keeps the env it was created with: use `record.with_env(self.env)` so that
+  access is checked as the test user.
+- `subTest` does not reset the database or the cache between subtests.
+- Create the test data in the test. Do not rely on demo data.
+- A test that calls a real external service is tagged
+  `@tagged("-standard", "external")`, so that it does not run by default.
 
 ## A test for a bug fix must fail on the old code
 
