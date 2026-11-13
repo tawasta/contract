@@ -22,7 +22,7 @@
     "name": "Contract invoice address",
     "summary": "Add invoice address to contracts and force its commercial partner",
     "category": "Contract Management",
-    "version": "19.0.1.0.0",
+    "version": "19.0.1.0.1",
     "website": "https://github.com/tawasta/contract",
     "author": "Futural",
     "license": "AGPL-3",
