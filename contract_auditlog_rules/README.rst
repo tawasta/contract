@@ -14,7 +14,8 @@ Configuration
 
 Usage
 =====
-\-
+Open a contract or a contract line and use the "View logs" action to see
+the changes made to it.
 
 Known issues / Roadmap
 ======================
