@@ -20,6 +20,8 @@ Select a contract and test its invoice creation. Use "Force commercial partner
 on contracts" setting to see that the invoice gets the commercial partner of
 an invoice address of contract.
 
+All users can see and change the invoice address on the contract form.
+
 Known issues / Roadmap
 ======================
 \-
