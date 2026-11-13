@@ -40,10 +40,7 @@ class Contract(models.Model):
         invoice_vals = super()._prepare_invoice(*args, **kwargs)
 
         # Add shipping address to writable values
-        if self.partner_invoice_id:
-            partner = self.partner_invoice_id
-        else:
-            partner = self.partner_id
+        partner = self.partner_invoice_id or self.invoice_partner_id or self.partner_id
 
         if (
             self.env["ir.config_parameter"]
