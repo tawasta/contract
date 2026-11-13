@@ -11,6 +11,7 @@
           type="object"
           icon="fa-file"
           class="oe_stat_button"
+          groups="account.group_account_invoice"
         >
           <field string="Contracts" name="contract_count" widget="statinfo" />
         </button>
@@ -19,6 +20,7 @@
           type="object"
           icon="fa-list"
           class="oe_stat_button"
+          groups="account.group_account_invoice"
         >
           <field string="Contract lines" name="contract_line_count" widget="statinfo" />
         </button>

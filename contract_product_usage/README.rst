@@ -15,6 +15,7 @@ Configuration
 Usage
 =====
 * Go to a product template, and click the new action buttons
+* The buttons are shown only to users who have invoicing access. Other users can still open the product normally.
 
 Known issues / Roadmap
 ======================

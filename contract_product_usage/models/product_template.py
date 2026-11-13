@@ -8,20 +8,24 @@ class ProductTemplate(models.Model):
         string="Contracts",
         comodel_name="contract.contract",
         compute="_compute_contract_ids",
+        groups="account.group_account_invoice",
     )
     contract_count = fields.Integer(
         string="Contract count",
         compute="_compute_contract_ids",
+        groups="account.group_account_invoice",
     )
 
     contract_line_ids = fields.Many2many(
         string="Contract lines",
         comodel_name="contract.line",
         compute="_compute_contract_ids",
+        groups="account.group_account_invoice",
     )
     contract_line_count = fields.Integer(
         string="Contract line count",
         compute="_compute_contract_ids",
+        groups="account.group_account_invoice",
     )
 
     def _compute_contract_ids(self):
