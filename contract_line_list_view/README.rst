@@ -7,6 +7,7 @@ Contract Line List View
 =======================
 
 - Adds list view of contract lines.
+- The list under Customers shows only the lines of customer contracts. Lines of supplier contracts are not shown there.
 - Adds contract id to contract line.
 
 Configuration
