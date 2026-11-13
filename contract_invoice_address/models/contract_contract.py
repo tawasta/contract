@@ -21,6 +21,13 @@ class Contract(models.Model):
         store=True,
     )
 
+    @api.onchange("partner_id", "company_id")
+    def _onchange_partner_id(self):
+        result = super()._onchange_partner_id()
+        # The old invoice address belongs to the previous customer
+        self.partner_invoice_id = False
+        return result
+
     @api.depends("partner_id", "partner_invoice_id")
     def _compute_invoice_for_company(self):
         for record in self:

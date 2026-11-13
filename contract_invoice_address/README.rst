@@ -9,6 +9,9 @@ Contract Invoice Address and force Commercial Partner
 Add invoice address to contracts and assign its commercial partner to an invoice
 if needed with a setting.
 
+When you change the customer of a contract, the invoice address is cleared so
+that the invoice cannot go to the previous customer's address.
+
 Configuration
 =============
 Go to Settings -> Invoicing and select "Force commercial partner on contracts"
