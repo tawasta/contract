@@ -6,7 +6,7 @@
     <field name="inherit_id" ref="contract.contract_line_tree_view" />
     <field name="arch" type="xml">
       <list position="attributes">
-        <attribute name="create">true</attribute>
+        <attribute name="create">false</attribute>
       </list>
       <field name="uom_id" position="attributes">
         <attribute name="invisible">1</attribute>

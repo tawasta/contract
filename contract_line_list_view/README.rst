@@ -17,6 +17,9 @@ Usage
 =====
 Just install this module.
 
+New contract lines cannot be created from the contract lines list.
+Add them from the contract itself.
+
 Known issues / Roadmap
 ======================
 \-
