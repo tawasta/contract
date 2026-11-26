@@ -1,0 +1,89 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* website_subscription_customer_reference
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-25 12:00+0000\n"
+"PO-Revision-Date: 2026-11-25 12:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: website_subscription_customer_reference
+#: model_terms:ir.ui.view,arch_db:website_subscription_customer_reference.portal_subscription_page_invoice_ref
+msgid "<i class=\"fa fa-fw fa-pencil\" aria-hidden=\"true\"/>Edit"
+msgstr "<i class=\"fa fa-fw fa-pencil\" aria-hidden=\"true\"/>Muokkaa"
+
+#. module: website_subscription_customer_reference
+#: model_terms:ir.ui.view,arch_db:website_subscription_customer_reference.portal_subscription_page_invoice_ref
+msgid "<strong>Customer reference</strong>"
+msgstr "<strong>Asiakkaan viite</strong>"
+
+#. module: website_subscription_customer_reference
+#: model_terms:ir.ui.view,arch_db:website_subscription_customer_reference.portal_subscription_page_invoice_ref
+msgid "Cancel"
+msgstr "Peruuta"
+
+#. module: website_subscription_customer_reference
+#: model_terms:ir.ui.view,arch_db:website_subscription_customer_reference.portal_subscription_page_invoice_ref
+msgid "Close"
+msgstr "Sulje"
+
+#. module: website_subscription_customer_reference
+#: model_terms:ir.ui.view,arch_db:website_subscription_customer_reference.portal_subscription_page_invoice_ref
+msgid "Customer reference"
+msgstr "Asiakkaan viite"
+
+#. module: website_subscription_customer_reference
+#: model_terms:ir.ui.view,arch_db:website_subscription_customer_reference.portal_subscription_page_invoice_ref
+msgid "Edit customer reference"
+msgstr "Muokkaa asiakkaan viitettä"
+
+#. module: website_subscription_customer_reference
+#: model_terms:ir.ui.view,arch_db:website_subscription_customer_reference.portal_subscription_page_invoice_ref
+msgid ""
+"No reference. The reference is shown on your invoices, for example your "
+"purchase order number."
+msgstr ""
+"Ei viitettä. Viite näkyy laskuillanne, esimerkiksi ostotilauksenne numero."
+
+#. module: website_subscription_customer_reference
+#: model_terms:ir.ui.view,arch_db:website_subscription_customer_reference.portal_subscription_page_invoice_ref
+msgid "Save reference"
+msgstr "Tallenna viite"
+
+#. module: website_subscription_customer_reference
+#: model:ir.model,name:website_subscription_customer_reference.model_sale_subscription
+msgid "Subscription"
+msgstr "Toistuvaistilaus"
+
+#. module: website_subscription_customer_reference
+#: model_terms:ir.ui.view,arch_db:website_subscription_customer_reference.portal_subscription_page_invoice_ref
+msgid "The customer reference cannot be empty. Enter a reference and save again."
+msgstr "Asiakkaan viite ei voi olla tyhjä. Kirjoita viite ja tallenna uudelleen."
+
+#. module: website_subscription_customer_reference
+#: model_terms:ir.ui.view,arch_db:website_subscription_customer_reference.portal_subscription_page_invoice_ref
+msgid ""
+"The customer reference has been saved. It is shown on the next invoices."
+msgstr "Asiakkaan viite on tallennettu. Se näkyy seuraavissa laskuissa."
+
+#. module: website_subscription_customer_reference
+#: model_terms:ir.ui.view,arch_db:website_subscription_customer_reference.portal_subscription_page_invoice_ref
+msgid "The customer reference is too long. Use at most 70 characters."
+msgstr "Asiakkaan viite on liian pitkä. Käytä enintään 70 merkkiä."
+
+#. module: website_subscription_customer_reference
+#: model_terms:ir.ui.view,arch_db:website_subscription_customer_reference.portal_subscription_page_invoice_ref
+msgid ""
+"The reference is shown on the next invoices of this subscription, for "
+"example your purchase order number or cost centre."
+msgstr ""
+"Viite näkyy tämän toistuvaistilauksen seuraavissa laskuissa, esimerkiksi "
+"ostotilauksenne numero tai kustannuspaikka."

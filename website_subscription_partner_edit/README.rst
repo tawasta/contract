@@ -28,13 +28,37 @@ Features
   - Both
 - Handles specific logic for eInvoice and OCR methods
 - Automatically updates the subscription's `partner_id`
+- Optionally marks the invoice address currently used by the subscription
+- Optionally lets the user edit their existing invoice addresses with the
+  same restrictions as the checkout: the name cannot be changed once
+  invoices or confirmed orders exist for the address, the name and email of
+  another user's account cannot be changed, and an email that follows the
+  username cannot be changed. Saving an edited address also sets it as the
+  invoice address of the subscription
+- The Business ID is validated in the same way as in the checkout
+- The selection lists the contacts around the current invoice address of
+  the subscription, of any type. Only these can be selected, and only for a
+  subscription billed to the user's own contacts
+- Of the listed contacts, the user's own contact and the invoice and other
+  addresses can be edited, as in the checkout
+- While saving, the save button shows the progress and cannot be clicked
+  twice; errors are shown in a dialog
 
 Configuration
 =============
 
-No specific configuration is required after installation.
+Go to **Website > Configuration > Settings** and, under **Subscriptions**,
+enable the features you need. Both are off by default, so an existing
+installation works as before:
 
-However, to fully utilize the filtering logic, ensure that your `transmit.method` records
+- **Show current invoice address**: the address currently used by the
+  subscription is shown first in the address selection with the label
+  "In use", and the cards show the full address.
+- **Allow editing invoice addresses**: the user's own contact and their
+  invoice addresses get an "Edit address" button that opens the address
+  form filled in.
+
+To fully utilize the filtering logic, ensure that your `transmit.method` records
 have the `contract_target_type` field set accordingly:
 - `person`: for private individuals
 - `company`: for business contacts
@@ -47,6 +71,7 @@ Usage
 2. Click the **Edit** button under the Customer Information section.
 3. In the modal window:
    - Select an existing contact **OR**
+   - Edit an existing address with "Edit address", when enabled, **OR**
    - Add a new one by toggling "Person / Company" and filling out the form.
 4. Transmit method options are filtered based on type.
 5. Submit the form to update the partner for the subscription.

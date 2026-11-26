@@ -23,7 +23,7 @@ publicWidget.registry.PortalSubscription = publicWidget.Widget.extend({
             )[0].value;
             var action = "/subscription/cancel/" + subscriptionValue;
             $("#cancel_subscription_modal").modal("hide");
-            jsonrpc(action, "call", {}).then(function () {
+            jsonrpc(action, {}).then(function () {
                 location.reload();
             });
         });
@@ -32,7 +32,7 @@ publicWidget.registry.PortalSubscription = publicWidget.Widget.extend({
             var subscriptionLineValue = $("#cancel_subscription_line_id")[0].value;
             var action = "/subscription/line/cancel/" + subscriptionLineValue;
             $("#cancel_subscription_line_modal").modal("hide");
-            jsonrpc(action, "call", {}).then(function () {
+            jsonrpc(action, {}).then(function () {
                 location.reload();
             });
         });

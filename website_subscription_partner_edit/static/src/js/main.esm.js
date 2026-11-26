@@ -34,6 +34,54 @@ var PartnerUpgrade = publicWidget.Widget.extend({
             "#customer-invoice-transmit-method",
             this._onTransmitMethodChange.bind(this)
         );
+
+        $(document).on(
+            "click",
+            ".o_edit_invoice_address",
+            this._onEditInvoiceAddress.bind(this)
+        );
+    },
+
+    _onEditInvoiceAddress: function (ev) {
+        ev.preventDefault();
+        ev.stopPropagation();
+        const contactID = $(ev.currentTarget).data("contact-id");
+        const subscriptionID = $("#edit_customer_form").data("subscription-id");
+
+        jsonrpc(
+            `/my/subscriptions/${subscriptionID}/invoice_address/${contactID}/form`,
+            {}
+        )
+            .then((formContent) => {
+                $(".contact-card").removeClass("bg-primary border-primary text-white");
+                $("#selected_contact").val("");
+                const $addressForm = $("#new_contact_form").html(formContent);
+                const scrollToForm = () =>
+                    $addressForm[0].scrollIntoView({block: "start"});
+                if ($addressForm.hasClass("show")) {
+                    scrollToForm();
+                } else {
+                    $addressForm
+                        .one("shown.bs.collapse", scrollToForm)
+                        .collapse("show");
+                }
+            })
+            .catch(() => {
+                this._showErrorMessage(
+                    _t(
+                        "The address could not be opened. Reload the page and try again."
+                    )
+                );
+            });
+    },
+
+    // The edit form replaces the new address form; bring the new one back
+    // so that a selection or a new address is not saved as an edit.
+    _restoreNewAddressForm: function () {
+        const $addressForm = $("#new_contact_form");
+        if ($addressForm.find("input[name='edit_contact_id']").length) {
+            $addressForm.html(this.newAddressFormHtml);
+        }
     },
 
     _onTransmitMethodChange: function (ev) {
@@ -71,6 +119,7 @@ var PartnerUpgrade = publicWidget.Widget.extend({
                 const $modal = $(modalContent);
                 $modal.find(".modal-body > div").removeClass("container");
                 $modal.appendTo(document.body);
+                this.newAddressFormHtml = $modal.find("#new_contact_form").html();
 
                 // eslint-disable-next-line no-undef
                 const modalBS = new Modal($modal[0], {
@@ -149,16 +198,22 @@ var PartnerUpgrade = publicWidget.Widget.extend({
     },
 
     _onSelectContact: function (ev) {
+        if ($(ev.target).closest(".o_edit_invoice_address").length) {
+            // The edit button of the card opens the address, not selects it
+            return;
+        }
         ev.preventDefault();
         ev.stopPropagation();
+        this._restoreNewAddressForm();
 
         const $selectedCard = $(ev.currentTarget);
 
-        // Poistetaan valinta kaikilta korteilta
-        $(".contact-card").removeClass("bg-primary border border-primary text-white");
+        // Poistetaan valinta kaikilta korteilta. The base "border" class stays,
+        // so that the card of the address in use keeps its border.
+        $(".contact-card").removeClass("bg-primary border-primary text-white");
 
         // Lisätään valinta valitulle kortille
-        $selectedCard.addClass("bg-primary border border-primary text-white");
+        $selectedCard.addClass("bg-primary border-primary text-white");
 
         const contactId = $selectedCard.attr("data-contact-id");
         $("#selected_contact").val(contactId);
@@ -175,8 +230,9 @@ var PartnerUpgrade = publicWidget.Widget.extend({
         ev.stopPropagation();
 
         // ** Poistetaan kaikki aiemmat valinnat **
-        $(".contact-card").removeClass("bg-primary border border-primary text-white");
+        $(".contact-card").removeClass("bg-primary border-primary text-white");
         $("#selected_contact").val("");
+        this._restoreNewAddressForm();
 
         // ** Varmistetaan, että lomake aukeaa aina kun "Add New" painetaan **
         $("#new_contact_form").collapse("show");
@@ -194,7 +250,7 @@ var PartnerUpgrade = publicWidget.Widget.extend({
         const $form = $(ev.currentTarget);
         const actionUrl = $form.attr("action");
         const formData = new FormData($form[0]);
-        this._showLoadingScreen();
+        this._setSaving($form, true);
 
         $.ajax({
             url: actionUrl,
@@ -212,12 +268,15 @@ var PartnerUpgrade = publicWidget.Widget.extend({
                     $form.closest(".modal").modal("hide");
                 }
             },
-            error: (err) => {
-                console.error("Form submission failed:", err);
-                this._showErrorMessage("An unexpected error occurred.");
+            error: () => {
+                this._showErrorMessage(
+                    _t(
+                        "The changes could not be saved. Check your connection and try again."
+                    )
+                );
             },
             complete: () => {
-                this._hideLoadingScreen();
+                this._setSaving($form, false);
             },
         });
     },
@@ -239,7 +298,7 @@ var PartnerUpgrade = publicWidget.Widget.extend({
         new Dialog(this, {
             title: _t("Success"),
             size: "medium",
-            $content: $("<div/>").html(message),
+            $content: $("<div/>").text(message),
             buttons: [
                 {
                     text: _t("OK"),
@@ -252,35 +311,29 @@ var PartnerUpgrade = publicWidget.Widget.extend({
         }).open();
     },
 
-    _showLoadingScreen: function () {
-        const loadingMessage = `
-            <div id="loading-screen" style="
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background-color: rgba(0, 0, 0, 0.5);
-                z-index: 9999;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                color: #fff;
-                font-size: 20px;">
-                <div>
-                    <div class="spinner-border text-light" role="status"></div>
-                    <p>Loading, please wait...</p>
-                </div>
-            </div>`;
-        $("body").append(loadingMessage);
-    },
-
-    _hideLoadingScreen: function () {
-        $("#loading-screen").remove();
+    // The save button shows the progress and cannot be clicked twice
+    _setSaving: function ($form, isSaving) {
+        const $button = $form.find("button[type='submit']");
+        $button.prop("disabled", isSaving).attr("aria-busy", isSaving);
+        $button.find(".o_saving_spinner").remove();
+        if (isSaving) {
+            $button.prepend(
+                $("<span/>", {
+                    class: "o_saving_spinner spinner-border spinner-border-sm me-2",
+                    "aria-hidden": "true",
+                })
+            );
+        }
     },
 
     _showErrorMessage: function (message) {
-        alert(`Error: ${message}`);
+        new Dialog(this, {
+            title: _t("The changes were not saved"),
+            size: "medium",
+            // Several errors come on lines of their own
+            $content: $("<div/>", {class: "text-prewrap text-break"}).text(message),
+            buttons: [{text: _t("Close"), close: true}],
+        }).open();
     },
 });
 

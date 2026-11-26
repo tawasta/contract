@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template
+        id="portal_subscription_page_invoice_ref"
+        inherit_id="website_subscription.portal_subscription_page"
+        name="Subscription customer reference"
+    >
+        <xpath expr="//div[@id='information_div']" position="before">
+            <t t-set="invoice_ref_status" t-value="request.params.get('invoice_ref_status')" />
+            <div
+                t-if="invoice_ref_status == 'saved'"
+                class="alert alert-success alert-dismissible mt-3"
+                role="status"
+            >
+                The customer reference has been saved. It is shown on the next invoices.
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="alert"
+                    aria-label="Close"
+                />
+            </div>
+            <div
+                t-elif="invoice_ref_status in ('empty', 'too_long')"
+                class="alert alert-danger alert-dismissible mt-3"
+                role="alert"
+            >
+                <t t-if="invoice_ref_status == 'empty'">
+                    The customer reference cannot be empty. Enter a reference and save again.
+                </t>
+                <t t-else="">
+                    The customer reference is too long. Use at most 70 characters.
+                </t>
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="alert"
+                    aria-label="Close"
+                />
+            </div>
+        </xpath>
+
+        <xpath expr="//div[@id='invoice_address_details']" position="inside">
+            <t
+                t-set="can_edit_invoice_ref"
+                t-value="subscription._portal_can_edit_invoice_ref()"
+            />
+            <div id="subscription_invoice_ref" class="mt-3">
+                <h6 class="d-flex align-items-center gap-2">
+                    <strong>Customer reference</strong>
+                    <button
+                        t-if="can_edit_invoice_ref"
+                        type="button"
+                        class="btn btn-primary btn-sm"
+                        data-bs-toggle="modal"
+                        data-bs-target="#subscription_invoice_ref_modal"
+                        aria-label="Edit customer reference"
+                    >
+                        <i class="fa fa-fw fa-pencil" aria-hidden="true" />Edit
+                    </button>
+                </h6>
+                <span
+                    t-if="subscription.invoice_ref"
+                    t-field="subscription.invoice_ref"
+                    class="text-break"
+                />
+                <span
+                    t-else=""
+                    class="text-muted"
+                >No reference. The reference is shown on your invoices, for example your purchase order number.</span>
+            </div>
+        </xpath>
+
+        <xpath expr="//div[@id='information_div']" position="after">
+            <div
+                t-if="can_edit_invoice_ref"
+                id="subscription_invoice_ref_modal"
+                class="modal fade"
+                tabindex="-1"
+                aria-labelledby="subscription_invoice_ref_modal_title"
+                aria-hidden="true"
+            >
+                <div class="modal-dialog modal-dialog-centered">
+                    <form
+                        class="modal-content"
+                        method="post"
+                        t-attf-action="/my/subscriptions/#{subscription.id}/invoice_ref"
+                    >
+                        <input
+                            type="hidden"
+                            name="csrf_token"
+                            t-att-value="request.csrf_token()"
+                        />
+                        <div class="modal-header">
+                            <h5
+                                id="subscription_invoice_ref_modal_title"
+                                class="modal-title"
+                            >Edit customer reference</h5>
+                            <button
+                                type="button"
+                                class="btn-close"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"
+                            />
+                        </div>
+                        <div class="modal-body">
+                            <label
+                                for="subscription_invoice_ref_input"
+                                class="form-label"
+                            >Customer reference</label>
+                            <input
+                                type="text"
+                                id="subscription_invoice_ref_input"
+                                name="invoice_ref"
+                                class="form-control"
+                                required="1"
+                                maxlength="70"
+                                aria-describedby="subscription_invoice_ref_help"
+                                t-att-value="subscription.invoice_ref"
+                            />
+                            <div id="subscription_invoice_ref_help" class="form-text">
+                                The reference is shown on the next invoices of this subscription, for example your purchase order number or cost centre.
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button
+                                type="button"
+                                class="btn btn-secondary"
+                                data-bs-dismiss="modal"
+                            >Cancel</button>
+                            <button
+                                type="submit"
+                                class="btn btn-primary"
+                            >Save reference</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </xpath>
+    </template>
+</odoo>
