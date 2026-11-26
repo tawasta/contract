@@ -5,7 +5,9 @@ class SaleSubscription(models.Model):
     _inherit = "sale.subscription"
 
     invoice_ref = fields.Char(
-        "Customer reference", help="Customer reference for invoices"
+        "Customer reference",
+        help="Customer reference for invoices",
+        tracking=True,
     )
 
     def _prepare_account_move(self, line_ids):

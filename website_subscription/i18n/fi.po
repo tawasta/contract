@@ -46,8 +46,8 @@ msgstr "<span>Seuraava lasku</span>"
 
 #. module: website_subscription
 #: model_terms:ir.ui.view,arch_db:website_subscription.portal_subscription_page
-msgid "<strong>Customer</strong>"
-msgstr "<strong>Asiakas</strong>"
+msgid "<strong>Invoice address</strong>"
+msgstr "<strong>Laskutusosoite</strong>"
 
 #. module: website_subscription
 #: model_terms:ir.ui.view,arch_db:website_subscription.portal_subscription_page

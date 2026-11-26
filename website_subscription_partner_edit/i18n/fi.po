@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.0-20250428\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-20 12:55+0000\n"
-"PO-Revision-Date: 2026-08-20 12:55+0000\n"
+"POT-Creation-Date: 2026-11-25 12:00+0000\n"
+"PO-Revision-Date: 2026-11-25 12:00+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,14 +16,29 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: website_subscription_partner_edit
-#: model_terms:ir.ui.view,arch_db:website_subscription_partner_edit.portal_edit_customer_modal
+#: model_terms:ir.ui.view,arch_db:website_subscription_partner_edit.portal_invoice_address_form
 msgid "+358"
 msgstr "+358"
+
+#. module: website_subscription_partner_edit
+#: model_terms:ir.ui.view,arch_db:website_subscription_partner_edit.portal_invoice_address_form
+msgid "1234567-1"
+msgstr "1234567-1"
+
+#. module: website_subscription_partner_edit
+#: model_terms:ir.ui.view,arch_db:website_subscription_partner_edit.portal_edit_customer_modal
+msgid "<i class=\"fa fa-check me-1\" aria-hidden=\"true\"/>In use"
+msgstr "<i class=\"fa fa-check me-1\" aria-hidden=\"true\"/>Käytössä"
 
 #. module: website_subscription_partner_edit
 #: model_terms:ir.ui.view,arch_db:website_subscription_partner_edit.portal_edit_customer_button
 msgid "<i class=\"fa fa-fw fa-pencil\"/>Edit"
 msgstr "<i class=\"fa fa-fw fa-pencil\"/>Muokkaa"
+
+#. module: website_subscription_partner_edit
+#: model_terms:ir.ui.view,arch_db:website_subscription_partner_edit.portal_edit_customer_modal
+msgid "<i class=\"fa fa-pencil me-1\" aria-hidden=\"true\"/>Edit address"
+msgstr "<i class=\"fa fa-pencil me-1\" aria-hidden=\"true\"/>Muokkaa osoitetta"
 
 #. module: website_subscription_partner_edit
 #: model_terms:ir.ui.view,arch_db:website_subscription_partner_edit.portal_edit_customer_modal
@@ -35,24 +50,32 @@ msgstr ""
 "uusi yhteystieto</span>"
 
 #. module: website_subscription_partner_edit
-#: model_terms:ir.ui.view,arch_db:website_subscription_partner_edit.portal_edit_customer_modal
+#: model_terms:ir.ui.view,arch_db:website_subscription_partner_edit.portal_invoice_address_form
 msgid "<option value=\"\">Country...</option>"
 msgstr "<option value=\"\">Maa...</option>"
 
 #. module: website_subscription_partner_edit
-#: model_terms:ir.ui.view,arch_db:website_subscription_partner_edit.portal_edit_customer_modal
+#: model_terms:ir.ui.view,arch_db:website_subscription_partner_edit.portal_invoice_address_form
 msgid "<option value=\"\">Select an operator...</option>"
 msgstr "<option value=\"\">Valitse operaattori...</option>"
 
 #. module: website_subscription_partner_edit
-#: model_terms:ir.ui.view,arch_db:website_subscription_partner_edit.portal_edit_customer_modal
-msgid "ALV"
-msgstr "ALV"
+#. odoo-python
+#: code:addons/website_subscription_partner_edit/controllers/main.py:0
+#, python-format
+msgid "A selected value is no longer available. Reload the page."
+msgstr "Valittu arvo ei ole enää käytettävissä. Lataa sivu uudelleen."
 
 #. module: website_subscription_partner_edit
-#: model_terms:ir.ui.view,arch_db:website_subscription_partner_edit.portal_edit_customer_modal
+#: model_terms:ir.ui.view,arch_db:website_subscription_partner_edit.portal_invoice_address_form
 msgid "Add New Contact"
 msgstr "Lisää uusi yhteystieto"
+
+#. module: website_subscription_partner_edit
+#: model:ir.model.fields,field_description:website_subscription_partner_edit.field_res_config_settings__subscription_edit_invoice_address
+#: model:ir.model.fields,field_description:website_subscription_partner_edit.field_website__subscription_edit_invoice_address
+msgid "Allow editing invoice addresses"
+msgstr "Salli laskutusosoitteiden muokkaus"
 
 #. module: website_subscription_partner_edit
 #: model:ir.model.fields.selection,name:website_subscription_partner_edit.selection__transmit_method__contract_target_type__both
@@ -60,35 +83,71 @@ msgid "Both"
 msgstr "Molemmat"
 
 #. module: website_subscription_partner_edit
+#: model_terms:ir.ui.view,arch_db:website_subscription_partner_edit.portal_invoice_address_form
+msgid "Business ID"
+msgstr "Y-tunnus"
+
+#. module: website_subscription_partner_edit
 #: model_terms:ir.ui.view,arch_db:website_subscription_partner_edit.portal_edit_customer_modal
 msgid "Cancel"
 msgstr "Peruuta"
 
 #. module: website_subscription_partner_edit
-#: model_terms:ir.ui.view,arch_db:website_subscription_partner_edit.portal_edit_customer_modal
+#. odoo-python
+#: code:addons/website_subscription_partner_edit/models/res_partner.py:0
+#, python-format
+msgid ""
+"Changing the name is not allowed once invoices have been issued for this "
+"address. Please contact us directly for this operation."
+msgstr ""
+"Nimeä ei voi muuttaa, koska tälle osoitteelle on jo laskutettu. Ota "
+"yhteyttä meihin nimen muuttamiseksi."
+
+#. module: website_subscription_partner_edit
+#: model_terms:ir.ui.view,arch_db:website_subscription_partner_edit.portal_invoice_address_form
 msgid "City"
 msgstr "Kaupunki"
 
 #. module: website_subscription_partner_edit
+#. odoo-javascript
+#: code:addons/website_subscription_partner_edit/static/src/js/main.esm.js:0
 #: model_terms:ir.ui.view,arch_db:website_subscription_partner_edit.portal_edit_customer_modal
+#, python-format
 msgid "Close"
 msgstr "Sulje"
 
 #. module: website_subscription_partner_edit
 #: model:ir.model.fields.selection,name:website_subscription_partner_edit.selection__transmit_method__contract_target_type__company
-#: model_terms:ir.ui.view,arch_db:website_subscription_partner_edit.portal_edit_customer_modal
+#: model_terms:ir.ui.view,arch_db:website_subscription_partner_edit.portal_invoice_address_form
 msgid "Company"
 msgstr "Yritys"
 
 #. module: website_subscription_partner_edit
-#: model_terms:ir.ui.view,arch_db:website_subscription_partner_edit.portal_edit_customer_modal
+#: model_terms:ir.ui.view,arch_db:website_subscription_partner_edit.portal_invoice_address_form
 msgid "Company Name"
 msgstr "Yrityksen nimi"
 
 #. module: website_subscription_partner_edit
-#: model_terms:ir.ui.view,arch_db:website_subscription_partner_edit.portal_edit_customer_modal
+#: model:ir.model,name:website_subscription_partner_edit.model_res_config_settings
+msgid "Config Settings"
+msgstr "Konfiguraatioasetukset"
+
+#. module: website_subscription_partner_edit
+#: model:ir.model,name:website_subscription_partner_edit.model_res_partner
+msgid "Contact"
+msgstr "Kontakti"
+
+#. module: website_subscription_partner_edit
+#: model_terms:ir.ui.view,arch_db:website_subscription_partner_edit.portal_invoice_address_form
 msgid "Country"
 msgstr "Maa"
+
+#. module: website_subscription_partner_edit
+#. odoo-python
+#: code:addons/website_subscription_partner_edit/controllers/main.py:0
+#, python-format
+msgid "Customer information updated successfully!"
+msgstr "Asiakastiedot päivitetty."
 
 #. module: website_subscription_partner_edit
 #: model:ir.model.fields,help:website_subscription_partner_edit.field_transmit_method__contract_target_type
@@ -105,28 +164,67 @@ msgid "Edit Customer Information"
 msgstr "Muokkaa asiakastietoja"
 
 #. module: website_subscription_partner_edit
-#: model_terms:ir.ui.view,arch_db:website_subscription_partner_edit.portal_edit_customer_modal
+#: model_terms:ir.ui.view,arch_db:website_subscription_partner_edit.portal_invoice_address_form
+msgid "Edit invoice address"
+msgstr "Muokkaa laskutusosoitetta"
+
+#. module: website_subscription_partner_edit
+#: model_terms:ir.ui.view,arch_db:website_subscription_partner_edit.portal_invoice_address_form
 msgid "Email"
 msgstr "Sähköposti"
 
 #. module: website_subscription_partner_edit
-#: model_terms:ir.ui.view,arch_db:website_subscription_partner_edit.portal_edit_customer_modal
+#: model_terms:ir.ui.view,arch_db:website_subscription_partner_edit.portal_invoice_address_form
 msgid "First Name"
 msgstr "Etunimi"
 
 #. module: website_subscription_partner_edit
-#: model_terms:ir.ui.view,arch_db:website_subscription_partner_edit.portal_edit_customer_modal
+#. odoo-python
+#: code:addons/website_subscription_partner_edit/controllers/main.py:0
+#, python-format
+msgid "Invalid Email! Please enter a valid email address."
+msgstr "Sähköpostiosoite on virheellinen. Anna oikean muotoinen osoite."
+
+#. module: website_subscription_partner_edit
+#: model_terms:ir.ui.view,arch_db:website_subscription_partner_edit.portal_invoice_address_form
 msgid "Invoice transmit method"
 msgstr "Laskun lähetystapa"
 
 #. module: website_subscription_partner_edit
-#: model_terms:ir.ui.view,arch_db:website_subscription_partner_edit.portal_edit_customer_modal
+#: model_terms:ir.ui.view,arch_db:website_subscription_partner_edit.portal_invoice_address_form
 msgid "Last Name"
 msgstr "Sukunimi"
 
 #. module: website_subscription_partner_edit
+#: model:ir.model.fields,help:website_subscription_partner_edit.field_website__subscription_edit_invoice_address
+msgid ""
+"Let portal users edit their existing invoice addresses in the subscription "
+"address selection, with the same restrictions as in the checkout."
+msgstr ""
+"Portaalikäyttäjät voivat muokata olemassa olevia laskutusosoitteitaan "
+"toistuvaistilauksen osoitevalinnassa samoin rajoituksin kuin kassalla."
+
+#. module: website_subscription_partner_edit
+#: model_terms:ir.ui.view,arch_db:website_subscription_partner_edit.res_config_settings_view_form
+msgid ""
+"Let portal users edit their existing invoice addresses, with the same "
+"restrictions as in the checkout."
+msgstr ""
+"Portaalikäyttäjät voivat muokata olemassa olevia laskutusosoitteitaan samoin "
+"rajoituksin kuin kassalla."
+
+#. module: website_subscription_partner_edit
+#: model:ir.model.fields,help:website_subscription_partner_edit.field_website__subscription_show_current_invoice_address
+#: model_terms:ir.ui.view,arch_db:website_subscription_partner_edit.res_config_settings_view_form
+msgid ""
+"Mark the invoice address currently used by the subscription in the portal "
+"address selection."
+msgstr ""
+"Merkitse toistuvaistilauksen käytössä oleva laskutusosoite portaalin "
+"osoitevalinnassa."
+
+#. module: website_subscription_partner_edit
 #. odoo-javascript
-#: code:addons/website_subscription_partner_edit/static/src/js/main.esm.js:0
 #: code:addons/website_subscription_partner_edit/static/src/js/main.esm.js:0
 #, python-format
 msgid "OK"
@@ -134,12 +232,12 @@ msgstr "OK"
 
 #. module: website_subscription_partner_edit
 #: model:ir.model.fields.selection,name:website_subscription_partner_edit.selection__transmit_method__contract_target_type__person
-#: model_terms:ir.ui.view,arch_db:website_subscription_partner_edit.portal_edit_customer_modal
+#: model_terms:ir.ui.view,arch_db:website_subscription_partner_edit.portal_invoice_address_form
 msgid "Person"
 msgstr "Henkilö"
 
 #. module: website_subscription_partner_edit
-#: model_terms:ir.ui.view,arch_db:website_subscription_partner_edit.portal_edit_customer_modal
+#: model_terms:ir.ui.view,arch_db:website_subscription_partner_edit.portal_invoice_address_form
 msgid "Phone"
 msgstr "Puhelin"
 
@@ -149,22 +247,89 @@ msgid "Save Changes"
 msgstr "Tallenna muutokset"
 
 #. module: website_subscription_partner_edit
+#. odoo-python
+#: code:addons/website_subscription_partner_edit/controllers/main.py:0
+#, python-format
+msgid "Select an invoice transmit method from the list."
+msgstr "Valitse laskun lähetystapa listasta."
+
+#. module: website_subscription_partner_edit
+#: model_terms:ir.ui.view,arch_db:website_subscription_partner_edit.portal_invoice_address_form
+msgid "Saving the changes also sets this address as the invoice address of the subscription."
+msgstr "Tallennus ottaa tämän osoitteen myös toistuvaistilauksen laskutusosoitteeksi."
+
+#. module: website_subscription_partner_edit
+#: model_terms:ir.ui.view,arch_db:website_subscription_partner_edit.portal_invoice_address_form
+msgid "Select a transmit method..."
+msgstr "Valitse lähetystapa..."
+
+#. module: website_subscription_partner_edit
 #: model_terms:ir.ui.view,arch_db:website_subscription_partner_edit.portal_edit_customer_modal
 msgid "Select an existing contact or add a new one"
 msgstr "Valitse olemassa oleva yhteystieto tai lisää uusi"
 
 #. module: website_subscription_partner_edit
-#: model_terms:ir.ui.view,arch_db:website_subscription_partner_edit.portal_edit_customer_modal
+#: model:ir.model.fields,field_description:website_subscription_partner_edit.field_res_config_settings__subscription_show_current_invoice_address
+#: model:ir.model.fields,field_description:website_subscription_partner_edit.field_website__subscription_show_current_invoice_address
+msgid "Show current invoice address"
+msgstr "Näytä käytössä oleva laskutusosoite"
+
+#. module: website_subscription_partner_edit
+#. odoo-python
+#: code:addons/website_subscription_partner_edit/controllers/main.py:0
+#, python-format
+msgid "Some required fields are empty."
+msgstr "Täytä kaikki vaaditut kentät."
+
+#. module: website_subscription_partner_edit
+#: model_terms:ir.ui.view,arch_db:website_subscription_partner_edit.portal_invoice_address_form
 msgid "Street"
 msgstr "Katu"
 
 #. module: website_subscription_partner_edit
+#: model_terms:ir.ui.view,arch_db:website_subscription_partner_edit.res_config_settings_view_form
+msgid "Subscriptions"
+msgstr "Toistuvaistilaukset"
+
+#. module: website_subscription_partner_edit
 #. odoo-javascript
-#: code:addons/website_subscription_partner_edit/static/src/js/main.esm.js:0
 #: code:addons/website_subscription_partner_edit/static/src/js/main.esm.js:0
 #, python-format
 msgid "Success"
 msgstr "Onnistui"
+
+#. module: website_subscription_partner_edit
+#. odoo-javascript
+#: code:addons/website_subscription_partner_edit/static/src/js/main.esm.js:0
+#, python-format
+msgid "The changes could not be saved. Check your connection and try again."
+msgstr ""
+"Muutoksia ei voitu tallentaa. Tarkista verkkoyhteys ja yritä uudelleen."
+
+#. module: website_subscription_partner_edit
+#. odoo-javascript
+#: code:addons/website_subscription_partner_edit/static/src/js/main.esm.js:0
+#, python-format
+msgid "The changes were not saved"
+msgstr "Muutoksia ei tallennettu"
+
+#. module: website_subscription_partner_edit
+#. odoo-javascript
+#: code:addons/website_subscription_partner_edit/static/src/js/main.esm.js:0
+#, python-format
+msgid "The address could not be opened. Reload the page and try again."
+msgstr "Osoitetta ei voitu avata. Lataa sivu uudelleen ja yritä uudestaan."
+
+#. module: website_subscription_partner_edit
+#. odoo-python
+#: code:addons/website_subscription_partner_edit/models/res_partner.py:0
+#, python-format
+msgid ""
+"The name and email of a user account cannot be changed here. Please contact "
+"your administrator."
+msgstr ""
+"Käyttäjätilin nimeä ja sähköpostia ei voi muuttaa täällä. Ota yhteyttä "
+"ylläpitäjään."
 
 #. module: website_subscription_partner_edit
 #: model:ir.model,name:website_subscription_partner_edit.model_transmit_method
@@ -177,21 +342,37 @@ msgid "Visible for Contact Type"
 msgstr "Näkyvissä yhteystietotyypille"
 
 #. module: website_subscription_partner_edit
-#: model_terms:ir.ui.view,arch_db:website_subscription_partner_edit.portal_edit_customer_modal
+#: model:ir.model,name:website_subscription_partner_edit.model_website
+msgid "Website"
+msgstr "Verkkosivusto"
+
+#. module: website_subscription_partner_edit
+#. odoo-python
+#: code:addons/website_subscription_partner_edit/models/res_partner.py:0
+#, python-format
+msgid ""
+"Your email address follows your username. You can change it in your account "
+"security settings."
+msgstr ""
+"Sähköpostiosoitteesi seuraa käyttäjätunnustasi. Voit vaihtaa sen tilisi "
+"tietoturva-asetuksissa."
+
+#. module: website_subscription_partner_edit
+#: model_terms:ir.ui.view,arch_db:website_subscription_partner_edit.portal_invoice_address_form
 msgid "Zip"
 msgstr "Postinumero"
 
 #. module: website_subscription_partner_edit
-#: model_terms:ir.ui.view,arch_db:website_subscription_partner_edit.portal_edit_customer_modal
+#: model_terms:ir.ui.view,arch_db:website_subscription_partner_edit.portal_invoice_address_form
 msgid "e.g. 003712345671"
 msgstr "esim. 003712345671"
 
 #. module: website_subscription_partner_edit
-#: model_terms:ir.ui.view,arch_db:website_subscription_partner_edit.portal_edit_customer_modal
+#: model_terms:ir.ui.view,arch_db:website_subscription_partner_edit.portal_invoice_address_form
 msgid "eInvoice Address (EDI-code)"
 msgstr "Verkkolaskuosoite (OVT-tunnus)"
 
 #. module: website_subscription_partner_edit
-#: model_terms:ir.ui.view,arch_db:website_subscription_partner_edit.portal_edit_customer_modal
+#: model_terms:ir.ui.view,arch_db:website_subscription_partner_edit.portal_invoice_address_form
 msgid "eInvoice Operator"
 msgstr "Verkkolaskuoperaattori"
