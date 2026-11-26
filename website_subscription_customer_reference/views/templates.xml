@@ -6,7 +6,10 @@
         name="Subscription customer reference"
     >
         <xpath expr="//div[@id='information_div']" position="before">
-            <t t-set="invoice_ref_status" t-value="request.params.get('invoice_ref_status')" />
+            <t
+                t-set="invoice_ref_status"
+                t-value="request.params.get('invoice_ref_status')"
+            />
             <div
                 t-if="invoice_ref_status == 'saved'"
                 class="alert alert-success alert-dismissible mt-3"
