@@ -96,24 +96,25 @@
                         <div id="customer_information" class="col-md-6 col-12">
                             <div
                                 t-if="subscription.partner_id"
+                                id="invoice_address_details"
                                 class="col-12 mb-4 mb-md-0"
                             >
                                 <h6>
-                                    <strong>Customer</strong>
+                                    <strong>Invoice address</strong>
                                 </h6>
                                 <div class="row">
-                                    <div class="col flex-grow-0 pr-3">
+                                    <div
+                                        id="invoice_address_image"
+                                        class="col flex-grow-0 pr-3"
+                                    >
+                                        <!-- The avatar shows the initials when
+                                             the partner has no image, as in core -->
                                         <img
-                                            t-if="subscription.partner_id.image_128"
-                                            class="rounded-circle mt-1 o_portal_contact_img"
-                                            t-att-src="image_data_uri(subscription.partner_id.image_128)"
+                                            class="rounded-circle mt-1 o_portal_contact_img o_object_fit_cover"
+                                            t-att-src="image_data_uri(subscription.partner_id.avatar_128)"
                                             alt="Contact"
-                                        />
-                                        <img
-                                            t-else=""
-                                            class="rounded-circle mt-1 o_portal_contact_img"
-                                            src="/web/static/src/img/user_menu_avatar.png"
-                                            alt="Contact"
+                                            width="50"
+                                            height="50"
                                         />
                                     </div>
                                     <div class="col pl-sm-0">
@@ -252,6 +253,19 @@
         priority="101"
     >
         <xpath expr="//div[@id='subscription_communication']" position="replace" />
+    </template>
+
+    <!-- The image of the invoice address is shown by default and can be
+         hidden in the website editor -->
+    <template
+        id="portal_subscription_page_hide_invoice_address_image"
+        inherit_id="website_subscription.portal_subscription_page"
+        name="Hide Invoice Address Image"
+        customize_show="True"
+        active="False"
+        priority="101"
+    >
+        <xpath expr="//div[@id='invoice_address_image']" position="replace" />
     </template>
 
     <template

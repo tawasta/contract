@@ -21,7 +21,7 @@
 {
     "name": "Website subscription edit partner",
     "summary": "Website subscription edit partner",
-    "version": "17.0.1.0.0",
+    "version": "17.0.1.1.0",
     "category": "contract",
     "website": "https://github.com/tawasta/contract",
     "author": "Futural",
@@ -29,10 +29,16 @@
     "application": False,
     "installable": True,
     "depends": [
+        "website",
         "website_subscription",
         "account_invoice_transmit_method",
+        "website_sale_invoice_transmit_method",
+        "partner_firstname",
+        "l10n_fi_edicode",
+        "l10n_fi_company_registry",
     ],
     "data": [
+        "views/res_config_settings_views.xml",
         "views/templates.xml",
         "views/transmit_method.xml",
     ],

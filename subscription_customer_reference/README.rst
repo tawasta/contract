@@ -8,6 +8,10 @@ Subscription: Customer reference
 
 Add customer reference to subscriptions
 
+The customer reference is copied to the reference of the invoices created
+from the subscription. Changes to the reference are tracked in the chatter
+of the subscription.
+
 Configuration
 =============
 -
@@ -26,6 +30,7 @@ Contributors
 ------------
 
 * Jarmo Kortetjärvi <jarmo.kortetjarvi@futural.fi>
+* Valtteri Lattu <valtteri.lattu@futural.fi>
 
 Maintainer
 ----------

@@ -1,4 +1,4 @@
-import json
+from werkzeug.exceptions import Forbidden
 
 from odoo import http
 from odoo.http import request
@@ -89,38 +89,56 @@ class PortalSubscription(CustomerPortal):
         values = {"subscription": subscription}
         return request.render("website_subscription.portal_subscription_page", values)
 
+    # JSON routes: a cross-site page cannot send their content type, which
+    # protects them from forged requests as the CSRF token does for forms
     @http.route(
         ["/subscription/cancel/<int:subscription_id>"],
-        type="http",
+        type="json",
         auth="user",
         website=True,
-        csrf=False,
+        methods=["POST"],
     )
     def cancel_subscription(self, subscription_id=None, **post):
-        record = (
-            request.env["sale.subscription"]
-            .sudo()
-            .search([("id", "=", subscription_id)])
+        subscription = self._get_owned_records(
+            "sale.subscription", "partner_id", subscription_id
         )
-
-        record._action_close_subscription()
-
-        values = {}
-        return json.dumps(values)
+        subscription._action_close_subscription()
+        return {}
 
     @http.route(
         ["/subscription/line/cancel/<int:line_id>"],
-        type="http",
+        type="json",
         auth="user",
         website=True,
-        csrf=False,
+        methods=["POST"],
     )
     def cancel_subscription_line(self, line_id=None, **post):
-        record = (
-            request.env["sale.subscription.line"].sudo().search([("id", "=", line_id)])
+        line = self._get_owned_records(
+            "sale.subscription.line", "sale_subscription_id.partner_id", line_id
         )
+        line.action_stop()
+        return {}
 
-        record.action_stop()
+    def _get_owned_records(self, model, partner_path, record_id):
+        """The record, when its subscription is billed to the logged-in
+        user's own company or one of its addresses.
 
-        values = {}
-        return json.dumps(values)
+        sudo: the portal rule of subscription lines requires the user to
+        follow the subscription, which would stop its own customer. The
+        ownership is in the domain instead, and a missing and another
+        customer's record get the same answer."""
+        commercial_partner = request.env.user.commercial_partner_id
+        record = (
+            request.env[model]
+            .sudo()
+            .search(
+                [
+                    ("id", "=", record_id),
+                    (partner_path, "child_of", commercial_partner.id),
+                ],
+                limit=1,
+            )
+        )
+        if not record:
+            raise Forbidden()
+        return record
