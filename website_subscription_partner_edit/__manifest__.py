@@ -21,7 +21,7 @@
 {
     "name": "Website subscription edit partner",
     "summary": "Website subscription edit partner",
-    "version": "17.0.1.1.0",
+    "version": "17.0.1.1.1",
     "category": "contract",
     "website": "https://github.com/tawasta/contract",
     "author": "Futural",
@@ -45,6 +45,7 @@
     "assets": {
         "web.assets_frontend": [
             "website_subscription_partner_edit/static/src/js/main.esm.js",
+            "website_subscription_partner_edit/static/src/scss/contact_selection.scss",
         ],
     },
 }

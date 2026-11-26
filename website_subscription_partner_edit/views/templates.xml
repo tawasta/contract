@@ -53,9 +53,13 @@
                             t-att-value="request.csrf_token()"
                         />
                         <div class="modal-body bg-light">
-                            <h6>Select an existing contact or add a new one</h6>
+                            <h6
+                                id="o_wspe_contact_heading"
+                            >Select an existing contact or add a new one</h6>
                             <div
                                 class="row row-cols-md-2 row-cols-lg-3 g-3 flex-nowrap flex-md-wrap mb32"
+                                role="radiogroup"
+                                aria-labelledby="o_wspe_contact_heading"
                             >
                                 <div
                                     t-foreach="contacts"
@@ -66,54 +70,74 @@
                                         t-set="is_current"
                                         t-value="contact == current_contact"
                                     />
+                                    <!-- A selectable card: the selection shows as a ring and a
+                                         check mark in the theme's text colour, never as a
+                                         theme background, so its texts stay readable. The
+                                         address in use starts selected. The check mark is the
+                                         radio of the card, so that a screen reader still
+                                         reaches the edit button of the card. -->
                                     <div
-                                        t-attf-class="contact-card border rounded-3 p-3 shadow-sm h-100 d-flex flex-column #{'border-success' if is_current else ''}"
+                                        t-attf-class="contact-card o_wspe_contact_card h-100 d-flex gap-2 p-3 #{'o_wspe_selected' if is_current else ''}"
                                         t-att-data-contact-id="contact.id"
                                     >
+                                        <span
+                                            class="o_wspe_contact_card_check flex-shrink-0"
+                                            role="radio"
+                                            t-att-aria-checked="'true' if is_current else 'false'"
+                                            t-attf-aria-labelledby="o_wspe_contact_name_#{contact.id}"
+                                            tabindex="0"
+                                        />
                                         <div
-                                            class="d-flex justify-content-between align-items-start gap-2"
+                                            class="d-flex flex-column flex-grow-1 text-break"
                                         >
-                                            <strong t-esc="contact.name" />
-                                            <span
-                                                t-if="is_current"
-                                                class="badge text-bg-success"
+                                            <div
+                                                class="d-flex justify-content-between align-items-start gap-2"
                                             >
-                                                <i
-                                                    class="fa fa-check me-1"
-                                                    aria-hidden="true"
-                                                />In use
-                                            </span>
-                                        </div>
-                                        <p
-                                            t-esc="contact.email"
-                                            class="text-muted small mb-1"
-                                        />
-                                        <p
-                                            t-esc="contact.street"
-                                            t-attf-class="text-muted small #{'mb-1' if show_full_address else ''}"
-                                        />
-                                        <p
-                                            t-if="show_full_address"
-                                            class="text-muted small"
-                                        >
-                                            <t t-esc="contact.zip" /> <t
-                                                t-esc="contact.city"
+                                                <strong
+                                                    t-attf-id="o_wspe_contact_name_#{contact.id}"
+                                                    t-esc="contact.name"
+                                                />
+                                                <span
+                                                    t-if="is_current"
+                                                    class="badge text-bg-success"
+                                                >
+                                                    <i
+                                                        class="fa fa-check me-1"
+                                                        aria-hidden="true"
+                                                    />In use
+                                                </span>
+                                            </div>
+                                            <p
+                                                t-esc="contact.email"
+                                                class="o_wspe_contact_card_meta small mb-1"
                                             />
-                                        </p>
-                                        <div
-                                            t-if="contact in editable_contacts"
-                                            class="mt-auto pt-2"
-                                        >
-                                            <button
-                                                type="button"
-                                                class="btn btn-light btn-sm border o_edit_invoice_address"
-                                                t-att-data-contact-id="contact.id"
+                                            <p
+                                                t-esc="contact.street"
+                                                t-attf-class="o_wspe_contact_card_meta small #{'mb-1' if show_full_address else ''}"
+                                            />
+                                            <p
+                                                t-if="show_full_address"
+                                                class="o_wspe_contact_card_meta small"
                                             >
-                                                <i
-                                                    class="fa fa-pencil me-1"
-                                                    aria-hidden="true"
-                                                />Edit address
-                                            </button>
+                                                <t t-esc="contact.zip" /> <t
+                                                    t-esc="contact.city"
+                                                />
+                                            </p>
+                                            <div
+                                                t-if="contact in editable_contacts"
+                                                class="mt-auto pt-2"
+                                            >
+                                                <button
+                                                    type="button"
+                                                    class="btn btn-light btn-sm border o_edit_invoice_address"
+                                                    t-att-data-contact-id="contact.id"
+                                                >
+                                                    <i
+                                                        class="fa fa-pencil me-1"
+                                                        aria-hidden="true"
+                                                    />Edit address
+                                                </button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -121,7 +145,7 @@
                                     <a
                                         role="button"
                                         href="#"
-                                        class="o_wsale_add_address d-flex align-items-center justify-content-center h-100 px-4 border rounded mx-auto no-decoration"
+                                        class="o_wsale_add_address o_wspe_add_tile d-flex align-items-center justify-content-center h-100 px-4 mx-auto no-decoration"
                                     >
                                         <i class="fa fa-plus me-md-2" /><span
                                             class="d-none d-md-inline"
@@ -133,6 +157,7 @@
                                 type="hidden"
                                 name="existing_contact"
                                 id="selected_contact"
+                                t-att-value="current_contact.id or None"
                             />
                             <div id="new_contact_form" class="collapse mt-3">
                                 <t
@@ -174,18 +199,33 @@
         </t>
         <t t-else="">
             <h6>Add New Contact</h6>
-            <div class="col-lg-6 mb-2 d-flex align-items-center gap-3">
-                <label for="is_company_toggle" class="mb-0">Person</label>
-                <div class="form-check form-switch mb-0">
-                    <input
-                        class="form-check-input"
-                        type="checkbox"
-                        id="is_company_toggle"
-                        name="is_company"
-                    />
-                </div>
-                <label class="mb-0" for="is_company_toggle">Company</label>
-            </div>
+            <!-- A segmented control instead of a switch: the chosen option is
+                 raised and bold in the theme's own colours, so it is clear with
+                 any website theme. -->
+            <fieldset class="o_wspe_segmented mb-3">
+                <legend class="visually-hidden">Contact type</legend>
+                <input
+                    type="radio"
+                    class="btn-check"
+                    name="is_company"
+                    id="is_company_person"
+                    value="off"
+                    checked="checked"
+                />
+                <label for="is_company_person">
+                    <i class="fa fa-user me-2" aria-hidden="true" />Person
+                </label>
+                <input
+                    type="radio"
+                    class="btn-check"
+                    name="is_company"
+                    id="is_company_toggle"
+                    value="on"
+                />
+                <label for="is_company_toggle">
+                    <i class="fa fa-building me-2" aria-hidden="true" />Company
+                </label>
+            </fieldset>
         </t>
 
         <div class="row">

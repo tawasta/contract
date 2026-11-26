@@ -86,6 +86,6 @@ addon | version | maintainers | summary
 [website_subscription](website_subscription/) | 17.0.1.3.0 |  | Subscriptions in website portal
 [website_subscription_customer_reference](website_subscription_customer_reference/) | 17.0.1.0.0 |  | Show and edit the customer reference of a subscription in the portal
 [website_subscription_edit](website_subscription_edit/) | 17.0.1.0.0 |  | Allows editings subscriptions from user portal
-[website_subscription_partner_edit](website_subscription_partner_edit/) | 17.0.1.1.0 |  | Website subscription edit partner
+[website_subscription_partner_edit](website_subscription_partner_edit/) | 17.0.1.1.1 |  | Website subscription edit partner
 
 [//]: # (end addons)
