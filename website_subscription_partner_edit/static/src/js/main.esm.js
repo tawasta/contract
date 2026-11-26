@@ -5,6 +5,8 @@ import {jsonrpc} from "@web/core/network/rpc_service";
 import Dialog from "@web/legacy/js/core/dialog";
 import {_t} from "@web/core/l10n/translation";
 
+const SELECTED_CARD_CLASS = "o_wspe_selected";
+
 var PartnerUpgrade = publicWidget.Widget.extend({
     selector: "#customer_information",
     events: {
@@ -25,8 +27,15 @@ var PartnerUpgrade = publicWidget.Widget.extend({
 
         $(document).on(
             "change",
-            "#is_company_toggle",
+            "input[name='is_company']",
             this._onToggleIsCompany.bind(this)
+        );
+
+        // The modal is added to the body, outside of this widget
+        $(document).on(
+            "keydown",
+            ".contact-card",
+            this._onContactCardKeydown.bind(this)
         );
 
         $(document).on(
@@ -53,8 +62,7 @@ var PartnerUpgrade = publicWidget.Widget.extend({
             {}
         )
             .then((formContent) => {
-                $(".contact-card").removeClass("bg-primary border-primary text-white");
-                $("#selected_contact").val("");
+                this._clearContactSelection();
                 const $addressForm = $("#new_contact_form").html(formContent);
                 const scrollToForm = () =>
                     $addressForm[0].scrollIntoView({block: "start"});
@@ -128,6 +136,12 @@ var PartnerUpgrade = publicWidget.Widget.extend({
                 });
                 modalBS.show();
 
+                // The address in use starts selected: the new address form is
+                // then not required, as when a card is selected by hand
+                if ($modal.find(`.contact-card.${SELECTED_CARD_CLASS}`).length) {
+                    this._toggleRequiredFields(false);
+                }
+
                 $modal.on("click", ".btn-close", function () {
                     $modal.remove();
                 });
@@ -145,8 +159,9 @@ var PartnerUpgrade = publicWidget.Widget.extend({
             });
     },
 
-    _onToggleIsCompany: function (ev) {
-        const isChecked = $(ev.currentTarget).is(":checked");
+    _onToggleIsCompany: function () {
+        // Person and Company are radios of one group: the Company one decides
+        const isChecked = $("#is_company_toggle").is(":checked");
 
         const $alvField = $("#company_registry_group");
         const $alvFieldInput = $("input[name='company_registry']");
@@ -204,19 +219,17 @@ var PartnerUpgrade = publicWidget.Widget.extend({
         }
         ev.preventDefault();
         ev.stopPropagation();
+        this._selectContactCard($(ev.currentTarget));
+    },
+
+    _selectContactCard: function ($card) {
         this._restoreNewAddressForm();
-
-        const $selectedCard = $(ev.currentTarget);
-
-        // Poistetaan valinta kaikilta korteilta. The base "border" class stays,
-        // so that the card of the address in use keeps its border.
-        $(".contact-card").removeClass("bg-primary border-primary text-white");
-
-        // Lisätään valinta valitulle kortille
-        $selectedCard.addClass("bg-primary border-primary text-white");
-
-        const contactId = $selectedCard.attr("data-contact-id");
-        $("#selected_contact").val(contactId);
+        this._clearContactSelection();
+        $card
+            .addClass(SELECTED_CARD_CLASS)
+            .find(".o_wspe_contact_card_check")
+            .attr("aria-checked", "true");
+        $("#selected_contact").val($card.attr("data-contact-id"));
 
         // Piilotetaan uuden kontaktin lomake, jos valitaan olemassa oleva kontakti
         $("#new_contact_form").collapse("hide");
@@ -230,8 +243,7 @@ var PartnerUpgrade = publicWidget.Widget.extend({
         ev.stopPropagation();
 
         // ** Poistetaan kaikki aiemmat valinnat **
-        $(".contact-card").removeClass("bg-primary border-primary text-white");
-        $("#selected_contact").val("");
+        this._clearContactSelection();
         this._restoreNewAddressForm();
 
         // ** Varmistetaan, että lomake aukeaa aina kun "Add New" painetaan **
@@ -240,7 +252,38 @@ var PartnerUpgrade = publicWidget.Widget.extend({
         // Lisätään takaisin required-attribuutit
         this._toggleRequiredFields(true);
 
-        this._onToggleIsCompany({currentTarget: $("#is_company_toggle")[0]});
+        this._onToggleIsCompany();
+    },
+
+    // The radios of the cards work as a radio group: Enter or Space selects
+    // the focused card, the arrow keys move the selection to the next or the
+    // previous card
+    _onContactCardKeydown: function (ev) {
+        if (!$(ev.target).is(".o_wspe_contact_card_check")) {
+            return;
+        }
+        const step = {ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1}[ev.key];
+        if (!step && ![" ", "Enter"].includes(ev.key)) {
+            return;
+        }
+        ev.preventDefault();
+        let $card = $(ev.currentTarget);
+        if (step) {
+            const $cards = $card.closest("[role='radiogroup']").find(".contact-card");
+            $card = $cards.eq(
+                ($cards.index($card) + step + $cards.length) % $cards.length
+            );
+            $card.find(".o_wspe_contact_card_check").trigger("focus");
+        }
+        this._selectContactCard($card);
+    },
+
+    _clearContactSelection: function () {
+        $(".contact-card")
+            .removeClass(SELECTED_CARD_CLASS)
+            .find(".o_wspe_contact_card_check")
+            .attr("aria-checked", "false");
+        $("#selected_contact").val("");
     },
 
     _onFormSubmit: function (ev) {

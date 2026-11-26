@@ -21,7 +21,15 @@ Features
 
 - Portal users can view and manage their subscription partner details
 - Add new contact with fields: name, address, email, phone
-- Toggle between person/company to reveal the correct form fields
+- Choose Person or Company in a segmented control to reveal the correct form
+  fields; the chosen option is raised and bold
+- The contacts are selectable cards: the selected card gets a ring and a check
+  mark. With the keyboard Enter or Space selects a card and the arrow keys
+  move the selection. When the current invoice address is shown, its card
+  starts selected
+- The selections are drawn with the website theme's text and background
+  colours, never with its primary or secondary colour, so they stay clear and
+  readable whatever colours a website theme has
 - Filter invoice transmit methods according to `contract_target_type`:
   - Person
   - Company
@@ -72,7 +80,7 @@ Usage
 3. In the modal window:
    - Select an existing contact **OR**
    - Edit an existing address with "Edit address", when enabled, **OR**
-   - Add a new one by toggling "Person / Company" and filling out the form.
+   - Add a new one by choosing "Person" or "Company" and filling out the form.
 4. Transmit method options are filtered based on type.
 5. Submit the form to update the partner for the subscription.
 

@@ -1,0 +1,135 @@
+// The contact selection of the invoice address modal. The selected states are
+// drawn with the modal's own background and text colours only, never with the
+// theme's primary or secondary colour. The text colour is adjusted to the
+// modal background as Odoo does for the text of every modal, so it stands out
+// with any website theme, also with a dark one. (The website frontend of
+// Odoo 17 has no --bs-body-color CSS variable to use instead.)
+
+$o-wspe-paper: $modal-content-bg;
+$o-wspe-ink: adjust-color-to-background($body-color, $o-wspe-paper);
+
+// The text colour at the given opacity
+@function o-wspe-ink($alpha) {
+    @return rgba($o-wspe-ink, $alpha);
+}
+
+.o_wspe_contact_card {
+    position: relative;
+    color: $o-wspe-ink;
+    background-color: $o-wspe-paper;
+    border: $border-width solid o-wspe-ink(0.15);
+    border-radius: $border-radius-lg;
+    box-shadow: $box-shadow-sm;
+    cursor: pointer;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+    &:hover {
+        border-color: o-wspe-ink(0.4);
+    }
+
+    // The ring doubles the border without moving the content
+    &.o_wspe_selected {
+        border-color: $o-wspe-ink;
+        box-shadow: 0 0 0 1px $o-wspe-ink, 0 0.5rem 1rem o-wspe-ink(0.12);
+    }
+}
+
+// The email and the address of a card: quieter than the name, in the card's
+// own colours, as .text-muted follows the colours of the modal instead
+.o_wspe_contact_card_meta {
+    color: o-wspe-ink(0.7);
+}
+
+// The tile that adds a new contact, in the same shape as the cards
+.o_wspe_add_tile {
+    color: o-wspe-ink(0.8);
+    border: $border-width dashed o-wspe-ink(0.3);
+    border-radius: $border-radius-lg;
+    transition: border-color 0.15s ease-in-out, color 0.15s ease-in-out;
+
+    &:hover,
+    &:focus-visible {
+        color: $o-wspe-ink;
+        border-color: o-wspe-ink(0.6);
+    }
+}
+
+// A radio-like mark: an empty circle, filled with a check when selected
+.o_wspe_contact_card_check {
+    position: relative;
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-top: 0.0625rem;
+    border: 2px solid o-wspe-ink(0.35);
+    border-radius: 50%;
+    transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+
+    // The radio of the card takes the keyboard focus
+    &:focus-visible {
+        outline: 0;
+        box-shadow: 0 0 0 0.25rem o-wspe-ink(0.25);
+    }
+
+    .o_wspe_selected > & {
+        background-color: $o-wspe-ink;
+        border-color: $o-wspe-ink;
+
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0.1875rem;
+            left: 0.375rem;
+            width: 0.3125rem;
+            height: 0.5625rem;
+            border: solid $o-wspe-paper;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+    }
+}
+
+// Person / Company: the chosen option is raised on a light track
+.o_wspe_segmented {
+    display: inline-flex;
+    gap: 0.25rem;
+    padding: 0.25rem;
+    background-color: o-wspe-ink(0.08);
+    border: $border-width solid o-wspe-ink(0.1);
+    border-radius: $border-radius-pill;
+
+    > label {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.375rem 1.25rem;
+        color: o-wspe-ink(0.7);
+        border-radius: $border-radius-pill;
+        cursor: pointer;
+        user-select: none;
+        transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out,
+            box-shadow 0.15s ease-in-out;
+
+        &:hover {
+            color: $o-wspe-ink;
+        }
+    }
+
+    > .btn-check:checked + label {
+        color: $o-wspe-ink;
+        font-weight: $font-weight-bold;
+        background-color: $o-wspe-paper;
+        box-shadow: 0 1px 3px o-wspe-ink(0.25), 0 0 0 1px o-wspe-ink(0.12);
+    }
+
+    > .btn-check:focus-visible + label {
+        box-shadow: 0 0 0 0.25rem o-wspe-ink(0.2);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .o_wspe_contact_card,
+    .o_wspe_contact_card_check,
+    .o_wspe_add_tile,
+    .o_wspe_segmented > label {
+        transition: none;
+    }
+}

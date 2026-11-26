@@ -117,6 +117,21 @@ msgid "Close"
 msgstr "Sulje"
 
 #. module: website_subscription_partner_edit
+#: model_terms:ir.ui.view,arch_db:website_subscription_partner_edit.portal_invoice_address_form
+msgid "<i class=\"fa fa-building me-2\" aria-hidden=\"true\"/>Company"
+msgstr "<i class=\"fa fa-building me-2\" aria-hidden=\"true\"/>Yritys"
+
+#. module: website_subscription_partner_edit
+#: model_terms:ir.ui.view,arch_db:website_subscription_partner_edit.portal_invoice_address_form
+msgid "<i class=\"fa fa-user me-2\" aria-hidden=\"true\"/>Person"
+msgstr "<i class=\"fa fa-user me-2\" aria-hidden=\"true\"/>Henkilö"
+
+#. module: website_subscription_partner_edit
+#: model_terms:ir.ui.view,arch_db:website_subscription_partner_edit.portal_invoice_address_form
+msgid "Contact type"
+msgstr "Yhteystiedon tyyppi"
+
+#. module: website_subscription_partner_edit
 #: model:ir.model.fields.selection,name:website_subscription_partner_edit.selection__transmit_method__contract_target_type__company
 #: model_terms:ir.ui.view,arch_db:website_subscription_partner_edit.portal_invoice_address_form
 msgid "Company"
